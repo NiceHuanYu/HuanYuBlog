@@ -2,7 +2,7 @@
   <header class="blog-header">
     <div class="container">
       <div class="logo">
-        <NuxtLink to="/">我的博客</NuxtLink>
+        <NuxtLink to="/">HuanYu & 博客</NuxtLink>
       </div>
       <nav class="main-nav">
         <ul>

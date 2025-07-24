@@ -4,7 +4,7 @@
     
     <main class="main-content">
       <HeroSection 
-        title="欢迎来到我的技术博客"
+        title="欢迎来到HuanYU & 博客"
         subtitle="分享前端开发、设计思考和数字生活"
         ctaText="了解更多"/>
       
