@@ -15,7 +15,7 @@
         <span class="resource-size">{{ resource.size }}</span>
         <span class="resource-downloads">{{ resource.downloads.toLocaleString() }}</span>
         <span class="resource-updated">{{ formatDate(resource.updated) }}</span>
-        <button class="download-button">下载</button>
+        <button class="download-button" >下载</button>
       </div>
     </div>
   </div>

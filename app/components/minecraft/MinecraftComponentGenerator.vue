@@ -1,11 +1,11 @@
 <script setup>
 import { ref, computed } from 'vue'
-import ItemSelector from '@/components/MinecraftItemSelector.vue'
-import BooleanComponent from '@/components/ComponentSelector/BooleanComponent.vue'
-import SimpleDataComponent from '@/components/ComponentSelector/SimpleDataComponent.vue'
-import ComplexComponent from '@/components/ComponentSelector/ComplexComponent.vue'
-import ItemSpecificComponents from '@/components/ComponentSelector/ItemSpecificComponents.vue'
-import OutputPanel from '@/components/OutputPanel.vue'
+import ItemSelector from '@/components/minecraft/MinecraftItemSelector.vue'
+import BooleanComponent from '@/components/minecraft/ComponentSelector/BooleanComponent.vue'
+import SimpleDataComponent from '@/components/minecraft/ComponentSelector/SimpleDataComponent.vue'
+import ComplexComponent from '@/components/minecraft/ComponentSelector/ComplexComponent.vue'
+import ItemSpecificComponents from '@/components/minecraft/ComponentSelector/ItemSpecificComponents.vue'
+import OutputPanel from '@/components/minecraft/OutputPanel.vue'
 
 // 物品数据
 const selectedItem = ref(null)
