@@ -6,7 +6,8 @@
       <HeroSection 
         title="欢迎来到HuanYu & 博客"
         subtitle="分享我的数字生活"
-        ctaText="了解更多"/>
+        ctaText="了解更多"
+        ctaLink="/archive"/>
       
       <div class="content-container">
         <FeaturedPosts :posts="featuredPosts" />

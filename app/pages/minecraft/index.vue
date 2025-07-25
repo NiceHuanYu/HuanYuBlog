@@ -7,6 +7,7 @@
         title="Minecraft 工具中心"
         subtitle="收集实用的 Minecraft 工具和资源"
         ctaText="探索工具"
+        ctaLink="/minecraft"
       />
       
       <div class="content-container">

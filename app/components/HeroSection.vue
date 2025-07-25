@@ -3,7 +3,14 @@
     <div class="hero-content">
       <h1>{{ title }}</h1>
       <p class="subtitle">{{ subtitle }}</p>
-      <NuxtLink v-if="ctaText" :to="ctaLink || '/'" class="cta-button">{{ ctaText }}</NuxtLink>
+      <NuxtLink 
+        v-if="ctaText" 
+        :to="ctaLink" 
+        class="cta-button"
+        :target="ctaTarget"
+      >
+        {{ ctaText }}
+      </NuxtLink>
     </div>
   </section>
 </template>
@@ -23,8 +30,13 @@ defineProps({
     default: ''
   },
   ctaLink: {
-    type: String,
+    type: [String, Object], // 支持字符串路径或Nuxt路由对象
     default: '/'
+  },
+  ctaTarget: {
+    type: String,
+    default: '_self', // 默认在当前标签页打开
+    validator: (value) => ['_self', '_blank'].includes(value)
   }
 })
 </script>
