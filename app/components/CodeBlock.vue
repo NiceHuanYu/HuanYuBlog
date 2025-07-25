@@ -1,7 +1,7 @@
 <template>
   <div class="deepseek-code-block" :class="`language-${language}`">
     <div class="code-header">
-      <span class="language-tag">{{ language }}</span>
+      <span class="language-tag">{{ languageDisplay }}</span>
       <button class="copy-button" @click="copyCode">
         <svg class="copy-icon" viewBox="0 0 24 24">
           <path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" />
@@ -9,12 +9,12 @@
         <span class="copy-text">复制</span>
       </button>
     </div>
-    <pre><code ref="codeElement" :class="`language-${language}`">{{ formattedCode }}</code></pre>
+    <pre ref="preElement"><code ref="codeElement" :class="`language-${language}`">{{ rawCode }}</code></pre>
   </div>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 
 const props = defineProps({
   language: {
@@ -27,16 +27,30 @@ const props = defineProps({
   }
 })
 
+const preElement = ref(null)
 const codeElement = ref(null)
 
-// 确保代码中的换行符被保留
-const formattedCode = computed(() => {
-  return props.code
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/\n/g, '\n') // 保留换行符
+// 处理语言显示名称
+const languageDisplay = computed(() => {
+  const langMap = {
+    html: 'HTML',
+    javascript: 'JavaScript',
+    bash: 'Bash',
+    // 添加其他语言映射
+  }
+  return langMap[props.language] || props.language
 })
 
+// 处理原始代码，确保换行和缩进
+const rawCode = computed(() => {
+  // 移除首尾空白
+  let code = props.code.trim()
+  // 统一换行符
+  code = code.replace(/\r\n/g, '\n')
+  return code
+})
+
+// 复制代码
 const copyCode = async () => {
   try {
     await navigator.clipboard.writeText(props.code)
@@ -52,12 +66,41 @@ const copyCode = async () => {
     console.error('复制失败:', err)
   }
 }
+
+// 高亮代码
+onMounted(() => {
+  // 动态导入所需的Prism语言组件
+  const importLanguage = async () => {
+    try {
+      switch (props.language) {
+        case 'html':
+          await import('prismjs/components/prism-markup')
+          break
+        case 'javascript':
+          await import('prismjs/components/prism-javascript')
+          break
+        case 'bash':
+          await import('prismjs/components/prism-bash')
+          break
+        // 添加其他语言支持
+        default:
+          await import('prismjs/components/prism-javascript')
+      }
+      
+      // 手动高亮代码
+      if (window.Prism) {
+        window.Prism.highlightElement(codeElement.value)
+      }
+    } catch (error) {
+      console.error('加载语言组件失败:', error)
+    }
+  }
+
+  importLanguage()
+})
 </script>
 
 <style scoped>
-:deep(pre code) {
-  white-space: pre !important;
-}
 .deepseek-code-block {
   position: relative;
   margin: 1.5rem 0;
@@ -116,18 +159,21 @@ pre {
   line-height: 1.6;
   color: #d4d4d4;
   font-family: 'Fira Code', 'Courier New', monospace;
+  white-space: pre;
+  tab-size: 2;
 }
 
 code {
   display: block;
   white-space: pre;
-  font-family: 'Fira Code', monospace;
-  color: #d4d4d4;
-  line-height: 1.6;
-  font-size: 0.95rem;
+  font-family: inherit;
+  color: inherit;
+  line-height: inherit;
+  font-size: inherit;
+  background: transparent;
 }
 
-/* 语法高亮样式 - 类似VS Code深色主题 */
+/* 语法高亮样式 */
 :deep(.token.comment),
 :deep(.token.prolog),
 :deep(.token.doctype),
@@ -135,27 +181,35 @@ code {
   color: #6a9955;
 }
 
+:deep(.token.tag),
 :deep(.token.punctuation) {
-  color: #d4d4d4;
+  color: #569cd6;
+}
+
+:deep(.token.attr-name) {
+  color: #9cdcfe;
+}
+
+:deep(.token.attr-value),
+:deep(.token.string) {
+  color: #ce9178;
+}
+
+:deep(.token.keyword) {
+  color: #569cd6;
+}
+
+:deep(.token.selector) {
+  color: #d7ba7d;
 }
 
 :deep(.token.property),
-:deep(.token.tag),
 :deep(.token.boolean),
 :deep(.token.number),
 :deep(.token.constant),
 :deep(.token.symbol),
 :deep(.token.deleted) {
   color: #b5cea8;
-}
-
-:deep(.token.selector),
-:deep(.token.attr-name),
-:deep(.token.string),
-:deep(.token.char),
-:deep(.token.builtin),
-:deep(.token.inserted) {
-  color: #ce9178;
 }
 
 :deep(.token.operator),
