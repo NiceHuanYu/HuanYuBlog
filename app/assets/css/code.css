@@ -1,0 +1,12 @@
+/* 使用Fira Code等编程字体 */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap');
+
+/* 设置代码字体 */
+pre, code {
+  font-family: 'Fira Code', monospace;
+}
+
+/* 启用Fira Code的连字特性 */
+code {
+  font-feature-settings: "calt", "liga", "dlig";
+}

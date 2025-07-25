@@ -1,42 +1,53 @@
 <template>
-  <div class="code-block" :class="{ 'with-filename': filename }">
-    <div v-if="filename" class="filename">
-      {{ filename }}
-    </div>
-    <div class="code-container">
-      <button v-if="copyable" class="copy-button" @click="copyCode">
-        <i class="fas fa-copy"></i>
+  <div class="deepseek-code-block" :class="`language-${language}`">
+    <div class="code-header">
+      <span class="language-tag">{{ language }}</span>
+      <button class="copy-button" @click="copyCode">
+        <svg class="copy-icon" viewBox="0 0 24 24">
+          <path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" />
+        </svg>
+        <span class="copy-text">复制</span>
       </button>
-      <pre><code ref="codeElement" :class="`language-${language}`"><slot /></code></pre>
     </div>
+    <pre><code ref="codeElement" :class="`language-${language}`">{{ formattedCode }}</code></pre>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 const props = defineProps({
   language: {
     type: String,
     default: 'javascript'
   },
-  filename: {
+  code: {
     type: String,
-    default: ''
-  },
-  copyable: {
-    type: Boolean,
-    default: true
+    required: true
   }
 })
 
 const codeElement = ref(null)
 
+// 确保代码中的换行符被保留
+const formattedCode = computed(() => {
+  return props.code
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/\n/g, '\n') // 保留换行符
+})
+
 const copyCode = async () => {
   try {
-    const code = codeElement.value?.textContent || ''
-    await navigator.clipboard.writeText(code)
-    alert('代码已复制到剪贴板!')
+    await navigator.clipboard.writeText(props.code)
+    const btn = document.querySelector('.copy-button')
+    if (btn) {
+      const originalText = btn.querySelector('.copy-text').textContent
+      btn.querySelector('.copy-text').textContent = '已复制!'
+      setTimeout(() => {
+        btn.querySelector('.copy-text').textContent = originalText
+      }, 2000)
+    }
   } catch (err) {
     console.error('复制失败:', err)
   }
@@ -44,69 +55,79 @@ const copyCode = async () => {
 </script>
 
 <style scoped>
-.code-block {
+:deep(pre code) {
+  white-space: pre !important;
+}
+.deepseek-code-block {
   position: relative;
   margin: 1.5rem 0;
   border-radius: 8px;
+  background-color: #1e1e1e;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.code-block.with-filename {
-  margin-top: 2.2rem;
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #252526;
+  border-bottom: 1px solid #2d2d2d;
 }
 
-.filename {
-  position: absolute;
-  top: -1.8rem;
-  left: 0;
-  background-color: #2d2d2d;
-  color: #ccc;
-  padding: 0.3rem 0.8rem;
-  border-radius: 6px 6px 0 0;
+.language-tag {
   font-size: 0.85rem;
-  font-family: 'Courier New', Courier, monospace;
-}
-
-.code-container {
-  position: relative;
+  color: #9cdcfe;
+  text-transform: uppercase;
+  font-family: 'Fira Code', monospace;
 }
 
 .copy-button {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
   border: none;
-  color: #ccc;
+  color: #d4d4d4;
+  cursor: pointer;
   padding: 0.3rem 0.6rem;
   border-radius: 4px;
-  cursor: pointer;
+  font-size: 0.85rem;
   transition: all 0.2s;
-  z-index: 10;
 }
 
 .copy-button:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
   color: #fff;
+}
+
+.copy-icon {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
 }
 
 pre {
   margin: 0;
-  padding: 1.2rem;
-  background-color: #2d2d2d;
-  color: #f8f8f2;
+  padding: 1rem;
   overflow-x: auto;
   font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.6;
+  color: #d4d4d4;
+  font-family: 'Fira Code', 'Courier New', monospace;
 }
 
 code {
-  font-family: 'Fira Code', 'Courier New', Courier, monospace;
   display: block;
+  white-space: pre;
+  font-family: 'Fira Code', monospace;
+  color: #d4d4d4;
+  line-height: 1.6;
+  font-size: 0.95rem;
 }
 
-/* 语法高亮颜色 (可以替换为你喜欢的主题) */
+/* 语法高亮样式 - 类似VS Code深色主题 */
 :deep(.token.comment),
 :deep(.token.prolog),
 :deep(.token.doctype),
@@ -139,9 +160,7 @@ code {
 
 :deep(.token.operator),
 :deep(.token.entity),
-:deep(.token.url),
-:deep(.language-css .token.string),
-:deep(.style .token.string) {
+:deep(.token.url) {
   color: #d4d4d4;
 }
 

@@ -32,74 +32,80 @@
           <h2>2. 创建 Nuxt4 项目</h2>
           
           <p>使用以下命令创建一个新的 Nuxt4 项目：</p>
-          
-        <CodeBlock language="bash" filename="setup.sh">
-            npx nuxi init my-nuxt-app
-            cd my-nuxt-app
-            npm install
-            npm run dev
-        </CodeBlock>
+          <CodeBlock 
+            language="bash"
+            code="npx nuxi init my-nuxt-app
+cd my-nuxt-app
+npm install
+npm run dev"
+          />
           
           <p>项目结构如下：</p>
-          
-          <pre><code class="language-markdown">my-nuxt-app/
+          <CodeBlock 
+            language="bash"
+            code="my-nuxt-app/
 ├── .nuxt/          # 构建输出目录
 ├── node_modules/   # 依赖模块
 ├── app.vue         # 主应用组件
 ├── nuxt.config.ts  # Nuxt 配置文件
 ├── package.json
-└── tsconfig.json   # TypeScript 配置</code></pre>
+└── tsconfig.json   # TypeScript 配置"
+          />
           
           <h2>3. 核心概念</h2>
           
           <h3>3.1 页面路由</h3>
           
           <p>Nuxt4 延续了基于文件系统的路由。在 <code>pages</code> 目录下创建 Vue 文件即可自动生成路由：</p>
-          
-          <pre><code class="language-markdown">pages/
+          <CodeBlock 
+            language="bash"
+            code="pages/
 ├── index.vue       # 对应 /
 ├── about.vue       # 对应 /about
 └── posts/
     ├── index.vue   # 对应 /posts
-    └── [id].vue    # 对应 /posts/:id</code></pre>
-          
+    └── [id].vue    # 对应 /posts/:id"
+          />
+
           <h3>3.2 布局系统</h3>
           
           <p>在 <code>layouts</code> 目录下创建布局组件，然后在页面中使用 <code>definePageMeta</code> 指定布局：</p>
-          
-          <pre><code class="language-html">&lt;!-- layouts/default.vue --&gt;
-&lt;template&gt;
-  &lt;div&gt;
-    &lt;AppHeader /&gt;
-    &lt;slot /&gt;
-    &lt;AppFooter /&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
+          <CodeBlock 
+            language="html"
+            code="<!-- layouts/default.vue -->;
+<template>;
+  <div>;
+    <AppHeader />
+    <slot />
+    <AppFooter />
+  </div>
+</template>
 
-&lt;!-- pages/index.vue --&gt;
-&lt;script setup&gt;
+<!-- pages/index.vue -->
+<script setup>
 definePageMeta({
   layout: 'default'
 })
-&lt;/script&gt;</code></pre>
+</script>"
+          />
           
           <h2>4. 数据获取</h2>
           
           <p>Nuxt4 提供了多种数据获取方式：</p>
           
           <h3>4.1 useAsyncData</h3>
-          
-          <pre><code class="language-javascript">&lt;script setup&gt;
-const { data } = await useAsyncData('posts', () => {
+          <CodeBlock 
+            language="javascript"
+            code="const { data } = await useAsyncData('posts', () => {
   return $fetch('/api/posts')
-})
-&lt;/script&gt;</code></pre>
+})"
+          />
           
           <h3>4.2 useFetch</h3>
-          
-          <pre><code class="language-javascript">&lt;script setup&gt;
-const { data } = await useFetch('/api/posts')
-&lt;/script&gt;</code></pre>
+          <CodeBlock 
+            language="javascript"
+            code="const { data } = await useFetch('/api/posts')"
+          />
           
           <h2>5. 部署</h2>
           
@@ -136,11 +142,11 @@ const { data } = await useFetch('/api/posts')
           </div>
           
           <div class="post-navigation">
-            <NuxtLink to="/posts/vue3-composition-api" class="nav-link prev">
+            <NuxtLink to="/posts/1" class="nav-link prev">
               <i class="fas fa-arrow-left"></i>
-              <span>上一篇：Vue3 组合式 API 实践</span>
+              <span>上一篇：无</span>
             </NuxtLink>
-            <NuxtLink to="/posts/css-modern-layout" class="nav-link next">
+            <NuxtLink to="/posts/2" class="nav-link next">
               <span>下一篇：CSS 现代布局技巧</span>
               <i class="fas fa-arrow-right"></i>
             </NuxtLink>
@@ -156,7 +162,6 @@ const { data } = await useFetch('/api/posts')
 <script setup>
 import BlogHeader from '@/components/BlogHeader.vue'
 import BlogFooter from '@/components/BlogFooter.vue'
-import CodeBlock from '@/components/CodeBlock.vue'
 
 useHead({
   title: 'Nuxt4 入门指南 | 寰宇Actor的博客',

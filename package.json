@@ -12,6 +12,7 @@
   "dependencies": {
     "@types/prismjs": "^1.26.5",
     "nuxt": "^4.0.1",
+    "prism-themes": "^1.9.0",
     "prismjs": "^1.30.0",
     "vue": "^3.5.17",
     "vue-router": "^4.5.1"
