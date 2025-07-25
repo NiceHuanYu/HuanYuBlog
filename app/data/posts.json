@@ -1,0 +1,43 @@
+{
+  "featuredPosts": [
+    {
+      "id": 1,
+      "title": "我的第一篇精选文章",
+      "excerpt": "这篇文章的摘要内容",
+      "date": "2023-06-01",
+      "category": "技术",
+      "image": "/images/my-first-post.jpg"
+    },
+    {
+      "id": 2,
+      "title": "我的第二篇精选文章",
+      "excerpt": "另一篇文章的摘要内容",
+      "date": "2023-06-15",
+      "category": "生活",
+      "image": "/images/my-second-post.jpg"
+    }
+  ],
+  "recentPosts": [
+    {
+      "id": 3,
+      "title": "最近的技术探索",
+      "excerpt": "关于我最近学习的技术内容",
+      "date": "2023-07-01",
+      "category": "技术"
+    },
+    {
+      "id": 4,
+      "title": "旅行见闻",
+      "excerpt": "分享我最近的旅行经历",
+      "date": "2023-07-10",
+      "category": "生活"
+    },
+    {
+      "id": 5,
+      "title": "读书笔记",
+      "excerpt": "最近读过的一本好书",
+      "date": "2023-07-15",
+      "category": "阅读"
+    }
+  ]
+}
