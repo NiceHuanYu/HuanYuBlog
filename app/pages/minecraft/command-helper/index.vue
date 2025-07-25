@@ -22,4 +22,7 @@ const complexSelectedItems = ref([])
     />
     <p>已选择: {{ complexSelectedItems.map(i => i.name).join(', ') || '无' }}</p>
   </div>
+  <NuxtLink to="components-generator">
+        Where is it?
+  </NuxtLink>
 </template>
