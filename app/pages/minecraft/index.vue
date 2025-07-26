@@ -44,7 +44,7 @@ import HeroSection from '@/components/HeroSection.vue'
 import BlogFooter from '@/components/BlogFooter.vue'
 import ToolCard from '@/components/minecraft/ToolCard.vue'
 import ResourceList from '@/components/minecraft/ResourceList.vue'
-
+import { minecraftResources } from '@/data/MinecraftResources'
 // Minecraft 工具数据
 const featuredTools = [
   {
@@ -57,32 +57,8 @@ const featuredTools = [
   }
 ]
 
-const resources = [
-  {
-    id: 1,
-    name: '高清材质包 v1.2',
-    type: '材质',
-    size: '45MB',
-    downloads: 1245,
-    updated: '2023-06-10'
-  },
-  {
-    id: 2,
-    name: '光影包 Ultra',
-    type: '光影',
-    size: '32MB',
-    downloads: 892,
-    updated: '2023-05-22'
-  },
-  {
-    id: 3,
-    name: '数据包合集',
-    type: '数据包',
-    size: '78MB',
-    downloads: 567,
-    updated: '2023-04-15'
-  }
-]
+const resources = minecraftResources
+
 </script>
 
 <style scoped>

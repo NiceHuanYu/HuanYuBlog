@@ -15,19 +15,47 @@
         <span class="resource-size">{{ resource.size }}</span>
         <span class="resource-downloads">{{ resource.downloads.toLocaleString() }}</span>
         <span class="resource-updated">{{ formatDate(resource.updated) }}</span>
-        <button class="download-button" >下载</button>
+        <button class="download-button" @click="downloadResource(resource.id)">下载</button>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-defineProps({
+
+import { minecraftResources } from '@/data/MinecraftResources'
+
+const props = defineProps({
   resources: {
     type: Array,
     required: true
   }
 })
+
+const downloadResource = async (id) => {
+  try {
+    const response = await $fetch(`/api/download?id=${id}`, {
+      method: 'GET',
+      responseType: 'blob'
+    })
+    
+    const resource = props.resources.find(r => r.id === id)
+    const url = window.URL.createObjectURL(new Blob([response]))
+    const link = document.createElement('a')
+    link.href = url
+    link.setAttribute('download', `${resource.name}.${resource.type.toLowerCase()}`) // 设置下载文件名和类型
+    document.body.appendChild(link)
+    link.click()
+    link.remove()
+    
+    // 更新本地下载计数
+    resource.downloads++
+  } catch (error) {
+    console.error('Download failed:', error)
+    alert('下载失败，请稍后再试')
+  }
+}
+
 
 const formatDate = (dateString) => {
   const options = { year: 'numeric', month: 'short', day: 'numeric' }
