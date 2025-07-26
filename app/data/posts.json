@@ -2,11 +2,11 @@
   "featuredPosts": [
     {
       "id": 1,
-      "title": "我的第一篇精选文章",
-      "excerpt": "这篇文章的摘要内容",
-      "date": "2023-06-01",
+      "title": "Nuxt4入门教程",
+      "excerpt": "怎么使用Nuxt4构建现代Web应用",
+      "date": "2025-7-25",
       "category": "技术",
-      "image": "/images/my-first-post.jpg"
+      "image": "/images/posts/my-first-post.jpg"
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "excerpt": "另一篇文章的摘要内容",
       "date": "2023-06-15",
       "category": "生活",
-      "image": "/images/my-second-post.jpg"
+      "image": "/images/posts/my-second-post.jpg"
     }
   ],
   "recentPosts": [
