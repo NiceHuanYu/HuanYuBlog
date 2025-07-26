@@ -6,7 +6,7 @@
       <div class="content-container">
         <section class="about-section">
           <h1 class="page-title">关于我</h1>
-          <p class="subtitle">一个热爱技术与创造的全栈开发者</p>
+          <p class="subtitle">一个平平无奇的大学牲</p>
           
           <div class="about-grid">
             <div class="about-card profile-card">
@@ -15,7 +15,7 @@
               </div>
               <div class="profile-info">
                 <h2>寰宇Actor</h2>
-                <p class="profile-bio">全栈开发者 & Minecraft爱好者</p>
+                <p class="profile-bio">小小程序员 & Minecraft爱好者</p>
                 <div class="social-links">
                   <a href="https://github.com/yourusername" target="_blank" class="social-link">
                     <i class="fab fa-github"></i>
@@ -33,42 +33,42 @@
             <div class="about-card intro-card">
               <h3 class="card-title"><i class="fas fa-user"></i> 个人简介</h3>
               <div class="card-content">
-                <p>你好！我是寰宇Actor，一名全栈开发者，专注于Web开发和游戏开发。</p>
+                <p>你好！我是寰宇Actor，喜欢开发一些小玩意。</p>
                 <p>我热爱创造和分享，喜欢探索新技术并将其应用到实际项目中。我的博客主要分享技术教程、开发经验和一些有趣的项目。</p>
                 <p>在业余时间，我喜欢玩Minecraft并开发相关工具和插件，这也是我创建Minecraft工具页面的原因。</p>
               </div>
             </div>
             
             <div class="about-card skills-card">
-              <h3 class="card-title"><i class="fas fa-code"></i> 技术栈</h3>
+              <h3 class="card-title"><i class="fas fa-code"></i> 我的日常</h3>
               <div class="card-content">
                 <div class="skills-grid">
                   <div class="skill-item">
-                    <div class="skill-name">JavaScript/TypeScript</div>
+                    <div class="skill-name">CounterStrike:Global Offensive & Minecraft</div>
                     <div class="skill-bar">
                       <div class="skill-level" style="width: 90%"></div>
                     </div>
                   </div>
                   <div class="skill-item">
-                    <div class="skill-name">Vue/Nuxt</div>
+                    <div class="skill-name">健身</div>
                     <div class="skill-bar">
                       <div class="skill-level" style="width: 85%"></div>
                     </div>
                   </div>
                   <div class="skill-item">
-                    <div class="skill-name">Node.js</div>
+                    <div class="skill-name">机械设计</div>
                     <div class="skill-bar">
                       <div class="skill-level" style="width: 80%"></div>
                     </div>
                   </div>
                   <div class="skill-item">
-                    <div class="skill-name">Minecraft开发</div>
+                    <div class="skill-name">游泳</div>
                     <div class="skill-bar">
                       <div class="skill-level" style="width: 75%"></div>
                     </div>
                   </div>
                   <div class="skill-item">
-                    <div class="skill-name">UI/UX设计</div>
+                    <div class="skill-name">程序设计</div>
                     <div class="skill-bar">
                       <div class="skill-level" style="width: 70%"></div>
                     </div>
@@ -117,6 +117,10 @@
                   <li>
                     <i class="fas fa-envelope"></i>
                     <span>邮箱: 3308225809@qq.com</span>
+                  </li>
+                  <li>
+                    <i class="fab fa-telegram"></i>
+                    <span>GitHub: NiceHuanYu</span>
                   </li>
                   <li>
                     <i class="fab fa-telegram"></i>

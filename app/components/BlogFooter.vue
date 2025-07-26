@@ -19,8 +19,8 @@
         <h3>社交</h3>
         <div class="social-links">
           <a href="#" class="social-icon">GitHub</a>
-          <a href="#" class="social-icon">Twitter</a>
-          <a href="#" class="social-icon">LinkedIn</a>
+          <a href="#" class="social-icon">Bilibili</a>
+          <a href="#" class="social-icon">QQ</a>
         </div>
       </div>
     </div>

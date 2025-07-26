@@ -5,7 +5,7 @@
     <main class="main-content">
       <HeroSection 
         title="欢迎来到HuanYu & 博客"
-        subtitle="分享我的数字生活"
+        subtitle="本博客是面向AI编程~"
         ctaText="了解更多"
         ctaLink="/archive"/>
       
