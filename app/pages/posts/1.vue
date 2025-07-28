@@ -18,6 +18,36 @@
           
           <p>Nuxt.js 是一个基于 Vue.js 的通用应用框架，最新发布的 Nuxt4 带来了许多令人兴奋的新特性和改进。本文将带您快速入门 Nuxt4 开发。</p>
           
+          <h2>前言：你的准备工作</h2>
+          <p>在开始之前，请确保您已经安装了 Node.js & Git & VSCode。推荐使用最新的 LTS 版本。</p>
+          <p>Node.js 无需配置-一路回车（笑</p>
+          <p>但是Git需要配置：</p>
+          <CodeBlock 
+            language="bash"
+            code="git config --global user.name '你的名字'
+git config --global user.email '你的邮箱@example.com'"
+          />
+          <p>创建SSH Key。在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有id_rsa和id_rsa.pub这两个文件，如果已经有了，可直接跳到下一步。如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key：</p>
+          <CodeBlock 
+            language="bash"
+            code="ssh-keygen -t rsa -C '你的邮箱@example.com'"
+          />
+          <p>如果一切顺利的话，可以在用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人。</p>
+          <p>登陆GitHub，打开“Account settings”，“SSH Keys”页面。
+然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容</p>
+          
+          <p>VsCode配置：其实就是安装一些插件。</p>
+          <p>包括但不限于：</p>
+          <CodeBlock 
+            language="bash"
+            code="Chinese (Simplified) Language Pack for Visual Studio Code
+HTML CSS Support
+Live Server
+vscode-pdf#unnessary
+Vue Language Features (Volar)
+Vue(official)
+Auto Rename Tag"    
+          />
           <h2>1. 为什么选择 Nuxt4？</h2>
           
           <p>Nuxt4 相比前代版本有以下优势：</p>
@@ -46,7 +76,16 @@ npm run dev"
             code="my-nuxt-app/
 ├── .nuxt/          # 构建输出目录
 ├── node_modules/   # 依赖模块
-├── app.vue         # 主应用组件
+├── public/         # 静态资源目录
+├── app/
+    ├── components/     # Vue 组件
+    ├── layouts/        # 布局组件
+    ├── pages/          # 页面组件
+    ├── plugins/        # 插件
+    ├── store/          # Vuex 状态管理
+    ├── middleware/     # 中间件
+    ├── assets/         # 静态资源（图片、样式等）
+    ├── app.vue         # 主应用组件
 ├── nuxt.config.ts  # Nuxt 配置文件
 ├── package.json
 └── tsconfig.json   # TypeScript 配置"
@@ -123,7 +162,9 @@ definePageMeta({
           
           <h2>结语</h2>
           
-          <p>Nuxt4 为 Vue 开发者提供了更强大、更高效的开发体验。本文只是入门介绍，更多高级特性如中间件、插件、模块等将在后续文章中探讨。</p>
+          <p>Nuxt4 为 Vue 开发者提供了更强大、更高效的开发体验。本文只是入门介绍，更多高级特性如中间件、插件、模块等,可以访问
+            <u><a href="https://nuxt.com.cn/docs/4.x/guide/" target="_blank">Nuxt4的官方指导文件</a></u>
+          </p>
           
           <div class="post-tags">
             <span class="tag">#Nuxt4</span>
