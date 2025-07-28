@@ -15,16 +15,20 @@
         <span class="resource-size">{{ resource.size }}</span>
         <span class="resource-downloads">{{ resource.downloads.toLocaleString() }}</span>
         <span class="resource-updated">{{ formatDate(resource.updated) }}</span>
-        <button class="download-button" @click="downloadResource(resource.id)">下载</button>
+        <a 
+          class="download-button" 
+          :href="`${resource.filePath}`" 
+          :download="`${resource.name}.${resource.type.toLowerCase()}`"
+          @click="handleDownload(resource)"
+        >
+          下载
+        </a>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-
-import { minecraftResources } from '@/data/MinecraftResources'
-
 const props = defineProps({
   resources: {
     type: Array,
@@ -32,30 +36,12 @@ const props = defineProps({
   }
 })
 
-const downloadResource = async (id) => {
-  try {
-    const response = await $fetch(`/api/download?id=${id}`, {
-      method: 'GET',
-      responseType: 'blob'
-    })
-    
-    const resource = props.resources.find(r => r.id === id)
-    const url = window.URL.createObjectURL(new Blob([response]))
-    const link = document.createElement('a')
-    link.href = url
-    link.setAttribute('download', `${resource.name}.${resource.type.toLowerCase()}`) // 设置下载文件名和类型
-    document.body.appendChild(link)
-    link.click()
-    link.remove()
-    
-    // 更新本地下载计数
-    resource.downloads++
-  } catch (error) {
-    console.error('Download failed:', error)
-    alert('下载失败，请稍后再试')
-  }
+const handleDownload = (resource) => {
+  // 更新本地下载计数
+  resource.downloads++
+  // 这里可以添加其他逻辑，如发送统计信息等
+  console.log(`Downloading ${resource.name}`)
 }
-
 
 const formatDate = (dateString) => {
   const options = { year: 'numeric', month: 'short', day: 'numeric' }
@@ -99,6 +85,7 @@ const formatDate = (dateString) => {
 }
 
 .download-button {
+  display: inline-block;
   background-color: #42b983;
   color: white;
   border: none;
@@ -106,6 +93,8 @@ const formatDate = (dateString) => {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
+  text-decoration: none;
+  text-align: center;
 }
 
 .download-button:hover {
