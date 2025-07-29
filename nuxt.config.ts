@@ -4,7 +4,12 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css:[
     'prismjs/themes/prism-tomorrow.css',
-    '@/assets/css/code.css',
     '@/assets/css/main.css'
   ],
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
 })
