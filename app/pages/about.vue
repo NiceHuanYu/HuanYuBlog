@@ -1,140 +1,192 @@
 <template>
-  <div class="about-page">
+  <div class="min-h-screen bg-gray-50 flex flex-col">
     <BlogHeader />
     
-    <main class="main-content">
-      <div class="content-container">
-        <section class="about-section">
-          <h1 class="page-title">关于我</h1>
-          <p class="subtitle">一个平平无奇的大学牲</p>
-          
-          <div class="about-grid">
-            <div class="about-card profile-card">
-              <div class="profile-image">
-                <img src="/images/profile.jpg" alt="我的头像" class="profile-img">
-              </div>
-              <div class="profile-info">
-                <h2>寰宇Actor</h2>
-                <p class="profile-bio">小小程序员 & Minecraft爱好者</p>
-                <div class="social-links">
-                  <a href="https://github.com/yourusername" target="_blank" class="social-link">
-                    <i class="fab fa-github"></i>
-                  </a>
-                  <a href="https://space.bilibili.com/621662356" target="_blank" class="social-link">
-                    <i class="fab fa-bilibili"></i>
-                  </a>
-                  <a href="https://twitter.com/yourusername" target="_blank" class="social-link">
-                    <i class="fab fa-twitter"></i>
-                  </a>
+    <main class="flex-1 py-8">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <section class="text-center mb-12">
+          <h1 class="relative inline-block text-3xl sm:text-4xl font-bold text-gray-800 pb-2">
+            关于我
+            <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-green-500"></span>
+          </h1>
+          <p class="mt-3 text-gray-600 text-lg">一个平平无奇的大学牲</p>
+        </section>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- 个人信息卡片 -->
+          <div class="md:col-span-2 lg:col-span-3 bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+            <div class="p-6 flex flex-col md:flex-row items-center">
+              <div class="relative mb-6 md:mb-0 md:mr-6">
+                <div class="w-36 h-36 rounded-full border-4 border-green-500 overflow-hidden">
+                  <img src="/images/profile.jpg" alt="我的头像" class="w-full h-full object-cover">
                 </div>
               </div>
+              <div class="text-center md:text-left">
+                <h2 class="text-2xl font-bold text-gray-800">寰宇Actor</h2>
+                <p class="mt-1 text-gray-600">小小程序员 & Minecraft爱好者</p>
+                <!-- <div class="mt-4 flex justify-center md:justify-start space-x-4">
+                  <a href="https://github.com/yourusername" target="_blank" class="text-gray-700 hover:text-green-500 text-xl transition-colors">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="https://space.bilibili.com/621662356" target="_blank" class="text-gray-700 hover:text-green-500 text-xl transition-colors">
+                    <i class="fab fa-bilibili"></i>
+                  </a>
+                  <a href="https://twitter.com/yourusername" target="_blank" class="text-gray-700 hover:text-green-500 text-xl transition-colors">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </div> -->
+              </div>
             </div>
-            
-            <div class="about-card intro-card">
-              <h3 class="card-title"><i class="fas fa-user"></i> 个人简介</h3>
-              <div class="card-content">
+          </div>
+          
+          <!-- 个人简介卡片 -->
+          <div class="lg:col-span-3 bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+            <div class="p-6">
+              <div class="flex items-center mb-4 pb-2 border-b border-gray-100">
+                <i class="fas fa-user text-green-500 mr-2"></i>
+                <h3 class="text-xl font-semibold text-gray-800">个人简介</h3>
+              </div>
+              <div class="text-gray-700 space-y-3">
                 <p>你好！我是寰宇Actor，喜欢开发一些小玩意。</p>
                 <p>我热爱创造和分享，喜欢探索新技术并将其应用到实际项目中。我的博客主要分享技术教程、开发经验和一些有趣的项目。</p>
                 <p>在业余时间，我喜欢玩Minecraft并开发相关工具和插件，这也是我创建Minecraft工具页面的原因。</p>
               </div>
             </div>
-            
-            <div class="about-card skills-card">
-              <h3 class="card-title"><i class="fas fa-code"></i> 我的日常</h3>
-              <div class="card-content">
-                <div class="skills-grid">
-                  <div class="skill-item">
-                    <div class="skill-name">CounterStrike:Global Offensive & Minecraft</div>
-                    <div class="skill-bar">
-                      <div class="skill-level" style="width: 90%"></div>
-                    </div>
+          </div>
+          
+          <!-- 技能卡片 -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+            <div class="p-6">
+              <div class="flex items-center mb-4 pb-2 border-b border-gray-100">
+                <i class="fas fa-code text-green-500 mr-2"></i>
+                <h3 class="text-xl font-semibold text-gray-800">我的日常</h3>
+              </div>
+              <div class="space-y-4">
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="text-sm font-medium text-gray-700">CounterStrike:Global Offensive & Minecraft</span>
+                    <span class="text-sm text-gray-500">90%</span>
                   </div>
-                  <div class="skill-item">
-                    <div class="skill-name">健身</div>
-                    <div class="skill-bar">
-                      <div class="skill-level" style="width: 85%"></div>
-                    </div>
+                  <div class="w-full bg-gray-200 rounded-full h-2">
+                    <div class="bg-green-500 h-2 rounded-full" style="width: 90%"></div>
                   </div>
-                  <div class="skill-item">
-                    <div class="skill-name">机械设计</div>
-                    <div class="skill-bar">
-                      <div class="skill-level" style="width: 80%"></div>
-                    </div>
+                </div>
+                
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="text-sm font-medium text-gray-700">健身</span>
+                    <span class="text-sm text-gray-500">85%</span>
                   </div>
-                  <div class="skill-item">
-                    <div class="skill-name">游泳</div>
-                    <div class="skill-bar">
-                      <div class="skill-level" style="width: 75%"></div>
-                    </div>
+                  <div class="w-full bg-gray-200 rounded-full h-2">
+                    <div class="bg-green-500 h-2 rounded-full" style="width: 85%"></div>
                   </div>
-                  <div class="skill-item">
-                    <div class="skill-name">程序设计</div>
-                    <div class="skill-bar">
-                      <div class="skill-level" style="width: 70%"></div>
-                    </div>
+                </div>
+                
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="text-sm font-medium text-gray-700">机械设计</span>
+                    <span class="text-sm text-gray-500">80%</span>
+                  </div>
+                  <div class="w-full bg-gray-200 rounded-full h-2">
+                    <div class="bg-green-500 h-2 rounded-full" style="width: 80%"></div>
+                  </div>
+                </div>
+                
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="text-sm font-medium text-gray-700">游泳</span>
+                    <span class="text-sm text-gray-500">75%</span>
+                  </div>
+                  <div class="w-full bg-gray-200 rounded-full h-2">
+                    <div class="bg-green-500 h-2 rounded-full" style="width: 75%"></div>
+                  </div>
+                </div>
+                
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="text-sm font-medium text-gray-700">程序设计</span>
+                    <span class="text-sm text-gray-500">70%</span>
+                  </div>
+                  <div class="w-full bg-gray-200 rounded-full h-2">
+                    <div class="bg-green-500 h-2 rounded-full" style="width: 70%"></div>
                   </div>
                 </div>
               </div>
             </div>
-            
-            <div class="about-card interests-card">
-              <h3 class="card-title"><i class="fas fa-heart"></i> 兴趣爱好</h3>
-              <div class="card-content">
-                <div class="interests-grid">
-                  <div class="interest-item">
-                    <i class="fas fa-gamepad"></i>
-                    <span>游戏开发</span>
-                  </div>
-                  <div class="interest-item">
-                    <i class="fas fa-music"></i>
-                    <span>音乐</span>
-                  </div>
-                  <div class="interest-item">
-                    <i class="fas fa-book"></i>
-                    <span>阅读</span>
-                  </div>
-                  <div class="interest-item">
-                    <i class="fas fa-camera"></i>
-                    <span>摄影</span>
-                  </div>
-                  <div class="interest-item">
-                    <i class="fas fa-utensils"></i>
-                    <span>烹饪</span>
-                  </div>
-                  <div class="interest-item">
-                    <i class="fas fa-plane"></i>
-                    <span>旅行</span>
-                  </div>
+          </div>
+          
+          <!-- 兴趣卡片 -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+            <div class="p-6">
+              <div class="flex items-center mb-4 pb-2 border-b border-gray-100">
+                <i class="fas fa-heart text-green-500 mr-2"></i>
+                <h3 class="text-xl font-semibold text-gray-800">兴趣爱好</h3>
+              </div>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                <div class="flex flex-col items-center justify-center p-4 bg-gray-50 rounded-lg transition-colors hover:bg-green-500 group">
+                  <i class="fas fa-gamepad text-xl text-gray-600 group-hover:text-white mb-2"></i>
+                  <span class="text-gray-700 group-hover:text-white">游戏开发</span>
+                </div>
+                
+                <div class="flex flex-col items-center justify-center p-4 bg-gray-50 rounded-lg transition-colors hover:bg-green-500 group">
+                  <i class="fas fa-music text-xl text-gray-600 group-hover:text-white mb-2"></i>
+                  <span class="text-gray-700 group-hover:text-white">音乐</span>
+                </div>
+                
+                <div class="flex flex-col items-center justify-center p-4 bg-gray-50 rounded-lg transition-colors hover:bg-green-500 group">
+                  <i class="fas fa-book text-xl text-gray-600 group-hover:text-white mb-2"></i>
+                  <span class="text-gray-700 group-hover:text-white">阅读</span>
+                </div>
+                
+                <div class="flex flex-col items-center justify-center p-4 bg-gray-50 rounded-lg transition-colors hover:bg-green-500 group">
+                  <i class="fas fa-camera text-xl text-gray-600 group-hover:text-white mb-2"></i>
+                  <span class="text-gray-700 group-hover:text-white">摄影</span>
+                </div>
+                
+                <div class="flex flex-col items-center justify-center p-4 bg-gray-50 rounded-lg transition-colors hover:bg-green-500 group">
+                  <i class="fas fa-utensils text-xl text-gray-600 group-hover:text-white mb-2"></i>
+                  <span class="text-gray-700 group-hover:text-white">烹饪</span>
+                </div>
+                
+                <div class="flex flex-col items-center justify-center p-4 bg-gray-50 rounded-lg transition-colors hover:bg-green-500 group">
+                  <i class="fas fa-plane text-xl text-gray-600 group-hover:text-white mb-2"></i>
+                  <span class="text-gray-700 group-hover:text-white">旅行</span>
                 </div>
               </div>
             </div>
-            
-            <div class="about-card contact-card">
-              <h3 class="card-title"><i class="fas fa-envelope"></i> 联系我</h3>
-              <div class="card-content">
-                <p>如果你有任何问题或合作意向，欢迎通过以下方式联系我：</p>
-                <ul class="contact-list">
-                  <li>
-                    <i class="fas fa-envelope"></i>
-                    <span>邮箱: 3308225809@qq.com</span>
+          </div>
+          
+          <!-- 联系卡片 -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+            <div class="p-6">
+              <div class="flex items-center mb-4 pb-2 border-b border-gray-100">
+                <i class="fas fa-envelope text-green-500 mr-2"></i>
+                <h3 class="text-xl font-semibold text-gray-800">联系我</h3>
+              </div>
+              <div class="space-y-3">
+                <p class="text-gray-700">如果你有任何问题或合作意向，欢迎通过以下方式联系我：</p>
+                <ul class="space-y-3 mt-4">
+                  <li class="flex items-center">
+                    <i class="fas fa-envelope text-green-500 w-6"></i>
+                    <span class="text-gray-700 ml-2">邮箱: 3308225809@qq.com</span>
                   </li>
-                  <li>
-                    <i class="fab fa-telegram"></i>
-                    <span>GitHub: NiceHuanYu</span>
+                  <li class="flex items-center">
+                    <i class="fab fa-github text-green-500 w-6"></i>
+                    <span class="text-gray-700 ml-2">GitHub: NiceHuanYu</span>
                   </li>
-                  <li>
-                    <i class="fab fa-telegram"></i>
-                    <span>Telegram: @木有哦</span>
+                  <li class="flex items-center">
+                    <i class="fab fa-telegram text-green-500 w-6"></i>
+                    <span class="text-gray-700 ml-2">Telegram: @木有哦</span>
                   </li>
-                  <li>
-                    <i class="fab fa-discord"></i>
-                    <span>Discord: 忘记惹#1234</span>
+                  <li class="flex items-center">
+                    <i class="fab fa-discord text-green-500 w-6"></i>
+                    <span class="text-gray-700 ml-2">Discord: 忘记惹#1234</span>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
-        </section>
+        </div>
       </div>
     </main>
     
@@ -147,245 +199,3 @@
 import BlogHeader from '@/components/BlogHeader.vue'
 import BlogFooter from '@/components/BlogFooter.vue'
 </script>
-
-<style scoped>
-.about-page {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: #f9f9f9;
-}
-
-.main-content {
-  flex: 1;
-  padding: 2rem 0;
-}
-
-.content-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-.page-title {
-  font-size: 2.5rem;
-  color: #2c3e50;
-  margin-bottom: 0.5rem;
-  text-align: center;
-  position: relative;
-  padding-bottom: 0.5rem;
-}
-
-.page-title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background-color: #42b983;
-}
-
-.subtitle {
-  font-size: 1.2rem;
-  color: #666;
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.about-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.about-card {
-  background: white;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.about-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.card-title {
-  font-size: 1.3rem;
-  color: #2c3e50;
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid #eee;
-}
-
-.card-title i {
-  color: #42b983;
-}
-
-.profile-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  grid-column: 1 / -1;
-}
-
-.profile-image {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 4px solid #42b983;
-  margin-bottom: 1rem;
-}
-
-.profile-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.profile-info {
-  text-align: center;
-}
-
-.profile-info h2 {
-  font-size: 1.8rem;
-  color: #2c3e50;
-  margin-bottom: 0.5rem;
-}
-
-.profile-bio {
-  color: #666;
-  margin-bottom: 1rem;
-}
-
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.social-link {
-  color: #2c3e50;
-  font-size: 1.5rem;
-  transition: color 0.3s;
-}
-
-.social-link:hover {
-  color: #42b983;
-}
-
-.skills-grid {
-  display: grid;
-  gap: 1rem;
-}
-
-.skill-item {
-  margin-bottom: 0.8rem;
-}
-
-.skill-name {
-  font-size: 0.9rem;
-  margin-bottom: 0.3rem;
-  color: #2c3e50;
-}
-
-.skill-bar {
-  height: 8px;
-  background: #eee;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.skill-level {
-  height: 100%;
-  background: #42b983;
-  border-radius: 4px;
-}
-
-.interests-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: 1rem;
-}
-
-.interest-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1rem;
-  background: #f5f5f5;
-  border-radius: 8px;
-  transition: all 0.3s;
-}
-
-.interest-item:hover {
-  background: #42b983;
-  color: white;
-}
-
-.interest-item i {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.contact-list {
-  list-style: none;
-  padding: 0;
-}
-
-.contact-list li {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  margin-bottom: 0.8rem;
-  color: #2c3e50;
-}
-
-.contact-list i {
-  color: #42b983;
-  width: 20px;
-  text-align: center;
-}
-
-@media (min-width: 768px) {
-  .profile-card {
-    flex-direction: row;
-    text-align: left;
-  }
-  
-  .profile-image {
-    margin-right: 1.5rem;
-    margin-bottom: 0;
-  }
-  
-  .profile-info {
-    text-align: left;
-  }
-  
-  .intro-card {
-    grid-column: span 2;
-  }
-}
-
-@media (min-width: 1024px) {
-  .about-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  
-  .profile-card {
-    grid-column: span 3;
-  }
-  
-  .intro-card {
-    grid-column: span 3;
-  }
-}
-</style>
