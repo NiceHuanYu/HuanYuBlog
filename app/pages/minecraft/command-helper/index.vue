@@ -13,6 +13,18 @@
         <!-- 分类卡片容器 -->
         <div class="category-container">
           <!-- 物品组件生成 -->
+          <a href="https://ds3.huanyu666.top" target="_blank" class="category-card">
+            <div class="category-icon">
+              <img src="/images/minecraft/diamond.png" alt="物品生成" />
+            </div>
+            <h2>物品生成（临时）</h2>
+            <p>生成自定义物品、附魔、NBT标签等</p>
+            <ul>
+              <li>自定义物品属性</li>
+              <li>附魔生成器</li>
+              <li>NBT标签编辑器</li>
+            </ul>
+          </a>
           <NuxtLink to="/minecraft/command-helper/components-generator" class="category-card">
             <div class="category-icon">
               <img src="/images/minecraft/diamond.png" alt="物品生成" />
