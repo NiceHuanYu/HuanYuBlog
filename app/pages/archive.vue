@@ -66,55 +66,57 @@
 <script setup>
 import BlogHeader from '@/components/BlogHeader.vue'
 import BlogFooter from '@/components/BlogFooter.vue'
+import postsData from '@/data/posts.json' // 导入实际JSON文件
 
-// 模拟归档数据
-const archiveData = ref([
-  {
-    year: 2023,
-    posts: [
-      { id: 1, title: 'Nuxt4入门指南', date: '2023-05-15', category: '技术' },
-      { id: 2, title: 'Vue3组合式API实践', date: '2023-04-22', category: '技术' },
-      { id: 3, title: 'CSS现代布局技巧', date: '2023-05-10', category: '前端' },
-      { id: 4, title: 'JavaScript性能优化', date: '2023-05-05', category: '前端' },
-      { id: 5, title: '设计系统构建', date: '2023-04-30', category: '设计' }
-    ],
-    get months() {
-      const monthsMap = {}
-      this.posts.forEach(post => {
-        const date = new Date(post.date)
-        const month = date.getMonth()
-        if (!monthsMap[month]) {
-          monthsMap[month] = { name: month + 1, posts: [] }
-        }
-        monthsMap[month].posts.push(post)
-      })
-      return Object.values(monthsMap).sort((a, b) => b.name - a.name)
-    }
-  },
-  {
-    year: 2022,
-    posts: [
-      { id: 6, title: '2022年终总结', date: '2022-12-31', category: '生活' },
-      { id: 7, title: 'React Hooks深入解析', date: '2022-08-15', category: '技术' }
-    ],
-    get months() {
-      const monthsMap = {}
-      this.posts.forEach(post => {
-        const date = new Date(post.date)
-        const month = date.getMonth()
-        if (!monthsMap[month]) {
-          monthsMap[month] = { name: month + 1, posts: [] }
-        }
-        monthsMap[month].posts.push(post)
-      })
-      return Object.values(monthsMap).sort((a, b) => b.name - a.name)
-    }
-  }
-])
-
+const archiveDataRaw = postsData.archiveData // 假设archive数据在posts.json中
 // 格式化日期显示
 const formatDay = (dateString) => {
   const date = new Date(dateString)
   return date.getDate()
 }
+
+// 处理原始数据为所需结构
+const processArchiveData = (rawData) => {
+  const yearMap = new Map()
+  
+  // 按年份分组
+  rawData.forEach(post => {
+    const year = new Date(post.date).getFullYear()
+    if (!yearMap.has(year)) {
+      yearMap.set(year, [])
+    }
+    yearMap.get(year).push(post)
+  })
+  
+  // 转换为数组并按年份倒序
+  return Array.from(yearMap.entries())
+    .sort((a, b) => b[0] - a[0])
+    .map(([year, posts]) => {
+      // 按月份分组
+      const monthMap = new Map()
+      posts.forEach(post => {
+        const month = new Date(post.date).getMonth()
+        if (!monthMap.has(month)) {
+          monthMap.set(month, [])
+        }
+        monthMap.get(month).push(post)
+      })
+      
+      return {
+        year,
+        posts,
+        months: Array.from(monthMap.entries())
+          .sort((a, b) => b[0] - a[0]) // 月份倒序
+          .map(([monthIndex, posts]) => ({
+            name: monthIndex + 1, // 月份从0开始计算，需+1
+            posts: posts.sort((a, b) => 
+              new Date(b.date) - new Date(a.date) // 按日期倒序
+            )
+          }))
+      }
+    })
+}
+
+// 使用处理后的数据
+const archiveData = processArchiveData(archiveDataRaw)
 </script>
