@@ -1,32 +1,49 @@
-/* 全局样式重置 */
+/* 导入Fira Code字体 */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* 全局样式重置 - 部分已被Tailwind的preflight替代 */
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background-color: #f9f9f9;
+/* 基础样式 */
+@layer base {
+  body {
+    @apply font-sans text-gray-800 bg-gray-50 leading-relaxed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  a {
+    @apply no-underline text-inherit;
+  }
+  
+  /* 响应式图片 */
+  img {
+    @apply max-w-full h-auto;
+  }
+
+  /* 代码块样式 - 使用Fira Code字体 */
+  pre, code {
+    @apply font-mono;
+    font-family: 'Fira Code', monospace;
+  }
+
+  /* 启用Fira Code的连字特性 */
+  code {
+    font-feature-settings: "calt", "liga", "dlig";
+  }
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* 响应式图片 */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* 容器样式 */
+/* 容器样式 - 可以使用Tailwind的容器类替代 */
+/* 建议使用Tailwind的max-w-*和mx-auto代替 */
 .container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
+  @apply w-full max-w-[1200px] mx-auto px-6;
 }
+
+

@@ -1,8 +1,9 @@
+<!-- MinecraftHome.vue -->
 <template>
-  <div class="minecraft-home">
+  <div class="flex flex-col min-h-screen bg-gray-100">
     <BlogHeader />
     
-    <main class="main-content">
+    <main class="flex-1 py-8">
       <HeroSection 
         title="Minecraft 工具中心"
         subtitle="收集实用的 Minecraft 工具和资源"
@@ -10,10 +11,12 @@
         ctaLink="/minecraft"
       />
       
-      <div class="content-container">
-        <section class="tools-section">
-          <h2 class="section-title">热门工具</h2>
-          <div class="tools-grid">
+      <div class="max-w-6xl mx-auto px-6">
+        <section class="mb-16 bg-white p-8 rounded-lg shadow-sm">
+          <h2 class="text-2xl font-bold text-gray-800 mb-8 pb-2 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-16 after:h-[3px] after:bg-emerald-500">
+            热门工具
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             <ToolCard 
               v-for="tool in featuredTools"
               :key="tool.id"
@@ -26,8 +29,10 @@
           </div>
         </section>
         
-        <section class="resources-section">
-          <h2 class="section-title">资源下载</h2>
+        <section class="mb-16 bg-white p-8 rounded-lg shadow-sm">
+          <h2 class="text-2xl font-bold text-gray-800 mb-8 pb-2 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-16 after:h-[3px] after:bg-emerald-500">
+            资源下载
+          </h2>
           <ResourceList :resources="resources" />
         </section>
       </div>
@@ -45,58 +50,24 @@ import BlogFooter from '@/components/BlogFooter.vue'
 import ToolCard from '@/components/minecraft/ToolCard.vue'
 import ResourceList from '@/components/minecraft/ResourceList.vue'
 import { minecraftResources } from '@/data/MinecraftResources'
+
 // Minecraft 工具数据
 const featuredTools = [
   {
     id: 1,
     title: '指令生成器',
     description: '随心所欲的编辑一切物品或者实体！',
-    icon: '🌱',
+    icon: '🌱🌱',
     link: '/minecraft/command-helper/',
     category: '实用工具'
   }
 ]
 
 const resources = minecraftResources
-
 </script>
 
 <style scoped>
-.minecraft-home {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: #f5f5f5;
-}
-
-.main-content {
-  flex: 1;
-  padding: 2rem 0;
-}
-
-.content-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-.tools-section,
-.resources-section {
-  margin-bottom: 4rem;
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.section-title {
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
-  color: #2c3e50;
-  position: relative;
-  padding-bottom: 0.5rem;
-}
-
+/* 保留自定义伪元素 */
 .section-title::after {
   content: '';
   position: absolute;
@@ -105,11 +76,5 @@ const resources = minecraftResources
   width: 60px;
   height: 3px;
   background-color: #42b983;
-}
-
-.tools-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
 }
 </style>

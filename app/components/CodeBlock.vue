@@ -1,20 +1,42 @@
 <template>
-  <div class="deepseek-code-block" :class="`language-${language}`">
-    <div class="code-header">
-      <span class="language-tag">{{ languageDisplay }}</span>
-      <button class="copy-button" @click="copyCode">
-        <svg class="copy-icon" viewBox="0 0 24 24">
-          <path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" />
-        </svg>
-        <span class="copy-text">复制</span>
+  <div class="relative my-6 rounded-lg overflow-hidden shadow-md border border-gray-700 bg-gray-900">
+    <div class="flex items-center justify-between px-4 py-2 bg-[#191e29]">
+      <span class="text-xs font-medium tracking-wider text-blue-400 uppercase">
+        {{ languageDisplay }}
+      </span>
+      <button
+        class="flex items-center gap-1.5 group text-gray-400 hover:text-blue-400 transition-colors"
+        @click="copyCode"
+      >
+        <div :class="['transition-transform', { 'scale-90': copied }]">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none">
+            <path d="M19 3H8C6.89543 3 6 3.89543 6 5V19C6 20.1046 6.89543 21 8 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z" 
+                  :class="['stroke-current transition-colors', copied ? 'text-blue-400' : 'group-hover:stroke-blue-400']" 
+                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 1H4C3.44772 1 3 1.44772 3 2V16" 
+                  :class="['stroke-current', copied ? 'text-blue-400' : 'text-gray-500']"
+                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="text-xs font-medium transition-colors duration-300">
+          {{ copyText }}
+        </span>
       </button>
     </div>
-    <pre ref="preElement"><code ref="codeElement" :class="`language-${language}`">{{ rawCode }}</code></pre>
+    
+    <pre class="m-0 p-4 overflow-x-auto scroll-smooth bg-gray-900">
+      <code 
+        ref="codeElement" 
+        class="block font-mono text-[13px] leading-relaxed text-gray-100"
+        :class="`language-${language}`"
+        v-html="highlightedCode"
+      />
+    </pre>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 
 const props = defineProps({
   language: {
@@ -24,214 +46,159 @@ const props = defineProps({
   code: {
     type: String,
     required: true
+  },
+  autoDedent: {
+    type: Boolean,
+    default: true
   }
 })
 
-const preElement = ref(null)
 const codeElement = ref(null)
+const copyText = ref('复制')
+const copied = ref(false)
+const highlightedCode = ref('')
 
-// 处理语言显示名称
+// 语言名称映射
 const languageDisplay = computed(() => {
   const langMap = {
     html: 'HTML',
     javascript: 'JavaScript',
-    bash: 'Bash',
-    // 添加其他语言映射
+    bash: 'Shell',
+    css: 'CSS',
+    vue: 'Vue',
+    typescript: 'TypeScript',
+    json: 'JSON',
+    markdown: 'Markdown',
+    python: 'Python',
+    java: 'Java',
+    cpp: 'C++',
+    csharp: 'C#',
+    php: 'PHP',
+    ruby: 'Ruby',
+    go: 'Go',
+    rust: 'Rust',
+    kotlin: 'Kotlin',
+    swift: 'Swift',
+    shell: 'Shell',
+    sql: 'SQL',
+    yaml: 'YAML',
+    xml: 'XML',
+    dockerfile: 'Docker',
+    makefile: 'Make',
+    nginx: 'Nginx',
+    apache: 'Apache',
+    git: 'Git',
+    diff: 'Diff',
+    ini: 'INI',
+    toml: 'TOML',
+    graphql: 'GraphQL',
+    scss: 'SCSS',
+    less: 'Less',
+    stylus: 'Stylus',
+    sass: 'Sass',
+    tsx: 'TSX',
+    jsx: 'JSX'
   }
   return langMap[props.language] || props.language
 })
 
-// 处理原始代码，确保换行和缩进
-const rawCode = computed(() => {
-  // 移除首尾空白
-  let code = props.code.trim()
-  // 统一换行符
-  code = code.replace(/\r\n/g, '\n')
+// 智能删除公共缩进
+const cleanedCode = computed(() => {
+  let code = props.code.replace(/\r\n/g, '\n').trim()
+  
+  if (props.autoDedent && code.includes('\n')) {
+    const lines = code.split('\n')
+    const indentSizes = lines
+      .filter(line => line.trim().length > 0)
+      .map(line => line.match(/^[ \t]*(?=\S)/)?.[0]?.length || 0)
+    
+    if (indentSizes.length > 0) {
+      const minIndent = Math.min(...indentSizes)
+      code = lines.map(line => 
+        line.startsWith(' '.repeat(minIndent)) 
+          ? line.slice(minIndent) 
+          : line
+      ).join('\n')
+    }
+  }
+  
   return code
 })
 
-// 复制代码
+// 复制处理
 const copyCode = async () => {
   try {
-    await navigator.clipboard.writeText(props.code)
-    const btn = document.querySelector('.copy-button')
-    if (btn) {
-      const originalText = btn.querySelector('.copy-text').textContent
-      btn.querySelector('.copy-text').textContent = '已复制!'
-      setTimeout(() => {
-        btn.querySelector('.copy-text').textContent = originalText
-      }, 2000)
-    }
+    await navigator.clipboard.writeText(cleanedCode.value)
+    
+    // 视觉反馈
+    copyText.value = '已复制'
+    copied.value = true
+    
+    setTimeout(() => {
+      copied.value = false
+      copyText.value = '复制'
+    }, 2000)
   } catch (err) {
     console.error('复制失败:', err)
+    copyText.value = '复制失败'
+    setTimeout(() => {
+      copyText.value = '复制'
+    }, 2000)
   }
 }
 
 // 高亮代码
-onMounted(() => {
-  // 动态导入所需的Prism语言组件
-  const importLanguage = async () => {
-    try {
-      switch (props.language) {
-        case 'html':
-          await import('prismjs/components/prism-markup')
-          break
-        case 'javascript':
-          await import('prismjs/components/prism-javascript')
-          break
-        case 'bash':
-          await import('prismjs/components/prism-bash')
-          break
-        // 添加其他语言支持
-        default:
-          await import('prismjs/components/prism-javascript')
-      }
-      
-      // 手动高亮代码
-      if (window.Prism) {
-        window.Prism.highlightElement(codeElement.value)
-      }
-    } catch (error) {
-      console.error('加载语言组件失败:', error)
+onMounted(async () => {
+  try {
+    // 按需加载语言
+    const langModules = {
+      html: () => import('prismjs/components/prism-markup-templating'),
+      javascript: () => import('prismjs/components/prism-javascript'),
+      bash: () => import('prismjs/components/prism-bash'),
+      css: () => import('prismjs/components/prism-css'),
+      vue: () => import('prismjs/components/prism-markup-templating'),
+      typescript: () => import('prismjs/components/prism-typescript'),
+      tsx: () => Promise.all([
+        import('prismjs/components/prism-typescript'),
+        import('prismjs/components/prism-jsx')
+      ]),
+      jsx: () => import('prismjs/components/prism-jsx'),
+      json: () => import('prismjs/components/prism-json'),
+      // 其他语言...
     }
+    
+    const loader = langModules[props.language] || langModules.javascript
+    await loader()
+    
+    // 应用高亮
+    if (window.Prism) {
+      highlightedCode.value = window.Prism.highlight(
+        cleanedCode.value,
+        window.Prism.languages[props.language] || window.Prism.languages.javascript,
+        props.language
+      )
+    }
+  } catch (error) {
+    console.error('语法高亮错误:', error)
+    highlightedCode.value = cleanedCode.value
   }
-
-  importLanguage()
 })
 </script>
 
 <style scoped>
-.deepseek-code-block {
-  position: relative;
-  margin: 1.5rem 0;
-  border-radius: 8px;
-  background-color: #1e1e1e;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+/* 滚动条优化 */
+pre::-webkit-scrollbar {
+  height: 8px;
+  background-color: #11161f;
 }
 
-.code-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  background-color: #252526;
-  border-bottom: 1px solid #2d2d2d;
-}
-
-.language-tag {
-  font-size: 0.85rem;
-  color: #9cdcfe;
-  text-transform: uppercase;
-  font-family: 'Fira Code', monospace;
-}
-
-.copy-button {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: transparent;
-  border: none;
-  color: #d4d4d4;
-  cursor: pointer;
-  padding: 0.3rem 0.6rem;
+pre::-webkit-scrollbar-thumb {
+  background-color: #334155;
   border-radius: 4px;
-  font-size: 0.85rem;
-  transition: all 0.2s;
+  border: 1px solid #1e293b;
 }
 
-.copy-button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #fff;
-}
-
-.copy-icon {
-  width: 16px;
-  height: 16px;
-  fill: currentColor;
-}
-
-pre {
-  margin: 0;
-  padding: 1rem;
-  overflow-x: auto;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #d4d4d4;
-  font-family: 'Fira Code', 'Courier New', monospace;
-  white-space: pre;
-  tab-size: 2;
-}
-
-code {
-  display: block;
-  white-space: pre;
-  font-family: inherit;
-  color: inherit;
-  line-height: inherit;
-  font-size: inherit;
-  background: transparent;
-}
-
-/* 语法高亮样式 */
-:deep(.token.comment),
-:deep(.token.prolog),
-:deep(.token.doctype),
-:deep(.token.cdata) {
-  color: #6a9955;
-}
-
-:deep(.token.tag),
-:deep(.token.punctuation) {
-  color: #569cd6;
-}
-
-:deep(.token.attr-name) {
-  color: #9cdcfe;
-}
-
-:deep(.token.attr-value),
-:deep(.token.string) {
-  color: #ce9178;
-}
-
-:deep(.token.keyword) {
-  color: #569cd6;
-}
-
-:deep(.token.selector) {
-  color: #d7ba7d;
-}
-
-:deep(.token.property),
-:deep(.token.boolean),
-:deep(.token.number),
-:deep(.token.constant),
-:deep(.token.symbol),
-:deep(.token.deleted) {
-  color: #b5cea8;
-}
-
-:deep(.token.operator),
-:deep(.token.entity),
-:deep(.token.url) {
-  color: #d4d4d4;
-}
-
-:deep(.token.atrule),
-:deep(.token.attr-value),
-:deep(.token.keyword) {
-  color: #569cd6;
-}
-
-:deep(.token.function),
-:deep(.token.class-name) {
-  color: #dcdcaa;
-}
-
-:deep(.token.regex),
-:deep(.token.important),
-:deep(.token.variable) {
-  color: #d16969;
+pre::-webkit-scrollbar-thumb:hover {
+  background-color: #475569;
 }
 </style>

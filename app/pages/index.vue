@@ -1,15 +1,16 @@
 <template>
-  <div class="blog-home">
-    <BlogHeader  />
+  <div class="min-h-screen flex flex-col">
+    <BlogHeader />
     
-    <main class="main-content">
+    <main class="flex-grow py-10">
       <HeroSection 
         title="欢迎来到HuanYu & 博客"
         subtitle="本博客是面向AI编程~"
         ctaText="了解更多"
-        ctaLink="/archive"/>
+        ctaLink="/archive"
+      />
       
-      <div class="content-container">
+      <div class="container mx-auto px-4 md:px-6 max-w-7xl">
         <FeaturedPosts :posts="featuredPosts" />
         <RecentPosts :posts="recentPosts" />
       </div>
@@ -20,36 +21,14 @@
 </template>
 
 <script setup>
-// 导入组件
 import BlogHeader from '@/components/BlogHeader.vue'
 import HeroSection from '@/components/HeroSection.vue'
 import FeaturedPosts from '@/components/FeaturedPosts.vue'
 import RecentPosts from '@/components/RecentPosts.vue'
 import BlogFooter from '@/components/BlogFooter.vue'
 
-// 导入数据
 import postsData from '@/data/posts.json'
 
 const featuredPosts = postsData.featuredPosts
 const recentPosts = postsData.recentPosts
-
 </script>
-
-<style scoped>
-.blog-home {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.main-content {
-  flex: 1;
-  padding: 2rem 0;
-}
-
-.content-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-</style>

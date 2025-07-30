@@ -15,14 +15,22 @@
       "date": "2025-07-26",
       "category": "生活",
       "image": "/images/posts/my-second-post.jpg"
+    },
+    {
+      "id": 3,
+      "title": "好想干饭",
+      "excerpt": "好想干饭呜呜呜",
+      "date": "2025-07-30",
+      "category": "技术",
+      "image" : "/images/posts/my-third-post.jpg"
     }
   ],
   "recentPosts": [
     {
       "id": 3,
-      "title": "最近的技术探索",
-      "excerpt": "关于我最近学习的技术内容",
-      "date": "2023-07-01",
+      "title": "好想干饭",
+      "excerpt": "好想干饭呜呜呜",
+      "date": "2025-07-30",
       "category": "技术"
     },
     {
@@ -39,5 +47,37 @@
       "date": "2023-07-15",
       "category": "阅读"
     }
-  ]
+  ],
+  "archiveData":[
+    {
+      "id": 1,
+      "title": "Nuxt4入门教程",
+      "date": "2025-07-25",
+      "category": "技术"
+    },
+    {
+      "id": 2,
+      "title": "丑陋的CS战绩",
+      "date": "2025-07-26",
+      "category": "生活"
+    },
+    {
+      "id": 3,
+      "title": "好想干饭",
+      "date": "2025-07-30",
+      "category": "技术"
+    },
+    {
+      "id": 4,
+      "title": "旅行见闻",
+      "date": "2023-07-10",
+      "category": "生活"
+    },
+    {
+      "id": 5,
+      "title": "读书笔记",
+      "date": "2023-07-15",
+      "category": "阅读"
+    }
+]
 }

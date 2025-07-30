@@ -1,22 +1,37 @@
+<!-- ResourceList.vue -->
 <template>
-  <div class="resource-list">
-    <div class="resource-header">
-      <span class="header-name">资源名称</span>
-      <span class="header-type">类型</span>
-      <span class="header-size">大小</span>
-      <span class="header-downloads">下载量</span>
-      <span class="header-updated">更新时间</span>
+  <div class="border border-gray-200 rounded-lg overflow-hidden">
+    <div class="grid grid-cols-12 gap-4 bg-gray-800 text-white font-bold p-4  md:grid">
+      <span class="col-span-5">资源名称</span>
+      <span class="col-span-2">类型</span>
+      <span class="col-span-2">大小</span>
+      <span class="col-span-1">下载量</span>
+      <span class="col-span-2">更新时间</span>
     </div>
     
-    <div class="resource-items">
-      <div v-for="resource in resources" :key="resource.id" class="resource-item">
-        <span class="resource-name">{{ resource.name }}</span>
-        <span class="resource-type">{{ resource.type }}</span>
-        <span class="resource-size">{{ resource.size }}</span>
-        <span class="resource-downloads">{{ resource.downloads.toLocaleString() }}</span>
-        <span class="resource-updated">{{ formatDate(resource.updated) }}</span>
+    <div class="divide-y divide-gray-200">
+      <div 
+        v-for="resource in resources" 
+        :key="resource.id" 
+        class="p-4 grid grid-cols-1 md:grid-cols-12 gap-3 hover:bg-gray-50 transition-colors"
+      >
+        <div class="md:hidden font-medium text-gray-600">资源名称</div>
+        <span class="font-medium md:col-span-5" :data-label="'资源名称'">{{ resource.name }}</span>
+        
+        <div class="md:hidden font-medium text-gray-600">类型</div>
+        <span class="md:col-span-2" :data-label="'类型'">{{ resource.type }}</span>
+        
+        <div class="md:hidden font-medium text-gray-600">大小</div>
+        <span class="md:col-span-2" :data-label="'大小'">{{ resource.size }}</span>
+        
+        <div class="md:hidden font-medium text-gray-600">下载量</div>
+        <span class="md:col-span-1" :data-label="'下载量'">{{ resource.downloads.toLocaleString() }}</span>
+        
+        <div class="md:hidden font-medium text-gray-600">更新时间</div>
+        <span class="md:col-span-2" :data-label="'更新时间'">{{ formatDate(resource.updated) }}</span>
+
         <a 
-          class="download-button" 
+          class="mt-2 md:mt-0 inline-block md:col-start-12 py-2 px-4 bg-emerald-500 text-white text-center rounded transition-colors hover:bg-emerald-600"
           :href="`${resource.filePath}`" 
           :download="`${resource.name}.${resource.type.toLowerCase()}`"
           @click="handleDownload(resource)"
@@ -50,78 +65,14 @@ const formatDate = (dateString) => {
 </script>
 
 <style scoped>
-.resource-list {
-  border: 1px solid #eee;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.resource-header,
-.resource-item {
-  display: grid;
-  grid-template-columns: 3fr 1fr 1fr 1fr 1fr auto;
-  gap: 1rem;
-  align-items: center;
-  padding: 1rem;
-}
-
-.resource-header {
-  background-color: #2c3e50;
-  color: white;
-  font-weight: bold;
-}
-
-.resource-item {
-  border-bottom: 1px solid #eee;
-  transition: background-color 0.2s;
-}
-
-.resource-item:last-child {
-  border-bottom: none;
-}
-
-.resource-item:hover {
-  background-color: #f9f9f9;
-}
-
-.download-button {
-  display: inline-block;
-  background-color: #42b983;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  text-decoration: none;
-  text-align: center;
-}
-
-.download-button:hover {
-  background-color: #3aa876;
-}
-
+/* 移动端标签显示 */
 @media (max-width: 768px) {
-  .resource-header {
-    display: none;
-  }
-  
-  .resource-item {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-    padding: 1rem;
-  }
-  
   .resource-item > span::before {
     content: attr(data-label);
     font-weight: bold;
     margin-right: 0.5rem;
     color: #666;
-  }
-  
-  .download-button {
-    width: 100%;
-    margin-top: 0.5rem;
+    display: inline;
   }
 }
 </style>
