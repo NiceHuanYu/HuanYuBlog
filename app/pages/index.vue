@@ -1,4 +1,5 @@
 <template>
+  <MusicPlayer/>
   <div class="min-h-screen flex flex-col">
     <BlogHeader />
     
