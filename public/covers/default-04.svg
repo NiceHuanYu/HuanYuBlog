@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="默认封面：错落方块">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#dbe5f1" />
+      <stop offset="1" stop-color="#c6d6e8" />
+    </linearGradient>
+    <linearGradient id="block" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#33507f" />
+      <stop offset="1" stop-color="#7093c8" />
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg)" />
+  <rect x="72" y="88" width="188" height="188" rx="10" fill="url(#block)" fill-opacity="0.9" />
+  <rect x="238" y="140" width="188" height="188" rx="10" fill="#9db6d8" fill-opacity="0.72" />
+  <rect x="404" y="72" width="164" height="164" rx="10" fill="#2c4a78" fill-opacity="0.68" />
+</svg>

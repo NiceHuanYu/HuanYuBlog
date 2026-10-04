@@ -1,0 +1,220 @@
+@import "tailwindcss";
+
+/* Tailwind v4 的 `dark:` 默认跟随系统 prefers-color-scheme；这里改成 class 驱动，
+   与 @nuxtjs/color-mode 写在 <html> 上的 .dark 保持一致。 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* 语义化颜色 token：整个站点的配色集中在这里。
+   想换主题色调，只改下面的 CSS 变量即可，组件不用动。
+   accent 系列是蓝色强调色，只用在按钮、链接、选中态和标签高亮上。 */
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  /* 压在图上的遮罩色，用深蓝而不是纯黑，避免浅色封面被压成灰 */
+  --color-scrim: var(--scrim);
+}
+
+/* 日间：冷调浅灰打底，白卡片 */
+:root {
+  --canvas: oklch(0.977 0.003 255);
+  --surface: oklch(1 0 0);
+  --surface-strong: oklch(0.958 0.004 255);
+  --line: oklch(0.918 0.006 255);
+  --ink: oklch(0.235 0.014 260);
+  --ink-soft: oklch(0.487 0.014 260);
+  --ink-faint: oklch(0.633 0.012 260);
+  --accent: oklch(0.546 0.215 263);
+  --accent-ink: oklch(0.5 0.21 263);
+  --accent-soft: oklch(0.962 0.018 264);
+  --scrim: oklch(0.23 0.048 264);
+
+  color-scheme: light;
+}
+
+/* 夜间：同样是冷调，避免纯黑的死板 */
+.dark {
+  --canvas: oklch(0.172 0.008 260);
+  --surface: oklch(0.212 0.01 260);
+  --surface-strong: oklch(0.252 0.012 260);
+  --line: oklch(0.305 0.014 260);
+  --ink: oklch(0.945 0.005 260);
+  --ink-soft: oklch(0.722 0.012 260);
+  --ink-faint: oklch(0.565 0.012 260);
+  --accent: oklch(0.56 0.2 264);
+  --accent-ink: oklch(0.78 0.14 264);
+  --accent-soft: oklch(0.302 0.055 264);
+  --scrim: oklch(0.19 0.038 264);
+
+  color-scheme: dark;
+}
+
+@layer base {
+  body {
+    background-color: var(--canvas);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 主题切换时让颜色平滑过渡，而不是生硬跳变 */
+  @media (prefers-reduced-motion: no-preference) {
+    body {
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+  }
+}
+
+/* Shiki 双主题：Content 只把两套配色写成 CSS 变量，真正应用哪个颜色要自己写。
+   变量名跟随 nuxt.config.ts 里 `highlight.theme` 的 key —— 当前是
+   { default: 'github-light', dark: 'github-dark' }，所以是 --shiki-default / --shiki-dark。
+   换主题 key 的话这里的变量名也要跟着换。 */
+.shiki,
+.shiki span {
+  color: var(--shiki-default);
+  font-style: var(--shiki-default-font-style);
+  font-weight: var(--shiki-default-font-weight);
+}
+
+.dark .shiki,
+.dark .shiki span {
+  color: var(--shiki-dark);
+  font-style: var(--shiki-dark-font-style);
+  font-weight: var(--shiki-dark-font-weight);
+}
+
+/* Markdown 正文排版。只作用于文章内容，不影响站点的其他部分 */
+@layer components {
+  .rich-text {
+    font-size: 0.9375rem;
+    line-height: 1.8;
+    color: var(--ink-soft);
+
+    /* Content 会把正文包在一层 div 里，所以直接子选择器不够，还要覆盖包装层的孩子 */
+    & > * + *,
+    & > div > * + * {
+      margin-top: 1.1rem;
+    }
+
+    & h2 {
+      margin-top: 2.75rem;
+      font-size: 1.125rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      scroll-margin-top: 5rem;
+    }
+
+    & h3 {
+      margin-top: 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      scroll-margin-top: 5rem;
+    }
+
+    /* 正文链接：不用强调色、不常驻下划线，只靠字重和正文区分；
+       悬停时才补上下划线作为可点击的反馈 */
+    & a {
+      color: inherit;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    & a:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 1px;
+    }
+
+    & strong {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    & ul,
+    & ol {
+      padding-left: 1.35rem;
+    }
+
+    & ul {
+      list-style: disc;
+    }
+
+    & ol {
+      list-style: decimal;
+    }
+
+    & li + li {
+      margin-top: 0.4rem;
+    }
+
+    & li::marker {
+      color: var(--ink-faint);
+    }
+
+    /* 行内代码；代码块里的 code 由下面的 pre 规则复位 */
+    & code {
+      padding: 0.15rem 0.4rem;
+      border-radius: 0.3rem;
+      background-color: var(--surface-strong);
+      color: var(--ink);
+      font-size: 0.8125rem;
+    }
+
+    & pre {
+      overflow-x: auto;
+      padding: 1rem 1.15rem;
+      font-size: 0.8125rem;
+      line-height: 1.7;
+      tab-size: 2;
+      /* 边框、圆角和底色由 content/ProsePre.vue 的外层容器提供 */
+    }
+
+    & pre code {
+      padding: 0;
+      background: none;
+      font-size: inherit;
+    }
+
+    & blockquote {
+      padding-left: 1rem;
+      border-left: 2px solid var(--line);
+      color: var(--ink-faint);
+    }
+
+    & table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+
+    & th,
+    & td {
+      padding: 0.55rem 0.8rem;
+      border: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    & th {
+      background-color: var(--surface-strong);
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    & img {
+      border-radius: 0.75rem;
+    }
+
+    & hr {
+      border-color: var(--line);
+    }
+  }
+}

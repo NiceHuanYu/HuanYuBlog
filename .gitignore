@@ -1,5 +1,6 @@
 # Nuxt dev/build outputs
 .output
+# Nuxt Content local SQLite database (.data/content/contents.sqlite); regenerated on demand
 .data
 .nuxt
 .nitro
@@ -17,6 +18,12 @@ logs
 .DS_Store
 .fleet
 .idea
+
+# Reasonix agent runtime state (not project content)
+.reasonix
+
+# Agent instructions kept local only
+AGENTS.md
 
 # Local env files
 .env

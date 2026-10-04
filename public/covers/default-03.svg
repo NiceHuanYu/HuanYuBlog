@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="默认封面：斜向色带">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#d5e0ef" />
+      <stop offset="1" stop-color="#c8d8ea" />
+    </linearGradient>
+    <linearGradient id="band" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#2f4d7d" />
+      <stop offset="1" stop-color="#4a6ba0" />
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg)" />
+  <path d="M0 360 L640 76 L640 0 L0 284 Z" fill="url(#band)" fill-opacity="0.88" />
+  <path d="M0 360 L640 170 L640 122 L0 312 Z" fill="#93aed4" fill-opacity="0.62" />
+  <path d="M0 232 L640 0 L640 0 L0 232 Z" fill="#b8c9e0" fill-opacity="0.7" />
+</svg>
