@@ -18,6 +18,8 @@ export default defineAppConfig({
     { label: '联系', to: '/contact' }
   ] satisfies NavItem[],
   // 可选：给指定系列配一张固定封面。不写的话，系列卡片会用该系列文章的
-  // 封面自动拼成文件夹视图。例：{ 'Git 入门': '/images/git-series.png' }
-  seriesCovers: {} as Record<string, string>
+  // 封面自动拼成文件夹视图。
+  seriesCovers: {
+    博客使用指南: '/images/guide-cover.svg'
+  } as Record<string, string>
 })

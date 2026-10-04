@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="博客使用指南系列封面">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#dbe5f1" />
+      <stop offset="1" stop-color="#c4d4e7" />
+    </linearGradient>
+    <linearGradient id="page" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0" stop-color="#ffffff" />
+      <stop offset="1" stop-color="#eaf0f8" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#33507f" />
+      <stop offset="1" stop-color="#7093c8" />
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="360" fill="url(#bg)" />
+
+  <!-- 后面两张压在下层的文档 -->
+  <rect x="176" y="66" width="188" height="236" rx="14" fill="#a8bcd8" fill-opacity="0.55" transform="rotate(-9 270 184)" />
+  <rect x="392" y="66" width="188" height="236" rx="14" fill="#a8bcd8" fill-opacity="0.55" transform="rotate(9 486 184)" />
+
+  <!-- 主文档 -->
+  <rect x="226" y="52" width="188" height="256" rx="14" fill="url(#page)" />
+
+  <!-- 文档上的标题条与正文线 -->
+  <rect x="250" y="84" width="96" height="14" rx="7" fill="url(#accent)" />
+  <rect x="250" y="120" width="140" height="7" rx="3.5" fill="#9db3d4" />
+  <rect x="250" y="138" width="118" height="7" rx="3.5" fill="#b8c9e0" />
+  <rect x="250" y="156" width="132" height="7" rx="3.5" fill="#b8c9e0" />
+  <rect x="250" y="174" width="86" height="7" rx="3.5" fill="#b8c9e0" />
+
+  <!-- 代表代码块的浅色块 -->
+  <rect x="250" y="200" width="140" height="46" rx="8" fill="#dbe5f1" />
+  <rect x="262" y="213" width="60" height="6" rx="3" fill="#7093c8" />
+  <rect x="262" y="227" width="96" height="6" rx="3" fill="#b8c9e0" />
+
+  <!-- 右下角的笔尖 -->
+  <path d="M430 250 L470 210 L494 234 L454 274 L424 280 Z" fill="url(#accent)" fill-opacity="0.92" />
+  <path d="M424 280 L436 262 L442 268 Z" fill="#33507f" />
+</svg>
