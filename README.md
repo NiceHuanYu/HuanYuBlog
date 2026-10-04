@@ -1,75 +1,56 @@
-# Nuxt Minimal Starter
+# HuanYu Blog
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+个人博客，记录技术笔记、工具用法与阅读心得。
 
-## Setup
+线上地址：<https://blog.huanyu666.top>
 
-Make sure to install dependencies:
+## 技术栈
+
+- **Nuxt 4** + **Nuxt Content**（Markdown 存 SQLite）
+- **Tailwind CSS v4**
+- 部署在 **Cloudflare Pages**
+
+## 本地开发
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
+npm run dev        # http://localhost:3000
 ```
 
-## Development Server
+## 写文章
 
-Start the development server on `http://localhost:3000`:
+在 `content/posts/` 下新建 Markdown 文件即可，会自动出现在文章列表和首页。
+
+```yaml
+---
+title: 文章标题
+description: 一句话摘要，会用在列表和搜索结果里
+date: 2026-10-06
+category: 工具
+tags: [Git, 入门]
+---
+```
+
+可选字段：
+
+| 字段 | 说明 |
+| --- | --- |
+| `series` + `seriesOrder` | 系列名和阅读顺序，两个要一起写 |
+| `cover` | 自定义封面；不写会按文件路径自动分配一张默认封面 |
+| `featured` | 设为 `true` 才会出现在首页的「精选文章」 |
+
+`category` 不写会归到「未分类」；`tags` 和 `series` 不写则不参与对应的分组视图。
+
+## 构建与部署
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+npm run generate   # 生成静态站点到 .output/public
 ```
 
-## Production
+Cloudflare Pages 配置：构建命令 `npm run generate`，输出目录 `.output/public`。
 
-Build the application for production:
+> 不要用 `npm run build` —— 它产出的是需要 Node 服务的 SSR 版本，静态托管会 404。
 
-```bash
-# npm
-npm run build
+## 图片来源
 
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+`public/images/git-branches.png` 来自 [Pro Git](https://git-scm.com/book)（CC BY 3.0）。
