@@ -1,7 +1,7 @@
 ---
 title: 本地远程仓库的部署
 description: 用自己的机器当 Git 服务器：建一个裸仓库、走 SSH 连上去，把本地提交推上去。
-date: 2026-10-06
+date: 2026-10-04
 category: 工具
 tags:
   - Git
