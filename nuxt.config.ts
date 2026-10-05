@@ -10,6 +10,19 @@ export default defineNuxtConfig({
   },
   modules: ['@nuxt/content', '@nuxtjs/color-mode', '@nuxtjs/sitemap'],
   css: ['~/assets/css/main.css'],
+  // 正文里的一级标题也生成可点击的锚点，默认只给 h2~h4
+  content: {
+    renderer: {
+      anchorLinks: { h1: true, h2: true, h3: true, h4: true }
+    },
+    build: {
+      markdown: {
+        // 目录收录到 h3。注意底层 @nuxtjs/mdc 把目录的标签列表写死成
+        // ["h2"…"h6"]，所以 **h1 永远不会进目录**，改这个 depth 也没用
+        toc: { depth: 3, searchDepth: 3 }
+      }
+    }
+  },
   sitemap: {
     // 动态路由不会被自动发现，文章和分组详情页由这个接口提供
     sources: ['/api/__sitemap__/urls']
