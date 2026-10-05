@@ -1,7 +1,7 @@
 ---
 title: frontmatter 每个字段是什么意思
 description: 文章开头那段被横线包住的字段，逐个说明作用、默认行为和写错的后果。
-date: 2026-10-10
+date: 2026-10-04
 category: 指南
 tags:
   - 写作
