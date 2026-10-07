@@ -76,6 +76,40 @@ function detailLink(name: string) {
   return `/${DETAIL_SEGMENT[key]}/${encodeURIComponent(name)}`
 }
 
+// 分组索引：把分类 / 标签 / 系列详情页的链接直接渲染在页面上。
+// 这些链接原本只出现在 ?view= 视图的卡片里，而静态构建（generate）会跳过带查询串的链接，
+// 于是 /categories、/tags、/series 下的页面从来没被预渲染过，线上直接 404。
+// 渲染在这里既能修好预渲染，也顺便给站内补了一组内链。
+const indexGroups = computed(() => [
+  {
+    key: 'category',
+    label: '分类',
+    segment: DETAIL_SEGMENT.category,
+    names: groupPosts(all.value, (post) => [post.category]).map(
+      (group) => group.name
+    )
+  },
+  {
+    key: 'tag',
+    label: '标签',
+    segment: DETAIL_SEGMENT.tag,
+    names: groupPosts(all.value, (post) => post.tags).map(
+      (group) => group.name
+    )
+  },
+  {
+    key: 'series',
+    label: '系列',
+    segment: DETAIL_SEGMENT.series,
+    names: groupPosts(all.value, (post) =>
+      post.series ? [post.series] : []
+    ).map((group) => group.name)
+  }
+])
+
+const groupLink = (segment: string, name: string) =>
+  `/${segment}/${encodeURIComponent(name)}`
+
 const viewLink = (key: ViewKey) =>
   key === 'all' ? '/posts' : { path: '/posts', query: { view: key } }
 
@@ -183,6 +217,28 @@ usePageSeo({
         </code>
         下新建 Markdown 文件，这里就会自动出现内容。
       </p>
+    </SectionPanel>
+
+    <SectionPanel v-if="all.length" title="分组索引">
+      <div class="space-y-3">
+        <div
+          v-for="group in indexGroups.filter((item) => item.names.length)"
+          :key="group.key"
+          class="flex flex-wrap items-center gap-2"
+        >
+          <span class="min-w-10 shrink-0 text-xs text-ink-faint">
+            {{ group.label }}
+          </span>
+          <NuxtLink
+            v-for="name in group.names"
+            :key="name"
+            :to="groupLink(group.segment, name)"
+            class="rounded-md bg-surface-strong px-3 py-1.5 text-xs font-medium text-ink-soft transition-colors hover:text-accent-ink"
+          >
+            {{ name }}
+          </NuxtLink>
+        </div>
+      </div>
     </SectionPanel>
   </div>
 </template>
