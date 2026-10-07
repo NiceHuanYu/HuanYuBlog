@@ -19,7 +19,25 @@ export default defineNuxtConfig({
       markdown: {
         // 目录收录到 h3。注意底层 @nuxtjs/mdc 把目录的标签列表写死成
         // ["h2"…"h6"]，所以 **h1 永远不会进目录**，改这个 depth 也没用
-        toc: { depth: 3, searchDepth: 3 }
+        toc: { depth: 3, searchDepth: 3 },
+        highlight: {
+          // 这些语言会**追加**到 @nuxt/content 的默认白名单后面
+          // （默认只有 bash / html / mdc / vue / yml / scss / ts / typescript）。
+          // 白名单外的语言不会报错，只是整块退化成纯文本、完全没有高亮，
+          // java 之前就是这样，所以这里补上它和几个以后可能用到的。
+          langs: [
+            'java',
+            'json',
+            'yaml',
+            'javascript',
+            'css',
+            'shell',
+            'python',
+            'xml',
+            'properties',
+            'diff'
+          ]
+        }
       }
     }
   },
