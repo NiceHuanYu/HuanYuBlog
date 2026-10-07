@@ -27,6 +27,14 @@ export default defineNuxtConfig({
     // 动态路由不会被自动发现，文章和分组详情页由这个接口提供
     sources: ['/api/__sitemap__/urls']
   },
+  // 两篇 Java 笔记改过文件名，旧地址 301 到新地址，免得已有外链失效。
+  // 大写写法来自历史 sitemap，小写写法来自被规范化过的分享链接。
+  routeRules: {
+    '/posts/learning-java-FOPJ': { redirect: { to: '/posts/java-basics-notes', statusCode: 301 } },
+    '/posts/learning-java-fopj': { redirect: { to: '/posts/java-basics-notes', statusCode: 301 } },
+    '/posts/learning-java-OOPJ': { redirect: { to: '/posts/java-oop-notes', statusCode: 301 } },
+    '/posts/learning-java-oopj': { redirect: { to: '/posts/java-oop-notes', statusCode: 301 } }
+  },
   // 开发机是 VMware 虚拟机，浏览器在宿主机上，所以要监听所有网卡，
   // 只绑 127.0.0.1 的话宿主机访问不到。局域网内其他机器同样能访问，介意时改回 'localhost'。
   devServer: {

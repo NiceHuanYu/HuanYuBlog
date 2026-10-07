@@ -1,0 +1,6 @@
+# Cloudflare Pages 会读取这个文件，把旧文章地址 301 到新地址。
+# nuxt.config.ts 里的 routeRules 负责 dev/SSR，这里负责静态部署时真正的 301。
+/posts/learning-java-FOPJ  /posts/java-basics-notes  301
+/posts/learning-java-fopj  /posts/java-basics-notes  301
+/posts/learning-java-OOPJ  /posts/java-oop-notes  301
+/posts/learning-java-oopj  /posts/java-oop-notes  301
