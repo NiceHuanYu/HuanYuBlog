@@ -95,6 +95,8 @@
     font-size: 0.9375rem;
     line-height: 1.8;
     color: var(--ink-soft);
+    /* 长 URL、长英文单词在收窄后的正文列里会把列撑破，必要时允许它们断行 */
+    overflow-wrap: break-word;
 
     /* Content 会把正文包在一层 div 里，所以直接子选择器不够，还要覆盖包装层的孩子 */
     & > * + *,
@@ -206,7 +208,11 @@
     }
 
     & table {
+      /* 列多、或单元格里的内容较长时，整张表会撑破正文列，画到右边那栏系列列表上。
+         让表格自己横向滚动，而不是把正文撑开（与 pre 的处理一致） */
+      display: block;
       width: 100%;
+      overflow-x: auto;
       border-collapse: collapse;
       font-size: 0.875rem;
     }
@@ -233,4 +239,11 @@
       border-color: var(--line);
     }
   }
+}
+
+/* 文章页在 xl 上要排三栏（目录 / 正文 / 系列列表），比 layout 里 main 的
+   max-w-5xl 更宽。这里定向放宽 main 的上限，首页、列表页等不受影响。
+   必须写在 @layer 之外，否则盖不过 main 上的 max-w-5xl 那条 utility。 */
+main:has(> .article-shell) {
+  max-width: 76rem;
 }

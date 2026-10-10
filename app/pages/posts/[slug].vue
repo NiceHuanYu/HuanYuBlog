@@ -95,16 +95,17 @@ const navLabels = computed(() =>
 
 // 布局：目录占左栏；文章属于系列时右侧再挂一栏系列列表。
 // 三栏要到 xl 才撑得开（lg 宽度下会挤），所以容器宽度也一并放到 xl 才放宽。
+// 正文列限宽 40rem，多出来的空间交给 justify-center 变成两侧留白——比把正文拉满更耐读。
 // 注意这些 class 必须写成完整字面量，Tailwind 扫不到拼出来的名字。
 const layoutClass = computed(() => {
   const hasToc = toc.value.length > 0
   if (inSeries.value) {
     return hasToc
-      ? 'xl:max-w-6xl lg:grid-cols-[190px_minmax(0,1fr)] xl:grid-cols-[190px_minmax(0,1fr)_210px]'
-      : 'xl:max-w-6xl xl:grid-cols-[minmax(0,1fr)_210px]'
+      ? 'justify-center lg:gap-12 lg:grid-cols-[180px_minmax(0,40rem)] xl:max-w-6xl xl:gap-16 xl:grid-cols-[180px_minmax(0,40rem)_200px]'
+      : 'justify-center lg:gap-12 lg:grid-cols-[minmax(0,40rem)] xl:max-w-5xl xl:gap-16 xl:grid-cols-[minmax(0,40rem)_200px]'
   }
-  // 没有目录时不定义列，否则文章会被塞进那个 190px 宽的第一列
-  return hasToc ? 'lg:grid-cols-[190px_minmax(0,1fr)]' : ''
+  // 没有目录时不定义列，否则文章会被塞进那个 180px 宽的第一列
+  return hasToc ? 'justify-center lg:gap-12 lg:grid-cols-[180px_minmax(0,40rem)]' : ''
 })
 
 usePageSeo({
@@ -117,8 +118,8 @@ usePageSeo({
 </script>
 
 <template>
-  <div class="mx-auto grid max-w-5xl gap-10" :class="layoutClass">
-    <aside v-if="toc.length" class="hidden lg:block">
+  <div class="article-shell mx-auto grid max-w-5xl gap-10" :class="layoutClass">
+    <aside v-if="toc.length" class="hidden min-w-0 lg:block">
       <div class="sticky top-20 max-h-[calc(100dvh-7rem)] overflow-y-auto pr-2">
         <TocList :links="toc" />
       </div>
@@ -306,7 +307,7 @@ usePageSeo({
     </article>
 
     <!-- 系列文章列表：xl 起显示，与左侧目录对称地贴在正文另一边 -->
-    <aside v-if="inSeries" class="hidden xl:block">
+    <aside v-if="inSeries" class="hidden min-w-0 xl:block">
       <div class="sticky top-20 max-h-[calc(100dvh-7rem)] overflow-y-auto pr-2">
         <SeriesNav
           :name="seriesName"
