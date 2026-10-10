@@ -82,6 +82,31 @@ const toc = computed<TocLink[]>(
     []
 )
 
+const seriesName = computed(() => article.series ?? '')
+
+// 顶部那处紧凑导航和文末那份共用同一组数据，只是文案更短、体量更小
+const navPrev = computed(() => (inSeries.value ? seriesPrev.value : newer.value))
+const navNext = computed(() => (inSeries.value ? seriesNext.value : older.value))
+const navLabels = computed(() =>
+  inSeries.value
+    ? { prev: '系列上一篇', next: '系列下一篇' }
+    : { prev: '较新一篇', next: '较旧一篇' }
+)
+
+// 布局：目录占左栏；文章属于系列时右侧再挂一栏系列列表。
+// 三栏要到 xl 才撑得开（lg 宽度下会挤），所以容器宽度也一并放到 xl 才放宽。
+// 注意这些 class 必须写成完整字面量，Tailwind 扫不到拼出来的名字。
+const layoutClass = computed(() => {
+  const hasToc = toc.value.length > 0
+  if (inSeries.value) {
+    return hasToc
+      ? 'xl:max-w-6xl lg:grid-cols-[190px_minmax(0,1fr)] xl:grid-cols-[190px_minmax(0,1fr)_210px]'
+      : 'xl:max-w-6xl xl:grid-cols-[minmax(0,1fr)_210px]'
+  }
+  // 没有目录时不定义列，否则文章会被塞进那个 190px 宽的第一列
+  return hasToc ? 'lg:grid-cols-[190px_minmax(0,1fr)]' : ''
+})
+
 usePageSeo({
   title: `${article.title} · ${appConfig.site.name}`,
   description: article.description,
@@ -92,7 +117,7 @@ usePageSeo({
 </script>
 
 <template>
-  <div class="mx-auto grid max-w-5xl gap-10 lg:grid-cols-[190px_minmax(0,1fr)]">
+  <div class="mx-auto grid max-w-5xl gap-10" :class="layoutClass">
     <aside v-if="toc.length" class="hidden lg:block">
       <div class="sticky top-20 max-h-[calc(100dvh-7rem)] overflow-y-auto pr-2">
         <TocList :links="toc" />
@@ -101,24 +126,79 @@ usePageSeo({
 
     <article class="min-w-0">
       <header>
-        <NuxtLink
-          to="/posts"
-          class="inline-flex items-center gap-1 text-xs text-ink-faint transition-colors hover:text-accent-ink"
-        >
-          <svg
-            class="size-3.5"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
+        <!-- 页头这一行：左边回列表，右边是紧凑版的上下篇（详细那份在文末） -->
+        <div class="flex items-center justify-between gap-4">
+          <NuxtLink
+            to="/posts"
+            class="inline-flex shrink-0 items-center gap-1 text-xs text-ink-faint transition-colors hover:text-accent-ink"
           >
-            <path d="m15 18-6-6 6-6" />
-          </svg>
-          全部文章
-        </NuxtLink>
+            <svg
+              class="size-3.5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="m15 18-6-6 6-6" />
+            </svg>
+            全部文章
+          </NuxtLink>
+
+          <nav
+            v-if="navPrev || navNext"
+            aria-label="上下篇"
+            class="flex min-w-0 items-center gap-1"
+          >
+            <NuxtLink
+              v-if="navPrev"
+              :to="navPrev.path"
+              :title="`${navLabels.prev}：${navPrev.title}`"
+              class="flex min-w-0 items-center gap-1.5 rounded-md px-2 py-1 text-xs text-ink-faint transition-colors hover:bg-surface-strong hover:text-accent-ink"
+            >
+              <svg
+                class="size-3.5 shrink-0"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="m15 18-6-6 6-6" />
+              </svg>
+              <span class="hidden max-w-[10rem] truncate sm:inline">
+                {{ navPrev.title }}
+              </span>
+            </NuxtLink>
+
+            <NuxtLink
+              v-if="navNext"
+              :to="navNext.path"
+              :title="`${navLabels.next}：${navNext.title}`"
+              class="flex min-w-0 items-center gap-1.5 rounded-md px-2 py-1 text-xs text-ink-faint transition-colors hover:bg-surface-strong hover:text-accent-ink"
+            >
+              <span class="hidden max-w-[10rem] truncate sm:inline">
+                {{ navNext.title }}
+              </span>
+              <svg
+                class="size-3.5 shrink-0"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="m9 18 6-6-6-6" />
+              </svg>
+            </NuxtLink>
+          </nav>
+        </div>
 
         <h1
           class="mt-5 text-2xl font-semibold tracking-tight text-balance text-ink sm:text-3xl"
@@ -224,5 +304,16 @@ usePageSeo({
         </NuxtLink>
       </nav>
     </article>
+
+    <!-- 系列文章列表：xl 起显示，与左侧目录对称地贴在正文另一边 -->
+    <aside v-if="inSeries" class="hidden xl:block">
+      <div class="sticky top-20 max-h-[calc(100dvh-7rem)] overflow-y-auto pr-2">
+        <SeriesNav
+          :name="seriesName"
+          :posts="seriesPosts"
+          :current-path="article.path"
+        />
+      </div>
+    </aside>
   </div>
 </template>
