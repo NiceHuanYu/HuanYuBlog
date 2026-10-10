@@ -84,6 +84,12 @@ const toc = computed<TocLink[]>(
 
 const seriesName = computed(() => article.series ?? '')
 
+// 右侧系列列表可以收起；状态放 cookie，SSR 时就能读到，首屏不会闪
+const seriesAsideOpen = useCookie<boolean>('series-aside-open', {
+  default: () => true,
+  sameSite: 'lax'
+})
+
 // 顶部那处紧凑导航和文末那份共用同一组数据，只是文案更短、体量更小
 const navPrev = computed(() => (inSeries.value ? seriesPrev.value : newer.value))
 const navNext = computed(() => (inSeries.value ? seriesNext.value : older.value))
@@ -93,19 +99,25 @@ const navLabels = computed(() =>
     : { prev: '较新一篇', next: '较旧一篇' }
 )
 
-// 布局：目录占左栏；文章属于系列时右侧再挂一栏系列列表。
+// 布局：目录占左栏；文章属于系列时右侧再挂一栏系列列表（可收起）。
 // 三栏要到 xl 才撑得开（lg 宽度下会挤），所以容器宽度也一并放到 xl 才放宽。
-// 正文列限宽 40rem，多出来的空间交给 justify-center 变成两侧留白——比把正文拉满更耐读。
+// 正文列上限 60rem（960px），多余空间交给 justify-center 变成两侧留白；
+// 系列栏收起时那一列只剩 44px，放一个展开按钮。
 // 注意这些 class 必须写成完整字面量，Tailwind 扫不到拼出来的名字。
 const layoutClass = computed(() => {
   const hasToc = toc.value.length > 0
   if (inSeries.value) {
-    return hasToc
-      ? 'justify-center lg:gap-12 lg:grid-cols-[180px_minmax(0,40rem)] xl:max-w-6xl xl:gap-16 xl:grid-cols-[180px_minmax(0,40rem)_200px]'
-      : 'justify-center lg:gap-12 lg:grid-cols-[minmax(0,40rem)] xl:max-w-5xl xl:gap-16 xl:grid-cols-[minmax(0,40rem)_200px]'
+    if (hasToc) {
+      return seriesAsideOpen.value
+        ? 'justify-center lg:gap-12 lg:grid-cols-[180px_minmax(0,60rem)] xl:max-w-[92rem] xl:gap-16 xl:grid-cols-[180px_minmax(0,60rem)_200px]'
+        : 'justify-center lg:gap-12 lg:grid-cols-[180px_minmax(0,60rem)] xl:max-w-[92rem] xl:gap-16 xl:grid-cols-[180px_minmax(0,60rem)_44px]'
+    }
+    return seriesAsideOpen.value
+      ? 'justify-center lg:gap-12 lg:grid-cols-[minmax(0,60rem)] xl:max-w-[92rem] xl:gap-16 xl:grid-cols-[minmax(0,60rem)_200px]'
+      : 'justify-center lg:gap-12 lg:grid-cols-[minmax(0,60rem)] xl:max-w-[92rem] xl:gap-16 xl:grid-cols-[minmax(0,60rem)_44px]'
   }
   // 没有目录时不定义列，否则文章会被塞进那个 180px 宽的第一列
-  return hasToc ? 'justify-center lg:gap-12 lg:grid-cols-[180px_minmax(0,40rem)]' : ''
+  return hasToc ? 'justify-center lg:gap-12 lg:grid-cols-[180px_minmax(0,60rem)]' : ''
 })
 
 usePageSeo({
@@ -308,12 +320,44 @@ usePageSeo({
 
     <!-- 系列文章列表：xl 起显示，与左侧目录对称地贴在正文另一边 -->
     <aside v-if="inSeries" class="hidden min-w-0 xl:block">
-      <div class="sticky top-20 max-h-[calc(100dvh-7rem)] overflow-y-auto pr-2">
-        <SeriesNav
-          :name="seriesName"
-          :posts="seriesPosts"
-          :current-path="article.path"
-        />
+      <div class="sticky top-20">
+        <!-- 收起 / 展开系列列表；收起后这一列只剩这个按钮 -->
+        <div
+          class="mb-3 flex"
+          :class="seriesAsideOpen ? 'justify-end pr-2' : 'justify-center'"
+        >
+          <button
+            type="button"
+            class="inline-flex size-6 items-center justify-center rounded-md text-ink-faint transition-colors hover:bg-surface-strong hover:text-accent-ink"
+            :title="seriesAsideOpen ? '收起系列列表' : '展开系列列表'"
+            :aria-expanded="seriesAsideOpen"
+            @click="seriesAsideOpen = !seriesAsideOpen"
+          >
+            <svg
+              class="size-3.5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path :d="seriesAsideOpen ? 'm9 18 6-6-6-6' : 'm15 18-6-6 6-6'" />
+            </svg>
+          </button>
+        </div>
+
+        <div
+          v-if="seriesAsideOpen"
+          class="max-h-[calc(100dvh-9rem)] overflow-y-auto pr-2"
+        >
+          <SeriesNav
+            :name="seriesName"
+            :posts="seriesPosts"
+            :current-path="article.path"
+          />
+        </div>
       </div>
     </aside>
   </div>

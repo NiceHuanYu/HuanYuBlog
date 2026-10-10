@@ -245,5 +245,5 @@
    max-w-5xl 更宽。这里定向放宽 main 的上限，首页、列表页等不受影响。
    必须写在 @layer 之外，否则盖不过 main 上的 max-w-5xl 那条 utility。 */
 main:has(> .article-shell) {
-  max-width: 76rem;
+  max-width: 95rem;
 }
