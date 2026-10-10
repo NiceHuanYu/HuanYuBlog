@@ -21,8 +21,8 @@ seriesOrder: 8
 
 | CustomerID | CustomerName | Address | PhoneNumber | MemberCategory |
 | ---------- | ------------ | ------- | ----------- | -------------- |
-| C001       | Alice        | Orchard | 11111111    | Gold           |
-| C002       | Bob          | Bugis   | 22222222    | Silver         |
+| C001       | Alice        | Maple Ave | 11111111    | Gold           |
+| C002       | Bob          | Birch St   | 22222222    | Silver         |
 
 主键约束名：`PK_GoodCustomers`
 
@@ -33,12 +33,12 @@ seriesOrder: 8
 | CN          | China         |
 | US          | United States |
 
-### IssueTran 表
+### BookLoans 表
 
-| TransactionID | CustomerId | VideoCode |
+| TransactionID | CustomerId | BookCode |
 | ------------- | ---------- | --------- |
-| T001          | C001       | V001      |
-| T002          | C002       | V002      |
+| T001          | C001       | B001      |
+| T002          | C002       | B002      |
 
 ### Customers 表
 
@@ -201,8 +201,8 @@ GoodCustomers 表新增一列 CustomerPassword。
 
 | CustomerID | CustomerName | Address | PhoneNumber | MemberCategory | CustomerPassword |
 | ---------- | ------------ | ------- | ----------- | -------------- | ---------------- |
-| C001       | Alice        | Orchard | 11111111    | Gold           | NULL             |
-| C002       | Bob          | Bugis   | 22222222    | Silver         | NULL             |
+| C001       | Alice        | Maple Ave | 11111111    | Gold           | NULL             |
+| C002       | Bob          | Birch St   | 22222222    | Silver         | NULL             |
 
 注释：
 
@@ -363,15 +363,15 @@ ADD CONSTRAINT PK_Country PRIMARY KEY (CountryCode);
 ### 11.2.6 添加唯一键
 
 ```sql
--- 向 IssueTran 表添加唯一约束
-ALTER TABLE IssueTran
+-- 向 BookLoans 表添加唯一约束
+ALTER TABLE BookLoans
 ADD UNIQUE (TransactionID);
 ```
 
 执行效果：
 
 ```text
-IssueTran 表的 TransactionID 值必须唯一。
+BookLoans 表的 TransactionID 值必须唯一。
 允许 NULL（取决于数据库），但多个 NULL 的行为可能不同。
 ```
 
@@ -382,8 +382,8 @@ IssueTran 表的 TransactionID 值必须唯一。
 - 可以命名约束：
 
 ```sql
-ALTER TABLE IssueTran
-ADD CONSTRAINT UQ_IssueTran_TransactionID
+ALTER TABLE BookLoans
+ADD CONSTRAINT UQ_BookLoans_TransactionID
 UNIQUE (TransactionID);
 ```
 
@@ -397,8 +397,8 @@ UNIQUE (TransactionID);
 ### 11.2.7 添加外键
 
 ```sql
--- 向 IssueTran 表添加外键
-ALTER TABLE IssueTran
+-- 向 BookLoans 表添加外键
+ALTER TABLE BookLoans
 ADD FOREIGN KEY (CustomerId)
 REFERENCES Customers (CustomerId);
 ```
@@ -406,7 +406,7 @@ REFERENCES Customers (CustomerId);
 执行效果：
 
 ```text
-IssueTran 表的 CustomerId 必须存在于 Customers 表的 CustomerId 中。
+BookLoans 表的 CustomerId 必须存在于 Customers 表的 CustomerId 中。
 插入不存在的 CustomerId 会失败。
 删除被引用的 Customers 行可能失败。
 ```
@@ -418,8 +418,8 @@ IssueTran 表的 CustomerId 必须存在于 Customers 表的 CustomerId 中。
 - 可以命名约束：
 
 ```sql
-ALTER TABLE IssueTran
-ADD CONSTRAINT FK_IssueTran_Customers
+ALTER TABLE BookLoans
+ADD CONSTRAINT FK_BookLoans_Customers
 FOREIGN KEY (CustomerId)
 REFERENCES Customers (CustomerId);
 ```
@@ -435,12 +435,12 @@ REFERENCES Customers (CustomerId);
 
 ```sql
 -- 删除外键约束
-ALTER TABLE IssueTran
-DROP CONSTRAINT FK_IssueTran_Customers;
+ALTER TABLE BookLoans
+DROP CONSTRAINT FK_BookLoans_Customers;
 
 -- 删除唯一约束
-ALTER TABLE IssueTran
-DROP CONSTRAINT UQ_IssueTran_TransactionID;
+ALTER TABLE BookLoans
+DROP CONSTRAINT UQ_BookLoans_TransactionID;
 ```
 
 注释：
@@ -450,12 +450,12 @@ DROP CONSTRAINT UQ_IssueTran_TransactionID;
 
 ```sql
 -- MySQL 删除外键
-ALTER TABLE IssueTran
-DROP FOREIGN KEY FK_IssueTran_Customers;
+ALTER TABLE BookLoans
+DROP FOREIGN KEY FK_BookLoans_Customers;
 
 -- MySQL 删除唯一约束
-ALTER TABLE IssueTran
-DROP INDEX UQ_IssueTran_TransactionID;
+ALTER TABLE BookLoans
+DROP INDEX UQ_BookLoans_TransactionID;
 ```
 
 作用：

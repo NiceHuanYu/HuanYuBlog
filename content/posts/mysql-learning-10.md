@@ -17,19 +17,19 @@ seriesOrder: 10
 
 ## 13.0 示例数据
 
-### EVENT_PARTICIPANT 表
+### BOOK_SALES 表
 
-| EventName    | Participant | Country |
+| BookTitle    | Buyer | Country |
 | ------------ | ----------- | ------- |
-| Tomorrowland | Tom         | BE      |
-| Tomorrowland | Alice       | BE      |
-| Coachella    | Tom         | US      |
-| Coachella    | Bob         | US      |
-| Coachella    | Chen        | CN      |
+| Effective Java | Tom         | BE      |
+| Effective Java | Alice       | BE      |
+| Clean Code    | Tom         | US      |
+| Clean Code    | Bob         | US      |
+| Clean Code    | Chen        | CN      |
 
-### IssueTran 表
+### BookLoans 表
 
-| TransactionID | CustomerID | VideoCode | DateIssue   |
+| TransactionID | CustomerID | BookCode | DateIssue   |
 | ------------- | ---------- | --------- | ----------- |
 | T001          | C001       | 55        | 20 Nov 2000 |
 | T002          | C002       | 66        | 20 Nov 2000 |
@@ -50,48 +50,48 @@ seriesOrder: 10
 
 - 视图是虚拟表（virtual table），基于 SQL 查询的结果。
 - 不存储数据；访问视图时，底层 SQL 查询重新运行。
-- 示例：`VW_EVENT_PARTICIPANT_TOMORROWLAND` 和 `VW_EVENT_PARTICIPANT_COACHELLA` 从 `EVENT_PARTICIPANT` 表派生。
+- 示例：`VW_SALES_EFFECTIVE_JAVA` 和 `VW_SALES_CLEAN_CODE` 从 `BOOK_SALES` 表派生。
 
 示例：
 
 ```sql
--- 创建 Tomorrowland 参与者的视图
-CREATE VIEW VW_EVENT_PARTICIPANT_TOMORROWLAND AS
-SELECT EventName, Participant, Country
-FROM EVENT_PARTICIPANT
-WHERE EventName = 'Tomorrowland';
+-- 创建 Effective Java 参与者的视图
+CREATE VIEW VW_SALES_EFFECTIVE_JAVA AS
+SELECT BookTitle, Buyer, Country
+FROM BOOK_SALES
+WHERE BookTitle = 'Effective Java';
 
--- 创建 Coachella 参与者的视图
-CREATE VIEW VW_EVENT_PARTICIPANT_COACHELLA AS
-SELECT EventName, Participant, Country
-FROM EVENT_PARTICIPANT
-WHERE EventName = 'Coachella';
+-- 创建 Clean Code 参与者的视图
+CREATE VIEW VW_SALES_CLEAN_CODE AS
+SELECT BookTitle, Buyer, Country
+FROM BOOK_SALES
+WHERE BookTitle = 'Clean Code';
 ```
 
 查询视图：
 
 ```sql
-SELECT * FROM VW_EVENT_PARTICIPANT_TOMORROWLAND;
+SELECT * FROM VW_SALES_EFFECTIVE_JAVA;
 ```
 
 执行效果：
 
-| EventName    | Participant | Country |
+| BookTitle    | Buyer | Country |
 | ------------ | ----------- | ------- |
-| Tomorrowland | Tom         | BE      |
-| Tomorrowland | Alice       | BE      |
+| Effective Java | Tom         | BE      |
+| Effective Java | Alice       | BE      |
 
 ```sql
-SELECT * FROM VW_EVENT_PARTICIPANT_COACHELLA;
+SELECT * FROM VW_SALES_CLEAN_CODE;
 ```
 
 执行效果：
 
-| EventName | Participant | Country |
+| BookTitle | Buyer | Country |
 | --------- | ----------- | ------- |
-| Coachella | Tom         | US      |
-| Coachella | Bob         | US      |
-| Coachella | Chen        | CN      |
+| Clean Code | Tom         | US      |
+| Clean Code | Bob         | US      |
+| Clean Code | Chen        | CN      |
 
 注释：
 
@@ -103,11 +103,11 @@ SELECT * FROM VW_EVENT_PARTICIPANT_COACHELLA;
 
 ```sql
 -- 向基础表插入新行
-INSERT INTO EVENT_PARTICIPANT
-VALUES ('Tomorrowland', 'David', 'BE');
+INSERT INTO BOOK_SALES
+VALUES ('Effective Java', 'David', 'BE');
 
 -- 再次查询视图，会看到新行
-SELECT * FROM VW_EVENT_PARTICIPANT_TOMORROWLAND;
+SELECT * FROM VW_SALES_EFFECTIVE_JAVA;
 -- 结果中包含 David
 ```
 
@@ -186,20 +186,20 @@ WHERE condition;
 
 ```sql
 CREATE VIEW Nov20TranView AS
-SELECT TransactionID, CustomerID, VideoCode
-FROM IssueTran
+SELECT TransactionID, CustomerID, BookCode
+FROM BookLoans
 WHERE DateIssue = '20 Nov 2000';
 ```
 
 查询视图：
 
 ```sql
-SELECT * FROM Nov20TranView WHERE VideoCode = 55;
+SELECT * FROM Nov20TranView WHERE BookCode = 55;
 ```
 
 执行效果：
 
-| TransactionID | CustomerID | VideoCode |
+| TransactionID | CustomerID | BookCode |
 | ------------- | ---------- | --------- |
 | T001          | C001       | 55        |
 
@@ -208,12 +208,12 @@ SELECT * FROM Nov20TranView WHERE VideoCode = 55;
 - DBMS 将查询转换为：
 
 ```sql
-SELECT * FROM IssueTran
-WHERE VideoCode = 55 AND DateIssue = '20 Nov 2000';
+SELECT * FROM BookLoans
+WHERE BookCode = 55 AND DateIssue = '20 Nov 2000';
 ```
 
 - 用户只看到 20 Nov 2000 的交易。
-- 用户再加 `WHERE VideoCode = 55`，相当于在视图定义上再加过滤。
+- 用户再加 `WHERE BookCode = 55`，相当于在视图定义上再加过滤。
 
 作用：
 

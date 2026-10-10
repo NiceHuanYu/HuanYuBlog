@@ -35,13 +35,13 @@ seriesOrder: 2
 | 1002    | 3      | 150    |
 | 1003    | 1      | 200    |
 
-### IssueTrans 表
+### BookLoans 表
 
-| Id  | CustomerId | VideoCode |
+| Id  | CustomerId | BookCode |
 | ---:| ----------:| --------- |
-| 1   | 1          | V001      |
-| 2   | 3          | V002      |
-| 3   | 6          | V999      |
+| 1   | 1          | B001      |
+| 2   | 3          | B002      |
+| 3   | 6          | B999      |
 
 ### Employees 表
 
@@ -399,35 +399,35 @@ JOIN 用于把多个表按关联条件组合起来。
 ### 5.4.1 INNER JOIN
 
 ```sql
-SELECT C.Id, C.Name, T.VideoCode
+SELECT C.Id, C.Name, T.BookCode
 FROM Customers C
-JOIN IssueTrans T ON C.Id = T.CustomerId;
+JOIN BookLoans T ON C.Id = T.CustomerId;
 
 -- JOIN 默认就是 INNER JOIN，仅返回匹配行
 
 -- 结果：
--- 1 Chia  V001
--- 3 Alice V002
+-- 1 Chia  B001
+-- 3 Alice B002
 ```
 
 说明：
 
-- `IssueTrans` 中 `CustomerId = 6` 在 `Customers` 中没有对应客户，所以不会出现在结果中。
-- `Customers` 中 2、4、5 没有对应 `IssueTrans`，也不会出现。
+- `BookLoans` 中 `CustomerId = 6` 在 `Customers` 中没有对应客户，所以不会出现在结果中。
+- `Customers` 中 2、4、5 没有对应 `BookLoans`，也不会出现。
 
 ### 5.4.2 LEFT JOIN
 
 ```sql
-SELECT C.Id, C.Name, T.VideoCode
+SELECT C.Id, C.Name, T.BookCode
 FROM Customers C
-LEFT JOIN IssueTrans T ON C.Id = T.CustomerId;
+LEFT JOIN BookLoans T ON C.Id = T.CustomerId;
 
 -- LEFT JOIN 保留左表所有行，右表无匹配则显示 NULL
 
 -- 结果：
--- 1 Chia  V001
+-- 1 Chia  B001
 -- 2 Tom   NULL
--- 3 Alice V002
+-- 3 Alice B002
 -- 4 Bob   NULL
 -- 5 Chen  NULL
 ```
@@ -435,16 +435,16 @@ LEFT JOIN IssueTrans T ON C.Id = T.CustomerId;
 ### 5.4.3 RIGHT JOIN
 
 ```sql
-SELECT C.Id, C.Name, T.VideoCode
+SELECT C.Id, C.Name, T.BookCode
 FROM Customers C
-RIGHT JOIN IssueTrans T ON C.Id = T.CustomerId;
+RIGHT JOIN BookLoans T ON C.Id = T.CustomerId;
 
 -- RIGHT JOIN 保留右表所有行，左表无匹配则显示 NULL
 
 -- 结果：
--- 1    Chia  V001
--- 3    Alice V002
--- NULL NULL  V999
+-- 1    Chia  B001
+-- 3    Alice B002
+-- NULL NULL  B999
 ```
 
 ### 5.4.4 找“没有匹配”的行
@@ -452,7 +452,7 @@ RIGHT JOIN IssueTrans T ON C.Id = T.CustomerId;
 ```sql
 SELECT C.Id, C.Name
 FROM Customers C
-LEFT JOIN IssueTrans T ON C.Id = T.CustomerId
+LEFT JOIN BookLoans T ON C.Id = T.CustomerId
 WHERE T.Id IS NULL;
 
 -- 结果：
@@ -497,15 +497,15 @@ LEFT JOIN Employees Supervisor ON Staff.ReportsTo = Supervisor.Id;
 ### 5.4.6 ON 与 WHERE 的区别
 
 ```sql
--- 只连接 VideoCode = 'V001' 的记录，但保留所有客户
-SELECT C.Id, C.Name, T.VideoCode
+-- 只连接 BookCode = 'B001' 的记录，但保留所有客户
+SELECT C.Id, C.Name, T.BookCode
 FROM Customers C
-LEFT JOIN IssueTrans T
+LEFT JOIN BookLoans T
   ON C.Id = T.CustomerId
- AND T.VideoCode = 'V001';
+ AND T.BookCode = 'B001';
 
 -- 结果：
--- 1 Chia  V001
+-- 1 Chia  B001
 -- 2 Tom   NULL
 -- 3 Alice NULL
 -- 4 Bob   NULL
@@ -514,13 +514,13 @@ LEFT JOIN IssueTrans T
 
 ```sql
 -- 如果把右表过滤条件放到 WHERE，会过滤掉右表为 NULL 的行
-SELECT C.Id, C.Name, T.VideoCode
+SELECT C.Id, C.Name, T.BookCode
 FROM Customers C
-LEFT JOIN IssueTrans T ON C.Id = T.CustomerId
-WHERE T.VideoCode = 'V001';
+LEFT JOIN BookLoans T ON C.Id = T.CustomerId
+WHERE T.BookCode = 'B001';
 
 -- 结果类似 INNER JOIN：
--- 1 Chia V001
+-- 1 Chia B001
 ```
 
 结论：
@@ -531,16 +531,16 @@ WHERE T.VideoCode = 'V001';
 ### 5.4.7 多表 JOIN
 
 ```sql
-SELECT C.Name, O.OrderId, T.VideoCode
+SELECT C.Name, O.OrderId, T.BookCode
 FROM Customers C
 JOIN Orders O ON C.Id = O.CustId
-JOIN IssueTrans T ON C.Id = T.CustomerId;
+JOIN BookLoans T ON C.Id = T.CustomerId;
 
--- Chia 有两个订单，同时有 V001 交易，因此可能出现多行组合
+-- Chia 有两个订单，同时有 B001 交易，因此可能出现多行组合
 -- 例如：
--- Chia  1001 V001
--- Chia  1003 V001
--- Alice 1002 V002
+-- Chia  1001 B001
+-- Chia  1003 B001
+-- Alice 1002 B002
 ```
 
 如果只想看客户列表，不关心订单明细，可使用 `DISTINCT`：

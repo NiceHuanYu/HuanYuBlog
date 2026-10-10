@@ -17,22 +17,22 @@ seriesOrder: 9
 
 ## 12.0 示例表结构
 
-### Producers 表（父表）
+### Publishers 表（父表）
 
-| ProducerId | ProducerName | CountryCode |
+| PublisherId | PublisherName | CountryCode |
 | ---------- | ------------ | ----------- |
-| P001       | TimVideo     | SG          |
-| P002       | ABC Films    | US          |
+| P001       | Sunrise Press     | SG          |
+| P002       | Northwind Books    | US          |
 
-### ProducerWebSite 表
+### PublisherWebsite 表
 
-| Producer | WebSite          | Country |
+| Publisher | WebSite          | Country |
 | -------- | ---------------- | ------- |
-| TimVideo | www.timvideo.com | SG      |
+| Sunrise Press | www.timvideo.com | SG      |
 
 ### StockAdjustment 表
 
-| VideoCode | AdjustmentQty | DateAdjusted | WhoAdjust | AdjustReason |
+| BookCode | AdjustmentQty | DateAdjusted | WhoAdjust | AdjustReason |
 | --------- | -------------:| ------------ | --------- | ------------ |
 | 100       | 5             | 2026-10-01   | Alice     | Restock      |
 | 200       | -3            | 2026-10-02   | Bob       | Damaged      |
@@ -61,14 +61,14 @@ seriesOrder: 9
 
 ```sql
 -- 情况 1：插入无效数据
-INSERT INTO StockAdjustment (VideoCode, AdjustmentQty)
+INSERT INTO StockAdjustment (BookCode, AdjustmentQty)
 VALUES (-1, 5);
--- 如果 VideoCode 表示商品编号，负数就是不合理的值
+-- 如果 BookCode 表示商品编号，负数就是不合理的值
 
 -- 情况 2：把现有数据改成不正确值
 UPDATE StockAdjustment
 SET AdjustmentQty = 'abc'
-WHERE VideoCode = 100;
+WHERE BookCode = 100;
 -- 类型不匹配，或数值超出业务允许范围
 
 -- 情况 3：错误删除数据
@@ -77,7 +77,7 @@ WHERE CustomerId = 'C1';
 -- 如果 Orders 表中还有引用 C1 的订单，就会造成孤立数据
 
 -- 情况 4：插入重复主键
-INSERT INTO Producers (ProducerId, ProducerName, CountryCode)
+INSERT INTO Publishers (PublisherId, PublisherName, CountryCode)
 VALUES ('P001', 'NewName', 'CN');
 -- P001 已存在，实体完整性被破坏
 
@@ -102,35 +102,35 @@ VALUES (1003, 'C999', 50);
 - 通常转化为不可接受 NULL 值的字段。
 
 ```sql
-CREATE TABLE ProducerWebSite (
-  Producer varchar(50) not null,
+CREATE TABLE PublisherWebsite (
+  Publisher varchar(50) not null,
   WebSite varchar(200) not null,
   Country varchar(50),
-  PRIMARY KEY (Producer)
+  PRIMARY KEY (Publisher)
 );
 ```
 
 注释：
 
 - `not null` 表示该列必须有值。
-- `Producer`、`WebSite` 不能为 NULL。
+- `Publisher`、`WebSite` 不能为 NULL。
 - `Country` 没有写 `not null`，所以允许为 NULL。
-- `PRIMARY KEY (Producer)` 同时要求 `Producer` 唯一且非空。
+- `PRIMARY KEY (Publisher)` 同时要求 `Publisher` 唯一且非空。
 
 执行效果：
 
 ```sql
 -- 成功
-INSERT INTO ProducerWebSite (Producer, WebSite, Country)
-VALUES ('TimVideo', 'www.timvideo.com', 'SG');
+INSERT INTO PublisherWebsite (Publisher, WebSite, Country)
+VALUES ('Sunrise Press', 'www.timvideo.com', 'SG');
 
--- 失败：Producer 为 NULL
-INSERT INTO ProducerWebSite (Producer, WebSite)
+-- 失败：Publisher 为 NULL
+INSERT INTO PublisherWebsite (Publisher, WebSite)
 VALUES (NULL, 'www.example.com');
 
 -- 成功：Country 为 NULL
-INSERT INTO ProducerWebSite (Producer, WebSite)
-VALUES ('ABC Films', 'www.abc.com');
+INSERT INTO PublisherWebsite (Publisher, WebSite)
+VALUES ('Northwind Books', 'www.abc.com');
 ```
 
 作用：
@@ -157,36 +157,36 @@ VALUES ('ABC Films', 'www.abc.com');
 
 ```sql
 CREATE TABLE StockAdjustment (
-  VideoCode smallInt not null,
+  BookCode smallInt not null,
   AdjustmentQty int,
   DateAdjusted datetime,
   WhoAdjust varchar(20),
   AdjustReason varchar(50),
-  CONSTRAINT Con_VideoCode CHECK (VideoCode BETWEEN 0 AND 99999)
+  CONSTRAINT chk_book_code CHECK (BookCode BETWEEN 0 AND 99999)
 );
 ```
 
 注释：
 
-- `VideoCode smallInt not null`：视频编号，不能为空。
-- `Con_VideoCode CHECK (VideoCode BETWEEN 0 AND 99999)`：
-  - 约束名为 `Con_VideoCode`。
-  - `VideoCode` 必须在 0 到 99999 之间。
+- `BookCode smallInt not null`：图书编号，不能为空。
+- `chk_book_code CHECK (BookCode BETWEEN 0 AND 99999)`：
+  - 约束名为 `chk_book_code`。
+  - `BookCode` 必须在 0 到 99999 之间。
 - `BETWEEN 0 AND 99999` 包含两端。
 
 执行效果：
 
 ```sql
 -- 成功
-INSERT INTO StockAdjustment (VideoCode, AdjustmentQty)
+INSERT INTO StockAdjustment (BookCode, AdjustmentQty)
 VALUES (100, 5);
 
 -- 失败：超出范围
-INSERT INTO StockAdjustment (VideoCode, AdjustmentQty)
+INSERT INTO StockAdjustment (BookCode, AdjustmentQty)
 VALUES (100000, 5);
 
 -- 失败：为负数
-INSERT INTO StockAdjustment (VideoCode, AdjustmentQty)
+INSERT INTO StockAdjustment (BookCode, AdjustmentQty)
 VALUES (-1, 5);
 ```
 
@@ -194,19 +194,19 @@ VALUES (-1, 5);
 
 ```sql
 -- 数量必须大于 0
-CONSTRAINT Con_Qty CHECK (AdjustmentQty > 0)
+CONSTRAINT chk_qty CHECK (AdjustmentQty > 0)
 
 -- 日期不能早于 2000-01-01
-CONSTRAINT Con_Date CHECK (DateAdjusted >= '2000-01-01')
+CONSTRAINT chk_date CHECK (DateAdjusted >= '2000-01-01')
 
 -- 多列条件
-CONSTRAINT Con_Range CHECK (VideoCode >= 0 AND VideoCode <= 99999)
+CONSTRAINT chk_code_range CHECK (BookCode >= 0 AND BookCode <= 99999)
 
 -- 枚举式检查
-CONSTRAINT Con_Status CHECK (Status IN ('Active', 'Inactive', 'Pending'))
+CONSTRAINT chk_status CHECK (Status IN ('Active', 'Inactive', 'Pending'))
 
 -- 字符串长度
-CONSTRAINT Con_NameLen CHECK (CHAR_LENGTH(WhoAdjust) >= 2)
+CONSTRAINT chk_name_len CHECK (CHAR_LENGTH(WhoAdjust) >= 2)
 ```
 
 作用：
@@ -228,39 +228,39 @@ CONSTRAINT Con_NameLen CHECK (CHAR_LENGTH(WhoAdjust) >= 2)
 - 表中每行在特定列上具有唯一值，通常使用 UNIQUE 约束或 PRIMARY KEY 约束。
 
 ```sql
-CREATE TABLE Producers (
-  ProducerId varchar(50) not null,
-  ProducerName varchar(50) not null UNIQUE,
+CREATE TABLE Publishers (
+  PublisherId varchar(50) not null,
+  PublisherName varchar(50) not null UNIQUE,
   CountryCode varchar(3) not null,
-  PRIMARY KEY (ProducerId, ProducerName)
+  PRIMARY KEY (PublisherId, PublisherName)
 );
 ```
 
 注释：
 
-- `ProducerId not null`：不能为空。
-- `ProducerName not null UNIQUE`：不能为空，且值必须唯一。
+- `PublisherId not null`：不能为空。
+- `PublisherName not null UNIQUE`：不能为空，且值必须唯一。
 - `CountryCode not null`：不能为空。
-- `PRIMARY KEY (ProducerId, ProducerName)`：复合主键，两列组合必须唯一且非空。
+- `PRIMARY KEY (PublisherId, PublisherName)`：复合主键，两列组合必须唯一且非空。
 
 执行效果：
 
 ```sql
 -- 成功
-INSERT INTO Producers (ProducerId, ProducerName, CountryCode)
-VALUES ('P001', 'TimVideo', 'SG');
+INSERT INTO Publishers (PublisherId, PublisherName, CountryCode)
+VALUES ('P001', 'Sunrise Press', 'SG');
 
--- 成功：ProducerId 重复但 ProducerName 不同，组合唯一
-INSERT INTO Producers (ProducerId, ProducerName, CountryCode)
-VALUES ('P001', 'ABC Films', 'US');
+-- 成功：PublisherId 重复但 PublisherName 不同，组合唯一
+INSERT INTO Publishers (PublisherId, PublisherName, CountryCode)
+VALUES ('P001', 'Northwind Books', 'US');
 
--- 失败：ProducerName 重复，违反 UNIQUE
-INSERT INTO Producers (ProducerId, ProducerName, CountryCode)
-VALUES ('P002', 'TimVideo', 'CN');
+-- 失败：PublisherName 重复，违反 UNIQUE
+INSERT INTO Publishers (PublisherId, PublisherName, CountryCode)
+VALUES ('P002', 'Sunrise Press', 'CN');
 
--- 失败：ProducerId + ProducerName 组合重复，违反 PRIMARY KEY
-INSERT INTO Producers (ProducerId, ProducerName, CountryCode)
-VALUES ('P001', 'TimVideo', 'US');
+-- 失败：PublisherId + PublisherName 组合重复，违反 PRIMARY KEY
+INSERT INTO Publishers (PublisherId, PublisherName, CountryCode)
+VALUES ('P001', 'Sunrise Press', 'US');
 ```
 
 主键与 UNIQUE 的区别：
@@ -378,14 +378,14 @@ ON UPDATE CASCADE;
 
 ```sql
 CREATE TABLE StockAdjustment (
-  VideoCode smallInt not null,
+  BookCode smallInt not null,
   AdjustmentQty int,
   DateAdjusted datetime,
   WhoAdjust varchar(20),
   AdjustReason varchar(50),
-  CONSTRAINT PK_StockAdjustment PRIMARY KEY (VideoCode),
-  CONSTRAINT Con_VideoCode CHECK (VideoCode BETWEEN 0 AND 99999),
-  CONSTRAINT Con_Qty CHECK (AdjustmentQty > 0)
+  CONSTRAINT PK_StockAdjustment PRIMARY KEY (BookCode),
+  CONSTRAINT chk_book_code CHECK (BookCode BETWEEN 0 AND 99999),
+  CONSTRAINT chk_qty CHECK (AdjustmentQty > 0)
 );
 ```
 

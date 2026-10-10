@@ -17,14 +17,14 @@ seriesOrder: 6
 
 ## 9.0 示例约定
 
-假设我们有一个数据库 `VideoStore`，其中已有表 `Producers`：
+假设我们有一个数据库 `VideoStore`，其中已有表 `Publishers`：
 
-| Producer  |
+| Publisher  |
 | --------- |
-| TimVideo  |
-| ABC Films |
+| Sunrise Press  |
+| Northwind Books |
 
-下面围绕 `GoodCustomers`、`shirts`、`ProducerWebSite` 等表进行说明。
+下面围绕 `GoodCustomers`、`shirts`、`PublisherWebsite` 等表进行说明。
 
 ---
 
@@ -79,21 +79,21 @@ MemberCategory  varchar(10)  NOT NULL
 INSERT INTO GoodCustomers
 (CustomerID, CustomerName, Address, PhoneNumber, MemberCategory)
 VALUES
-('C001', 'Alice', 'Orchard', '11111111', 'Gold');
+('C001', 'Alice', 'Maple Ave', '11111111', 'Gold');
 
 -- 成功
 
 INSERT INTO GoodCustomers
 (CustomerID, CustomerName, Address, MemberCategory)
 VALUES
-('C002', 'Bob', 'Bugis', 'Silver');
+('C002', 'Bob', 'Birch St', 'Silver');
 
 -- 成功，PhoneNumber 为 NULL
 
 INSERT INTO GoodCustomers
 (CustomerID, CustomerName, Address, PhoneNumber, MemberCategory)
 VALUES
-('C001', 'Alice', 'Orchard', '11111111', 'Gold');
+('C001', 'Alice', 'Maple Ave', '11111111', 'Gold');
 
 -- 失败：主键 (C001, Gold) 重复
 ```
@@ -395,56 +395,56 @@ SELECT name, size FROM shirts WHERE size = 'medium';
 ## 9.3 外键定义
 
 ```sql
-CREATE TABLE ProducerWebSite (
-  Producer varchar(50) not null,
+CREATE TABLE PublisherWebsite (
+  Publisher varchar(50) not null,
   WebSite varchar(200) not null,
-  PRIMARY KEY (Producer),
-  FOREIGN KEY (Producer) REFERENCES Producers (Producer)
+  PRIMARY KEY (Publisher),
+  FOREIGN KEY (Publisher) REFERENCES Publishers (Publisher)
 );
 -- 外键的本地列名必须用括号，否则会报错，亲测易错
 ```
 
 注释：
 
-- `ProducerWebSite` 表记录制片人及其网站。
-- `Producer` 是主键，也是外键。
-- `FOREIGN KEY (Producer) REFERENCES Producers (Producer)`：
-  - 本表的 `Producer` 列引用 `Producers` 表的 `Producer` 列。
-  - 插入 `ProducerWebSite` 时，`Producer` 必须已存在于 `Producers` 表中。
+- `PublisherWebsite` 表记录出版社及其官网。
+- `Publisher` 是主键，也是外键。
+- `FOREIGN KEY (Publisher) REFERENCES Publishers (Publisher)`：
+  - 本表的 `Publisher` 列引用 `Publishers` 表的 `Publisher` 列。
+  - 插入 `PublisherWebsite` 时，`Publisher` 必须已存在于 `Publishers` 表中。
 
 示例效果：
 
-假设 `Producers` 表数据：
+假设 `Publishers` 表数据：
 
-| Producer  |
+| Publisher  |
 | --------- |
-| TimVideo  |
-| ABC Films |
+| Sunrise Press  |
+| Northwind Books |
 
 插入成功：
 
 ```sql
-INSERT INTO ProducerWebSite (Producer, WebSite)
-VALUES ('TimVideo', 'www.timvideocompany.com');
+INSERT INTO PublisherWebsite (Publisher, WebSite)
+VALUES ('Sunrise Press', 'www.timvideocompany.com');
 ```
 
 插入失败：
 
 ```sql
-INSERT INTO ProducerWebSite (Producer, WebSite)
-VALUES ('UnknownProducer', 'www.unknown.com');
--- 失败：Producers 表中没有 UnknownProducer
+INSERT INTO PublisherWebsite (Publisher, WebSite)
+VALUES ('UnknownPublisher', 'www.unknown.com');
+-- 失败：Publishers 表中没有 UnknownPublisher
 ```
 
 命名约束替代语法：
 
 ```sql
-CREATE TABLE ProducerWebSite (
-  Producer varchar(50) not null,
+CREATE TABLE PublisherWebsite (
+  Publisher varchar(50) not null,
   WebSite varchar(200) not null,
-  PRIMARY KEY (Producer),
+  PRIMARY KEY (Publisher),
   CONSTRAINT fk_producer_website
-    FOREIGN KEY (Producer) REFERENCES Producers (Producer)
+    FOREIGN KEY (Publisher) REFERENCES Publishers (Publisher)
 );
 ```
 
@@ -456,15 +456,15 @@ CREATE TABLE ProducerWebSite (
 删除外键示例：
 
 ```sql
-ALTER TABLE ProducerWebSite
+ALTER TABLE PublisherWebsite
 DROP CONSTRAINT fk_producer_website;
 ```
 
 作用：
 
 - 保证引用完整性。
-- 防止插入不存在的制片人。
-- 防止删除仍被引用的制片人，除非设置了级联规则。
+- 防止插入不存在的出版社。
+- 防止删除仍被引用的出版社，除非设置了级联规则。
 
 ---
 

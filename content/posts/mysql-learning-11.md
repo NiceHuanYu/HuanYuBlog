@@ -25,13 +25,13 @@ seriesOrder: 11
 | 2   | Tom   | ML   | 18  |
 | 3   | Alice | IND  | 25  |
 
-### Movies 表
+### Books 表
 
-| MovieId | Title  | Rating | TotalStock |
+| BookId | Title  | Rating | TotalStock |
 | -------:| ------ | ------ | ----------:|
-| 1       | MovieA | G      | 10         |
-| 2       | MovieB | PG     | 5          |
-| 3       | MovieC | G      | 3          |
+| 1       | Effective Java | G      | 10         |
+| 2       | Clean Code | PG     | 5          |
+| 3       | Refactoring | G      | 3          |
 
 ### Accounts 表
 
@@ -92,7 +92,7 @@ seriesOrder: 11
 
 ```sql
 DELIMITER $$
-CREATE PROCEDURE sp_test_1()
+CREATE PROCEDURE sp_list_customers()
 BEGIN
   SELECT * FROM Customers;
   statement2;
@@ -105,7 +105,7 @@ DELIMITER ;
 
 - `DELIMITER $$`：把语句结束符从 `;` 临时改成 `$$`。
 - 原因：存储过程体内有多条 SQL，每条以 `;` 结尾。如果不改结束符，数据库会在第一条 `;` 处误认为存储过程结束。
-- `CREATE PROCEDURE sp_test_1()`：创建名为 `sp_test_1` 的存储过程，无参数。
+- `CREATE PROCEDURE sp_list_customers()`：创建名为 `sp_list_customers` 的存储过程，无参数。
 - `BEGIN ... END`：过程体，包含多条语句。
 - `statement2;`、`statement3;`：占位，实际使用时替换为具体 SQL。
 - `END $$`：用 `$$` 结束存储过程定义。
@@ -115,7 +115,7 @@ DELIMITER ;
 
 ```sql
 -- 调用无参存储过程
-CALL sp_test_1();
+CALL sp_list_customers();
 ```
 
 结果：执行过程体内的 `SELECT * FROM Customers;`，返回 Customers 全部行。
@@ -139,7 +139,7 @@ CALL sp_test_1();
 DELIMITER //
 CREATE PROCEDURE MyProcedure (var1 CHAR(2), var2 INTEGER)
 BEGIN
-  SELECT * FROM Movies WHERE Rating = var1 AND TotalStock > var2;
+  SELECT * FROM Books WHERE Rating = var1 AND TotalStock > var2;
 END //
 DELIMITER ;
 
@@ -165,14 +165,14 @@ CALL MyProcedure('G', 5);
 - 等价于执行：
 
 ```sql
-SELECT * FROM Movies WHERE Rating = 'G' AND TotalStock > 5;
+SELECT * FROM Books WHERE Rating = 'G' AND TotalStock > 5;
 ```
 
 结果：
 
-| MovieId | Title  | Rating | TotalStock |
+| BookId | Title  | Rating | TotalStock |
 | -------:| ------ | ------ | ----------:|
-| 1       | MovieA | G      | 10         |
+| 1       | Effective Java | G      | 10         |
 
 再调用：
 
@@ -182,9 +182,9 @@ CALL MyProcedure('PG', 0);
 
 结果：
 
-| MovieId | Title  | Rating | TotalStock |
+| BookId | Title  | Rating | TotalStock |
 | -------:| ------ | ------ | ----------:|
-| 2       | MovieB | PG     | 5          |
+| 2       | Clean Code | PG     | 5          |
 
 作用：
 

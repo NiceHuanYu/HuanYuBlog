@@ -21,11 +21,11 @@ seriesOrder: 4
 
 | CustomerID | CustomerName | Address   | Phone    | MemberCategory |
 | ---------- | ------------ | --------- | -------- | -------------- |
-| C001       | Alice        | Orchard   | 11111111 | Gold           |
-| C002       | Bob          | Bugis     | 22222222 | Silver         |
-| C003       | Chen         | Neil Road | 33333333 | Bronze         |
+| C001       | Alice        | Maple Ave   | 11111111 | Gold           |
+| C002       | Bob          | Birch St     | 22222222 | Silver         |
+| C003       | Chen         | Maple Street | 33333333 | Bronze         |
 | C004       | David        | Marina    | 44444444 | Gold           |
-| C005       | Grace Leong  | Chinatown | 55555555 | Silver         |
+| C005       | Emily Chen  | Chinatown | 55555555 | Silver         |
 
 ### PrestigeCustomers 表
 
@@ -33,9 +33,9 @@ seriesOrder: 4
 
 | CustomerID | Name        | Address   | Phone    | MemberCategory |
 | ---------- | ----------- | --------- | -------- | -------------- |
-| C9000      | Grace Leong | Neil Road | NULL     | Silver         |
-| C9001      | Tom         | Orchard   | 12345678 | Bronze         |
-| C9002      | Anna        | Bugis     | 87654321 | Gold           |
+| C9000      | Emily Chen | Maple Street | NULL     | Silver         |
+| C9001      | Tom         | Maple Ave   | 12345678 | Bronze         |
+| C9002      | Anna        | Birch St     | 87654321 | Gold           |
 
 说明：
 
@@ -69,7 +69,7 @@ VALUES (值1, 值2, ...);
 
 ```sql
 -- 按表中列的定义顺序，提供所有列的值
-INSERT INTO ProducerWebsite
+INSERT INTO PublisherWebsite
 VALUES ('Tim', 'www.timvideocompany.com');
 ```
 
@@ -82,7 +82,7 @@ VALUES ('Tim', 'www.timvideocompany.com');
 执行效果：
 
 ```text
-ProducerWebsite 表新增一行：
+PublisherWebsite 表新增一行：
 Tim | www.timvideocompany.com
 ```
 
@@ -93,14 +93,14 @@ Tim | www.timvideocompany.com
 ```sql
 -- 指定列名，只插入这些列
 INSERT INTO PrestigeCustomers (CustomerID, Name, Address, MemberCategory)
-VALUES ('C9000', 'Grace Leong', 'Neil Road', 'Silver');
+VALUES ('C9000', 'Emily Chen', 'Maple Street', 'Silver');
 ```
 
 执行效果：
 
 ```text
 PrestigeCustomers 新增一行：
-C9000 | Grace Leong | Neil Road | NULL | Silver
+C9000 | Emily Chen | Maple Street | NULL | Silver
 ```
 
 注释：
@@ -114,7 +114,7 @@ C9000 | Grace Leong | Neil Road | NULL | Silver
 ```sql
 -- 假设 Phone 和 Email 都是 NOT NULL 且无默认值
 INSERT INTO PrestigeCustomers (CustomerID, Name, Address, MemberCategory)
-VALUES ('C9001', 'Tom', 'Orchard', 'Bronze');
+VALUES ('C9001', 'Tom', 'Maple Ave', 'Bronze');
 -- 会失败：Phone、Email 没有提供值
 ```
 
@@ -124,7 +124,7 @@ VALUES ('C9001', 'Tom', 'Orchard', 'Bronze');
 INSERT INTO PrestigeCustomers
 (CustomerID, Name, Address, Phone, Email, MemberCategory)
 VALUES
-('C9001', 'Tom', 'Orchard', '12345678', 'tom@example.com', 'Bronze');
+('C9001', 'Tom', 'Maple Ave', '12345678', 'tom@example.com', 'Bronze');
 ```
 
 作用：
@@ -141,8 +141,8 @@ VALUES
 INSERT INTO PrestigeCustomers
 (CustomerID, Name, Address, Phone, MemberCategory)
 VALUES
-('C9001', 'Tom', 'Orchard', '12345678', 'Bronze'),
-('C9002', 'Anna', 'Bugis', '87654321', 'Gold'),
+('C9001', 'Tom', 'Maple Ave', '12345678', 'Bronze'),
+('C9002', 'Anna', 'Birch St', '87654321', 'Gold'),
 ('C9003', 'Mike', 'Marina', NULL, 'Silver');
 ```
 
@@ -150,8 +150,8 @@ VALUES
 
 ```text
 PrestigeCustomers 新增 3 行：
-C9001 | Tom  | Orchard | 12345678 | Bronze
-C9002 | Anna | Bugis   | 87654321 | Gold
+C9001 | Tom  | Maple Ave | 12345678 | Bronze
+C9002 | Anna | Birch St   | 87654321 | Gold
 C9003 | Mike | Marina  | NULL     | Silver
 ```
 
@@ -178,11 +178,11 @@ WHERE MemberCategory IN ('Gold', 'Silver', 'Bronze');
 假设 `Customers` 中 5 行都满足条件，则 `PrestigeCustomers` 新增 5 行。
 
 ```text
-C001 | Alice       | Orchard   | 11111111 | Gold
-C002 | Bob         | Bugis     | 22222222 | Silver
-C003 | Chen        | Neil Road | 33333333 | Bronze
+C001 | Alice       | Maple Ave   | 11111111 | Gold
+C002 | Bob         | Birch St     | 22222222 | Silver
+C003 | Chen        | Maple Street | 33333333 | Bronze
 C004 | David       | Marina    | 44444444 | Gold
-C005 | Grace Leong | Chinatown | 55555555 | Silver
+C005 | Emily Chen | Chinatown | 55555555 | Silver
 ```
 
 注释：
@@ -235,12 +235,12 @@ MySQL 写法：
 -- 遇到重复键则忽略
 INSERT IGNORE INTO PrestigeCustomers
 (CustomerID, Name, Address, MemberCategory)
-VALUES ('C9000', 'Grace Leong', 'Neil Road', 'Silver');
+VALUES ('C9000', 'Emily Chen', 'Maple Street', 'Silver');
 
 -- 遇到重复键则更新
 INSERT INTO PrestigeCustomers
 (CustomerID, Name, Address, MemberCategory)
-VALUES ('C9000', 'Grace Leong', 'Neil Road', 'Silver')
+VALUES ('C9000', 'Emily Chen', 'Maple Street', 'Silver')
 ON DUPLICATE KEY UPDATE
 Name = VALUES(Name),
 Address = VALUES(Address),
@@ -252,7 +252,7 @@ PostgreSQL 写法：
 ```sql
 INSERT INTO PrestigeCustomers
 (CustomerID, Name, Address, MemberCategory)
-VALUES ('C9000', 'Grace Leong', 'Neil Road', 'Silver')
+VALUES ('C9000', 'Emily Chen', 'Maple Street', 'Silver')
 ON CONFLICT (CustomerID)
 DO UPDATE SET
 Name = EXCLUDED.Name,
@@ -318,16 +318,16 @@ WHERE Phone IS NULL;
 ### 7.2.2 选择性更新
 
 ```sql
--- 只更新 Name 为 Grace Leong 的行
+-- 只更新 Name 为 Emily Chen 的行
 UPDATE PrestigeCustomers
 SET Phone = 7775588
-WHERE Name = 'Grace Leong';
+WHERE Name = 'Emily Chen';
 ```
 
 执行效果：
 
 ```text
-只有 Grace Leong 的 Phone 变成 7775588。
+只有 Emily Chen 的 Phone 变成 7775588。
 其他行不变。
 ```
 
@@ -344,7 +344,7 @@ WHERE Name = 'Grace Leong';
 ```sql
 UPDATE PrestigeCustomers
 SET Phone = 7775588,
-    Address = 'Neil Road',
+    Address = 'Maple Street',
     MemberCategory = 'Gold'
 WHERE CustomerID = 'C9000';
 ```
@@ -461,10 +461,10 @@ START TRANSACTION;
 
 UPDATE PrestigeCustomers
 SET Phone = 7775588
-WHERE Name = 'Grace Leong';
+WHERE Name = 'Emily Chen';
 
 -- 先查看结果
-SELECT * FROM PrestigeCustomers WHERE Name = 'Grace Leong';
+SELECT * FROM PrestigeCustomers WHERE Name = 'Emily Chen';
 
 -- 如果不对，回滚
 ROLLBACK;
@@ -687,7 +687,7 @@ ON DELETE CASCADE;
 INSERT INTO PrestigeCustomers
 (CustomerID, Name, Address, Phone, MemberCategory)
 VALUES
-('C9100', 'Grace Leong', 'Neil Road', NULL, 'Silver');
+('C9100', 'Emily Chen', 'Maple Street', NULL, 'Silver');
 
 -- 2. 更新电话
 UPDATE PrestigeCustomers
