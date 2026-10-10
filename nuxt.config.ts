@@ -24,9 +24,10 @@ export default defineNuxtConfig({
           // 这些语言会**追加**到 @nuxt/content 的默认白名单后面
           // （默认只有 bash / html / mdc / vue / yml / scss / ts / typescript）。
           // 白名单外的语言不会报错，只是整块退化成纯文本、完全没有高亮，
-          // java 之前就是这样，所以这里补上它和几个以后可能用到的。
+          // java 和 sql 都踩过这个坑，所以这里补上它们和几个以后可能用到的。
           langs: [
             'java',
+            'sql',
             'json',
             'yaml',
             'javascript',
