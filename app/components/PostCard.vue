@@ -27,7 +27,7 @@ defineProps<{
 
       <div class="p-4">
         <h3
-          class="text-sm font-semibold text-ink transition-colors group-hover:text-accent-ink"
+          class="line-clamp-2 text-sm font-semibold text-ink transition-colors group-hover:text-accent-ink"
         >
           {{ post.title }}
         </h3>
