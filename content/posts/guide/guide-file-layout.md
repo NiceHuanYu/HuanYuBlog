@@ -18,7 +18,11 @@ seriesOrder: 1
 ```
 HuanYuBlog/
 ├── content/            ← 你写的东西都在这里
-│   ├── posts/          ← 文章
+│   ├── posts/          ← 文章，按系列分了子目录
+│   │   ├── java/       ← 《Java 学习笔记》
+│   │   ├── mysql/      ← 《SQL 学习笔记》
+│   │   ├── git/        ← 《Git 入门》
+│   │   └── guide/      ← 《博客使用指南》
 │   ├── about.md        ← 「关于」页
 │   └── contact.md      ← 「联系」页
 ├── public/             ← 原样发布的静态文件
@@ -34,16 +38,29 @@ HuanYuBlog/
 
 **在 `content/posts/` 下新建一个 `.md` 文件，就是一篇文章。**
 
-文件名会成为网址的一部分：
+文章写多了以后全堆在一个目录里不好找，所以里面按系列分了子目录，一个系列一个：
+
+| 子目录   | 放什么                        |
+| -------- | ----------------------------- |
+| `java/`  | 《Java 学习笔记》             |
+| `mysql/` | 《SQL 学习笔记》              |
+| `git/`   | 《Git 入门》                  |
+| `guide/` | 《博客使用指南》（就是这一篇） |
+
+目录名和文件名都会成为网址的一部分：
 
 ```
-content/posts/git-install-and-basics.md
+content/posts/git/git-install-and-basics.md
         ↓
-https://blog.huanyu666.top/posts/git-install-and-basics
+https://blog.huanyu666.top/posts/git/git-install-and-basics
 ```
 
-所以文件名建议用**英文小写加连字符**，别用中文或空格——它会原样出现在链接里。标题写
-在文件内部的 `title` 字段，和文件名无关。
+所以文件名建议用**英文小写加连字符**，子目录名用简短的英文，别用中文或空格——它们会原样
+出现在链接里。标题写在文件内部的 `title` 字段，和文件名无关。
+
+开新系列就新建一个子目录；子目录也能套多层，网址跟着一层层变长。**直接把文件放在
+`content/posts/` 根目录下也能用**，只是网址会少掉子目录那一段（`/posts/文件名`）——文章
+一多就不推荐了。
 
 文章不需要注册或登记，新建文件后重新构建就会自动出现在文章列表、首页和 sitemap 里。
 
@@ -108,7 +125,7 @@ https://blog.huanyu666.top/posts/git-install-and-basics
 
 日常写作只需要记两条：
 
-1. **文章** → `content/posts/` 下新建 `.md`
+1. **文章** → `content/posts/<系列>/` 下新建 `.md`
 2. **图片** → 丢进 `public/images/`，用 `/images/文件名` 引用
 
 下一篇讲文章开头那段 `---` 包起来的字段（frontmatter）每个都是干什么的。

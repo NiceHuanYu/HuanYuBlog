@@ -1,6 +1,32 @@
 # Cloudflare Pages 会读取这个文件，把旧文章地址 301 到新地址。
 # nuxt.config.ts 里的 routeRules 负责 dev/SSR，这里负责静态部署时真正的 301。
-/posts/learning-java-FOPJ  /posts/java-basics-notes  301
-/posts/learning-java-fopj  /posts/java-basics-notes  301
-/posts/learning-java-OOPJ  /posts/java-oop-notes  301
-/posts/learning-java-oopj  /posts/java-oop-notes  301
+#
+# 这份列表必须跟 nuxt.config.ts 的 routeRules 保持一致，改一边就要改另一边。
+
+# 更早的历史地址：两篇 Java 笔记改过文件名（大写来自历史 sitemap，小写来自被规范化的分享链接）
+/posts/learning-java-FOPJ  /posts/java/java-basics-notes  301
+/posts/learning-java-fopj  /posts/java/java-basics-notes  301
+/posts/learning-java-OOPJ  /posts/java/java-oop-notes  301
+/posts/learning-java-oopj  /posts/java/java-oop-notes  301
+
+# 文章按系列搬进子目录：/posts/<名字> → /posts/<目录>/<名字>
+/posts/java-basics-notes  /posts/java/java-basics-notes  301
+/posts/java-oop-notes  /posts/java/java-oop-notes  301
+/posts/java-generics-notes  /posts/java/java-generics-notes  301
+/posts/java-functionalprogramming-notes  /posts/java/java-functionalprogramming-notes  301
+/posts/mysql-learning-01  /posts/mysql/mysql-learning-01  301
+/posts/mysql-learning-02  /posts/mysql/mysql-learning-02  301
+/posts/mysql-learning-03  /posts/mysql/mysql-learning-03  301
+/posts/mysql-learning-04  /posts/mysql/mysql-learning-04  301
+/posts/mysql-learning-05  /posts/mysql/mysql-learning-05  301
+/posts/mysql-learning-06  /posts/mysql/mysql-learning-06  301
+/posts/mysql-learning-07  /posts/mysql/mysql-learning-07  301
+/posts/mysql-learning-08  /posts/mysql/mysql-learning-08  301
+/posts/mysql-learning-09  /posts/mysql/mysql-learning-09  301
+/posts/mysql-learning-10  /posts/mysql/mysql-learning-10  301
+/posts/mysql-learning-11  /posts/mysql/mysql-learning-11  301
+/posts/git-install-and-basics  /posts/git/git-install-and-basics  301
+/posts/local-remote-repository  /posts/git/local-remote-repository  301
+/posts/guide-file-layout  /posts/guide/guide-file-layout  301
+/posts/guide-frontmatter  /posts/guide/guide-frontmatter  301
+/posts/guide-markdown  /posts/guide/guide-markdown  301
