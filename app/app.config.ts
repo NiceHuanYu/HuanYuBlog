@@ -13,7 +13,13 @@ export default defineAppConfig({
   // 顶部导航。「内容」是下拉，后续的分类、标签等入口都挂在这里
   nav: [
     { label: '首页', to: '/' },
-    { label: '内容', children: [{ label: '文章', to: '/posts' }] },
+    {
+      label: '内容',
+      children: [
+        { label: '文章', to: '/posts' },
+        { label: '小游戏', to: '/games' }
+      ]
+    },
     { label: '关于', to: '/about' },
     { label: '联系', to: '/contact' }
   ] satisfies NavItem[],

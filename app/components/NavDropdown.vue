@@ -8,9 +8,12 @@ const open = ref(false)
 const root = ref<HTMLElement | null>(null)
 const route = useRoute()
 
-// 当前路由命中任一子项时，父级也保持高亮
+// 精确命中，或者命中了它的子路径时父级也保持高亮
+// （例如在 /games/aim-train 上，「内容」下拉仍应点亮）
 const isActive = computed(() =>
-  props.items.some((item) => route.path === item.to)
+  props.items.some(
+    (item) => route.path === item.to || route.path.startsWith(`${item.to}/`)
+  )
 )
 
 function close() {
