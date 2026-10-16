@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="900" height="700" role="img" aria-label="Spring MVC 请求处理流程：浏览器请求经 DispatcherServlet 分发到处理方法，再由 ViewResolver 与 Thymeleaf 渲染成 HTML 返回"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="mvcbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#7093c8" />
+    </marker>
+  </defs>
+
+  <rect width="900" height="700" rx="16" fill="url(#mvcbg)" />
+
+  <!-- 主流程：垂直方向的六个环节 -->
+  <rect x="120" y="36" width="320" height="56" rx="10" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="280" y="60" text-anchor="middle" font-size="17" font-weight="600" fill="#1f3a63">浏览器 / 客户端</text>
+  <text x="280" y="80" text-anchor="middle" font-size="13" fill="#5a6f8c">发起 HTTP 请求</text>
+  <line x1="280" y1="92" x2="280" y2="118" stroke="#7093c8" stroke-width="2" marker-end="url(#arrow)" />
+
+  <rect x="120" y="124" width="320" height="64" rx="10" fill="#33507f" />
+  <text x="280" y="150" text-anchor="middle" font-size="17" font-weight="600" fill="#ffffff">DispatcherServlet</text>
+  <text x="280" y="172" text-anchor="middle" font-size="13" fill="#dbe5f1">前端控制器：所有请求的统一入口</text>
+  <line x1="280" y1="188" x2="280" y2="214" stroke="#7093c8" stroke-width="2" marker-end="url(#arrow)" />
+
+  <rect x="120" y="220" width="320" height="56" rx="10" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="280" y="244" text-anchor="middle" font-size="16" font-weight="600" fill="#1f3a63">HandlerMapping</text>
+  <text x="280" y="264" text-anchor="middle" font-size="13" fill="#5a6f8c">按 URL、请求方法、参数条件找处理方法</text>
+  <line x1="280" y1="276" x2="280" y2="302" stroke="#7093c8" stroke-width="2" marker-end="url(#arrow)" />
+
+  <rect x="120" y="308" width="320" height="56" rx="10" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="280" y="332" text-anchor="middle" font-size="16" font-weight="600" fill="#1f3a63">Controller 的处理方法</text>
+  <text x="280" y="352" text-anchor="middle" font-size="13" fill="#5a6f8c">执行逻辑、往 Model 里放数据、返回视图名</text>
+  <line x1="280" y1="364" x2="280" y2="390" stroke="#7093c8" stroke-width="2" marker-end="url(#arrow)" />
+
+  <rect x="120" y="396" width="320" height="56" rx="10" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="280" y="420" text-anchor="middle" font-size="16" font-weight="600" fill="#1f3a63">ViewResolver</text>
+  <text x="280" y="440" text-anchor="middle" font-size="13" fill="#5a6f8c">视图名 → 模板路径</text>
+  <line x1="280" y1="452" x2="280" y2="478" stroke="#7093c8" stroke-width="2" marker-end="url(#arrow)" />
+
+  <rect x="120" y="484" width="320" height="56" rx="10" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="280" y="508" text-anchor="middle" font-size="16" font-weight="600" fill="#1f3a63">Thymeleaf 渲染模板</text>
+  <text x="280" y="528" text-anchor="middle" font-size="13" fill="#5a6f8c">把 th:* 属性换成真实 HTML</text>
+
+  <!-- 渲染结果折返回到浏览器 -->
+  <path d="M 120 512 L 60 512 L 60 64 L 114 64" fill="none" stroke="#7093c8" stroke-width="2"
+        stroke-dasharray="6 5" marker-end="url(#arrow)" />
+  <text x="52" y="290" text-anchor="middle" font-size="13" fill="#5a6f8c"
+        transform="rotate(-90 52 290)">HTML 响应写回客户端</text>
+
+  <!-- 右侧注解 -->
+  <line x1="440" y1="156" x2="478" y2="156" stroke="#c4d4e7" stroke-width="2" />
+  <rect x="478" y="118" width="382" height="76" rx="10" fill="#ffffff" stroke="#c4d4e7" stroke-dasharray="4 4" />
+  <text x="494" y="144" font-size="13" fill="#33507f">Servlet 由 Spring Boot 自动注册，映射到 “/”</text>
+  <text x="494" y="164" font-size="13" fill="#33507f">拦截器（Interceptor）在这一层的前后被调用，</text>
+  <text x="494" y="184" font-size="13" fill="#33507f">详见第 09 篇</text>
+
+  <line x1="440" y1="336" x2="478" y2="336" stroke="#c4d4e7" stroke-width="2" />
+  <rect x="478" y="298" width="382" height="76" rx="10" fill="#ffffff" stroke="#c4d4e7" stroke-dasharray="4 4" />
+  <text x="494" y="324" font-size="13" fill="#33507f">方法参数（@PathVariable、@RequestParam、</text>
+  <text x="494" y="344" font-size="13" fill="#33507f">Model 等）由框架先解析、再传进来</text>
+  <text x="494" y="364" font-size="13" fill="#33507f">返回 @ResponseBody 时直接跳过 ViewResolver</text>
+
+  <line x1="440" y1="424" x2="478" y2="424" stroke="#c4d4e7" stroke-width="2" />
+  <rect x="478" y="386" width="382" height="76" rx="10" fill="#ffffff" stroke="#c4d4e7" stroke-dasharray="4 4" />
+  <text x="494" y="412" font-size="13" fill="#33507f">Thymeleaf 的默认前缀是 classpath:/templates/，</text>
+  <text x="494" y="432" font-size="13" fill="#33507f">后缀 .html，所以返回 “books/list”</text>
+  <text x="494" y="452" font-size="13" fill="#33507f">对应 templates/books/list.html</text>
+
+  <text x="450" y="640" text-anchor="middle" font-size="13" fill="#7c8ca3">整个流程里你写的东西只有第 4 步：一个带 @GetMapping 的方法</text>
+</svg>

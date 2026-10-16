@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 660" width="900" height="660" role="img" aria-label="拦截器执行顺序：preHandle 按注册顺序执行，Controller 之后 postHandle 逆序执行，视图渲染完成后 afterCompletion 再逆序执行"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="itcbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+    <marker id="itcarrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#7093c8" />
+    </marker>
+  </defs>
+
+  <rect width="900" height="660" rx="16" fill="url(#itcbg)" />
+  <text x="450" y="40" text-anchor="middle" font-size="17" font-weight="700" fill="#1f3a63">一次请求里三个回调的调用顺序（A、B、C 按注册先后）</text>
+
+  <line x1="72" y1="76" x2="72" y2="612" stroke="#7093c8" stroke-width="2" marker-end="url(#itcarrow)" />
+  <text x="52" y="344" text-anchor="middle" font-size="13" fill="#5a6f8c" transform="rotate(-90 52 344)">请求处理过程</text>
+
+  <rect x="110" y="76" width="420" height="44" rx="8" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="130" y="104" font-size="14" fill="#1f3a63">A.preHandle() → true</text>
+  <text x="560" y="104" font-size="13" fill="#5a6f8c">① 正序</text>
+
+  <rect x="110" y="128" width="420" height="44" rx="8" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="130" y="156" font-size="14" fill="#1f3a63">B.preHandle() → true</text>
+  <text x="560" y="156" font-size="13" fill="#5a6f8c">② 正序</text>
+
+  <rect x="110" y="180" width="420" height="44" rx="8" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="130" y="208" font-size="14" fill="#1f3a63">C.preHandle() → true</text>
+  <text x="560" y="208" font-size="13" fill="#5a6f8c">③ 正序</text>
+
+  <rect x="110" y="232" width="420" height="44" rx="8" fill="#33507f" />
+  <text x="130" y="260" font-size="14" font-weight="600" fill="#ffffff">Controller 的处理方法</text>
+  <text x="560" y="260" font-size="13" fill="#5a6f8c">业务逻辑在这里</text>
+
+  <rect x="110" y="284" width="420" height="44" rx="8" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="130" y="312" font-size="14" fill="#1f3a63">C.postHandle()</text>
+  <text x="560" y="312" font-size="13" fill="#5a6f8c">③ 逆序</text>
+
+  <rect x="110" y="336" width="420" height="44" rx="8" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="130" y="364" font-size="14" fill="#1f3a63">B.postHandle()</text>
+  <text x="560" y="364" font-size="13" fill="#5a6f8c">② 逆序</text>
+
+  <rect x="110" y="388" width="420" height="44" rx="8" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="130" y="416" font-size="14" fill="#1f3a63">A.postHandle()</text>
+  <text x="560" y="416" font-size="13" fill="#5a6f8c">① 逆序</text>
+
+  <rect x="110" y="440" width="420" height="44" rx="8" fill="#eaf0f8" stroke="#c4d4e7" stroke-dasharray="4 4" />
+  <text x="130" y="468" font-size="14" fill="#33507f">视图渲染（Thymeleaf 处理模板）</text>
+  <text x="560" y="468" font-size="13" fill="#5a6f8c">此时响应体已经在写了</text>
+
+  <rect x="110" y="492" width="420" height="44" rx="8" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="130" y="520" font-size="14" fill="#1f3a63">C / B / A.afterCompletion()</text>
+  <text x="560" y="520" font-size="13" fill="#5a6f8c">③②① 逆序，无论成功失败都调用</text>
+
+  <text x="450" y="576" text-anchor="middle" font-size="13" fill="#7c8ca3">任一 preHandle 返回 false，请求就此中断：已返回 true 的拦截器的 afterCompletion 仍会被调用</text>
+  <text x="450" y="600" text-anchor="middle" font-size="13" fill="#7c8ca3">拦截器只作用于交给 Controller 的请求，静态资源要靠路径模式排除</text>
+  <text x="450" y="624" text-anchor="middle" font-size="13" fill="#7c8ca3">postHandle 可以改 ModelAndView；afterCompletion 适合记录耗时、清理资源</text>
+</svg>

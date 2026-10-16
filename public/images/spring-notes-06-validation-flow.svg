@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 570" width="900" height="570" role="img" aria-label="表单提交后的校验流程：数据绑定、@Valid 校验，失败则带错误回到表单视图，通过则调用 Service 后重定向"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="valbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+    <marker id="valarrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#7093c8" />
+    </marker>
+  </defs>
+
+  <rect width="900" height="570" rx="16" fill="url(#valbg)" />
+
+  <rect x="120" y="28" width="320" height="58" rx="10" fill="#33507f" />
+  <text x="280" y="52" text-anchor="middle" font-size="16" font-weight="600" fill="#ffffff">表单提交：POST /books</text>
+  <text x="280" y="73" text-anchor="middle" font-size="13" fill="#dbe5f1">浏览器把 input 的 name 与值一起发过来</text>
+  <line x1="280" y1="86" x2="280" y2="112" stroke="#7093c8" stroke-width="2" marker-end="url(#valarrow)" />
+
+  <rect x="120" y="118" width="320" height="58" rx="10" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="280" y="142" text-anchor="middle" font-size="16" font-weight="600" fill="#1f3a63">数据绑定</text>
+  <text x="280" y="163" text-anchor="middle" font-size="13" fill="#5a6f8c">按字段名写入 @ModelAttribute 对象</text>
+  <line x1="280" y1="176" x2="280" y2="202" stroke="#7093c8" stroke-width="2" marker-end="url(#valarrow)" />
+
+  <rect x="120" y="208" width="320" height="58" rx="10" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="280" y="232" text-anchor="middle" font-size="16" font-weight="600" fill="#1f3a63">@Valid 触发 Bean Validation</text>
+  <text x="280" y="253" text-anchor="middle" font-size="13" fill="#5a6f8c">按注解逐条检查，结果记进 BindingResult</text>
+
+  <polygon points="280,276 452,331 280,386 108,331" fill="#ffffff" stroke="#c4d4e7" stroke-width="2" />
+  <text x="280" y="325" text-anchor="middle" font-size="15" font-weight="600" fill="#1f3a63">bindingResult</text>
+  <text x="280" y="346" text-anchor="middle" font-size="15" font-weight="600" fill="#1f3a63">.hasErrors() ?</text>
+
+  <!-- 是：回到表单 -->
+  <path d="M 108 331 L 40 331 L 40 448 L 52 448" fill="none" stroke="#7093c8" stroke-width="2" marker-end="url(#valarrow)" />
+  <text x="78" y="320" font-size="14" font-weight="600" fill="#33507f">是</text>
+  <rect x="60" y="408" width="360" height="80" rx="10" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="240" y="436" text-anchor="middle" font-size="15" font-weight="600" fill="#1f3a63">回到表单视图 books/form</text>
+  <text x="240" y="458" text-anchor="middle" font-size="13" fill="#5a6f8c">带上错误信息，以及用户刚才填的内容</text>
+  <text x="240" y="477" text-anchor="middle" font-size="13" fill="#5a6f8c">下拉框的数据要重新放进 Model</text>
+
+  <!-- 否：调用 Service 并重定向 -->
+  <path d="M 452 331 L 860 331 L 860 448 L 848 448" fill="none" stroke="#7093c8" stroke-width="2" marker-end="url(#valarrow)" />
+  <text x="474" y="320" font-size="14" font-weight="600" fill="#33507f">否</text>
+  <rect x="480" y="408" width="360" height="80" rx="10" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="660" y="436" text-anchor="middle" font-size="15" font-weight="600" fill="#1f3a63">调用 Service 保存</text>
+  <text x="660" y="458" text-anchor="middle" font-size="13" fill="#5a6f8c">成功后 redirect:/books</text>
+  <text x="660" y="477" text-anchor="middle" font-size="13" fill="#5a6f8c">一次性提示放 Flash 属性</text>
+
+  <text x="450" y="524" text-anchor="middle" font-size="13" fill="#7c8ca3">两个容易出错的地方：BindingResult 必须紧跟被校验参数；</text>
+  <text x="450" y="546" text-anchor="middle" font-size="13" fill="#7c8ca3">模板里的 th:field 负责生成 name/id 并把上次的输入回填</text>
+</svg>
