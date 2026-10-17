@@ -287,11 +287,14 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="space-y-4">
+    <!-- select-none 加 @dragstart.prevent：游戏时鼠标一直是「按住 + 拖」，不这样处理会
+         选中 HUD 上的倒计时文字，继续拖就把那段文字拖出浏览器、打开新标签页 -->
     <div
       ref="arena"
-      class="relative h-[58vh] max-h-[560px] min-h-[300px] touch-none overflow-hidden rounded-xl border border-line bg-surface-strong"
+      class="relative h-[58vh] max-h-[560px] min-h-[300px] touch-none select-none overflow-hidden rounded-xl border border-line bg-surface-strong"
       :style="arenaStyle"
       @pointerdown="miss"
+      @dragstart.prevent
     >
       <button
         v-for="target in targets"
