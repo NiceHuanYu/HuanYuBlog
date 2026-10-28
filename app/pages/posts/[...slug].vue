@@ -5,8 +5,16 @@ import { resolveCover } from '~/utils/cover'
 const route = useRoute()
 const appConfig = useAppConfig()
 
-const { data: post } = await useAsyncData(`post:${route.path}`, () =>
-  queryCollection('posts').path(route.path).first()
+// 内容路径一律去掉尾部斜杠。
+// 静态部署时 Cloudflare Pages 会把 /posts/x 308 到 /posts/x/（产物是 x/index.html），
+// 而预渲染时 payload 的 key 是用无斜杠的 route.path 生成的。刷新带斜杠的地址时两者对不上，
+// useAsyncData 拿不到预渲染数据就只能重新查询，而这条路径在纯静态产物上取不到文章，
+// 页面会退化成只剩页眉页脚的空白页。统一规范化后，无论地址带不带斜杠都能命中同一份数据。
+const contentPath
+  = route.path.length > 1 ? route.path.replace(/\/+$/, '') : route.path
+
+const { data: post } = await useAsyncData(`post:${contentPath}`, () =>
+  queryCollection('posts').path(contentPath).first()
 )
 
 // 取到局部变量，下面的模板和 SEO 才能确定它非空
@@ -31,7 +39,7 @@ const { data: ordered } = await useAsyncData('posts:ordered', () =>
 // 不用 queryCollectionItemSurroundings：它按自己的默认顺序（实测是按 path）
 // 取相邻项，和列表页展示的顺序对不上，而且 SurroundOptions 里没有排序列可配。
 const position = computed(() =>
-  (ordered.value ?? []).findIndex((item) => item.path === route.path)
+  (ordered.value ?? []).findIndex((item) => item.path === contentPath)
 )
 
 const newer = computed(() => {
@@ -57,7 +65,7 @@ const seriesPosts = computed(() => {
 })
 
 const seriesPosition = computed(() =>
-  seriesPosts.value.findIndex((item) => item.path === route.path)
+  seriesPosts.value.findIndex((item) => item.path === contentPath)
 )
 
 // 只有一篇的「系列」不构成系列，不显示系列导航
