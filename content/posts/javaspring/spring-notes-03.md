@@ -182,22 +182,35 @@ List<BookTitleDto> findDtoByStatus(@Param("status") BookStatus status);
 
 ## 4 排序与分页
 
-### 4.1 Sort
+### 4.1 Sort：只排序，不分页
 
 ```java
-List<Book> books = repository.findAll(Sort.by("publishedYear").descending().and(Sort.by("title")));
+// bookRepository 是注入进来的 BookRepository（第 02 篇那个接口）
+List<Book> books = bookRepository.findAll(Sort.by("publishedYear").descending().and(Sort.by("title")));
 ```
 
+这里用的是 **`JpaRepository` 自带的方法** `findAll(Sort)`，返回 `List`，所以接口里不用写任何声明。
 `Sort.by` 里的名称是**实体字段名**，不是列名。
 
 ### 4.2 Pageable 与 Page
 
 ```java
 Pageable pageable = PageRequest.of(0, 10, Sort.by("title").ascending());
-Page<Book> page = repository.findByStatus(BookStatus.AVAILABLE, pageable);
+Page<Book> page = bookRepository.findByStatus(BookStatus.AVAILABLE, pageable);
 ```
 
-页码**从 0 开始**，第二个参数是每页条数。`Page` 拿到手后常用这些：
+注意 `findByStatus` **不是自带方法**，要在 `BookRepository` 里自己声明——规则还是派生查询，
+只是多了一个 `Pageable` 参数、返回类型换成 `Page`：
+
+```java
+public interface BookRepository extends JpaRepository<Book, Long> {
+
+    Page<Book> findByStatus(BookStatus status, Pageable pageable);
+}
+```
+
+页码**从 0 开始**，第二个参数是每页条数，排序信息也装在 `Pageable` 里（所以带 `Pageable` 的方法
+里不用再写 `order by`）。`Page` 拿到手后常用这些：
 
 | 方法                          | 含义                                 |
 | ----------------------------- | ------------------------------------ |
@@ -223,18 +236,148 @@ Page<BookTitleDto> dtoPage = page.map(b -> new BookTitleDto(b.getTitle(), b.getA
 
 **总数查询不便宜**。数据量大又不需要精确总页数时，`Slice` 能省掉一次全表 count。
 
-分页参数直接来自请求时，别自己从 `page`/`size` 字符串拼，Spring 的
-`Pageable` 参数可以被 MVC 自动装配（详见后面 Web 部分）：
+分页参数直接来自请求时，别自己从 `page`/`size` 字符串拼，Spring 的 `Pageable` 参数可以被 MVC
+自动装配——这种写法的好处与风险见 4.4 节。
+
+### 4.4 分页在三层里各写什么
+
+前面几段都站在数据层看，容易看不出全貌。把同一件事按 Repository → Service → 展示层摊开，
+是这样一条链（展示层有页面型和 REST 型两种写法，各写一段）。
+
+**① Repository：只声明方法，实现由框架生成**
 
 ```java
-@GetMapping
-public Page<Book> list(Pageable pageable) {
-    return bookService.findAll(pageable);
+public interface BookRepository extends JpaRepository<Book, Long> {
+
+    // 派生查询 + 分页：关键词模糊匹配，排序交给 Pageable
+    Page<Book> findByTitleContainingIgnoreCase(String keyword, Pageable pageable);
+
+    // JPQL + 分页：返回 DTO 投影
+    @Query("""
+           select new com.example.library.dto.BookTitleDto(b.title, b.author)
+           from Book b
+           where (:keyword is null or lower(b.title) like lower(concat('%', :keyword, '%')))
+           """)
+    Page<BookTitleDto> searchTitlesAsDto(@Param("keyword") String keyword, Pageable pageable);
 }
 ```
 
-注意：这样直接暴露 `Pageable` 时，**排序字段是客户端可控的**，要限制在白名单内，否则可能被
-构造成按不可索引的列排序，拖慢数据库。
+**② Service：透传 `Pageable`，查询发生在事务里**
+
+```java
+@Service
+@Transactional(readOnly = true)
+public class BookServiceImpl implements BookService {
+
+    private final BookRepository bookRepository;
+
+    public BookServiceImpl(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
+
+    @Override
+    public Page<Book> search(String keyword, Pageable pageable) {
+        if (keyword == null || keyword.isBlank()) {
+            return bookRepository.findAll(pageable);          // 自带方法同样接受 Pageable
+        }
+        return bookRepository.findByTitleContainingIgnoreCase(keyword, pageable);
+    }
+
+    @Override
+    public Page<BookTitleDto> searchTitles(String keyword, Pageable pageable) {
+        // 走 JPQL 的 DTO 投影，REST 接口用这一版，避免把实体交给前端
+        return bookRepository.searchTitlesAsDto(keyword, pageable);
+    }
+
+    // 其余方法见第 02、06 篇
+}
+```
+
+Service **不决定页码和每页条数**——那是展示层的选择；它只负责把参数传给仓储，并保证查询在事务
+里完成（`Page` 里的实体可能带着延迟加载的关联，出了事务再访问就会抛
+`LazyInitializationException`）。
+
+上面两个方法对应接口里的两行声明（`BookService` 在 01 篇定义，这里把分页相关的补进去）：
+
+```java
+public interface BookService {
+
+    Page<Book> search(String keyword, Pageable pageable);
+
+    Page<BookTitleDto> searchTitles(String keyword, Pageable pageable);
+}
+```
+
+**③ Controller（页面型）：把「第几页」翻译成 `Pageable`**
+
+```java
+@Controller
+@RequestMapping("/books")
+public class BookViewController {
+
+    private final BookService bookService;
+
+    public BookViewController(BookService bookService) {
+        this.bookService = bookService;
+    }
+
+    @GetMapping
+    public String list(@RequestParam(name = "keyword", required = false) String keyword,
+                       @RequestParam(defaultValue = "0") int page,
+                       Model model) {
+        Pageable pageable = PageRequest.of(Math.max(page, 0), 10, Sort.by("title").ascending());
+        model.addAttribute("page", bookService.search(keyword, pageable));
+        model.addAttribute("keyword", keyword);
+        return "books/list";
+    }
+}
+```
+
+**「每页 10 条、按书名排」这条规则写在这里**，客户端只能改页码和关键词，改不了条数与排序字段。
+URL 形如 `/books?keyword=重构&page=1`。
+
+**④ Controller（REST 型）：让框架装配 `Pageable`**
+
+```java
+@RestController
+@RequestMapping("/api/books")
+public class BookController {
+
+    @GetMapping
+    public Page<BookTitleDto> list(@RequestParam(name = "keyword", required = false) String keyword,
+                                   Pageable pageable) {
+        return bookService.searchTitles(keyword, pageable);
+    }
+}
+```
+
+参数类型写成 `Pageable`，Spring Data 的 `PageableHandlerMethodArgumentResolver` 会从查询串装配
+它：`/api/books?page=1&size=20&sort=title,desc`。方便，但**每页条数与排序字段都变成客户端可控**，
+必须配两道闸（`spring.data.web.pageable.max-page-size` 与排序字段白名单，第 12 篇）。
+
+**⑤ 消费结果：模板或 JSON**
+
+```html
+<tr th:each="book, stat : ${page.content}">
+    <td th:text="${stat.count}">1</td>
+```
+
+```html
+<div th:if="${page.totalPages > 1}">
+    <a th:if="${page.hasPrevious()}"
+       th:href="@{/books(page=${page.number - 1}, keyword=${keyword})}">上一页</a>
+    <span th:text="|${page.number + 1} / ${page.totalPages}|">1 / 3</span>
+    <a th:if="${page.hasNext()}"
+       th:href="@{/books(page=${page.number + 1}, keyword=${keyword})}">下一页</a>
+</div>
+```
+
+返回给接口客户端时，`Page` 会被序列化成 `content` / `totalElements` / `totalPages` 这些字段
+（真实响应样例在第 12 篇的接口约定一节）。
+
+一句话总结这条链：**Repository 声明「带 `Pageable`、返回 `Page`」的方法 → Service 透传并保证
+事务 → Controller 决定每页多少、怎么排 → 模板/JSON 用 `page.content` 与翻页信息渲染。**
+页面型控制器的完整代码在第 05 篇，REST 版在第 11 篇。
 
 ## 5 @Modifying：更新与删除
 
