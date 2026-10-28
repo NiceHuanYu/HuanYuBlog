@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" width="900" height="640" role="img" aria-label="面向对象里的五种关系：依赖是临时使用，关联是长期引用并可带重数，聚合是部分可独立存在的整体部分关系，组合是部分随整体消亡的强聚合，继承是子类复用并覆盖父类行为；每种关系都给出 UML 符号与例子"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="oobg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="640" rx="16" fill="url(#oobg)" />
+  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">五种关系：从「用一下」到「是我的一部分」</text>
+  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">耦合程度从左到右、自上而下逐步增强</text>
+
+  <rect x="40" y="100" width="252" height="216" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="58" y="130" font-size="14.5" font-weight="700" fill="#1f3a63">Dependency</text>
+  <text x="58" y="148" font-size="10.5" fill="#7b8ea8">依赖 · 临时用一下</text>
+  <line x1="58" y1="162" x2="274" y2="162" stroke="#e3ecf5" />
+  <text x="58" y="186" font-size="11.5" fill="#41556f">A 的某个方法临时用到 B</text>
+  <text x="58" y="206" font-size="11.5" fill="#41556f">B 变了，A 可能要跟着改</text>
+  <text x="58" y="232" font-size="11.5" fill="#5a6f8c">例：结账时调用一次</text>
+  <text x="58" y="250" font-size="11.5" fill="#5a6f8c">税费计算器</text>
+  <text x="58" y="282" font-size="11.5" fill="#8a4b4b">UML：虚线箭头</text>
+  <text x="58" y="302" font-size="11.5" fill="#8a4b4b">耦合最弱</text>
+
+  <rect x="324" y="100" width="252" height="216" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="342" y="130" font-size="14.5" font-weight="700" fill="#1f3a63">Association</text>
+  <text x="342" y="148" font-size="10.5" fill="#7b8ea8">关联 · 长期持有引用</text>
+  <line x1="342" y1="162" x2="558" y2="162" stroke="#e3ecf5" />
+  <text x="342" y="186" font-size="11.5" fill="#41556f">A 长期持有 B 的引用</text>
+  <text x="342" y="206" font-size="11.5" fill="#41556f">两端要写清重数</text>
+  <text x="342" y="232" font-size="11.5" fill="#5a6f8c">例：一个客户对应</text>
+  <text x="342" y="250" font-size="11.5" fill="#5a6f8c">多张订单（1 对多）</text>
+  <text x="342" y="282" font-size="11.5" fill="#8a4b4b">UML：实线，可标 1..*</text>
+  <text x="342" y="302" font-size="11.5" fill="#8a4b4b">还要标角色名</text>
+
+  <rect x="608" y="100" width="252" height="216" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="626" y="130" font-size="14.5" font-weight="700" fill="#1f3a63">Aggregation</text>
+  <text x="626" y="148" font-size="10.5" fill="#7b8ea8">聚合 · 部分可独立存在</text>
+  <line x1="626" y1="162" x2="842" y2="162" stroke="#e3ecf5" />
+  <text x="626" y="186" font-size="11.5" fill="#41556f">整体与部分是 has-a</text>
+  <text x="626" y="206" font-size="11.5" fill="#41556f">整体没了，部分还能用</text>
+  <text x="626" y="232" font-size="11.5" fill="#5a6f8c">例：旅行团包含</text>
+  <text x="626" y="250" font-size="11.5" fill="#5a6f8c">若干旅客</text>
+  <text x="626" y="282" font-size="11.5" fill="#8a4b4b">UML：空心菱形</text>
+  <text x="626" y="302" font-size="11.5" fill="#8a4b4b">弱于组合</text>
+
+  <rect x="40" y="340" width="400" height="234" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="60" y="370" font-size="14.5" font-weight="700" fill="#1f3a63">Composition</text>
+  <text x="60" y="388" font-size="10.5" fill="#7b8ea8">组合 · 强聚合</text>
+  <line x1="60" y1="402" x2="420" y2="402" stroke="#e3ecf5" />
+  <text x="60" y="426" font-size="11.5" fill="#41556f">整体销毁时，部分也一并消失</text>
+  <text x="60" y="446" font-size="11.5" fill="#41556f">部分对象通常由整体创建，不单独对外</text>
+  <text x="60" y="472" font-size="11.5" fill="#5a6f8c">例：订单与订单明细 —— 订单不存在了，</text>
+  <text x="60" y="490" font-size="11.5" fill="#5a6f8c">明细没有独立存在的意义</text>
+  <text x="60" y="520" font-size="11.5" fill="#8a4b4b">UML：实心菱形</text>
+  <text x="60" y="544" font-size="11.5" fill="#8a4b4b">判断依据：谁的生命周期说了算</text>
+  <text x="60" y="566" font-size="11" fill="#7b8ea8">不是看「是不是包含」，而是看「能不能单独活」</text>
+
+  <rect x="460" y="340" width="400" height="234" rx="11" fill="#eef5fc" stroke="#7093c8" />
+  <text x="480" y="370" font-size="14.5" font-weight="700" fill="#1f3a63">Inheritance</text>
+  <text x="480" y="388" font-size="10.5" fill="#7b8ea8">继承 · is-a</text>
+  <line x1="480" y1="402" x2="840" y2="402" stroke="#d3e3f2" />
+  <text x="480" y="426" font-size="11.5" fill="#41556f">子类复用父类的定义与行为</text>
+  <text x="480" y="446" font-size="11.5" fill="#41556f">也可以覆盖（override）其中一部分</text>
+  <text x="480" y="472" font-size="11.5" fill="#5a6f8c">例：企业客户继承自客户，只在</text>
+  <text x="480" y="490" font-size="11.5" fill="#5a6f8c">信用额度与开票方式上有差异</text>
+  <text x="480" y="520" font-size="11.5" fill="#8a4b4b">UML：空心三角，箭头指向父类</text>
+  <text x="480" y="544" font-size="11.5" fill="#8a4b4b">前提：子类必须可以替换父类</text>
+  <text x="480" y="566" font-size="11" fill="#7b8ea8">用错关系会让代码越改越硬，见笔记 24</text>
+
+  <text x="450" y="608" text-anchor="middle" font-size="12.5" fill="#33507f">分不清聚合和组合时，只问一句：整体没了，这个部分还活得下去吗</text>
+</svg>

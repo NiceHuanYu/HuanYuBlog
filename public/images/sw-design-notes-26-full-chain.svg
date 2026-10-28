@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" role="img" aria-label="设计与结构部分的完整链路：从用例模型到 ERD、规范化与逻辑数据模型、面向对象概念、UML、分析模型，最后到设计模型与重构；底部给出三条自查标准"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="adbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+    <marker id="adArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#7093c8" />
+    </marker>
+  </defs>
+
+  <rect width="900" height="600" rx="16" fill="url(#adbg)" />
+  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">从需求到代码：一条完整的链路</text>
+  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">每一环都在回答「上一环留下的问题」</text>
+
+  <rect x="40" y="106" width="190" height="84" rx="10" fill="#33507f" />
+  <text x="135" y="138" text-anchor="middle" font-size="13.5" font-weight="700" fill="#ffffff">用例模型</text>
+  <text x="135" y="160" text-anchor="middle" font-size="11" fill="#cedcee">系统要做什么</text>
+  <text x="135" y="178" text-anchor="middle" font-size="11" fill="#cedcee">笔记 08–10</text>
+
+  <rect x="248" y="106" width="190" height="84" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="343" y="138" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1f3a63">ERD</text>
+  <text x="343" y="160" text-anchor="middle" font-size="11" fill="#7b8ea8">实体、关系、基数</text>
+  <text x="343" y="178" text-anchor="middle" font-size="11" fill="#7b8ea8">笔记 18</text>
+
+  <rect x="456" y="106" width="190" height="84" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="551" y="138" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1f3a63">规范化与 LDM</text>
+  <text x="551" y="160" text-anchor="middle" font-size="11" fill="#7b8ea8">消除冗余、补齐关系</text>
+  <text x="551" y="178" text-anchor="middle" font-size="11" fill="#7b8ea8">笔记 19</text>
+
+  <rect x="664" y="106" width="190" height="84" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="759" y="138" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1f3a63">面向对象概念</text>
+  <text x="759" y="160" text-anchor="middle" font-size="11" fill="#7b8ea8">对象、关系、多态</text>
+  <text x="759" y="178" text-anchor="middle" font-size="11" fill="#7b8ea8">笔记 20</text>
+
+  <line x1="232" y1="148" x2="244" y2="148" stroke="#7093c8" stroke-width="2" marker-end="url(#adArrow)" />
+  <line x1="440" y1="148" x2="452" y2="148" stroke="#7093c8" stroke-width="2" marker-end="url(#adArrow)" />
+  <line x1="648" y1="148" x2="660" y2="148" stroke="#7093c8" stroke-width="2" marker-end="url(#adArrow)" />
+  <line x1="759" y1="192" x2="759" y2="224" stroke="#7093c8" stroke-width="2" marker-end="url(#adArrow)" />
+
+  <rect x="664" y="228" width="190" height="84" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="759" y="260" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1f3a63">UML</text>
+  <text x="759" y="282" text-anchor="middle" font-size="11" fill="#7b8ea8">类图与顺序图</text>
+  <text x="759" y="300" text-anchor="middle" font-size="11" fill="#7b8ea8">笔记 21</text>
+
+  <rect x="456" y="228" width="190" height="84" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="551" y="260" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1f3a63">分析模型</text>
+  <text x="551" y="282" text-anchor="middle" font-size="11" fill="#7b8ea8">三种对象与用例实现</text>
+  <text x="551" y="300" text-anchor="middle" font-size="11" fill="#7b8ea8">笔记 22</text>
+
+  <rect x="248" y="228" width="190" height="84" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="343" y="260" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1f3a63">设计模型</text>
+  <text x="343" y="282" text-anchor="middle" font-size="11" fill="#7b8ea8">映射到表与访问层</text>
+  <text x="343" y="300" text-anchor="middle" font-size="11" fill="#7b8ea8">笔记 23</text>
+
+  <rect x="40" y="228" width="190" height="84" rx="10" fill="#eef5fc" stroke="#7093c8" />
+  <text x="135" y="260" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1f3a63">代码与重构</text>
+  <text x="135" y="282" text-anchor="middle" font-size="11" fill="#5c7391">持续改善结构</text>
+  <text x="135" y="300" text-anchor="middle" font-size="11" fill="#5c7391">笔记 24–25</text>
+
+  <line x1="660" y1="270" x2="448" y2="270" stroke="#7093c8" stroke-width="2" marker-end="url(#adArrow)" />
+  <line x1="452" y1="270" x2="440" y2="270" stroke="#7093c8" stroke-width="2" marker-end="url(#adArrow)" />
+  <line x1="244" y1="270" x2="232" y2="270" stroke="#7093c8" stroke-width="2" marker-end="url(#adArrow)" />
+
+  <rect x="40" y="346" width="820" height="188" rx="12" fill="#ffffff" opacity="0.85" stroke="#d3e0ee" />
+  <text x="60" y="376" font-size="14" font-weight="700" fill="#33507f">三条自查标准</text>
+  <text x="60" y="406" font-size="12" fill="#41556f">· 画得出：五种关系、三种分析对象、三种继承映射方案，手边有没有工具都画得出来</text>
+  <text x="60" y="434" font-size="12" fill="#41556f">· 说得清：为什么这里画成聚合而不是组合，为什么这个字段不存，为什么这个类不继承</text>
+  <text x="60" y="462" font-size="12" fill="#41556f">· 对得上：一条需求能追到用例、追到类、追到表、追到代码</text>
+  <text x="60" y="496" font-size="12" fill="#8a4b4b">三个问题里，第二个最能分辨「真的理解了」还是「照着模板画的」</text>
+  <text x="60" y="520" font-size="12" fill="#7b8ea8">如果某一环答不上来，通常问题出在它的上一环，而不是这一环</text>
+</svg>

@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" width="900" height="560" role="img" aria-label="界面设计与 CRUD 任务流：上方是列表页、详情页、编辑页三个屏幕的线框示意与跳转关系；下方是新建、查看、修改、删除四种操作分别对应哪些屏幕与关键设计点"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="uifbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+    <marker id="uifArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#7093c8" />
+    </marker>
+  </defs>
+
+  <rect width="900" height="560" rx="16" fill="url(#uifbg)" />
+  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">从流程到界面：先把 CRUD 走一遍</text>
+  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">每个实体基本都会落到增、查、改、删这四个动作上</text>
+
+  <rect x="60" y="120" width="200" height="110" rx="8" fill="#ffffff" stroke="#c4d4e7" />
+  <rect x="60" y="120" width="200" height="24" fill="#e8f0f9" />
+  <text x="160" y="137" text-anchor="middle" font-size="12" font-weight="600" fill="#1f3a63">列表页</text>
+  <rect x="74" y="156" width="172" height="9" rx="3" fill="#dde7f0" />
+  <rect x="74" y="174" width="172" height="9" rx="3" fill="#dde7f0" />
+  <rect x="74" y="192" width="172" height="9" rx="3" fill="#dde7f0" />
+  <rect x="74" y="210" width="120" height="9" rx="3" fill="#dde7f0" />
+
+  <rect x="340" y="120" width="200" height="110" rx="8" fill="#ffffff" stroke="#c4d4e7" />
+  <rect x="340" y="120" width="200" height="24" fill="#e8f0f9" />
+  <text x="440" y="137" text-anchor="middle" font-size="12" font-weight="600" fill="#1f3a63">详情页</text>
+  <rect x="354" y="156" width="80" height="9" rx="3" fill="#dde7f0" />
+  <rect x="444" y="156" width="102" height="9" rx="3" fill="#dde7f0" />
+  <rect x="354" y="174" width="80" height="9" rx="3" fill="#dde7f0" />
+  <rect x="444" y="174" width="102" height="9" rx="3" fill="#dde7f0" />
+  <rect x="354" y="192" width="80" height="9" rx="3" fill="#dde7f0" />
+  <rect x="444" y="192" width="102" height="9" rx="3" fill="#dde7f0" />
+
+  <rect x="620" y="120" width="200" height="110" rx="8" fill="#ffffff" stroke="#7093c8" stroke-width="1.8" />
+  <rect x="620" y="120" width="200" height="24" fill="#dcebf9" />
+  <text x="720" y="137" text-anchor="middle" font-size="12" font-weight="600" fill="#1f3a63">编辑页</text>
+  <rect x="634" y="156" width="172" height="14" rx="3" fill="#ffffff" stroke="#c4d4e7" />
+  <rect x="634" y="178" width="172" height="14" rx="3" fill="#ffffff" stroke="#c4d4e7" />
+  <rect x="634" y="200" width="90" height="20" rx="4" fill="#33507f" />
+  <text x="679" y="214" text-anchor="middle" font-size="10" fill="#ffffff">保存</text>
+
+  <line x1="262" y1="175" x2="336" y2="175" stroke="#7093c8" stroke-width="2" marker-end="url(#uifArrow)" />
+  <line x1="542" y1="175" x2="616" y2="175" stroke="#7093c8" stroke-width="2" marker-end="url(#uifArrow)" />
+  <text x="299" y="165" text-anchor="middle" font-size="10.5" fill="#5a6f8c">点一行</text>
+  <text x="579" y="165" text-anchor="middle" font-size="10.5" fill="#5a6f8c">点编辑</text>
+
+  <rect x="40" y="290" width="820" height="36" fill="#33507f" />
+  <text x="60" y="314" font-size="12.5" font-weight="700" fill="#ffffff">操作</text>
+  <text x="270" y="314" font-size="12.5" font-weight="700" fill="#ffffff">对应屏幕</text>
+  <text x="520" y="314" font-size="12.5" font-weight="700" fill="#ffffff">关键设计点</text>
+
+  <rect x="40" y="326" width="820" height="42" fill="#ffffff" opacity="0.85" />
+  <text x="60" y="352" font-size="12" fill="#41556f">Create 新建</text>
+  <text x="270" y="352" font-size="12" fill="#41556f">表单页</text>
+  <text x="520" y="352" font-size="12" fill="#41556f">字段尽量少，明确标出必填项</text>
+
+  <rect x="40" y="368" width="820" height="42" fill="#ffffff" opacity="0.6" />
+  <text x="60" y="394" font-size="12" fill="#41556f">Read 查看</text>
+  <text x="270" y="394" font-size="12" fill="#41556f">列表页 + 详情页</text>
+  <text x="520" y="394" font-size="12" fill="#41556f">列表给对比信息，详情给完整信息</text>
+
+  <rect x="40" y="410" width="820" height="42" fill="#ffffff" opacity="0.85" />
+  <text x="60" y="436" font-size="12" fill="#41556f">Update 修改</text>
+  <text x="270" y="436" font-size="12" fill="#41556f">从详情页进入编辑页</text>
+  <text x="520" y="436" font-size="12" fill="#41556f">保留上下文，改完能回到原位</text>
+
+  <rect x="40" y="452" width="820" height="42" fill="#ffffff" opacity="0.6" />
+  <text x="60" y="478" font-size="12" fill="#41556f">Delete 删除</text>
+  <text x="270" y="478" font-size="12" fill="#41556f">二次确认</text>
+  <text x="520" y="478" font-size="12" fill="#41556f">说明后果，能撤销就别只弹确认框</text>
+
+  <line x1="40" y1="326" x2="860" y2="326" stroke="#d3e0ee" />
+  <line x1="40" y1="368" x2="860" y2="368" stroke="#d3e0ee" />
+  <line x1="40" y1="410" x2="860" y2="410" stroke="#d3e0ee" />
+  <line x1="40" y1="452" x2="860" y2="452" stroke="#d3e0ee" />
+  <line x1="40" y1="494" x2="860" y2="494" stroke="#d3e0ee" />
+  <line x1="250" y1="290" x2="250" y2="494" stroke="#d3e0ee" />
+  <line x1="500" y1="290" x2="500" y2="494" stroke="#d3e0ee" />
+  <rect x="40" y="290" width="820" height="204" fill="none" stroke="#c4d4e7" />
+
+  <text x="450" y="530" text-anchor="middle" font-size="12.5" fill="#33507f">界面设计的第一道检查：这四个动作，用户都能不迷路地走完吗</text>
+</svg>

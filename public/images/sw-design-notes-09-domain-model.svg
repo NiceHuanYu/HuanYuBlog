@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" role="img" aria-label="从活动图提取业务实体的三条判断标准与领域模型示例：三条标准是必须是业务概念而不是动作、必须需要被系统记住、必须有多个实例；下方是一个领域模型类图，包含旅客、预订、行程、支付四个类及其关系"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="dmbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="600" rx="16" fill="url(#dmbg)" />
+  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">从流程里筛出业务实体</text>
+  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">活动图里的名词不是都能变成实体，过三道筛子</text>
+
+  <rect x="40" y="96" width="252" height="80" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="58" y="126" font-size="14" font-weight="700" fill="#33507f">① 是业务概念吗</text>
+  <text x="58" y="150" font-size="11.5" fill="#5a6f8c">「提交订单」是动作，「订单」</text>
+  <text x="58" y="168" font-size="11.5" fill="#5a6f8c">才是概念</text>
+
+  <rect x="324" y="96" width="252" height="80" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="342" y="126" font-size="14" font-weight="700" fill="#33507f">② 需要被记住吗</text>
+  <text x="342" y="150" font-size="11.5" fill="#5a6f8c">系统要长期保存它的信息，</text>
+  <text x="342" y="168" font-size="11.5" fill="#5a6f8c">才值得建实体</text>
+
+  <rect x="608" y="96" width="252" height="80" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="626" y="126" font-size="14" font-weight="700" fill="#33507f">③ 有多个实例吗</text>
+  <text x="626" y="150" font-size="11.5" fill="#5a6f8c">只会出现一次的配置，通常</text>
+  <text x="626" y="168" font-size="11.5" fill="#5a6f8c">不该建成实体</text>
+
+  <text x="60" y="228" font-size="14" font-weight="700" fill="#33507f">领域模型（Domain Model）· 类图表示</text>
+
+  <rect x="80" y="272" width="190" height="118" rx="10" fill="#ffffff" stroke="#7093c8" />
+  <text x="175" y="298" text-anchor="middle" font-size="14" font-weight="700" fill="#1f3a63">Traveller</text>
+  <line x1="80" y1="308" x2="270" y2="308" stroke="#d3e0ee" />
+  <text x="96" y="330" font-size="11.5" fill="#41556f">travellerId</text>
+  <text x="96" y="352" font-size="11.5" fill="#41556f">name</text>
+  <text x="96" y="374" font-size="11.5" fill="#41556f">contactNo</text>
+
+  <rect x="355" y="272" width="190" height="118" rx="10" fill="#eef5fc" stroke="#7093c8" stroke-width="2" />
+  <text x="450" y="298" text-anchor="middle" font-size="14" font-weight="700" fill="#1f3a63">Booking</text>
+  <line x1="355" y1="308" x2="545" y2="308" stroke="#d3e0ee" />
+  <text x="371" y="330" font-size="11.5" fill="#41556f">bookingId</text>
+  <text x="371" y="352" font-size="11.5" fill="#41556f">bookingDate</text>
+  <text x="371" y="374" font-size="11.5" fill="#41556f">status</text>
+
+  <rect x="630" y="272" width="190" height="118" rx="10" fill="#ffffff" stroke="#7093c8" />
+  <text x="725" y="298" text-anchor="middle" font-size="14" font-weight="700" fill="#1f3a63">Tour</text>
+  <line x1="630" y1="308" x2="820" y2="308" stroke="#d3e0ee" />
+  <text x="646" y="330" font-size="11.5" fill="#41556f">tourCode</text>
+  <text x="646" y="352" font-size="11.5" fill="#41556f">departDate</text>
+  <text x="646" y="374" font-size="11.5" fill="#41556f">price</text>
+
+  <rect x="355" y="452" width="190" height="118" rx="10" fill="#ffffff" stroke="#7093c8" />
+  <text x="450" y="478" text-anchor="middle" font-size="14" font-weight="700" fill="#1f3a63">Payment</text>
+  <line x1="355" y1="488" x2="545" y2="488" stroke="#d3e0ee" />
+  <text x="371" y="510" font-size="11.5" fill="#41556f">paymentId</text>
+  <text x="371" y="532" font-size="11.5" fill="#41556f">amount</text>
+  <text x="371" y="554" font-size="11.5" fill="#41556f">payStatus</text>
+
+  <line x1="270" y1="331" x2="349" y2="331" stroke="#7093c8" stroke-width="1.8" />
+  <text x="310" y="322" text-anchor="middle" font-size="10.5" fill="#5a6f8c">1</text>
+  <text x="310" y="348" text-anchor="middle" font-size="10.5" fill="#5a6f8c">*</text>
+
+  <line x1="545" y1="331" x2="624" y2="331" stroke="#7093c8" stroke-width="1.8" />
+  <text x="585" y="322" text-anchor="middle" font-size="10.5" fill="#5a6f8c">*</text>
+  <text x="585" y="348" text-anchor="middle" font-size="10.5" fill="#5a6f8c">1</text>
+
+  <line x1="450" y1="390" x2="450" y2="446" stroke="#7093c8" stroke-width="1.8" />
+  <text x="466" y="415" font-size="10.5" fill="#5a6f8c">1</text>
+  <text x="466" y="436" font-size="10.5" fill="#5a6f8c">0..1</text>
+
+  <text x="450" y="592" text-anchor="middle" font-size="11.5" fill="#7b8ea8">类图里的属性来自用例描述中「系统需要记住的信息」</text>
+</svg>

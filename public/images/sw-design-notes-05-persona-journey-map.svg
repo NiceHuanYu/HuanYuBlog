@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" width="900" height="620" role="img" aria-label="用户画像与客户旅程图的结构：上半部分是 persona 的五个要素，目标、行为、环境、痛点、限制；下半部分是把一次订票旅程分成产生念头、比较、下单、支付、出行后五个阶段，每个阶段列出用户在想什么，并用一条情绪折线标出情绪起伏，其中下单阶段情绪最低"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="pjbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="620" rx="16" fill="url(#pjbg)" />
+  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">用户画像与客户旅程图</text>
+  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">一个说清「他是谁」，一个说清「他经历了什么」</text>
+
+  <!-- Persona -->
+  <rect x="40" y="90" width="820" height="168" rx="12" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="60" y="118" font-size="15" font-weight="700" fill="#33507f">Persona · 关键用户画像</text>
+
+  <rect x="55" y="132" width="150" height="112" rx="9" fill="#f2f7fd" stroke="#d8e4f0" />
+  <text x="67" y="156" font-size="13" font-weight="700" fill="#1f3a63">目标</text>
+  <text x="67" y="173" font-size="10" fill="#7b8ea8">Goals</text>
+  <text x="67" y="196" font-size="11" fill="#41556f">顺利出行</text>
+  <text x="67" y="214" font-size="11" fill="#41556f">不想多花冤枉钱</text>
+  <text x="67" y="232" font-size="11" fill="#41556f">少打客服电话</text>
+
+  <rect x="215" y="132" width="150" height="112" rx="9" fill="#f2f7fd" stroke="#d8e4f0" />
+  <text x="227" y="156" font-size="13" font-weight="700" fill="#1f3a63">行为</text>
+  <text x="227" y="173" font-size="10" fill="#7b8ea8">Behaviors</text>
+  <text x="227" y="196" font-size="11" fill="#41556f">至少比 3 家</text>
+  <text x="227" y="214" font-size="11" fill="#41556f">深夜看攻略</text>
+  <text x="227" y="232" font-size="11" fill="#41556f">截图留证</text>
+
+  <rect x="375" y="132" width="150" height="112" rx="9" fill="#f2f7fd" stroke="#d8e4f0" />
+  <text x="387" y="156" font-size="13" font-weight="700" fill="#1f3a63">环境</text>
+  <text x="387" y="173" font-size="10" fill="#7b8ea8">Context</text>
+  <text x="387" y="196" font-size="11" fill="#41556f">手机为主</text>
+  <text x="387" y="214" font-size="11" fill="#41556f">通勤路上</text>
+  <text x="387" y="232" font-size="11" fill="#41556f">网络不稳定</text>
+
+  <rect x="535" y="132" width="150" height="112" rx="9" fill="#fdf4f4" stroke="#e8d5d5" />
+  <text x="547" y="156" font-size="13" font-weight="700" fill="#8a4b4b">痛点</text>
+  <text x="547" y="173" font-size="10" fill="#b08787">Pain Points</text>
+  <text x="547" y="196" font-size="11" fill="#5f7183">价格不透明</text>
+  <text x="547" y="214" font-size="11" fill="#5f7183">条款难懂</text>
+  <text x="547" y="232" font-size="11" fill="#5f7183">客服排队</text>
+
+  <rect x="695" y="132" width="150" height="112" rx="9" fill="#f2f7fd" stroke="#d8e4f0" />
+  <text x="707" y="156" font-size="13" font-weight="700" fill="#1f3a63">限制</text>
+  <text x="707" y="173" font-size="10" fill="#7b8ea8">Constraints</text>
+  <text x="707" y="196" font-size="11" fill="#41556f">预算有限</text>
+  <text x="707" y="214" font-size="11" fill="#41556f">年假固定</text>
+  <text x="707" y="232" font-size="11" fill="#41556f">只看得懂中文</text>
+
+  <!-- Journey Map -->
+  <rect x="40" y="280" width="820" height="310" rx="12" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="60" y="308" font-size="15" font-weight="700" fill="#33507f">Customer Journey Map · 一次订票旅程</text>
+
+  <rect x="40" y="324" width="164" height="44" fill="#e8f0f9" />
+  <rect x="204" y="324" width="164" height="44" fill="#dce8f5" />
+  <rect x="368" y="324" width="164" height="44" fill="#cfe0f1" />
+  <rect x="532" y="324" width="164" height="44" fill="#dce8f5" />
+  <rect x="696" y="324" width="164" height="44" fill="#e8f0f9" />
+  <text x="122" y="351" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1f3a63">产生念头</text>
+  <text x="286" y="351" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1f3a63">比较</text>
+  <text x="450" y="351" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1f3a63">下单</text>
+  <text x="614" y="351" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1f3a63">支付</text>
+  <text x="778" y="351" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1f3a63">出行后</text>
+
+  <text x="60" y="396" font-size="11" font-weight="700" fill="#7b8ea8">用户在想什么</text>
+  <text x="122" y="422" text-anchor="middle" font-size="11" fill="#41556f">去哪？</text>
+  <text x="122" y="440" text-anchor="middle" font-size="11" fill="#41556f">什么时候便宜</text>
+  <text x="286" y="422" text-anchor="middle" font-size="11" fill="#41556f">会不会买贵</text>
+  <text x="286" y="440" text-anchor="middle" font-size="11" fill="#41556f">条款看不懂</text>
+  <text x="450" y="422" text-anchor="middle" font-size="11" fill="#41556f">要填这么多？</text>
+  <text x="450" y="440" text-anchor="middle" font-size="11" fill="#41556f">信息安全吗</text>
+  <text x="614" y="422" text-anchor="middle" font-size="11" fill="#41556f">付款成功了吗</text>
+  <text x="614" y="440" text-anchor="middle" font-size="11" fill="#41556f">凭证在哪</text>
+  <text x="778" y="422" text-anchor="middle" font-size="11" fill="#41556f">行程顺利吗</text>
+  <text x="778" y="440" text-anchor="middle" font-size="11" fill="#41556f">出问题找谁</text>
+
+  <text x="60" y="492" font-size="11" font-weight="700" fill="#7b8ea8">情绪</text>
+  <polyline points="122,506 286,542 450,566 614,530 778,498" fill="none" stroke="#7093c8" stroke-width="2.5" />
+  <circle cx="122" cy="506" r="5" fill="#ffffff" stroke="#7093c8" stroke-width="2.5" />
+  <circle cx="286" cy="542" r="5" fill="#ffffff" stroke="#7093c8" stroke-width="2.5" />
+  <circle cx="450" cy="566" r="5" fill="#c96f6f" stroke="#c96f6f" stroke-width="2.5" />
+  <circle cx="614" cy="530" r="5" fill="#ffffff" stroke="#7093c8" stroke-width="2.5" />
+  <circle cx="778" cy="498" r="5" fill="#ffffff" stroke="#7093c8" stroke-width="2.5" />
+
+  <line x1="204" y1="324" x2="204" y2="586" stroke="#e3ecf5" />
+  <line x1="368" y1="324" x2="368" y2="586" stroke="#e3ecf5" />
+  <line x1="532" y1="324" x2="532" y2="586" stroke="#e3ecf5" />
+  <line x1="696" y1="324" x2="696" y2="586" stroke="#e3ecf5" />
+
+  <text x="450" y="610" text-anchor="middle" font-size="12.5" fill="#33507f">情绪最低的那一格，就是最值得先动手改的地方</text>
+</svg>

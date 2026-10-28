@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" role="img" aria-label="用生成式 AI 辅助设计开发的五步流程：描述问题与约束、让模型给候选、人工筛选、迭代细化、回到真实用户验证；下方提示两类用法各自要注意的地方"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="gabg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+    <marker id="gaArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#7093c8" />
+    </marker>
+  </defs>
+
+  <rect width="900" height="600" rx="16" fill="url(#gabg)" />
+  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">让模型帮你想，但别让它替你决定</text>
+  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">生成式 AI 最擅长的是「给出可供挑选的候选」</text>
+
+  <rect x="40" y="110" width="152" height="76" rx="10" fill="#33507f" />
+  <text x="116" y="140" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">① 描述问题</text>
+  <text x="116" y="160" text-anchor="middle" font-size="10.5" fill="#cedcee">给出约束与目标</text>
+  <text x="116" y="176" text-anchor="middle" font-size="10.5" fill="#cedcee">越具体越好</text>
+
+  <rect x="207" y="110" width="152" height="76" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="283" y="140" text-anchor="middle" font-size="13" font-weight="700" fill="#1f3a63">② 生成候选</text>
+  <text x="283" y="160" text-anchor="middle" font-size="10.5" fill="#7b8ea8">要多个方案</text>
+  <text x="283" y="176" text-anchor="middle" font-size="10.5" fill="#7b8ea8">不要一个答案</text>
+
+  <rect x="374" y="110" width="152" height="76" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="450" y="140" text-anchor="middle" font-size="13" font-weight="700" fill="#1f3a63">③ 人工筛选</text>
+  <text x="450" y="160" text-anchor="middle" font-size="10.5" fill="#7b8ea8">这一步不能省</text>
+  <text x="450" y="176" text-anchor="middle" font-size="10.5" fill="#7b8ea8">模型不知道你的约束</text>
+
+  <rect x="541" y="110" width="152" height="76" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="617" y="140" text-anchor="middle" font-size="13" font-weight="700" fill="#1f3a63">④ 迭代细化</text>
+  <text x="617" y="160" text-anchor="middle" font-size="10.5" fill="#7b8ea8">在选中的方向上改</text>
+  <text x="617" y="176" text-anchor="middle" font-size="10.5" fill="#7b8ea8">带着反馈继续问</text>
+
+  <rect x="708" y="110" width="152" height="76" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="784" y="140" text-anchor="middle" font-size="13" font-weight="700" fill="#1f3a63">⑤ 真实验证</text>
+  <text x="784" y="160" text-anchor="middle" font-size="10.5" fill="#7b8ea8">最终还是要问人</text>
+  <text x="784" y="176" text-anchor="middle" font-size="10.5" fill="#7b8ea8">或看真实数据</text>
+
+  <line x1="194" y1="148" x2="203" y2="148" stroke="#7093c8" stroke-width="2" marker-end="url(#gaArrow)" />
+  <line x1="361" y1="148" x2="370" y2="148" stroke="#7093c8" stroke-width="2" marker-end="url(#gaArrow)" />
+  <line x1="528" y1="148" x2="537" y2="148" stroke="#7093c8" stroke-width="2" marker-end="url(#gaArrow)" />
+  <line x1="695" y1="148" x2="704" y2="148" stroke="#7093c8" stroke-width="2" marker-end="url(#gaArrow)" />
+
+  <rect x="40" y="228" width="400" height="330" rx="12" fill="#ffffff" opacity="0.9" stroke="#c9ded0" />
+  <text x="60" y="260" font-size="14.5" font-weight="700" fill="#2c6e49">用得住的两个场景</text>
+  <text x="60" y="292" font-size="12.5" font-weight="700" fill="#33507f">① 造示例数据</text>
+  <text x="60" y="316" font-size="11.5" fill="#41556f">给出结构骨架和每个字段的要求，</text>
+  <text x="60" y="336" font-size="11.5" fill="#41556f">批量生成符合规律的测试数据。</text>
+  <text x="60" y="356" font-size="11.5" fill="#41556f">省掉手编几十条假记录的时间。</text>
+  <text x="60" y="392" font-size="12.5" font-weight="700" fill="#33507f">② 解释陌生的代码或文档</text>
+  <text x="60" y="416" font-size="11.5" fill="#41556f">把一段别人的实现贴进去，让它讲</text>
+  <text x="60" y="436" font-size="11.5" fill="#41556f">清结构，再要求它按你的场景改写。</text>
+  <text x="60" y="472" font-size="12.5" font-weight="700" fill="#33507f">③ 起草初稿</text>
+  <text x="60" y="496" font-size="11.5" fill="#41556f">访谈提纲、问卷初稿、文案措辞，</text>
+  <text x="60" y="516" font-size="11.5" fill="#41556f">先要一版再改，比从空白页起步快。</text>
+  <text x="60" y="544" font-size="11" fill="#7b8ea8">共同点：都是「生成候选」，不是「替你判断」</text>
+
+  <rect x="460" y="228" width="400" height="330" rx="12" fill="#ffffff" opacity="0.9" stroke="#e8d5d5" />
+  <text x="480" y="260" font-size="14.5" font-weight="700" fill="#8a4b4b">两个必须警惕的地方</text>
+  <text x="480" y="292" font-size="12.5" font-weight="700" fill="#8a4b4b">① 它会复现社会偏见</text>
+  <text x="480" y="316" font-size="11.5" fill="#41556f">让它生成「用户头像」或「用户画像」</text>
+  <text x="480" y="336" font-size="11.5" fill="#41556f">时，结果会带上训练数据里的刻板印象：</text>
+  <text x="480" y="356" font-size="11.5" fill="#41556f">换个说法，肤色、性别、职业就一起变。</text>
+  <text x="480" y="376" font-size="11.5" fill="#8a4b4b">用在用户研究里，会直接歪掉结论。</text>
+  <text x="480" y="412" font-size="12.5" font-weight="700" fill="#8a4b4b">② 它会编得很像真的</text>
+  <text x="480" y="436" font-size="11.5" fill="#41556f">条款、数字、引用，都可能看起来可信</text>
+  <text x="480" y="456" font-size="11.5" fill="#41556f">但完全不对。凡是会进入需求文档的事</text>
+  <text x="480" y="476" font-size="11.5" fill="#41556f">实性内容，都必须回原始来源核对。</text>
+  <text x="480" y="512" font-size="11.5" fill="#8a4b4b">责任在人：写进文档的内容，署名的是你。</text>
+  <text x="480" y="544" font-size="11" fill="#b08787">凡是「看起来正好符合预期」的答案，先怀疑</text>
+</svg>

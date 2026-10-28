@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" role="img" aria-label="设计原则里的内聚与耦合，以及抽象类与接口的选择依据：内聚衡量模块内部元素的相关程度，耦合衡量模块之间的依赖程度；共享实现用抽象类，只约定行为用接口，跨领域组合也用接口"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="dpbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="600" rx="16" fill="url(#dpbg)" />
+  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">内聚与耦合，抽象类与接口</text>
+  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">设计好坏最终都落回两个问题：谁依赖谁、谁来承担变化</text>
+
+  <rect x="40" y="100" width="400" height="140" rx="12" fill="#ffffff" opacity="0.9" stroke="#c9ded0" />
+  <text x="60" y="130" font-size="15" font-weight="700" fill="#2c6e49">Cohesion · 内聚</text>
+  <text x="60" y="156" font-size="11.5" fill="#41556f">一个模块内部各元素的相关程度</text>
+  <text x="60" y="182" font-size="11.5" fill="#41556f">内聚高：这个类只做一件事，改动集中</text>
+  <text x="60" y="206" font-size="11.5" fill="#8a4b4b">内聚低：一个类里塞了几件不相关的事，</text>
+  <text x="60" y="224" font-size="11.5" fill="#8a4b4b">改 A 的时候要担心弄坏 B</text>
+
+  <rect x="460" y="100" width="400" height="140" rx="12" fill="#ffffff" opacity="0.9" stroke="#cfdce8" />
+  <text x="480" y="130" font-size="15" font-weight="700" fill="#33507f">Coupling · 耦合</text>
+  <text x="480" y="156" font-size="11.5" fill="#41556f">模块之间互相依赖的程度</text>
+  <text x="480" y="182" font-size="11.5" fill="#41556f">松耦合：一方改动，另一方不用跟着改</text>
+  <text x="480" y="206" font-size="11.5" fill="#8a4b4b">紧耦合：改一处要顺着调用链改一路，</text>
+  <text x="480" y="224" font-size="11.5" fill="#8a4b4b">最后没人敢动这段代码</text>
+
+  <text x="60" y="278" font-size="14" font-weight="700" fill="#33507f">什么时候用抽象类，什么时候用接口</text>
+
+  <rect x="40" y="296" width="820" height="36" fill="#33507f" />
+  <text x="58" y="321" font-size="12.5" font-weight="700" fill="#ffffff">情形</text>
+  <text x="520" y="321" font-size="12.5" font-weight="700" fill="#ffffff">用什么</text>
+
+  <rect x="40" y="332" width="820" height="42" fill="#ffffff" opacity="0.85" />
+  <text x="58" y="358" font-size="11.5" fill="#41556f">多个类要共享同一部分实现（不只是接口）</text>
+  <text x="520" y="358" font-size="11.5" fill="#41556f">抽象类（abstract class）</text>
+
+  <rect x="40" y="374" width="820" height="42" fill="#ffffff" opacity="0.6" />
+  <text x="58" y="400" font-size="11.5" fill="#41556f">只约定行为，不共享任何实现</text>
+  <text x="520" y="400" font-size="11.5" fill="#41556f">接口（interface）</text>
+
+  <rect x="40" y="416" width="820" height="42" fill="#ffffff" opacity="0.85" />
+  <text x="58" y="442" font-size="11.5" fill="#41556f">这些类分属不同领域，只是恰好都需要这个能力</text>
+  <text x="520" y="442" font-size="11.5" fill="#41556f">接口</text>
+
+  <rect x="40" y="458" width="820" height="42" fill="#ffffff" opacity="0.6" />
+  <text x="58" y="484" font-size="11.5" fill="#41556f">一个类需要同时具备多种能力</text>
+  <text x="520" y="484" font-size="11.5" fill="#41556f">多个接口（单继承语言里尤其如此）</text>
+
+  <line x1="40" y1="374" x2="860" y2="374" stroke="#d3e0ee" />
+  <line x1="40" y1="416" x2="860" y2="416" stroke="#d3e0ee" />
+  <line x1="40" y1="458" x2="860" y2="458" stroke="#d3e0ee" />
+  <line x1="500" y1="296" x2="500" y2="500" stroke="#d3e0ee" />
+  <rect x="40" y="296" width="820" height="204" fill="none" stroke="#c4d4e7" />
+
+  <text x="450" y="536" text-anchor="middle" font-size="12.5" fill="#33507f">复用不是越多越好：把不相关的两件事强行复用同一段代码，耦合就上来了</text>
+  <text x="450" y="566" text-anchor="middle" font-size="12.5" fill="#8a4b4b">判断标准：这个变化发生时，需要改几个地方？改得越少，设计越好</text>
+</svg>

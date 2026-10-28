@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" role="img" aria-label="精炼用例模型的三种方式：include 把公共步骤抽成被复用的用例，extend 描述可选或例外流程，泛化把共同部分抽象成父级，包括参与者泛化与用例泛化"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="iebg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+    <marker id="ieDep" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#7093c8" />
+    </marker>
+    <marker id="ieGen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 0 0 L 12 6 L 0 12 Z" fill="#ffffff" stroke="#33507f" stroke-width="1.4" />
+    </marker>
+  </defs>
+
+  <rect width="900" height="600" rx="16" fill="url(#iebg)" />
+  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">精炼用例模型：include、extend 与泛化</text>
+  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">三种关系解决三种不同的重复</text>
+
+  <!-- include -->
+  <rect x="40" y="96" width="400" height="244" rx="12" fill="#ffffff" opacity="0.85" stroke="#d3e0ee" />
+  <text x="60" y="128" font-size="14.5" font-weight="700" fill="#33507f">include · 把公共步骤抽出来</text>
+
+  <ellipse cx="140" cy="200" rx="78" ry="28" fill="#eef5fc" stroke="#7093c8" />
+  <text x="140" y="205" text-anchor="middle" font-size="13" font-weight="600" fill="#1f3a63">下单</text>
+
+  <ellipse cx="140" cy="292" rx="78" ry="28" fill="#eef5fc" stroke="#7093c8" />
+  <text x="140" y="297" text-anchor="middle" font-size="13" font-weight="600" fill="#1f3a63">取消订单</text>
+
+  <ellipse cx="330" cy="246" rx="78" ry="28" fill="#dcebf9" stroke="#33507f" stroke-width="1.8" />
+  <text x="330" y="251" text-anchor="middle" font-size="13" font-weight="600" fill="#1f3a63">校验库存</text>
+
+  <line x1="216" y1="212" x2="254" y2="232" stroke="#7093c8" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ieDep)" />
+  <line x1="216" y1="282" x2="254" y2="262" stroke="#7093c8" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ieDep)" />
+  <text x="252" y="186" text-anchor="middle" font-size="10.5" fill="#5a6f8c">&lt;&lt;include&gt;&gt;</text>
+  <text x="220" y="330" text-anchor="middle" font-size="11" fill="#7b8ea8">两个用例都要用到的步骤，抽成第三个用例</text>
+
+  <!-- extend -->
+  <rect x="460" y="96" width="400" height="244" rx="12" fill="#ffffff" opacity="0.85" stroke="#d3e0ee" />
+  <text x="480" y="128" font-size="14.5" font-weight="700" fill="#33507f">extend · 可选或例外流程</text>
+
+  <ellipse cx="560" cy="252" rx="78" ry="28" fill="#eef5fc" stroke="#7093c8" />
+  <text x="560" y="257" text-anchor="middle" font-size="13" font-weight="600" fill="#1f3a63">下单</text>
+
+  <ellipse cx="758" cy="182" rx="78" ry="28" fill="#f3ecfa" stroke="#8a6bb5" />
+  <text x="758" y="187" text-anchor="middle" font-size="13" font-weight="600" fill="#4a3568">使用优惠券</text>
+
+  <line x1="742" y1="208" x2="626" y2="234" stroke="#8a6bb5" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ieDep)" />
+  <text x="700" y="212" text-anchor="middle" font-size="10.5" fill="#8a6bb5">&lt;&lt;extend&gt;&gt;</text>
+  <text x="660" y="330" text-anchor="middle" font-size="11" fill="#7b8ea8">只在特定条件下才发生，主用例不知道它的存在</text>
+
+  <!-- 泛化 -->
+  <rect x="40" y="364" width="820" height="200" rx="12" fill="#ffffff" opacity="0.85" stroke="#d3e0ee" />
+  <text x="60" y="396" font-size="14.5" font-weight="700" fill="#33507f">泛化 · 把共同的部分提到父级</text>
+
+  <circle cx="150" cy="436" r="10" fill="#ffffff" stroke="#33507f" stroke-width="2" />
+  <line x1="150" y1="446" x2="150" y2="468" stroke="#33507f" stroke-width="2" />
+  <line x1="136" y1="454" x2="164" y2="454" stroke="#33507f" stroke-width="2" />
+  <text x="150" y="490" text-anchor="middle" font-size="12" font-weight="600" fill="#1f3a63">旅客（父）</text>
+
+  <circle cx="150" cy="512" r="10" fill="#ffffff" stroke="#33507f" stroke-width="2" />
+  <line x1="150" y1="522" x2="150" y2="544" stroke="#33507f" stroke-width="2" />
+  <line x1="136" y1="530" x2="164" y2="530" stroke="#33507f" stroke-width="2" />
+  <text x="150" y="560" text-anchor="middle" font-size="12" font-weight="600" fill="#1f3a63">常旅客（子）</text>
+  <line x1="150" y1="500" x2="150" y2="474" stroke="#33507f" stroke-width="1.8" marker-end="url(#ieGen)" />
+
+  <ellipse cx="660" cy="440" rx="90" ry="28" fill="#eef5fc" stroke="#7093c8" />
+  <text x="660" y="445" text-anchor="middle" font-size="13" font-weight="600" fill="#1f3a63">预订</text>
+  <ellipse cx="660" cy="522" rx="90" ry="28" fill="#eef5fc" stroke="#7093c8" />
+  <text x="660" y="527" text-anchor="middle" font-size="13" font-weight="600" fill="#1f3a63">电话预订</text>
+  <line x1="660" y1="492" x2="660" y2="470" stroke="#33507f" stroke-width="1.8" marker-end="url(#ieGen)" />
+
+  <text x="400" y="548" text-anchor="middle" font-size="11.5" fill="#7b8ea8">共同的部分放父级，差异放子级</text>
+</svg>

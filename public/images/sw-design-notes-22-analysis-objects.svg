@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" width="900" height="620" role="img" aria-label="分析建模里的三种对象与用例实现：边界对象负责系统与外部交互，实体对象承载业务数据与规则，控制对象协调用例流程；下方用一个顺序图示意如何从对象之间的消息导出类与操作"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="ambg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+    <marker id="amArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#7093c8" />
+    </marker>
+  </defs>
+
+  <rect width="900" height="620" rx="16" fill="url(#ambg)" />
+  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">一个用例由哪些对象完成</text>
+  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">三种对象各管一段，谁都不越界</text>
+
+  <rect x="40" y="100" width="252" height="200" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="58" y="130" font-size="14.5" font-weight="700" fill="#1f3a63">Boundary</text>
+  <text x="58" y="148" font-size="10.5" fill="#7b8ea8">边界对象</text>
+  <line x1="58" y1="162" x2="274" y2="162" stroke="#e3ecf5" />
+  <text x="58" y="188" font-size="11.5" fill="#41556f">系统与外部交互的界面</text>
+  <text x="58" y="210" font-size="11.5" fill="#41556f">接收输入、展示结果</text>
+  <text x="58" y="232" font-size="11.5" fill="#41556f">不负责业务规则</text>
+  <text x="58" y="262" font-size="11.5" fill="#5a6f8c">例：查询车辆的界面</text>
+  <text x="58" y="282" font-size="11.5" fill="#8a4b4b">改动最频繁的一层</text>
+
+  <rect x="324" y="100" width="252" height="200" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="342" y="130" font-size="14.5" font-weight="700" fill="#1f3a63">Entity</text>
+  <text x="342" y="148" font-size="10.5" fill="#7b8ea8">实体对象</text>
+  <line x1="342" y1="162" x2="558" y2="162" stroke="#e3ecf5" />
+  <text x="342" y="188" font-size="11.5" fill="#41556f">业务上需要长期记住的东西</text>
+  <text x="342" y="210" font-size="11.5" fill="#41556f">承载数据与规则</text>
+  <text x="342" y="232" font-size="11.5" fill="#41556f">通常能对应到数据表</text>
+  <text x="342" y="262" font-size="11.5" fill="#5a6f8c">例：车辆、订单</text>
+  <text x="342" y="282" font-size="11.5" fill="#8a4b4b">对应笔记 09 的业务实体</text>
+
+  <rect x="608" y="100" width="252" height="200" rx="11" fill="#eef5fc" stroke="#7093c8" />
+  <text x="626" y="130" font-size="14.5" font-weight="700" fill="#1f3a63">Control</text>
+  <text x="626" y="148" font-size="10.5" fill="#7b8ea8">控制对象</text>
+  <line x1="626" y1="162" x2="842" y2="162" stroke="#d3e3f2" />
+  <text x="626" y="188" font-size="11.5" fill="#41556f">协调一个用例的执行顺序</text>
+  <text x="626" y="210" font-size="11.5" fill="#41556f">把请求转给该处理的对象</text>
+  <text x="626" y="232" font-size="11.5" fill="#41556f">本身不该堆业务规则</text>
+  <text x="626" y="262" font-size="11.5" fill="#5a6f8c">例：租车流程的协调者</text>
+  <text x="626" y="282" font-size="11.5" fill="#8a4b4b">职责过多会变成「上帝类」</text>
+
+  <rect x="40" y="322" width="820" height="238" rx="12" fill="#ffffff" opacity="0.85" stroke="#d3e0ee" />
+  <text x="60" y="352" font-size="14" font-weight="700" fill="#33507f">用例实现（use case realization）</text>
+
+  <rect x="80" y="372" width="110" height="26" rx="6" fill="#33507f" />
+  <text x="135" y="390" text-anchor="middle" font-size="11" fill="#ffffff">:查询界面</text>
+  <rect x="230" y="372" width="110" height="26" rx="6" fill="#e8f0f9" stroke="#7093c8" />
+  <text x="285" y="390" text-anchor="middle" font-size="11" fill="#1f3a63">:车辆</text>
+  <rect x="380" y="372" width="110" height="26" rx="6" fill="#e8f0f9" stroke="#7093c8" />
+  <text x="435" y="390" text-anchor="middle" font-size="11" fill="#1f3a63">:车辆数据</text>
+
+  <line x1="135" y1="398" x2="135" y2="500" stroke="#c4d4e7" stroke-dasharray="4 4" />
+  <line x1="285" y1="398" x2="285" y2="500" stroke="#c4d4e7" stroke-dasharray="4 4" />
+  <line x1="435" y1="398" x2="435" y2="500" stroke="#c4d4e7" stroke-dasharray="4 4" />
+
+  <line x1="135" y1="424" x2="281" y2="424" stroke="#7093c8" stroke-width="1.6" marker-end="url(#amArrow)" />
+  <text x="208" y="418" text-anchor="middle" font-size="10.5" fill="#5a6f8c">查车牌</text>
+  <line x1="285" y1="452" x2="431" y2="452" stroke="#7093c8" stroke-width="1.6" marker-end="url(#amArrow)" />
+  <text x="358" y="446" text-anchor="middle" font-size="10.5" fill="#5a6f8c">按车牌查</text>
+  <line x1="431" y1="480" x2="289" y2="480" stroke="#7093c8" stroke-width="1.6" marker-end="url(#amArrow)" />
+  <text x="360" y="474" text-anchor="middle" font-size="10.5" fill="#5a6f8c">返回数据</text>
+
+  <text x="540" y="392" font-size="12.5" font-weight="700" fill="#33507f">从这张图能导出什么</text>
+  <text x="540" y="420" font-size="11.5" fill="#41556f">· 每个参与对象 → 一个类</text>
+  <text x="540" y="444" font-size="11.5" fill="#41556f">· 收到的消息 → 该类的一个操作</text>
+  <text x="540" y="468" font-size="11.5" fill="#41556f">· 需要记住的数据 → 类的属性</text>
+  <text x="540" y="496" font-size="11.5" fill="#8a4b4b">· 谁调用谁 → 类之间的关系</text>
+  <text x="540" y="524" font-size="11" fill="#7b8ea8">顺序图画清楚了，类图基本就出来了</text>
+
+  <text x="450" y="592" text-anchor="middle" font-size="12.5" fill="#33507f">对象分不清该谁负责时，先问一句：这段逻辑属于谁的数据</text>
+</svg>

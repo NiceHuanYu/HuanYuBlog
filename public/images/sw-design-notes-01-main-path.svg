@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" width="900" height="560" role="img" aria-label="软件分析与设计的主干链路：第一阶段把需求变成模型，依次是事实调查、范围界定、用户故事、用例建模、实体与工作流、前端设计、非功能需求、测试；第二阶段把模型变成软件结构，依次是数据库分析与 ERD、规范化、逻辑数据模型、面向对象概念、UML 类图与顺序图、分析建模、设计建模、设计原则、重构"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="mpbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+    <marker id="mpArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#7093c8" />
+    </marker>
+  </defs>
+
+  <rect width="900" height="560" rx="16" fill="url(#mpbg)" />
+
+  <text x="450" y="48" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">从需求到设计的主干链路</text>
+  <text x="450" y="76" text-anchor="middle" font-size="13.5" fill="#5a6f8c">每一篇笔记对应其中一个环节，前一环的输出是后一环的输入</text>
+
+  <!-- 第一阶段 -->
+  <rect x="40" y="100" width="820" height="190" rx="14" fill="#ffffff" opacity="0.75" stroke="#d3e0ee" />
+  <text x="62" y="126" font-size="14.5" font-weight="700" fill="#33507f">第一阶段 · 需求与分析</text>
+  <text x="252" y="126" font-size="12.5" fill="#7b8ea8">把「要做什么」变成可验证、可确认的模型</text>
+
+  <!-- 第一阶段节点：4 列 × 2 行 -->
+  <rect x="60" y="140" width="180" height="56" rx="10" fill="#33507f" />
+  <text x="150" y="164" text-anchor="middle" font-size="15" font-weight="600" fill="#ffffff">事实调查</text>
+  <text x="150" y="183" text-anchor="middle" font-size="11.5" fill="#cedcee">Fact Finding</text>
+
+  <rect x="260" y="140" width="180" height="56" rx="10" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="350" y="164" text-anchor="middle" font-size="15" font-weight="600" fill="#1f3a63">范围界定</text>
+  <text x="350" y="183" text-anchor="middle" font-size="11.5" fill="#6a7f9c">Scoping</text>
+
+  <rect x="460" y="140" width="180" height="56" rx="10" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="550" y="164" text-anchor="middle" font-size="15" font-weight="600" fill="#1f3a63">用户故事</text>
+  <text x="550" y="183" text-anchor="middle" font-size="11.5" fill="#6a7f9c">User Story</text>
+
+  <rect x="660" y="140" width="180" height="56" rx="10" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="750" y="164" text-anchor="middle" font-size="15" font-weight="600" fill="#1f3a63">用例建模</text>
+  <text x="750" y="183" text-anchor="middle" font-size="11.5" fill="#6a7f9c">Use Case Model</text>
+
+  <rect x="60" y="210" width="180" height="56" rx="10" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="150" y="234" text-anchor="middle" font-size="15" font-weight="600" fill="#1f3a63">实体与工作流</text>
+  <text x="150" y="253" text-anchor="middle" font-size="11.5" fill="#6a7f9c">Entity / Workflow</text>
+
+  <rect x="260" y="210" width="180" height="56" rx="10" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="350" y="234" text-anchor="middle" font-size="15" font-weight="600" fill="#1f3a63">前端设计</text>
+  <text x="350" y="253" text-anchor="middle" font-size="11.5" fill="#6a7f9c">UI / UX Design</text>
+
+  <rect x="460" y="210" width="180" height="56" rx="10" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="550" y="234" text-anchor="middle" font-size="15" font-weight="600" fill="#1f3a63">非功能需求</text>
+  <text x="550" y="253" text-anchor="middle" font-size="11.5" fill="#6a7f9c">Non-Functional Req</text>
+
+  <rect x="660" y="210" width="180" height="56" rx="10" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="750" y="234" text-anchor="middle" font-size="15" font-weight="600" fill="#1f3a63">测试</text>
+  <text x="750" y="253" text-anchor="middle" font-size="11.5" fill="#6a7f9c">Testing</text>
+
+  <!-- 阶段之间的连接 -->
+  <line x1="450" y1="302" x2="450" y2="326" stroke="#7093c8" stroke-width="2.5" marker-end="url(#mpArrow)" />
+  <text x="466" y="320" font-size="11.5" fill="#7093c8">同一份需求，换一种表达</text>
+
+  <!-- 第二阶段 -->
+  <rect x="40" y="336" width="820" height="184" rx="14" fill="#ffffff" opacity="0.75" stroke="#d3e0ee" />
+  <text x="62" y="362" font-size="14.5" font-weight="700" fill="#33507f">第二阶段 · 设计与结构</text>
+  <text x="252" y="362" font-size="12.5" fill="#7b8ea8">把模型变成可实现、可维护的软件结构</text>
+
+  <!-- 第二阶段节点：5 列 × 2 行 -->
+  <rect x="48" y="374" width="148" height="56" rx="10" fill="#f2f7fd" stroke="#c4d4e7" />
+  <text x="122" y="398" text-anchor="middle" font-size="14" font-weight="600" fill="#1f3a63">数据库分析</text>
+  <text x="122" y="417" text-anchor="middle" font-size="11" fill="#6a7f9c">ERD</text>
+
+  <rect x="212" y="374" width="148" height="56" rx="10" fill="#f2f7fd" stroke="#c4d4e7" />
+  <text x="286" y="398" text-anchor="middle" font-size="14" font-weight="600" fill="#1f3a63">规范化</text>
+  <text x="286" y="417" text-anchor="middle" font-size="11" fill="#6a7f9c">Normalization</text>
+
+  <rect x="376" y="374" width="148" height="56" rx="10" fill="#f2f7fd" stroke="#c4d4e7" />
+  <text x="450" y="398" text-anchor="middle" font-size="14" font-weight="600" fill="#1f3a63">逻辑数据模型</text>
+  <text x="450" y="417" text-anchor="middle" font-size="11" fill="#6a7f9c">LDM</text>
+
+  <rect x="540" y="374" width="148" height="56" rx="10" fill="#f2f7fd" stroke="#c4d4e7" />
+  <text x="614" y="398" text-anchor="middle" font-size="14" font-weight="600" fill="#1f3a63">面向对象</text>
+  <text x="614" y="417" text-anchor="middle" font-size="11" fill="#6a7f9c">OO Concept</text>
+
+  <rect x="704" y="374" width="148" height="56" rx="10" fill="#f2f7fd" stroke="#c4d4e7" />
+  <text x="778" y="398" text-anchor="middle" font-size="14" font-weight="600" fill="#1f3a63">UML</text>
+  <text x="778" y="417" text-anchor="middle" font-size="11" fill="#6a7f9c">Class &amp; Sequence</text>
+
+  <rect x="48" y="444" width="148" height="56" rx="10" fill="#f2f7fd" stroke="#c4d4e7" />
+  <text x="122" y="468" text-anchor="middle" font-size="14" font-weight="600" fill="#1f3a63">分析建模</text>
+  <text x="122" y="487" text-anchor="middle" font-size="11" fill="#6a7f9c">Analysis Modelling</text>
+
+  <rect x="212" y="444" width="148" height="56" rx="10" fill="#f2f7fd" stroke="#c4d4e7" />
+  <text x="286" y="468" text-anchor="middle" font-size="14" font-weight="600" fill="#1f3a63">设计建模</text>
+  <text x="286" y="487" text-anchor="middle" font-size="11" fill="#6a7f9c">Design Modelling</text>
+
+  <rect x="376" y="444" width="148" height="56" rx="10" fill="#f2f7fd" stroke="#c4d4e7" />
+  <text x="450" y="468" text-anchor="middle" font-size="14" font-weight="600" fill="#1f3a63">设计原则</text>
+  <text x="450" y="487" text-anchor="middle" font-size="11" fill="#6a7f9c">Design Principles</text>
+
+  <rect x="540" y="444" width="148" height="56" rx="10" fill="#f2f7fd" stroke="#c4d4e7" />
+  <text x="614" y="468" text-anchor="middle" font-size="14" font-weight="600" fill="#1f3a63">重构</text>
+  <text x="614" y="487" text-anchor="middle" font-size="11" fill="#6a7f9c">Refactoring</text>
+</svg>

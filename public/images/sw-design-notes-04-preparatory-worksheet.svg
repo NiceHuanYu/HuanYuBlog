@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540" width="900" height="540" role="img" aria-label="接手陌生业务案例时的三问与记录表：三问是 Who 谁参与、What 做什么、Why 为什么；记录表四列是问题、提出人、答案、假设与理由；表下结论是假设必须写明理由，否则后面无法验证"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="pwsbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="540" rx="16" fill="url(#pwsbg)" />
+  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">接手陌生案例：先问三件事，再记成一张表</text>
+  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">先搞清边界，再谈方案</text>
+
+  <!-- 三问 -->
+  <rect x="40" y="94" width="252" height="72" rx="11" fill="#33507f" />
+  <text x="166" y="124" text-anchor="middle" font-size="15.5" font-weight="700" fill="#ffffff">Who — 谁参与</text>
+  <text x="166" y="147" text-anchor="middle" font-size="11.5" fill="#cedcee">这个流程里有哪些角色？</text>
+
+  <rect x="324" y="94" width="252" height="72" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="450" y="124" text-anchor="middle" font-size="15.5" font-weight="700" fill="#1f3a63">What — 做什么</text>
+  <text x="450" y="147" text-anchor="middle" font-size="11.5" fill="#5a6f8c">他们各自在做什么事？</text>
+
+  <rect x="608" y="94" width="252" height="72" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="734" y="124" text-anchor="middle" font-size="15.5" font-weight="700" fill="#1f3a63">Why — 为什么</text>
+  <text x="734" y="147" text-anchor="middle" font-size="11.5" fill="#5a6f8c">为什么要这么做？</text>
+
+  <!-- 记录表 -->
+  <rect x="40" y="196" width="820" height="42" rx="0" fill="#33507f" />
+  <text x="56" y="222" font-size="12.5" font-weight="700" fill="#ffffff">问题</text>
+  <text x="346" y="222" font-size="12.5" font-weight="700" fill="#ffffff">提出人</text>
+  <text x="476" y="222" font-size="12.5" font-weight="700" fill="#ffffff">答案 / 事实</text>
+  <text x="686" y="222" font-size="12.5" font-weight="700" fill="#ffffff">假设与理由</text>
+
+  <rect x="40" y="238" width="820" height="42" fill="#ffffff" opacity="0.85" />
+  <text x="56" y="264" font-size="11.5" fill="#41556f">续订提醒是怎么发出去的？</text>
+  <text x="346" y="264" font-size="11.5" fill="#41556f">小林</text>
+  <text x="476" y="264" font-size="11.5" fill="#41556f">靠人工核对 Excel</text>
+  <text x="686" y="264" font-size="11" fill="#8a4b4b">该环节没有系统支持</text>
+
+  <rect x="40" y="280" width="820" height="42" fill="#ffffff" opacity="0.6" />
+  <text x="56" y="306" font-size="11.5" fill="#41556f">为什么退款要等 5 个工作日？</text>
+  <text x="346" y="306" font-size="11.5" fill="#41556f">小陈</text>
+  <text x="476" y="306" font-size="11.5" fill="#41556f">财务手工对账</text>
+  <text x="686" y="306" font-size="11" fill="#8a4b4b">瓶颈在人工对账</text>
+
+  <rect x="40" y="322" width="820" height="42" fill="#ffffff" opacity="0.85" />
+  <text x="56" y="348" font-size="11.5" fill="#41556f">旺季每天能接多少通电话？</text>
+  <text x="346" y="348" font-size="11.5" fill="#41556f">小林</text>
+  <text x="476" y="348" font-size="11.5" fill="#41556f">日均 120 通</text>
+  <text x="686" y="348" font-size="11" fill="#8a4b4b">峰值人力是主要瓶颈</text>
+
+  <line x1="40" y1="238" x2="860" y2="238" stroke="#d3e0ee" />
+  <line x1="40" y1="280" x2="860" y2="280" stroke="#d3e0ee" />
+  <line x1="40" y1="322" x2="860" y2="322" stroke="#d3e0ee" />
+  <line x1="40" y1="364" x2="860" y2="364" stroke="#d3e0ee" />
+  <line x1="330" y1="196" x2="330" y2="364" stroke="#d3e0ee" />
+  <line x1="460" y1="196" x2="460" y2="364" stroke="#d3e0ee" />
+  <line x1="670" y1="196" x2="670" y2="364" stroke="#d3e0ee" />
+  <rect x="40" y="196" width="820" height="168" fill="none" stroke="#c4d4e7" />
+
+  <!-- 结论 -->
+  <rect x="40" y="406" width="820" height="94" rx="11" fill="#ffffff" opacity="0.85" stroke="#d3e0ee" />
+  <text x="60" y="436" font-size="13.5" font-weight="700" fill="#33507f">为什么必须把「假设」单独写一列</text>
+  <text x="60" y="460" font-size="12" fill="#41556f">事实可以直接进入需求；假设必须先被验证，才能变成需求。</text>
+  <text x="60" y="482" font-size="12" fill="#41556f">不写理由的假设等于猜：验证时不知道要看什么，也就无法推翻它。</text>
+</svg>

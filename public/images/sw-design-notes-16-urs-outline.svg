@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" width="900" height="620" role="img" aria-label="用户需求规格说明书的目录结构与每一章来自哪个环节：方案概述、范围、关键用户画像与旅程图、用户故事、用例模型、功能需求、非功能需求、测试用例与数据、附录访谈记录，共九个部分"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="urbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="620" rx="16" fill="url(#urbg)" />
+  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">用户需求规格说明书（URS）的骨架</text>
+  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">每一章都对应前面某一环的产出，不是重新写一遍</text>
+
+  <rect x="40" y="100" width="500" height="42" fill="#33507f" />
+  <text x="58" y="127" font-size="12.5" font-weight="700" fill="#ffffff">章节</text>
+  <text x="330" y="127" font-size="12.5" font-weight="700" fill="#ffffff">谁来确认这一章</text>
+  <text x="560" y="127" font-size="12.5" font-weight="700" fill="#ffffff">来自哪一环</text>
+
+  <rect x="40" y="142" width="820" height="46" fill="#ffffff" opacity="0.85" />
+  <text x="58" y="170" font-size="12" fill="#41556f">1 方案概述</text>
+  <text x="330" y="170" font-size="12" fill="#41556f">决策者</text>
+  <text x="560" y="170" font-size="12" fill="#5f7183">全篇的提炼</text>
+
+  <rect x="40" y="188" width="820" height="46" fill="#ffffff" opacity="0.6" />
+  <text x="58" y="216" font-size="12" fill="#41556f">2 范围：in scope / out of scope</text>
+  <text x="330" y="216" font-size="12" fill="#41556f">业务方</text>
+  <text x="560" y="216" font-size="12" fill="#5f7183">范围界定</text>
+
+  <rect x="40" y="234" width="820" height="46" fill="#ffffff" opacity="0.85" />
+  <text x="58" y="262" font-size="12" fill="#41556f">3 关键用户画像 + 客户旅程图</text>
+  <text x="330" y="262" font-size="12" fill="#41556f">业务方</text>
+  <text x="560" y="262" font-size="12" fill="#5f7183">用户侧界定</text>
+
+  <rect x="40" y="280" width="820" height="46" fill="#ffffff" opacity="0.6" />
+  <text x="58" y="308" font-size="12" fill="#41556f">4 用户故事（含验收标准）</text>
+  <text x="330" y="308" font-size="12" fill="#41556f">业务方 + 开发</text>
+  <text x="560" y="308" font-size="12" fill="#5f7183">需求结构化</text>
+
+  <rect x="40" y="326" width="820" height="46" fill="#ffffff" opacity="0.85" />
+  <text x="58" y="354" font-size="12" fill="#41556f">5 用例模型与用例描述</text>
+  <text x="330" y="354" font-size="12" fill="#41556f">业务方</text>
+  <text x="560" y="354" font-size="12" fill="#5f7183">功能建模</text>
+
+  <rect x="40" y="372" width="820" height="46" fill="#ffffff" opacity="0.6" />
+  <text x="58" y="400" font-size="12" fill="#41556f">6 功能需求：活动图与屏幕设计</text>
+  <text x="330" y="400" font-size="12" fill="#41556f">业务方 + 开发</text>
+  <text x="560" y="400" font-size="12" fill="#5f7183">功能建模 + 前端设计</text>
+
+  <rect x="40" y="418" width="820" height="46" fill="#ffffff" opacity="0.85" />
+  <text x="58" y="446" font-size="12" fill="#41556f">7 非功能需求：性能、安全、可靠性</text>
+  <text x="330" y="446" font-size="12" fill="#41556f">运维 + 业务方</text>
+  <text x="560" y="446" font-size="12" fill="#5f7183">非功能需求</text>
+
+  <rect x="40" y="464" width="820" height="46" fill="#ffffff" opacity="0.6" />
+  <text x="58" y="492" font-size="12" fill="#41556f">8 测试用例与测试数据</text>
+  <text x="330" y="492" font-size="12" fill="#41556f">测试</text>
+  <text x="560" y="492" font-size="12" fill="#5f7183">测试设计</text>
+
+  <rect x="40" y="510" width="820" height="46" fill="#ffffff" opacity="0.85" />
+  <text x="58" y="538" font-size="12" fill="#41556f">9 附录：访谈脚本与记录</text>
+  <text x="330" y="538" font-size="12" fill="#41556f">——</text>
+  <text x="560" y="538" font-size="12" fill="#5f7183">需求获取</text>
+
+  <rect x="40" y="100" width="820" height="456" fill="none" stroke="#c4d4e7" />
+  <line x1="40" y1="188" x2="860" y2="188" stroke="#d3e0ee" />
+  <line x1="40" y1="234" x2="860" y2="234" stroke="#d3e0ee" />
+  <line x1="40" y1="280" x2="860" y2="280" stroke="#d3e0ee" />
+  <line x1="40" y1="326" x2="860" y2="326" stroke="#d3e0ee" />
+  <line x1="40" y1="372" x2="860" y2="372" stroke="#d3e0ee" />
+  <line x1="40" y1="418" x2="860" y2="418" stroke="#d3e0ee" />
+  <line x1="40" y1="464" x2="860" y2="464" stroke="#d3e0ee" />
+  <line x1="40" y1="510" x2="860" y2="510" stroke="#d3e0ee" />
+  <line x1="310" y1="100" x2="310" y2="556" stroke="#d3e0ee" />
+  <line x1="540" y1="100" x2="540" y2="556" stroke="#d3e0ee" />
+
+  <text x="450" y="590" text-anchor="middle" font-size="12.5" fill="#33507f">写不出来某一章，通常不是文笔问题，而是对应的那一环没做到位</text>
+</svg>

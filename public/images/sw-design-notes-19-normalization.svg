@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" width="900" height="620" role="img" aria-label="规范化四个阶段各自解决的问题：未规范化存在重复组与重复数据，第一范式拆掉重复组，第二范式消除只依赖部分主键的字段，第三范式消除依赖其他非主键字段的字段；底部说明派生字段不该存储、优化是另一回事"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="nrmbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="620" rx="16" fill="url(#nrmbg)" />
+  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">规范化：每一步解决一个具体问题</text>
+  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">不是背定义，而是看清「重复」是怎么一层层被拿掉的</text>
+
+  <rect x="40" y="110" width="190" height="330" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="58" y="142" font-size="14" font-weight="700" fill="#33507f">① 未规范化</text>
+  <text x="58" y="160" font-size="10.5" fill="#7b8ea8">UNF</text>
+  <line x1="58" y1="174" x2="212" y2="174" stroke="#e3ecf5" />
+  <text x="58" y="198" font-size="10.5" fill="#41556f">order_id</text>
+  <text x="58" y="218" font-size="10.5" fill="#41556f">order_date</text>
+  <text x="58" y="238" font-size="10.5" fill="#8a4b4b">item_name, qty …</text>
+  <text x="58" y="258" font-size="10.5" fill="#8a4b4b">（重复出现多行）</text>
+  <text x="58" y="278" font-size="10.5" fill="#41556f">customer_name</text>
+  <text x="58" y="298" font-size="10.5" fill="#41556f">customer_addr</text>
+  <text x="58" y="330" font-size="11" font-weight="700" fill="#8a4b4b">问题</text>
+  <text x="58" y="352" font-size="10.5" fill="#5f7183">一张表塞下全部信息，</text>
+  <text x="58" y="370" font-size="10.5" fill="#5f7183">重复组与重复数据并存</text>
+  <text x="58" y="396" font-size="10.5" fill="#5f7183">同一客户下三次单，</text>
+  <text x="58" y="414" font-size="10.5" fill="#5f7183">地址就存了三遍</text>
+
+  <rect x="248" y="110" width="190" height="330" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="266" y="142" font-size="14" font-weight="700" fill="#33507f">② 第一范式</text>
+  <text x="266" y="160" font-size="10.5" fill="#7b8ea8">1NF</text>
+  <line x1="266" y1="174" x2="420" y2="174" stroke="#e3ecf5" />
+  <text x="266" y="198" font-size="10.5" fill="#41556f">order_id</text>
+  <text x="266" y="218" font-size="10.5" fill="#41556f">order_date</text>
+  <text x="266" y="238" font-size="10.5" fill="#41556f">customer_name</text>
+  <text x="266" y="258" font-size="10.5" fill="#2c6e49">item_name</text>
+  <text x="266" y="278" font-size="10.5" fill="#2c6e49">qty</text>
+  <text x="266" y="298" font-size="10.5" fill="#2c6e49">（每行只放一件商品）</text>
+  <text x="266" y="330" font-size="11" font-weight="700" fill="#2c6e49">解决</text>
+  <text x="266" y="352" font-size="10.5" fill="#5f7183">拆掉重复组，让每个</text>
+  <text x="266" y="370" font-size="10.5" fill="#5f7183">单元格只放一个值</text>
+  <text x="266" y="396" font-size="10.5" fill="#5f7183">一列只放同一种信息</text>
+  <text x="266" y="414" font-size="10.5" fill="#5f7183">但重复问题还没解决</text>
+
+  <rect x="456" y="110" width="190" height="330" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="474" y="142" font-size="14" font-weight="700" fill="#33507f">③ 第二范式</text>
+  <text x="474" y="160" font-size="10.5" fill="#7b8ea8">2NF</text>
+  <line x1="474" y1="174" x2="628" y2="174" stroke="#e3ecf5" />
+  <text x="474" y="198" font-size="10.5" fill="#2c6e49">order_item</text>
+  <text x="474" y="218" font-size="10.5" fill="#41556f">（order_id + item_no）</text>
+  <text x="474" y="238" font-size="10.5" fill="#41556f">item_name</text>
+  <text x="474" y="258" font-size="10.5" fill="#41556f">qty</text>
+  <text x="474" y="278" font-size="10.5" fill="#2c6e49">order（order_id,</text>
+  <text x="474" y="296" font-size="10.5" fill="#2c6e49">order_date）</text>
+  <text x="474" y="330" font-size="11" font-weight="700" fill="#2c6e49">解决</text>
+  <text x="474" y="352" font-size="10.5" fill="#5f7183">非主键字段必须依赖</text>
+  <text x="474" y="370" font-size="10.5" fill="#5f7183">整个主键，而不是</text>
+  <text x="474" y="396" font-size="10.5" fill="#5f7183">只依赖主键的一部分</text>
+  <text x="474" y="414" font-size="10.5" fill="#5f7183">（部分依赖）</text>
+
+  <rect x="664" y="110" width="190" height="330" rx="11" fill="#eef5fc" stroke="#7093c8" />
+  <text x="682" y="142" font-size="14" font-weight="700" fill="#1f3a63">④ 第三范式</text>
+  <text x="682" y="160" font-size="10.5" fill="#7b8ea8">3NF</text>
+  <line x1="682" y1="174" x2="836" y2="174" stroke="#d3e3f2" />
+  <text x="682" y="198" font-size="10.5" fill="#2c6e49">order（order_id,</text>
+  <text x="682" y="216" font-size="10.5" fill="#2c6e49">customer_id）</text>
+  <text x="682" y="238" font-size="10.5" fill="#2c6e49">customer（customer_id,</text>
+  <text x="682" y="256" font-size="10.5" fill="#2c6e49">name, addr）</text>
+  <text x="682" y="278" font-size="10.5" fill="#41556f">each 表只描述</text>
+  <text x="682" y="296" font-size="10.5" fill="#41556f">一件事</text>
+  <text x="682" y="330" font-size="11" font-weight="700" fill="#2c6e49">解决</text>
+  <text x="682" y="352" font-size="10.5" fill="#5f7183">非主键字段不能依赖</text>
+  <text x="682" y="370" font-size="10.5" fill="#5f7183">另一个非主键字段</text>
+  <text x="682" y="396" font-size="10.5" fill="#5f7183">（传递依赖），改一处</text>
+  <text x="682" y="414" font-size="10.5" fill="#5f7183">就不会漏改别处</text>
+
+  <rect x="40" y="466" width="820" height="126" rx="12" fill="#ffffff" opacity="0.85" stroke="#d3e0ee" />
+  <text x="60" y="496" font-size="14" font-weight="700" fill="#33507f">规范化之后还要想清楚的两件事</text>
+  <text x="60" y="524" font-size="12" fill="#41556f">· 派生字段（如「合计金额」）不存：它由其他字段算出，一旦存了就必须同步维护，漏一次就永久不一致</text>
+  <text x="60" y="550" font-size="12" fill="#41556f">· 优化与规范化的方向相反：某些读写场景可以把表适度合并回来，但那是权衡后的选择，不是没做规范化</text>
+  <text x="60" y="578" font-size="12" fill="#8a4b4b">判断依据始终是同一句：这份数据，会不会因为「存在两处」而变得不一致</text>
+</svg>

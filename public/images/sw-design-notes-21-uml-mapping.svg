@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" width="900" height="620" role="img" aria-label="UML 类符号的三格结构与关系到 Java 的映射：类符号从上到下是类名、属性、操作，可见性用加号减号井号表示；右侧列出关联、聚合、组合、继承、依赖五种关系在 Java 里对应的写法，底部说明顺序图的三要素"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="umbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="620" rx="16" fill="url(#umbg)" />
+  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">类图怎么画，以及怎么落到 Java</text>
+  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">画图不是目的，把关系表达准确才是</text>
+
+  <rect x="60" y="104" width="240" height="176" rx="8" fill="#ffffff" stroke="#7093c8" />
+  <text x="180" y="132" text-anchor="middle" font-size="14" font-weight="700" fill="#1f3a63">Customer</text>
+  <line x1="60" y1="146" x2="300" y2="146" stroke="#c4d4e7" />
+  <text x="76" y="172" font-size="11.5" fill="#41556f">- customerId: String</text>
+  <text x="76" y="194" font-size="11.5" fill="#41556f">- customerType: String</text>
+  <text x="76" y="216" font-size="11.5" fill="#41556f">- joinDate: Date</text>
+  <line x1="60" y1="230" x2="300" y2="230" stroke="#c4d4e7" />
+  <text x="76" y="256" font-size="11.5" fill="#41556f">+ getDiscount(): double</text>
+
+  <text x="330" y="150" font-size="12" font-weight="700" fill="#33507f">可见性（visibility）</text>
+  <text x="330" y="176" font-size="11.5" fill="#41556f">- private 仅自己可见</text>
+  <text x="330" y="198" font-size="11.5" fill="#41556f">+ public 对所有类可见</text>
+  <text x="330" y="220" font-size="11.5" fill="#41556f"># protected 子类可见</text>
+  <text x="330" y="248" font-size="11.5" fill="#7b8ea8">属性写不写类型都行，</text>
+  <text x="330" y="266" font-size="11.5" fill="#7b8ea8">但类型写清楚更省沟通</text>
+
+  <rect x="40" y="308" width="820" height="36" fill="#33507f" />
+  <text x="58" y="333" font-size="12.5" font-weight="700" fill="#ffffff">关系</text>
+  <text x="240" y="333" font-size="12.5" font-weight="700" fill="#ffffff">UML 符号</text>
+  <text x="470" y="333" font-size="12.5" font-weight="700" fill="#ffffff">Java 里的典型写法</text>
+
+  <rect x="40" y="344" width="820" height="40" fill="#ffffff" opacity="0.85" />
+  <text x="58" y="369" font-size="11.5" fill="#41556f">Association</text>
+  <text x="240" y="369" font-size="11.5" fill="#41556f">实线 + 重数 1..*</text>
+  <text x="470" y="369" font-size="11.5" fill="#41556f">字段持有集合：List&lt;Order&gt; orders</text>
+
+  <rect x="40" y="384" width="820" height="40" fill="#ffffff" opacity="0.6" />
+  <text x="58" y="409" font-size="11.5" fill="#41556f">Aggregation</text>
+  <text x="240" y="409" font-size="11.5" fill="#41556f">空心菱形</text>
+  <text x="470" y="409" font-size="11.5" fill="#41556f">集合字段，元素由外部传入</text>
+
+  <rect x="40" y="424" width="820" height="40" fill="#ffffff" opacity="0.85" />
+  <text x="58" y="449" font-size="11.5" fill="#41556f">Composition</text>
+  <text x="240" y="449" font-size="11.5" fill="#41556f">实心菱形</text>
+  <text x="470" y="449" font-size="11.5" fill="#41556f">集合字段，元素在内部创建与管理</text>
+
+  <rect x="40" y="464" width="820" height="40" fill="#ffffff" opacity="0.6" />
+  <text x="58" y="489" font-size="11.5" fill="#41556f">Inheritance</text>
+  <text x="240" y="489" font-size="11.5" fill="#41556f">空心三角，指向父类</text>
+  <text x="470" y="489" font-size="11.5" fill="#41556f">class VipCustomer extends Customer</text>
+
+  <rect x="40" y="504" width="820" height="40" fill="#ffffff" opacity="0.85" />
+  <text x="58" y="529" font-size="11.5" fill="#41556f">Dependency</text>
+  <text x="240" y="529" font-size="11.5" fill="#41556f">虚线箭头</text>
+  <text x="470" y="529" font-size="11.5" fill="#41556f">出现在方法参数或局部变量里</text>
+
+  <line x1="40" y1="384" x2="860" y2="384" stroke="#d3e0ee" />
+  <line x1="40" y1="424" x2="860" y2="424" stroke="#d3e0ee" />
+  <line x1="40" y1="464" x2="860" y2="464" stroke="#d3e0ee" />
+  <line x1="40" y1="504" x2="860" y2="504" stroke="#d3e0ee" />
+  <line x1="40" y1="544" x2="860" y2="544" stroke="#d3e0ee" />
+  <line x1="220" y1="308" x2="220" y2="544" stroke="#d3e0ee" />
+  <line x1="450" y1="308" x2="450" y2="544" stroke="#d3e0ee" />
+  <rect x="40" y="308" width="820" height="236" fill="none" stroke="#c4d4e7" />
+
+  <text x="60" y="576" font-size="12.5" font-weight="700" fill="#33507f">顺序图（sequence diagram）三要素</text>
+  <text x="60" y="600" font-size="11.5" fill="#41556f">生命线（lifeline）表示参与的对象，消息（message）是它们之间的调用，激活条（activation）表示某段时间正在处理 —— 纵向就是时间</text>
+</svg>

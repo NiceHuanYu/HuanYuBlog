@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" width="900" height="620" role="img" aria-label="AI Agent 的五项能力、四个核心组件与两种实现路径：能力是推理、行动、观察、规划、自主与协作；组件是推理核心、记忆、工具、指令与编排；实现路径分小目标加固定流程与高层目标加动态决策两类"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="aibg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="620" rx="16" fill="url(#aibg)" />
+  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">Agentic AI：能自己决定下一步的软件</text>
+  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">和传统程序最大的差别，是「下一步做什么」由谁决定</text>
+
+  <!-- 五项能力 -->
+  <rect x="40" y="96" width="152" height="76" rx="10" fill="#33507f" />
+  <text x="116" y="126" text-anchor="middle" font-size="13.5" font-weight="700" fill="#ffffff">推理</text>
+  <text x="116" y="146" text-anchor="middle" font-size="10.5" fill="#cedcee">Reasoning</text>
+
+  <rect x="207" y="96" width="152" height="76" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="283" y="126" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1f3a63">行动</text>
+  <text x="283" y="146" text-anchor="middle" font-size="10.5" fill="#7b8ea8">Acting</text>
+
+  <rect x="374" y="96" width="152" height="76" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="450" y="126" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1f3a63">观察</text>
+  <text x="450" y="146" text-anchor="middle" font-size="10.5" fill="#7b8ea8">Observing</text>
+
+  <rect x="541" y="96" width="152" height="76" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="617" y="126" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1f3a63">规划</text>
+  <text x="617" y="146" text-anchor="middle" font-size="10.5" fill="#7b8ea8">Planning</text>
+
+  <rect x="708" y="96" width="152" height="76" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="784" y="126" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1f3a63">自主与协作</text>
+  <text x="784" y="146" text-anchor="middle" font-size="10.5" fill="#7b8ea8">Autonomy</text>
+
+  <!-- 四个组件 -->
+  <rect x="40" y="204" width="192" height="126" rx="11" fill="#f2f7fd" stroke="#c4d4e7" />
+  <text x="58" y="234" font-size="14" font-weight="700" fill="#1f3a63">Brain 推理核心</text>
+  <text x="58" y="260" font-size="11" fill="#41556f">拆解目标为任务</text>
+  <text x="58" y="280" font-size="11" fill="#41556f">规划下一步动作</text>
+  <text x="58" y="300" font-size="11" fill="#41556f">判断何时结束</text>
+
+  <rect x="252" y="204" width="192" height="126" rx="11" fill="#f2f7fd" stroke="#c4d4e7" />
+  <text x="270" y="234" font-size="14" font-weight="700" fill="#1f3a63">Memory 记忆</text>
+  <text x="270" y="260" font-size="11" fill="#41556f">短期：当前会话上下文</text>
+  <text x="270" y="280" font-size="11" fill="#41556f">长期：向量库、知识图谱</text>
+  <text x="270" y="300" font-size="11" fill="#41556f">长期记忆常以 RAG 实现</text>
+
+  <rect x="464" y="204" width="192" height="126" rx="11" fill="#f2f7fd" stroke="#c4d4e7" />
+  <text x="482" y="234" font-size="14" font-weight="700" fill="#1f3a63">Tools 工具</text>
+  <text x="482" y="260" font-size="11" fill="#41556f">调用 API、查数据库</text>
+  <text x="482" y="280" font-size="11" fill="#41556f">浏览网页抓取信息</text>
+  <text x="482" y="300" font-size="11" fill="#41556f">发邮件、写记录</text>
+
+  <rect x="676" y="204" width="192" height="126" rx="11" fill="#f2f7fd" stroke="#c4d4e7" />
+  <text x="694" y="234" font-size="14" font-weight="700" fill="#1f3a63">Instructions 指令</text>
+  <text x="694" y="260" font-size="11" fill="#41556f">定义角色的边界与行为</text>
+  <text x="694" y="280" font-size="11" fill="#41556f">由 orchestration 编排调用</text>
+  <text x="694" y="300" font-size="11" fill="#41556f">也负责协调多 agent 协作</text>
+
+  <!-- 两种实现路径 -->
+  <rect x="40" y="360" width="400" height="216" rx="12" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="60" y="392" font-size="14.5" font-weight="700" fill="#33507f">小目标 + 固定流程</text>
+  <text x="60" y="424" font-size="11.5" fill="#41556f">把大任务拆成明确的小步骤</text>
+  <text x="60" y="446" font-size="11.5" fill="#41556f">每一步走哪条分支由人预先定好</text>
+  <text x="60" y="468" font-size="11.5" fill="#41556f">行为可预测、容易追踪和测试</text>
+  <text x="60" y="500" font-size="11.5" fill="#2c6e49">适合：规则清楚、重复度高的事</text>
+  <text x="60" y="530" font-size="11.5" fill="#7b8ea8">本质上是带 LLM 调用的工作流</text>
+
+  <rect x="460" y="360" width="400" height="216" rx="12" fill="#eef5fc" stroke="#7093c8" stroke-width="2" />
+  <text x="480" y="392" font-size="14.5" font-weight="700" fill="#1f3a63">高层目标 + 动态决策</text>
+  <text x="480" y="424" font-size="11.5" fill="#41556f">只给目标和可用工具，不给步骤</text>
+  <text x="480" y="446" font-size="11.5" fill="#41556f">agent 自己决定调哪个工具、调几次</text>
+  <text x="480" y="468" font-size="11.5" fill="#41556f">能处理没预先想到的情况</text>
+  <text x="480" y="500" font-size="11.5" fill="#8a4b4b">代价：行为不可预测，必须加护栏</text>
+  <text x="480" y="530" font-size="11.5" fill="#7b8ea8">本质上是自主决策的 agent</text>
+
+  <text x="450" y="606" text-anchor="middle" font-size="12.5" fill="#33507f">先问一句：这里需要自主性，还是只需要一套可靠的指令？</text>
+</svg>

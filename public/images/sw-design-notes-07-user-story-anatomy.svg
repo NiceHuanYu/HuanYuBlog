@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" role="img" aria-label="用户故事的句式拆解与好坏对照：句式为 As a 角色、I want 目标、so that 价值；左侧是好的写法并附验收标准，右侧是需要改的写法并列出问题"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="usbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="600" rx="16" fill="url(#usbg)" />
+  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">用户故事的三段结构</text>
+  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">写不清角色、目标、价值这三段，故事就没法验收</text>
+
+  <rect x="60" y="118" width="200" height="56" rx="10" fill="#33507f" />
+  <text x="160" y="146" text-anchor="middle" font-size="14.5" font-weight="700" fill="#ffffff">As a 谁</text>
+  <text x="160" y="164" text-anchor="middle" font-size="11" fill="#cedcee">角色 / Who</text>
+
+  <rect x="280" y="118" width="300" height="56" rx="10" fill="#4a6a9e" />
+  <text x="430" y="146" text-anchor="middle" font-size="14.5" font-weight="700" fill="#ffffff">I want 做什么</text>
+  <text x="430" y="164" text-anchor="middle" font-size="11" fill="#dbe5f1">目标 / What</text>
+
+  <rect x="600" y="118" width="240" height="56" rx="10" fill="#6f8cb8" />
+  <text x="720" y="146" text-anchor="middle" font-size="14.5" font-weight="700" fill="#ffffff">so that 为什么</text>
+  <text x="720" y="164" text-anchor="middle" font-size="11" fill="#e3ecf5">价值 / Why</text>
+
+  <text x="160" y="200" text-anchor="middle" font-size="11.5" fill="#5a6f8c">谁在操作，越具体越好</text>
+  <text x="430" y="200" text-anchor="middle" font-size="11.5" fill="#5a6f8c">他要达成什么，必须可验收</text>
+  <text x="720" y="200" text-anchor="middle" font-size="11.5" fill="#5a6f8c">不做会怎样</text>
+
+  <!-- 好例子 -->
+  <rect x="40" y="232" width="400" height="296" rx="12" fill="#ffffff" opacity="0.9" stroke="#c9ded0" />
+  <text x="60" y="264" font-size="14.5" font-weight="700" fill="#2c6e49">能用的写法</text>
+  <text x="60" y="294" font-size="12" fill="#41556f">作为常旅客，我想在下单前看到</text>
+  <text x="60" y="314" font-size="12" fill="#41556f">同航线的价格区间，这样我能</text>
+  <text x="60" y="334" font-size="12" fill="#41556f">确认自己没有买贵。</text>
+  <line x1="60" y1="356" x2="420" y2="356" stroke="#e3ecf5" />
+  <text x="60" y="382" font-size="12" font-weight="700" fill="#33507f">验收标准（acceptance criteria）</text>
+  <text x="60" y="408" font-size="11.5" fill="#5f7183">· 同航线 ±3 天内的价格以区间形式展示</text>
+  <text x="60" y="430" font-size="11.5" fill="#5f7183">· 样本不足时明确提示，不显示区间</text>
+  <text x="60" y="452" font-size="11.5" fill="#5f7183">· 价格更新时间不超过 1 天</text>
+  <text x="60" y="486" font-size="11.5" fill="#7b8ea8">角色具体、目标可验收、价值说明动机</text>
+
+  <!-- 坏例子 -->
+  <rect x="460" y="232" width="400" height="296" rx="12" fill="#ffffff" opacity="0.9" stroke="#e8d5d5" />
+  <text x="480" y="264" font-size="14.5" font-weight="700" fill="#8a4b4b">需要改的写法</text>
+  <text x="480" y="294" font-size="12" fill="#41556f">作为用户，我想要一个功能强大</text>
+  <text x="480" y="314" font-size="12" fill="#41556f">的系统，这样可以什么都能做。</text>
+  <line x1="480" y1="356" x2="840" y2="356" stroke="#f0e2e2" />
+  <text x="480" y="382" font-size="12" font-weight="700" fill="#8a4b4b">三个问题</text>
+  <text x="480" y="408" font-size="11.5" fill="#5f7183">· 「用户」是谁？没写清就无法取样验证</text>
+  <text x="480" y="430" font-size="11.5" fill="#5f7183">· 「功能强大」不可验收，做完也不知道算不算完成</text>
+  <text x="480" y="452" font-size="11.5" fill="#5f7183">· 「什么都能做」是愿望，不是价值</text>
+  <text x="480" y="486" font-size="11.5" fill="#b08787">这类故事通常来自「我自己想做的功能」</text>
+
+  <text x="450" y="568" text-anchor="middle" font-size="12.5" fill="#33507f">判断标准很简单：写完这条故事，你能不能立刻说出怎么验证它做到了</text>
+</svg>

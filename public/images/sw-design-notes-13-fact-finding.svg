@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 580" width="900" height="580" role="img" aria-label="五种事实调查方法的对比表：背景阅读、观察、问卷、访谈、参与式设计，各自适合回答什么问题、成本高低与主要风险；下方是访谈的四个阶段"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="ffbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="580" rx="16" fill="url(#ffbg)" />
+  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">五种事实调查方法，各自的代价</text>
+  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">没有哪种方法能单独解决全部问题，关键是用对场景</text>
+
+  <rect x="40" y="104" width="820" height="38" fill="#33507f" />
+  <text x="58" y="130" font-size="12.5" font-weight="700" fill="#ffffff">方法</text>
+  <text x="268" y="130" font-size="12.5" font-weight="700" fill="#ffffff">适合回答</text>
+  <text x="470" y="130" font-size="12.5" font-weight="700" fill="#ffffff">成本</text>
+  <text x="566" y="130" font-size="12.5" font-weight="700" fill="#ffffff">主要风险</text>
+
+  <rect x="40" y="142" width="820" height="54" fill="#ffffff" opacity="0.85" />
+  <text x="58" y="166" font-size="12" font-weight="600" fill="#1f3a63">背景阅读</text>
+  <text x="58" y="184" font-size="10.5" fill="#7b8ea8">Background reading</text>
+  <text x="268" y="174" font-size="12" fill="#41556f">业务全貌、术语、历史</text>
+  <text x="470" y="174" font-size="12" fill="#2c6e49">低</text>
+  <text x="566" y="174" font-size="12" fill="#5f7183">材料常常已经过时</text>
+
+  <rect x="40" y="196" width="820" height="54" fill="#ffffff" opacity="0.6" />
+  <text x="58" y="220" font-size="12" font-weight="600" fill="#1f3a63">观察</text>
+  <text x="58" y="238" font-size="10.5" fill="#7b8ea8">Observation</text>
+  <text x="268" y="228" font-size="12" fill="#41556f">实际是怎么做的</text>
+  <text x="470" y="228" font-size="12" fill="#b07a2c">中</text>
+  <text x="566" y="228" font-size="12" fill="#5f7183">被观察者会改变自己的行为</text>
+
+  <rect x="40" y="250" width="820" height="54" fill="#ffffff" opacity="0.85" />
+  <text x="58" y="274" font-size="12" font-weight="600" fill="#1f3a63">问卷</text>
+  <text x="58" y="292" font-size="10.5" fill="#7b8ea8">Questionnaire</text>
+  <text x="268" y="282" font-size="12" fill="#41556f">大范围的分布与倾向</text>
+  <text x="470" y="282" font-size="12" fill="#b07a2c">中</text>
+  <text x="566" y="282" font-size="12" fill="#5f7183">问题设计不当会引导答案</text>
+
+  <rect x="40" y="304" width="820" height="54" fill="#ffffff" opacity="0.6" />
+  <text x="58" y="328" font-size="12" font-weight="600" fill="#1f3a63">访谈</text>
+  <text x="58" y="346" font-size="10.5" fill="#7b8ea8">Interview</text>
+  <text x="268" y="336" font-size="12" fill="#41556f">为什么这么做、怎么想的</text>
+  <text x="470" y="336" font-size="12" fill="#b04a4a">高</text>
+  <text x="566" y="336" font-size="12" fill="#5f7183">自述与实际行为常常对不上</text>
+
+  <rect x="40" y="358" width="820" height="54" fill="#ffffff" opacity="0.85" />
+  <text x="58" y="382" font-size="12" font-weight="600" fill="#1f3a63">参与式设计</text>
+  <text x="58" y="400" font-size="10.5" fill="#7b8ea8">Participatory design</text>
+  <text x="268" y="390" font-size="12" fill="#41556f">与用户一起设计方案</text>
+  <text x="470" y="390" font-size="12" fill="#b04a4a">很高</text>
+  <text x="566" y="390" font-size="12" fill="#5f7183">少数积极者的声音被放大</text>
+
+  <line x1="40" y1="196" x2="860" y2="196" stroke="#d3e0ee" />
+  <line x1="40" y1="250" x2="860" y2="250" stroke="#d3e0ee" />
+  <line x1="40" y1="304" x2="860" y2="304" stroke="#d3e0ee" />
+  <line x1="40" y1="358" x2="860" y2="358" stroke="#d3e0ee" />
+  <line x1="40" y1="412" x2="860" y2="412" stroke="#d3e0ee" />
+  <line x1="250" y1="104" x2="250" y2="412" stroke="#d3e0ee" />
+  <line x1="452" y1="104" x2="452" y2="412" stroke="#d3e0ee" />
+  <line x1="548" y1="104" x2="548" y2="412" stroke="#d3e0ee" />
+  <rect x="40" y="104" width="820" height="308" fill="none" stroke="#c4d4e7" />
+
+  <text x="60" y="456" font-size="14" font-weight="700" fill="#33507f">访谈的四个阶段</text>
+
+  <rect x="40" y="472" width="190" height="72" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="135" y="502" text-anchor="middle" font-size="13" font-weight="600" fill="#1f3a63">① 准备</text>
+  <text x="135" y="524" text-anchor="middle" font-size="10.5" fill="#7b8ea8">列出信息需求与问题清单</text>
+
+  <rect x="250" y="472" width="190" height="72" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="345" y="502" text-anchor="middle" font-size="13" font-weight="600" fill="#1f3a63">② 开场</text>
+  <text x="345" y="524" text-anchor="middle" font-size="10.5" fill="#7b8ea8">说明目的，让对方放松</text>
+
+  <rect x="460" y="472" width="190" height="72" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="555" y="502" text-anchor="middle" font-size="13" font-weight="600" fill="#1f3a63">③ 提问</text>
+  <text x="555" y="524" text-anchor="middle" font-size="10.5" fill="#7b8ea8">问行为与原因，不问意愿</text>
+
+  <rect x="670" y="472" width="190" height="72" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="765" y="502" text-anchor="middle" font-size="13" font-weight="600" fill="#1f3a63">④ 记录与回读</text>
+  <text x="765" y="524" text-anchor="middle" font-size="10.5" fill="#7b8ea8">当场确认，别事后回忆</text>
+</svg>

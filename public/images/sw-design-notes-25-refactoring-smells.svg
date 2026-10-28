@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" role="img" aria-label="四种常见的代码坏味道与对应的重构手法：长参数列表、依恋情结、重复代码、被拒绝的馈赠，以及各自的处理方式；底部给出重构的前提与时机"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="rfbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="600" rx="16" fill="url(#rfbg)" />
+  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">四种坏味道，四种手法</text>
+  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">坏味道不难发现，难的是改动时不破坏行为</text>
+
+  <rect x="40" y="100" width="400" height="196" rx="12" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="60" y="130" font-size="15" font-weight="700" fill="#8a4b4b">Long Parameter List</text>
+  <text x="60" y="150" font-size="11" fill="#b08787">长参数列表</text>
+  <line x1="60" y1="164" x2="420" y2="164" stroke="#e3ecf5" />
+  <text x="60" y="188" font-size="11.5" fill="#41556f">一个方法要传七八个参数，调用方每次都</text>
+  <text x="60" y="208" font-size="11.5" fill="#41556f">要数清楚顺序，加一个参数就要改所有调用处</text>
+  <text x="60" y="240" font-size="11.5" font-weight="700" fill="#2c6e49">手法：Extract Class / Introduce Parameter Object</text>
+  <text x="60" y="264" font-size="11.5" fill="#5f7183">把这几个参数打包成一个对象，或把一部分</text>
+  <text x="60" y="282" font-size="11.5" fill="#5f7183">逻辑挪回它数据所属的那个类</text>
+
+  <rect x="460" y="100" width="400" height="196" rx="12" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="480" y="130" font-size="15" font-weight="700" fill="#8a4b4b">Feature Envy</text>
+  <text x="480" y="150" font-size="11" fill="#b08787">依恋情结</text>
+  <line x1="480" y1="164" x2="840" y2="164" stroke="#e3ecf5" />
+  <text x="480" y="188" font-size="11.5" fill="#41556f">某个方法对别的类的数据，比对自己类的数据</text>
+  <text x="480" y="208" font-size="11.5" fill="#41556f">更感兴趣，反复调用对方的取值方法</text>
+  <text x="480" y="240" font-size="11.5" font-weight="700" fill="#2c6e49">手法：Move Method</text>
+  <text x="480" y="264" font-size="11.5" fill="#5f7183">把这个方法搬到它真正依赖的那个类里去</text>
+  <text x="480" y="282" font-size="11.5" fill="#5f7183">（回到笔记 20 那条原则）</text>
+
+  <rect x="40" y="316" width="400" height="196" rx="12" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="60" y="346" font-size="15" font-weight="700" fill="#8a4b4b">Duplicate Code</text>
+  <text x="60" y="366" font-size="11" fill="#b08787">重复代码</text>
+  <line x1="60" y1="380" x2="420" y2="380" stroke="#e3ecf5" />
+  <text x="60" y="404" font-size="11.5" fill="#41556f">同一段逻辑出现在两三个类里，改动时只改了</text>
+  <text x="60" y="424" font-size="11.5" fill="#41556f">其中一处</text>
+  <text x="60" y="456" font-size="11.5" font-weight="700" fill="#2c6e49">手法：Pull Up / Extract Method</text>
+  <text x="60" y="480" font-size="11.5" fill="#5f7183">相同的部分提到父类，或抽成一个独立方法</text>
+  <text x="60" y="498" font-size="11.5" fill="#5f7183">——但要先确认它们真的会一起变化</text>
+
+  <rect x="460" y="316" width="400" height="196" rx="12" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="480" y="346" font-size="15" font-weight="700" fill="#8a4b4b">Refused Bequest</text>
+  <text x="480" y="366" font-size="11" fill="#b08787">被拒绝的馈赠</text>
+  <line x1="480" y1="380" x2="840" y2="380" stroke="#e3ecf5" />
+  <text x="480" y="404" font-size="11.5" fill="#41556f">子类继承了一堆自己用不上的父类成员，</text>
+  <text x="480" y="424" font-size="11.5" fill="#41556f">只能空着或抛异常</text>
+  <text x="480" y="456" font-size="11.5" font-weight="700" fill="#2c6e49">手法：Pull Down / Replace Inheritance with Delegation</text>
+  <text x="480" y="480" font-size="11.5" fill="#5f7183">把用不上的成员下推到真正需要它的子类，</text>
+  <text x="480" y="498" font-size="11.5" fill="#5f7183">或者干脆改用组合</text>
+
+  <text x="450" y="546" text-anchor="middle" font-size="12.5" fill="#33507f">前提：动手之前先有测试 —— 重构不改变外部行为，没测试就分不清「改好了」和「改坏了」</text>
+  <text x="450" y="574" text-anchor="middle" font-size="12.5" fill="#8a4b4b">时机：Rule of Three —— 同样的代码出现第三次，再动手抽取</text>
+</svg>

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" role="img" aria-label="Scrum 的三个角色、sprint 循环与三种产出物：角色是 Product Owner、Scrum Master、Development Team；sprint 循环依次是 Sprint Planning、Daily Stand-up、Sprint Review、Sprint Retrospective；产出物是 Product Backlog、Sprint Backlog、Increment"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="scbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+    <marker id="scArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#7093c8" />
+    </marker>
+  </defs>
+
+  <rect width="900" height="600" rx="16" fill="url(#scbg)" />
+  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">Scrum 的角色、循环与产出物</text>
+  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">三个角色分工明确，一个循环反复跑，每次留下一点能用的东西</text>
+
+  <!-- 三个角色 -->
+  <rect x="40" y="94" width="252" height="78" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="58" y="122" font-size="15" font-weight="700" fill="#1f3a63">Product Owner</text>
+  <text x="58" y="141" font-size="11" fill="#7b8ea8">产品负责人</text>
+  <text x="58" y="161" font-size="11.5" fill="#41556f">代表业务，决定优先级</text>
+
+  <rect x="324" y="94" width="252" height="78" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="342" y="122" font-size="15" font-weight="700" fill="#1f3a63">Scrum Master</text>
+  <text x="342" y="141" font-size="11" fill="#7b8ea8">敏捷教练</text>
+  <text x="342" y="161" font-size="11.5" fill="#41556f">移除障碍，保障流程</text>
+
+  <rect x="608" y="94" width="252" height="78" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
+  <text x="626" y="122" font-size="15" font-weight="700" fill="#1f3a63">Development Team</text>
+  <text x="626" y="141" font-size="11" fill="#7b8ea8">开发团队</text>
+  <text x="626" y="161" font-size="11.5" fill="#41556f">自组织、跨职能，决定怎么做</text>
+
+  <!-- Sprint 循环 -->
+  <rect x="140" y="210" width="210" height="56" rx="10" fill="#33507f" />
+  <text x="245" y="236" text-anchor="middle" font-size="14.5" font-weight="600" fill="#ffffff">Sprint Planning</text>
+  <text x="245" y="254" text-anchor="middle" font-size="11" fill="#cedcee">本次迭代做什么</text>
+
+  <rect x="550" y="210" width="210" height="56" rx="10" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="655" y="236" text-anchor="middle" font-size="14.5" font-weight="600" fill="#1f3a63">Daily Stand-up</text>
+  <text x="655" y="254" text-anchor="middle" font-size="11" fill="#6a7f9c">每天同步进度与障碍</text>
+
+  <rect x="550" y="340" width="210" height="56" rx="10" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="655" y="366" text-anchor="middle" font-size="14.5" font-weight="600" fill="#1f3a63">Sprint Review</text>
+  <text x="655" y="384" text-anchor="middle" font-size="11" fill="#6a7f9c">把成果演示给业务方</text>
+
+  <rect x="140" y="340" width="210" height="56" rx="10" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="245" y="366" text-anchor="middle" font-size="14.5" font-weight="600" fill="#1f3a63">Retrospective</text>
+  <text x="245" y="384" text-anchor="middle" font-size="11" fill="#6a7f9c">回看流程本身怎么改</text>
+
+  <line x1="350" y1="238" x2="544" y2="238" stroke="#7093c8" stroke-width="2" marker-end="url(#scArrow)" />
+  <line x1="655" y1="266" x2="655" y2="334" stroke="#7093c8" stroke-width="2" marker-end="url(#scArrow)" />
+  <line x1="550" y1="368" x2="356" y2="368" stroke="#7093c8" stroke-width="2" marker-end="url(#scArrow)" />
+  <line x1="245" y1="340" x2="245" y2="272" stroke="#7093c8" stroke-width="2" marker-end="url(#scArrow)" />
+
+  <text x="450" y="294" text-anchor="middle" font-size="14" font-weight="700" fill="#33507f">Sprint 时间盒</text>
+  <text x="450" y="315" text-anchor="middle" font-size="11.5" fill="#6a7f9c">通常 1–4 周</text>
+
+  <!-- 产出物 -->
+  <rect x="40" y="466" width="252" height="90" rx="11" fill="#f2f7fd" stroke="#c4d4e7" />
+  <text x="58" y="494" font-size="14.5" font-weight="700" fill="#1f3a63">Product Backlog</text>
+  <text x="58" y="512" font-size="10.5" fill="#7b8ea8">产品待办清单</text>
+  <text x="58" y="534" font-size="11.5" fill="#41556f">全部需求条目，按价值排序</text>
+
+  <rect x="324" y="466" width="252" height="90" rx="11" fill="#f2f7fd" stroke="#c4d4e7" />
+  <text x="342" y="494" font-size="14.5" font-weight="700" fill="#1f3a63">Sprint Backlog</text>
+  <text x="342" y="512" font-size="10.5" fill="#7b8ea8">迭代待办清单</text>
+  <text x="342" y="534" font-size="11.5" fill="#41556f">本次承诺的条目与拆解任务</text>
+
+  <rect x="608" y="466" width="252" height="90" rx="11" fill="#f2f7fd" stroke="#c4d4e7" />
+  <text x="626" y="494" font-size="14.5" font-weight="700" fill="#1f3a63">Increment</text>
+  <text x="626" y="512" font-size="10.5" fill="#7b8ea8">增量</text>
+  <text x="626" y="534" font-size="11.5" fill="#41556f">结束时真正可用的那部分</text>
+</svg>
