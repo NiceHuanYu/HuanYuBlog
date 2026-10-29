@@ -55,7 +55,7 @@ Oracle官网: http://www.oracle.com/technetwork/java/javase/downloads/
 
 ### 0.2.2 Linux（Ubuntu）下安装并配置环境
 
-~~自己去查AI吧哈哈。~~还没写呢。
+~~自己去查AI吧哈哈。~~ 还没写呢。
 
 ### 0.2.3 检查安装是否成功。
 

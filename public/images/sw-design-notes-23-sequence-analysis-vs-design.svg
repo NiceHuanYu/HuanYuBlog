@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 740" width="900" height="740" role="img" aria-label="同一用例在分析阶段与设计阶段的两张顺序图对照：左边的分析模型有五条生命线，控制器直接调用库存项；右边的设计模型多出三个数据代理生命线，控制器改为调用 StockItemDB，并且把生成出库单、扣库存、写工单三步框在同一事务边界内。底部说明两张图必须不一样，一样说明设计阶段该做的事没做"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="dsbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+    <marker id="dsSolid" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4b6f9c" />
+    </marker>
+    <marker id="dsOpen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 1 1 L 11 6 L 1 11" fill="none" stroke="#9a6a8a" stroke-width="1.4" />
+    </marker>
+  </defs>
+
+  <rect width="900" height="740" rx="16" fill="url(#dsbg)" />
+  <text x="450" y="38" text-anchor="middle" font-size="20" font-weight="700" fill="#1f3a63">同一用例，两张顺序图：分析 vs 设计</text>
+  <text x="450" y="62" text-anchor="middle" font-size="12" fill="#5a6f8c">两张图完全一样，说明设计阶段该做的事没做</text>
+
+  <!-- 左：分析阶段 -->
+  <rect x="28" y="80" width="410" height="404" rx="10" fill="#ffffff" stroke="#7093c8" stroke-width="1.5" />
+  <text x="233" y="102" text-anchor="middle" font-size="11.5" font-weight="700" fill="#33507f">分析阶段（22 篇那张）</text>
+  <text x="233" y="118" text-anchor="middle" font-size="8.5" fill="#8b9bb0">不关心平台：没有数据库、没有事务</text>
+
+  <!-- 生命线头 -->
+  <rect x="44" y="130" width="72" height="24" rx="2" fill="#eef5fc" stroke="#7093c8" />
+  <text x="80" y="146" text-anchor="middle" font-size="7" fill="#1f3a63">:PartsForm</text>
+  <rect x="152" y="130" width="88" height="24" rx="2" fill="#eef5fc" stroke="#7093c8" />
+  <text x="196" y="146" text-anchor="middle" font-size="7" fill="#1f3a63">:RequestPartsCtrl</text>
+  <rect x="268" y="130" width="70" height="24" rx="2" fill="#fdf7ef" stroke="#c79a6d" />
+  <text x="303" y="146" text-anchor="middle" font-size="7" fill="#7a4a1e">:StockItem</text>
+  <rect x="356" y="130" width="68" height="24" rx="2" fill="#eef5fc" stroke="#7093c8" />
+  <text x="390" y="146" text-anchor="middle" font-size="7" fill="#1f3a63">:SupplierAPI</text>
+
+  <!-- 生命线 -->
+  <line x1="80" y1="154" x2="80" y2="440" stroke="#9fb0c6" stroke-width="1.2" stroke-dasharray="4 3" />
+  <line x1="196" y1="154" x2="196" y2="440" stroke="#9fb0c6" stroke-width="1.2" stroke-dasharray="4 3" />
+  <line x1="303" y1="154" x2="303" y2="440" stroke="#9fb0c6" stroke-width="1.2" stroke-dasharray="4 3" />
+  <line x1="390" y1="154" x2="390" y2="440" stroke="#9fb0c6" stroke-width="1.2" stroke-dasharray="4 3" />
+
+  <rect x="192" y="172" width="8" height="200" fill="#dce8f6" stroke="#7093c8" stroke-width="0.8" />
+  <rect x="299" y="196" width="6" height="22" fill="#f7e6d2" stroke="#c79a6d" stroke-width="0.8" />
+  <rect x="386" y="242" width="6" height="22" fill="#dce8f6" stroke="#7093c8" stroke-width="0.8" />
+
+  <line x1="84" y1="178" x2="188" y2="178" stroke="#4b6f9c" stroke-width="1.3" marker-end="url(#dsSolid)" />
+  <text x="136" y="173" text-anchor="middle" font-size="7" fill="#41556f">1: submit()</text>
+  <line x1="200" y1="202" x2="295" y2="202" stroke="#4b6f9c" stroke-width="1.3" marker-end="url(#dsSolid)" />
+  <text x="248" y="197" text-anchor="middle" font-size="7" fill="#41556f">3: getStock()</text>
+  <line x1="295" y1="218" x2="204" y2="218" stroke="#9a6a8a" stroke-width="1.1" stroke-dasharray="4 3" marker-end="url(#dsOpen)" />
+  <line x1="200" y1="248" x2="382" y2="248" stroke="#4b6f9c" stroke-width="1.3" marker-end="url(#dsSolid)" />
+  <text x="291" y="243" text-anchor="middle" font-size="7" fill="#41556f">4: queryAvailable()</text>
+  <line x1="382" y1="264" x2="204" y2="264" stroke="#9a6a8a" stroke-width="1.1" stroke-dasharray="4 3" marker-end="url(#dsOpen)" />
+  <path d="M 201 292 L 240 292 L 240 308 L 204 308" fill="none" stroke="#4b6f9c" stroke-width="1.2" marker-end="url(#dsSolid)" />
+  <text x="248" y="300" font-size="7" fill="#41556f">5: 比对</text>
+  <line x1="200" y1="334" x2="295" y2="334" stroke="#4b6f9c" stroke-width="1.3" marker-end="url(#dsSolid)" />
+  <text x="248" y="329" text-anchor="middle" font-size="7" fill="#41556f">6: createIssueNote()</text>
+  <line x1="200" y1="360" x2="295" y2="360" stroke="#4b6f9c" stroke-width="1.3" marker-end="url(#dsSolid)" />
+  <text x="248" y="355" text-anchor="middle" font-size="7" fill="#41556f">7: addPartUsage()</text>
+  <line x1="188" y1="410" x2="88" y2="410" stroke="#9a6a8a" stroke-width="1.1" stroke-dasharray="4 3" marker-end="url(#dsOpen)" />
+  <text x="138" y="405" text-anchor="middle" font-size="7" fill="#8a5c7a">9: 显示成功</text>
+
+  <rect x="44" y="450" width="380" height="26" rx="4" fill="#eef5fc" stroke="#c4d4e7" />
+  <text x="234" y="467" text-anchor="middle" font-size="8" fill="#33507f">控制器直接调实体：getStock() / createIssueNote()</text>
+
+  <!-- 右：设计阶段 -->
+  <rect x="462" y="80" width="412" height="404" rx="10" fill="#ffffff" stroke="#2f6b58" stroke-width="1.5" />
+  <text x="668" y="102" text-anchor="middle" font-size="11.5" font-weight="700" fill="#2f6b58">设计阶段（本章产出）</text>
+  <text x="668" y="118" text-anchor="middle" font-size="8.5" fill="#8b9bb0">落到平台：多出数据代理、标出事务边界</text>
+
+  <rect x="474" y="130" width="62" height="24" rx="2" fill="#eef5fc" stroke="#7093c8" />
+  <text x="505" y="146" text-anchor="middle" font-size="6.5" fill="#1f3a63">:PartsForm</text>
+  <rect x="550" y="130" width="84" height="24" rx="2" fill="#eef5fc" stroke="#7093c8" />
+  <text x="592" y="146" text-anchor="middle" font-size="6.5" fill="#1f3a63">:RequestPartsCtrl</text>
+  <rect x="648" y="130" width="80" height="24" rx="2" fill="#e3f2ea" stroke="#2f6b58" />
+  <text x="688" y="146" text-anchor="middle" font-size="6.5" font-weight="700" fill="#2f6b58">:StockItemDB</text>
+  <rect x="742" y="130" width="80" height="24" rx="2" fill="#e3f2ea" stroke="#2f6b58" />
+  <text x="782" y="146" text-anchor="middle" font-size="6.5" font-weight="700" fill="#2f6b58">:IssueNoteDB</text>
+  <text x="474" y="410" font-size="7.5" font-weight="700" fill="#8a4b4b">↓ 绿色三个生命线是设计阶段新增的</text>
+  <rect x="474" y="418" width="80" height="22" rx="2" fill="#e3f2ea" stroke="#2f6b58" />
+  <text x="514" y="433" text-anchor="middle" font-size="6.5" font-weight="700" fill="#2f6b58">:WorkOrderDB</text>
+
+  <line x1="505" y1="154" x2="505" y2="250" stroke="#9fb0c6" stroke-width="1.2" stroke-dasharray="4 3" />
+  <line x1="592" y1="154" x2="592" y2="440" stroke="#9fb0c6" stroke-width="1.2" stroke-dasharray="4 3" />
+  <line x1="688" y1="154" x2="688" y2="420" stroke="#9fb0c6" stroke-width="1.2" stroke-dasharray="4 3" />
+  <line x1="782" y1="154" x2="782" y2="420" stroke="#9fb0c6" stroke-width="1.2" stroke-dasharray="4 3" />
+  <line x1="514" y1="440" x2="514" y2="448" stroke="#9fb0c6" stroke-width="1.2" stroke-dasharray="4 3" />
+
+  <rect x="588" y="208" width="8" height="212" fill="#dce8f6" stroke="#7093c8" stroke-width="0.8" />
+  <rect x="684" y="228" width="7" height="24" fill="#dce8f6" stroke="#2f6b58" stroke-width="0.8" />
+  <rect x="778" y="256" width="7" height="24" fill="#dce8f6" stroke="#2f6b58" stroke-width="0.8" />
+
+  <line x1="507" y1="212" x2="584" y2="212" stroke="#4b6f9c" stroke-width="1.3" marker-end="url(#dsSolid)" />
+  <text x="546" y="207" text-anchor="middle" font-size="7" fill="#41556f">1: submit()</text>
+  <line x1="596" y1="234" x2="680" y2="234" stroke="#4b6f9c" stroke-width="1.3" marker-end="url(#dsSolid)" />
+  <text x="638" y="229" text-anchor="middle" font-size="6.5" font-weight="700" fill="#8a4b4b">3: findByPartNo()</text>
+  <line x1="680" y1="250" x2="600" y2="250" stroke="#9a6a8a" stroke-width="1.1" stroke-dasharray="4 3" marker-end="url(#dsOpen)" />
+  <line x1="596" y1="276" x2="774" y2="276" stroke="#4b6f9c" stroke-width="1.3" marker-end="url(#dsSolid)" />
+  <text x="685" y="271" text-anchor="middle" font-size="6.5" fill="#41556f">6: insert()</text>
+  <line x1="596" y1="302" x2="518" y2="302" stroke="#4b6f9c" stroke-width="1.3" marker-end="url(#dsSolid)" />
+  <text x="557" y="297" text-anchor="middle" font-size="6.5" fill="#41556f">7: update()</text>
+  <line x1="518" y1="302" x2="518" y2="414" stroke="#9fb0c6" stroke-width="1" stroke-dasharray="3 3" />
+
+  <!-- 事务边界 -->
+  <rect x="494" y="284" width="300" height="46" rx="5" fill="#fdf2f2" stroke="#e0b4b4" stroke-width="1.5" stroke-dasharray="6 3" />
+  <text x="644" y="352" text-anchor="middle" font-size="7.5" font-weight="700" fill="#8a4b4b">事务边界</text>
+  <text x="644" y="368" text-anchor="middle" font-size="7" fill="#8a4b4b">生成出库单 + 扣库存 + 写工单 必须同成败</text>
+
+  <rect x="474" y="450" width="388" height="26" rx="4" fill="#eef7f3" stroke="#7fb89f" />
+  <text x="668" y="467" text-anchor="middle" font-size="8" fill="#2f6b58">控制器只认代理，不认表：findByPartNo() / insert() / update()</text>
+
+  <!-- 差别对照 -->
+  <text x="28" y="508" font-size="12" font-weight="700" fill="#33507f">三处必须不同</text>
+
+  <rect x="28" y="518" width="270" height="76" rx="8" fill="#ffffff" stroke="#b9c8dd" />
+  <text x="42" y="538" font-size="9.5" font-weight="700" fill="#1f3a63">① 生命线多了三个</text>
+  <text x="42" y="556" font-size="8.5" fill="#41556f">分析：5 条（含 1 个实体）</text>
+  <text x="42" y="572" font-size="8.5" fill="#2f6b58">设计：多了 StockItemDB、</text>
+  <text x="50" y="586" font-size="8.5" fill="#2f6b58">IssueNoteDB、WorkOrderDB</text>
+
+  <rect x="316" y="518" width="270" height="76" rx="8" fill="#ffffff" stroke="#b9c8dd" />
+  <text x="330" y="538" font-size="9.5" font-weight="700" fill="#1f3a63">② 消息变成代理调用</text>
+  <text x="330" y="556" font-size="8" fill="#41556f">分析：getStock()</text>
+  <text x="330" y="572" font-size="8" fill="#2f6b58">设计：findByPartNo()</text>
+  <text x="330" y="588" font-size="8" fill="#8b9bb0">业务对象不再自己连数据库</text>
+
+  <rect x="598" y="518" width="276" height="76" rx="8" fill="#ffffff" stroke="#b9c8dd" />
+  <text x="612" y="538" font-size="9.5" font-weight="700" fill="#1f3a63">③ 多了事务边界</text>
+  <text x="612" y="556" font-size="8.5" fill="#8a4b4b">分析阶段根本看不出来</text>
+  <text x="612" y="572" font-size="8" fill="#41556f">设计阶段要标出哪几步必须</text>
+  <text x="612" y="586" font-size="8" fill="#41556f">一起成功或一起失败</text>
+
+  <!-- 底部 -->
+  <rect x="28" y="608" width="846" height="52" rx="8" fill="#fdf2f2" stroke="#e0b4b4" />
+  <text x="42" y="628" font-size="10.5" font-weight="700" fill="#8a4b4b">判断标准很简单</text>
+  <text x="42" y="648" font-size="9.5" fill="#5a6f8c">两张图完全一样 → 设计阶段该做的事没做；设计图比分析图复杂好几倍 → 可能过度设计（比如给每个字段都加一个 getter 消息）。</text>
+
+  <text x="28" y="700" font-size="9.5" fill="#8a4b4b">为什么事务边界只能在这一阶段补：分析模型只画「谁调用谁」，画不出「哪些步骤是一个整体」。本例「出库单 + 扣库存 + 写工单」若不同事务，会出现出库单生成了但库存没减这类数据不一致。</text>
+</svg>

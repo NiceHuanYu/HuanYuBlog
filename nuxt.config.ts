@@ -37,7 +37,8 @@ export default defineNuxtConfig({
             'xml',
             'properties',
             'diff',
-            'powershell'
+            'powershell',
+            'markdown'
           ]
         }
       }

@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 760" width="900" height="760" role="img" aria-label="申请配件的分析模型顺序图：五条生命线从左到右依次是工程师、申请界面、配件控制器、库存项与供应商接口，构造型分别是 actor、boundary、control、entity、boundary。消息按 1 到 9 编号，分别是提交申请、转控制器、查本地库存并虚线返回、调供应商接口并虚线返回、控制器自身比对、创建出库单、写入工单的配件消耗、通知仓管、返回成功消息给界面。底部标出三个考察点：控制器的委派比例、外部系统是边界对象、通知仓管可疑"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="am2bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+    <marker id="amSolid" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4b6f9c" />
+    </marker>
+    <marker id="amOpen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 1 1 L 11 6 L 1 11" fill="none" stroke="#9a6a8a" stroke-width="1.5" />
+    </marker>
+  </defs>
+
+  <rect width="900" height="760" rx="16" fill="url(#am2bg)" />
+  <text x="450" y="38" text-anchor="middle" font-size="20" font-weight="700" fill="#1f3a63">用例实现：Request Parts 的分析模型顺序图</text>
+  <text x="450" y="62" text-anchor="middle" font-size="12" fill="#5a6f8c">10 步 basic flow → 9 条消息；每种对象只做自己那一段</text>
+
+  <!-- 生命线头 -->
+  <rect x="52" y="92" width="100" height="30" rx="3" fill="#ffffff" stroke="#33507f" stroke-width="1.5" />
+  <text x="102" y="105" text-anchor="middle" font-size="9" font-weight="700" fill="#1f3a63">:Engineer</text>
+  <text x="102" y="116" text-anchor="middle" font-size="7" fill="#5a6f8c">actor</text>
+
+  <rect x="210" y="92" width="104" height="30" rx="3" fill="#eef5fc" stroke="#7093c8" />
+  <text x="262" y="105" text-anchor="middle" font-size="9" font-weight="700" fill="#1f3a63">:PartsForm</text>
+  <text x="262" y="116" text-anchor="middle" font-size="7" fill="#4a7fb5">«boundary»</text>
+
+  <rect x="376" y="92" width="124" height="30" rx="3" fill="#eef5fc" stroke="#7093c8" />
+  <text x="438" y="105" text-anchor="middle" font-size="9" font-weight="700" fill="#1f3a63">:RequestPartsCtrl</text>
+  <text x="438" y="116" text-anchor="middle" font-size="7" fill="#4a7fb5">«control»</text>
+
+  <rect x="562" y="92" width="96" height="30" rx="3" fill="#fdf7ef" stroke="#c79a6d" />
+  <text x="610" y="105" text-anchor="middle" font-size="9" font-weight="700" fill="#7a4a1e">:StockItem</text>
+  <text x="610" y="116" text-anchor="middle" font-size="7" fill="#8a5c30">«entity»</text>
+
+  <rect x="716" y="92" width="130" height="30" rx="3" fill="#eef5fc" stroke="#7093c8" />
+  <text x="781" y="105" text-anchor="middle" font-size="9" font-weight="700" fill="#1f3a63">:SupplierAPI</text>
+  <text x="781" y="116" text-anchor="middle" font-size="7" fill="#4a7fb5">«boundary» 外部</text>
+
+  <!-- 生命线 -->
+  <line x1="102" y1="122" x2="102" y2="600" stroke="#9fb0c6" stroke-width="1.3" stroke-dasharray="5 4" />
+  <line x1="262" y1="122" x2="262" y2="600" stroke="#9fb0c6" stroke-width="1.3" stroke-dasharray="5 4" />
+  <line x1="438" y1="122" x2="438" y2="600" stroke="#9fb0c6" stroke-width="1.3" stroke-dasharray="5 4" />
+  <line x1="610" y1="122" x2="610" y2="600" stroke="#9fb0c6" stroke-width="1.3" stroke-dasharray="5 4" />
+  <line x1="781" y1="122" x2="781" y2="600" stroke="#9fb0c6" stroke-width="1.3" stroke-dasharray="5 4" />
+
+  <!-- 激活条 -->
+  <rect x="257" y="148" width="10" height="352" fill="#dce8f6" stroke="#7093c8" stroke-width="0.9" />
+  <rect x="433" y="176" width="10" height="300" fill="#dce8f6" stroke="#7093c8" stroke-width="0.9" />
+  <rect x="605" y="198" width="8" height="26" fill="#f7e6d2" stroke="#c79a6d" stroke-width="0.9" />
+  <rect x="776" y="252" width="8" height="26" fill="#dce8f6" stroke="#7093c8" stroke-width="0.9" />
+
+  <!-- 1 -->
+  <line x1="106" y1="152" x2="253" y2="152" stroke="#4b6f9c" stroke-width="1.5" marker-end="url(#amSolid)" />
+  <text x="180" y="146" text-anchor="middle" font-size="8.5" fill="#41556f">1: submit(workOrderId, partNo, qty)</text>
+
+  <!-- 2 -->
+  <line x1="269" y1="184" x2="429" y2="184" stroke="#4b6f9c" stroke-width="1.5" marker-end="url(#amSolid)" />
+  <text x="349" y="178" text-anchor="middle" font-size="8.5" fill="#41556f">2: requestParts(...)</text>
+
+  <!-- 3 -->
+  <line x1="445" y1="210" x2="601" y2="210" stroke="#4b6f9c" stroke-width="1.5" marker-end="url(#amSolid)" />
+  <text x="523" y="204" text-anchor="middle" font-size="8.5" fill="#41556f">3: getStock(partNo)</text>
+  <line x1="601" y1="228" x2="449" y2="228" stroke="#9a6a8a" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#amOpen)" />
+  <text x="523" y="242" text-anchor="middle" font-size="8" fill="#8a5c7a">返回 qty（虚线）</text>
+
+  <!-- 4 -->
+  <line x1="445" y1="264" x2="772" y2="264" stroke="#4b6f9c" stroke-width="1.5" marker-end="url(#amSolid)" />
+  <text x="608" y="258" text-anchor="middle" font-size="8.5" fill="#8a4b4b">4: queryAvailable(partNo)　← 外部系统是 boundary</text>
+  <line x1="772" y1="282" x2="449" y2="282" stroke="#9a6a8a" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#amOpen)" />
+  <text x="608" y="296" text-anchor="middle" font-size="8" fill="#8a5c7a">返回 available</text>
+
+  <!-- 5 自身消息 -->
+  <path d="M 444 318 L 500 318 L 500 340 L 447 340" fill="none" stroke="#4b6f9c" stroke-width="1.4" marker-end="url(#amSolid)" />
+  <text x="510" y="324" font-size="8.5" fill="#41556f">5: 比对库存与可售量</text>
+  <text x="510" y="338" font-size="8" fill="#8b9bb0">（自身方法，不发给别的对象）</text>
+
+  <!-- 6 -->
+  <line x1="445" y1="374" x2="601" y2="374" stroke="#4b6f9c" stroke-width="1.5" marker-end="url(#amSolid)" />
+  <text x="523" y="368" text-anchor="middle" font-size="8.5" fill="#41556f">6: createIssueNote()　写</text>
+
+  <!-- 7 -->
+  <line x1="445" y1="410" x2="601" y2="410" stroke="#4b6f9c" stroke-width="1.5" marker-end="url(#amSolid)" />
+  <text x="523" y="404" text-anchor="middle" font-size="8.5" fill="#41556f">7: addPartUsage()　写工单</text>
+
+  <!-- 8 通知仓管（外部接收者） -->
+  <rect x="120" y="444" width="128" height="40" rx="4" fill="#fffaf4" stroke="#e0c4a4" />
+  <text x="184" y="460" text-anchor="middle" font-size="8.5" font-weight="700" fill="#b5743a">:Storekeeper</text>
+  <text x="184" y="474" text-anchor="middle" font-size="7.5" fill="#b5743a">外部接收者（另一个 actor）</text>
+  <line x1="445" y1="466" x2="250" y2="466" stroke="#4b6f9c" stroke-width="1.5" marker-end="url(#amSolid)" />
+  <text x="348" y="460" text-anchor="middle" font-size="8.5" fill="#41556f">8: notify()</text>
+
+  <!-- 9 -->
+  <line x1="429" y1="548" x2="272" y2="548" stroke="#9a6a8a" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#amOpen)" />
+  <text x="351" y="542" text-anchor="middle" font-size="8.5" fill="#8a5c7a">9: 显示「申请成功，请到仓库领取」</text>
+
+  <!-- 三个观察点 -->
+  <rect x="34" y="612" width="270" height="76" rx="8" fill="#eef7f3" stroke="#7fb89f" />
+  <text x="48" y="632" font-size="10" font-weight="700" fill="#2f6b58">① 委派比例健康</text>
+  <text x="48" y="650" font-size="8.5" fill="#41556f">控制器做了 4 次委派</text>
+  <text x="48" y="666" font-size="8.5" fill="#41556f">（库存 / 供应商 / 出库单 / 工单）</text>
+  <text x="48" y="682" font-size="8.5" fill="#41556f">自己只做「比对」1 个判断</text>
+
+  <rect x="316" y="612" width="270" height="76" rx="8" fill="#eef5fc" stroke="#7093c8" />
+  <text x="330" y="632" font-size="10" font-weight="700" fill="#33507f">② 外部系统是边界对象</text>
+  <text x="330" y="650" font-size="8.5" fill="#41556f">第 4 步接收方 SupplierAPI</text>
+  <text x="330" y="666" font-size="8.5" fill="#8a4b4b">画成 «boundary»，不是 «entity»</text>
+  <text x="330" y="682" font-size="8" fill="#8b9bb0">依据：你要写代码去和它对接</text>
+
+  <rect x="598" y="612" width="268" height="76" rx="8" fill="#fdf7ef" stroke="#d2a074" />
+  <text x="612" y="632" font-size="10" font-weight="700" fill="#9a5f2a">③ 第 8 步值得怀疑</text>
+  <text x="612" y="650" font-size="8.5" fill="#7a4a1e">「通知仓管」是用例的一部分吗？</text>
+  <text x="612" y="666" font-size="8.5" fill="#2f6b58">结论：应该独立成用例</text>
+  <text x="612" y="682" font-size="8" fill="#8b9bb0">渠道与时机和配件申请无关</text>
+
+  <text x="34" y="712" font-size="10.5" fill="#2f6b58">这张图的价值不在于画得准，而在于它逼你回答「这一步谁做」—— 第 8 步就是在画图时才被发现该切开的。</text>
+  <text x="34" y="736" font-size="10" fill="#8b9bb0">注：分析模型不关心平台，所以图中没有数据库、没有事务边界 —— 那些是 23 篇设计阶段的事。</text>
+</svg>

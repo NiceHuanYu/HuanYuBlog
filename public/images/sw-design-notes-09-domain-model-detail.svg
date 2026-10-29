@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 720" width="900" height="720" role="img" aria-label="派单宝的领域模型类图：五个实体类排成两行。第一行是客户、工单、配件消耗，第二行是工程师与库存项。每个类分三格，自上而下是类名、带类型的属性、操作。关系上，客户与工单是一对多并标注报修；工单与配件消耗是一对多组合，实心菱形贴在工单这一端并标注包含；工单与工程师是多对一关联并标注派给；配件消耗与库存项是多对一关联并标注引用。底部图例说明四种符号、重数的写法，以及这一阶段为什么不写技术名词"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="dmbg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="720" rx="16" fill="url(#dmbg3)" />
+  <text x="450" y="40" text-anchor="middle" font-size="21" font-weight="700" fill="#1f3a63">派单宝的领域模型（Domain Model）</text>
+  <text x="450" y="64" text-anchor="middle" font-size="12.5" fill="#5a6f8c">五个实体、四条关系、四个重数 —— 这就是 09 篇要产出的东西</text>
+
+  <!-- ============ 第一行 ============ -->
+
+  <!-- Customer -->
+  <rect x="46" y="100" width="176" height="126" fill="#ffffff" stroke="#4b6f9c" stroke-width="1.6" />
+  <line x1="46" y1="126" x2="222" y2="126" stroke="#4b6f9c" stroke-width="1.1" />
+  <line x1="46" y1="196" x2="222" y2="196" stroke="#4b6f9c" stroke-width="1.1" />
+  <text x="134" y="118" text-anchor="middle" font-size="11" font-weight="700" fill="#1f3a63">Customer</text>
+  <text x="54" y="142" font-size="8.5" font-family="monospace" fill="#41556f">- customerId : String</text>
+  <text x="54" y="157" font-size="8.5" font-family="monospace" fill="#41556f">- name : String</text>
+  <text x="54" y="172" font-size="8.5" font-family="monospace" fill="#41556f">- phone : String</text>
+  <text x="54" y="187" font-size="8.5" font-family="monospace" fill="#41556f">- address : String</text>
+  <text x="54" y="212" font-size="8.5" font-family="monospace" fill="#8b9bb0">（无业务操作）</text>
+
+  <!-- WorkOrder -->
+  <rect x="330" y="100" width="204" height="126" fill="#fdf7ef" stroke="#c79a6d" stroke-width="1.8" />
+  <line x1="330" y1="126" x2="534" y2="126" stroke="#c79a6d" stroke-width="1.1" />
+  <line x1="330" y1="200" x2="534" y2="200" stroke="#c79a6d" stroke-width="1.1" />
+  <text x="432" y="118" text-anchor="middle" font-size="11" font-weight="700" fill="#7a4a1e">WorkOrder</text>
+  <text x="338" y="142" font-size="8.5" font-family="monospace" fill="#8a5c30">- orderNo : String</text>
+  <text x="338" y="157" font-size="8.5" font-family="monospace" fill="#8a5c30">- status : WorkOrderStatus</text>
+  <text x="338" y="172" font-size="8.5" font-family="monospace" fill="#8a5c30">- applianceType : String</text>
+  <text x="338" y="187" font-size="8.5" font-family="monospace" fill="#8a5c30">- createdAt : Date</text>
+  <text x="338" y="216" font-size="8.5" font-family="monospace" fill="#2f6b58">+ canRequestParts() : boolean</text>
+
+  <!-- PartUsage -->
+  <rect x="646" y="100" width="208" height="126" fill="#ffffff" stroke="#4b6f9c" stroke-width="1.6" />
+  <line x1="646" y1="126" x2="854" y2="126" stroke="#4b6f9c" stroke-width="1.1" />
+  <line x1="646" y1="182" x2="854" y2="182" stroke="#4b6f9c" stroke-width="1.1" />
+  <text x="750" y="118" text-anchor="middle" font-size="11" font-weight="700" fill="#1f3a63">PartUsage</text>
+  <text x="654" y="142" font-size="8.5" font-family="monospace" fill="#41556f">- partNo : String</text>
+  <text x="654" y="157" font-size="8.5" font-family="monospace" fill="#41556f">- qty : int</text>
+  <text x="654" y="172" font-size="8.5" font-family="monospace" fill="#41556f">- usedAt : Date</text>
+  <text x="654" y="200" font-size="8.5" font-family="monospace" fill="#2f6b58">+ amount() : BigDecimal</text>
+  <text x="654" y="216" font-size="8" fill="#8b9bb0">（由单价 × 数量算出，不存字段）</text>
+
+  <!-- 关系 1：Customer 1 —— * WorkOrder -->
+  <line x1="224" y1="163" x2="326" y2="163" stroke="#4b6f9c" stroke-width="1.6" />
+  <text x="232" y="156" font-size="9" font-weight="700" fill="#8a4b4b">1</text>
+  <text x="310" y="156" font-size="9" font-weight="700" fill="#8a4b4b">*</text>
+  <text x="275" y="178" text-anchor="middle" font-size="8.5" fill="#5a6f8c">报修</text>
+
+  <!-- 关系 2：WorkOrder 1 ◆—— * PartUsage （组合，实心菱形贴工单端） -->
+  <line x1="536" y1="163" x2="642" y2="163" stroke="#4b6f9c" stroke-width="1.6" />
+  <path d="M 536 163 L 548 155 L 560 163 L 548 171 z" fill="#4b6f9c" stroke="#4b6f9c" stroke-width="1" />
+  <text x="552" y="150" font-size="9" font-weight="700" fill="#8a4b4b">1</text>
+  <text x="626" y="150" font-size="9" font-weight="700" fill="#8a4b4b">*</text>
+  <text x="592" y="178" text-anchor="middle" font-size="8.5" fill="#5a6f8c">包含</text>
+
+  <!-- ============ 第二行 ============ -->
+
+  <!-- Engineer -->
+  <rect x="330" y="372" width="204" height="112" fill="#ffffff" stroke="#4b6f9c" stroke-width="1.6" />
+  <line x1="330" y1="398" x2="534" y2="398" stroke="#4b6f9c" stroke-width="1.1" />
+  <line x1="330" y1="454" x2="534" y2="454" stroke="#4b6f9c" stroke-width="1.1" />
+  <text x="432" y="390" text-anchor="middle" font-size="11" font-weight="700" fill="#1f3a63">Engineer</text>
+  <text x="338" y="414" font-size="8.5" font-family="monospace" fill="#41556f">- engineerId : String</text>
+  <text x="338" y="429" font-size="8.5" font-family="monospace" fill="#41556f">- name : String</text>
+  <text x="338" y="444" font-size="8.5" font-family="monospace" fill="#41556f">- skills : List&lt;Skill&gt;</text>
+  <text x="338" y="470" font-size="8.5" font-family="monospace" fill="#2f6b58">+ isAvailableAt(t : TimeSlot) : boolean</text>
+
+  <!-- StockItem -->
+  <rect x="646" y="372" width="208" height="112" fill="#ffffff" stroke="#4b6f9c" stroke-width="1.6" />
+  <line x1="646" y1="398" x2="854" y2="398" stroke="#4b6f9c" stroke-width="1.1" />
+  <line x1="646" y1="454" x2="854" y2="454" stroke="#4b6f9c" stroke-width="1.1" />
+  <text x="750" y="390" text-anchor="middle" font-size="11" font-weight="700" fill="#1f3a63">StockItem</text>
+  <text x="654" y="414" font-size="8.5" font-family="monospace" fill="#41556f">- partNo : String</text>
+  <text x="654" y="429" font-size="8.5" font-family="monospace" fill="#41556f">- name : String</text>
+  <text x="654" y="444" font-size="8.5" font-family="monospace" fill="#41556f">- onHandQty / safeQty : int</text>
+  <text x="654" y="470" font-size="8.5" font-family="monospace" fill="#2f6b58">+ getStock() : int</text>
+
+  <!-- 关系 3：WorkOrder * ↓ 1 Engineer -->
+  <line x1="432" y1="228" x2="432" y2="368" stroke="#4b6f9c" stroke-width="1.6" />
+  <text x="440" y="248" font-size="9" font-weight="700" fill="#8a4b4b">*</text>
+  <text x="440" y="356" font-size="9" font-weight="700" fill="#8a4b4b">1</text>
+  <text x="440" y="304" font-size="8.5" fill="#5a6f8c">派给</text>
+
+  <!-- 关系 4：PartUsage * ↓ 1 StockItem -->
+  <line x1="760" y1="228" x2="760" y2="368" stroke="#4b6f9c" stroke-width="1.6" />
+  <text x="768" y="248" font-size="9" font-weight="700" fill="#8a4b4b">*</text>
+  <text x="768" y="356" font-size="9" font-weight="700" fill="#8a4b4b">1</text>
+  <text x="768" y="304" font-size="8.5" fill="#5a6f8c">引用</text>
+
+  <!-- ============ 图例与说明 ============ -->
+  <rect x="46" y="512" width="400" height="90" rx="8" fill="#ffffff" stroke="#b9c8dd" />
+  <text x="60" y="532" font-size="10.5" font-weight="700" fill="#33507f">四条线各自的意思</text>
+  <text x="60" y="552" font-size="9" fill="#41556f">客户 1 —— * 工单：实线关联，长期持有引用</text>
+  <text x="60" y="570" font-size="9" fill="#2f6b58">工单 1 ◆—— * 配件消耗：实心菱形＝组合，部分随整体消亡</text>
+  <text x="60" y="588" font-size="9" fill="#41556f">工单 * —— 1 工程师 / 配件消耗 * —— 1 库存项：多对一关联</text>
+
+  <rect x="464" y="512" width="390" height="90" rx="8" fill="#ffffff" stroke="#b9c8dd" />
+  <text x="478" y="532" font-size="10.5" font-weight="700" fill="#33507f">重数怎么读</text>
+  <text x="478" y="552" font-size="9" fill="#41556f">1　＝ 恰好一个　　* ＝ 零或多个</text>
+  <text x="478" y="570" font-size="9" fill="#41556f">读法：「一个客户可以有多张工单」→ 客户侧 1，工单侧 *</text>
+  <text x="478" y="588" font-size="9" fill="#8a4b4b">重数不能自己假设，要问业务方（见 §5.2）</text>
+
+  <!-- 底部 -->
+  <rect x="46" y="616" width="808" height="44" rx="8" fill="#fdf2f2" stroke="#e0b4b4" />
+  <text x="60" y="636" font-size="10" font-weight="700" fill="#8a4b4b">这一阶段刻意不写的东西</text>
+  <text x="60" y="652" font-size="9" fill="#5a6f8c">不写主键外键（那是 ERD 的事，见笔记 18）、不写表名（WORK_ORDER）、不写技术后缀（WorkOrderDTO）、不存能算出来的字段（amount 是操作，不是属性）。</text>
+
+  <text x="46" y="688" font-size="10.5" fill="#2f6b58">两个值得停一下的地方：① 工单与配件消耗是组合（实心菱形），配件消耗离开工单没有意义；② 配件消耗与库存项只是关联（「引用」），库存项独立存在。</text>
+  <text x="46" y="708" font-size="10" fill="#8b9bb0">如果把后者也画成组合，实现的人会以为删工单要删库存项 —— 那是数据事故（笔记 22 §5.1 会再提一次）。</text>
+</svg>
