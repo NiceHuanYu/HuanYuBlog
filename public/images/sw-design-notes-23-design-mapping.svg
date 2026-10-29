@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" width="900" height="620" role="img" aria-label="对象模型到关系模型的映射规则与三种继承映射方案：类和属性分别映射为表与列，关联和聚合靠外键表达；继承可以映射成单表加类型列、每个具体类一张表、或每个类各一张表三种方案"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 760" width="900" height="760" role="img" aria-label="对象模型到关系模型的映射规则与三种继承映射方案：左块给出类映射成表、属性映射成列、关联与聚合靠外键表达；右块用维修单与保修单这个补充案例并列对比三种继承映射，单表加区分列、每个具体类一张表、每个类各一张表，每种都标出优缺点与派单宝案例中的判断"
      font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
   <defs>
     <linearGradient id="dmbg2" x1="0" y1="0" x2="1" y2="1">
@@ -7,77 +7,89 @@
     </linearGradient>
   </defs>
 
-  <rect width="900" height="620" rx="16" fill="url(#dmbg2)" />
-  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">从对象模型到关系模型</text>
-  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">类和关系都有对应的落法，只有继承需要做选择</text>
+  <rect width="900" height="760" rx="16" fill="url(#dmbg2)" />
+  <text x="450" y="38" text-anchor="middle" font-size="21" font-weight="700" fill="#1f3a63">从对象模型到关系模型</text>
+  <text x="450" y="62" text-anchor="middle" font-size="12.5" fill="#5a6f8c">大部分映射是直接的，只有继承需要做选择</text>
 
-  <rect x="40" y="104" width="820" height="36" fill="#33507f" />
-  <text x="58" y="129" font-size="12.5" font-weight="700" fill="#ffffff">对象模型</text>
-  <text x="300" y="129" font-size="12.5" font-weight="700" fill="#ffffff">关系模型</text>
-  <text x="560" y="129" font-size="12.5" font-weight="700" fill="#ffffff">要注意的地方</text>
+  <!-- 左：映射规则 -->
+  <rect x="34" y="84" width="360" height="200" rx="10" fill="#ffffff" stroke="#7093c8" stroke-width="1.4" />
+  <text x="50" y="106" font-size="12.5" font-weight="700" fill="#33507f">① 基本映射：一一对应</text>
 
-  <rect x="40" y="140" width="820" height="40" fill="#ffffff" opacity="0.85" />
-  <text x="58" y="165" font-size="11.5" fill="#41556f">类（class）</text>
-  <text x="300" y="165" font-size="11.5" fill="#41556f">表（table）</text>
-  <text x="560" y="165" font-size="11.5" fill="#41556f">一个实体类对应一张表</text>
+  <text x="50" y="132" font-size="9.5" fill="#41556f">类 → 表</text>
+  <text x="190" y="132" font-size="9" fill="#8a5c30">WorkOrder → work_order</text>
+  <text x="50" y="154" font-size="9.5" fill="#41556f">属性 → 列</text>
+  <text x="190" y="154" font-size="9" fill="#8a5c30">status → status 列</text>
+  <text x="50" y="176" font-size="9.5" fill="#41556f">关联 1 对多 → 多端加外键</text>
+  <text x="190" y="176" font-size="9" fill="#8a5c30">work_order.customer_id</text>
+  <text x="50" y="198" font-size="9.5" fill="#41556f">聚合 / 组合 → 外键</text>
+  <text x="190" y="198" font-size="9" fill="#8a5c30">part_usage.work_order_id</text>
 
-  <rect x="40" y="180" width="820" height="40" fill="#ffffff" opacity="0.6" />
-  <text x="58" y="205" font-size="11.5" fill="#41556f">属性（attribute）</text>
-  <text x="300" y="205" font-size="11.5" fill="#41556f">列（column）</text>
-  <text x="560" y="205" font-size="11.5" fill="#41556f">类型与长度在这一步定下来</text>
+  <line x1="50" y1="210" x2="378" y2="210" stroke="#e8eef6" stroke-width="1" />
 
-  <rect x="40" y="220" width="820" height="40" fill="#ffffff" opacity="0.85" />
-  <text x="58" y="245" font-size="11.5" fill="#41556f">关联（association）</text>
-  <text x="300" y="245" font-size="11.5" fill="#41556f">外键（foreign key）</text>
-  <text x="560" y="245" font-size="11.5" fill="#41556f">「多」的那一端加外键</text>
+  <text x="50" y="230" font-size="9.5" font-weight="700" fill="#8a4b4b">数据库没有「整体—部分」的概念</text>
+  <text x="50" y="248" font-size="9" fill="#41556f">类图里的实心菱形，落到表上只是一个外键</text>
+  <text x="50" y="264" font-size="9" fill="#41556f">强弱语义要靠代码或约束补回来</text>
+  <text x="50" y="280" font-size="8.5" fill="#8b9bb0">→ 设计文档必须写明「作废时保留记录」这类规则</text>
 
-  <rect x="40" y="260" width="820" height="40" fill="#ffffff" opacity="0.6" />
-  <text x="58" y="285" font-size="11.5" fill="#41556f">聚合 / 组合</text>
-  <text x="300" y="285" font-size="11.5" fill="#41556f">外键</text>
-  <text x="560" y="285" font-size="11.5" fill="#41556f">数据库里看不出强弱，靠 cascade 表达</text>
+  <!-- 补充案例说明 -->
+  <rect x="34" y="300" width="360" height="96" rx="10" fill="#fdf7ef" stroke="#d2a074" />
+  <text x="50" y="320" font-size="11" font-weight="700" fill="#9a5f2a">补充案例：本例后来分化出两种工单</text>
+  <text x="50" y="340" font-size="9" fill="#7a4a1e">抽象 WorkOrder</text>
+  <text x="60" y="356" font-size="9" fill="#7a4a1e">├ RepairOrder　收费，有 fee</text>
+  <text x="60" y="372" font-size="9" fill="#7a4a1e">└ WarrantyOrder　免费，有 warranty_no</text>
+  <text x="50" y="390" font-size="8.5" fill="#8b9bb0">原领域模型刻意没有继承，这里为了讲映射方案才补出来</text>
 
-  <line x1="40" y1="180" x2="860" y2="180" stroke="#d3e0ee" />
-  <line x1="40" y1="220" x2="860" y2="220" stroke="#d3e0ee" />
-  <line x1="40" y1="260" x2="860" y2="260" stroke="#d3e0ee" />
-  <line x1="40" y1="300" x2="860" y2="300" stroke="#d3e0ee" />
-  <line x1="280" y1="104" x2="280" y2="300" stroke="#d3e0ee" />
-  <line x1="540" y1="104" x2="540" y2="300" stroke="#d3e0ee" />
-  <rect x="40" y="104" width="820" height="196" fill="none" stroke="#c4d4e7" />
+  <!-- 右：三种方案 -->
+  <text x="412" y="106" font-size="12.5" font-weight="700" fill="#33507f">② 继承映射：三种方案与它们的代价</text>
 
-  <text x="60" y="338" font-size="14" font-weight="700" fill="#33507f">继承（inheritance）映射的三种方案</text>
+  <!-- 方案 1 -->
+  <rect x="412" y="118" width="454" height="120" rx="8" fill="#eef7f3" stroke="#7fb89f" stroke-width="1.4" />
+  <text x="426" y="138" font-size="11" font-weight="700" fill="#2f6b58">① 所有类一张表（single table）</text>
+  <rect x="426" y="146" width="426" height="22" fill="#ffffff" stroke="#7fb89f" />
+  <text x="432" y="161" font-size="8.5" fill="#41556f">order_no | status | order_type | fee | warranty_no</text>
+  <text x="700" y="161" font-size="8" fill="#8a4b4b">↑ 区分列</text>
+  <text x="426" y="184" font-size="9" fill="#2f6b58">✓ 表少，查任何子类都不用连接</text>
+  <text x="426" y="200" font-size="9" fill="#8a4b4b">✗ 专有字段必须允许为空：「保修单必须有凭证」无法 NOT NULL</text>
+  <text x="426" y="218" font-size="9" font-weight="700" fill="#2f6b58">本例选它 —— 因为看板要「一起查所有工单」</text>
+  <text x="426" y="232" font-size="8.5" fill="#8b9bb0">这个理由能指回需求，所以是需求驱动的决定</text>
 
-  <rect x="40" y="356" width="252" height="216" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="58" y="384" font-size="13.5" font-weight="700" fill="#1f3a63">① 所有类一张表</text>
-  <text x="58" y="402" font-size="10.5" fill="#7b8ea8">Single Table</text>
-  <line x1="58" y1="414" x2="274" y2="414" stroke="#e3ecf5" />
-  <text x="58" y="438" font-size="11" fill="#41556f">父类子类字段全放一张表，</text>
-  <text x="58" y="456" font-size="11" fill="#41556f">加一个类型列区分子类。</text>
-  <text x="58" y="484" font-size="11" fill="#2c6e49">优点：表少，查询不用连接</text>
-  <text x="58" y="510" font-size="11" fill="#8a4b4b">缺点：子类专有字段必须允许空值，</text>
-  <text x="58" y="528" font-size="11" fill="#8a4b4b">表会越来越宽，约束难加</text>
-  <text x="58" y="556" font-size="10.5" fill="#7b8ea8">子类差异小、字段少时合适</text>
+  <!-- 方案 2 -->
+  <rect x="412" y="246" width="454" height="86" rx="8" fill="#ffffff" stroke="#b9c8dd" />
+  <text x="426" y="266" font-size="11" font-weight="700" fill="#33507f">② 每个具体类一张表（concrete class per table）</text>
+  <rect x="426" y="274" width="200" height="18" fill="#f6f9fd" stroke="#c4d4e7" />
+  <text x="432" y="287" font-size="8" fill="#41556f">repair_order(order_no, status, fee)</text>
+  <rect x="640" y="274" width="212" height="18" fill="#f6f9fd" stroke="#c4d4e7" />
+  <text x="646" y="287" font-size="8" fill="#41556f">warranty_order(order_no, status, …)</text>
+  <text x="426" y="308" font-size="9" fill="#2f6b58">✓ 查询单个子类最快</text>
+  <text x="426" y="324" font-size="9" fill="#8a4b4b">✗ 父类字段重复；查「所有未完成工单」必须 UNION 两张表</text>
 
-  <rect x="324" y="356" width="252" height="216" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="342" y="384" font-size="13.5" font-weight="700" fill="#1f3a63">② 每个具体类一张表</text>
-  <text x="342" y="402" font-size="10.5" fill="#7b8ea8">Concrete Class per Table</text>
-  <line x1="342" y1="414" x2="558" y2="414" stroke="#e3ecf5" />
-  <text x="342" y="438" font-size="11" fill="#41556f">只给能实例化的类建表，</text>
-  <text x="342" y="456" font-size="11" fill="#41556f">父类字段在每张表里重复出现。</text>
-  <text x="342" y="484" font-size="11" fill="#2c6e49">优点：查询单个子类最快</text>
-  <text x="342" y="510" font-size="11" fill="#8a4b4b">缺点：父类字段重复，改一处</text>
-  <text x="342" y="528" font-size="11" fill="#8a4b4b">要改多张表</text>
-  <text x="342" y="556" font-size="10.5" fill="#7b8ea8">子类差异大、很少一起查时合适</text>
+  <!-- 方案 3 -->
+  <rect x="412" y="340" width="454" height="86" rx="8" fill="#ffffff" stroke="#b9c8dd" />
+  <text x="426" y="360" font-size="11" font-weight="700" fill="#33507f">③ 每个类各一张表（class per table）</text>
+  <rect x="426" y="368" width="130" height="18" fill="#f6f9fd" stroke="#c4d4e7" />
+  <text x="432" y="381" font-size="8" fill="#41556f">work_order(order_no, status)</text>
+  <rect x="564" y="368" width="130" height="18" fill="#f6f9fd" stroke="#c4d4e7" />
+  <text x="570" y="381" font-size="8" fill="#41556f">repair_order(order_no, fee)</text>
+  <rect x="702" y="368" width="150" height="18" fill="#f6f9fd" stroke="#c4d4e7" />
+  <text x="708" y="381" font-size="8" fill="#41556f">warranty_order(order_no, …)</text>
+  <text x="426" y="402" font-size="9" fill="#2f6b58">✓ 最贴近面向对象，没有冗余</text>
+  <text x="426" y="418" font-size="9" fill="#8a4b4b">✗ 查一条维修单要 join 两张表，查全部要 join 三张</text>
 
-  <rect x="608" y="356" width="252" height="216" rx="11" fill="#eef5fc" stroke="#7093c8" />
-  <text x="626" y="384" font-size="13.5" font-weight="700" fill="#1f3a63">③ 每个类各一张表</text>
-  <text x="626" y="402" font-size="10.5" fill="#7b8ea8">Class per Table</text>
-  <line x1="626" y1="414" x2="842" y2="414" stroke="#d3e3f2" />
-  <text x="626" y="438" font-size="11" fill="#41556f">父类一张表，每个子类再各建</text>
-  <text x="626" y="456" font-size="11" fill="#41556f">一张，主键与父类共用。</text>
-  <text x="626" y="484" font-size="11" fill="#2c6e49">优点：最贴近面向对象的模型</text>
-  <text x="626" y="510" font-size="11" fill="#8a4b4b">缺点：查一个子类要连接多张表，</text>
-  <text x="626" y="528" font-size="11" fill="#8a4b4b">层级越深越麻烦</text>
-  <text x="626" y="556" font-size="10.5" fill="#7b8ea8">层次固定、要求严格约束时合适</text>
+  <!-- 选择依据 -->
+  <rect x="412" y="436" width="454" height="76" rx="8" fill="#eef5fc" stroke="#7093c8" />
+  <text x="426" y="456" font-size="11" font-weight="700" fill="#33507f">怎么选：看两个变量</text>
+  <text x="426" y="476" font-size="9" fill="#41556f">子类差异有多大？　平时怎么查？</text>
+  <text x="426" y="496" font-size="9" fill="#41556f">差异小 + 常一起查 → ①　｜　差异大 + 很少一起查 → ②　｜　层次固定 + 约束严格 → ③</text>
 
-  <text x="450" y="600" text-anchor="middle" font-size="12.5" fill="#33507f">三种方案没有绝对优劣，取决于「子类差异大小」和「平时怎么查」</text>
+  <!-- 底部 -->
+  <text x="34" y="556" font-size="10.5" fill="#8a4b4b">本例最容易踩的坑：part_usage.work_order_id 与 part_usage.part_no 都是外键，但一个是「归属」、一个是「引用」。</text>
+  <text x="34" y="578" font-size="10.5" fill="#41556f">若把两者都当同类处理（都加级联删除），历史工单的配件记录会凭空消失 —— 而那是结算依据。</text>
+  <text x="34" y="604" font-size="10" fill="#8b9bb0">设计文档必须显式写出这类差别，不能指望开发从表结构里看出来。</text>
+
+  <text x="34" y="636" font-size="10.5" fill="#41556f">数据访问层为什么必须单独一层：换数据库不用改业务类、业务逻辑不与 SQL 混、同一条查询不会多处各写一遍。</text>
+  <text x="34" y="658" font-size="10.5" fill="#8a4b4b">例外：供应商库存接口不该塞进 StockItemDB —— 它的失败模式完全不同（超时 / 限流 / 格式变化），降级策略要区分它们。</text>
+
+  <text x="34" y="690" font-size="11" fill="#33507f">三层架构 vs MVC：MVC 只组织表现层，三层架构描述整个系统。混为一谈就会把业务逻辑写进表现层的 Controller。</text>
+  <text x="34" y="712" font-size="10.5" fill="#8a4b4b">本例的命名陷阱：RequestPartsController 属于业务层，与界面的 Controller 不是一回事 —— 建议两者不要同名。</text>
+  <text x="34" y="736" font-size="10" fill="#8b9bb0">注：设计阶段的顺序图会比分析阶段多出 xxxDB 生命线并标出事务边界。两张图完全一样，说明设计阶段该做的事没做。</text>
 </svg>

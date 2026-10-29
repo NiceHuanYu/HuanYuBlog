@@ -1,101 +1,128 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" width="900" height="560" role="img" aria-label="软件分析与设计的主干链路：第一阶段把需求变成模型，依次是事实调查、范围界定、用户故事、用例建模、实体与工作流、前端设计、非功能需求、测试；第二阶段把模型变成软件结构，依次是数据库分析与 ERD、规范化、逻辑数据模型、面向对象概念、UML 类图与顺序图、分析建模、设计建模、设计原则、重构"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" role="img" aria-label="从需求到设计的主干链路：第一阶段需求与分析包含事实调查、范围界定、用户故事、用例建模、实体与工作流、前端设计、非功能需求、测试八个环节；第二阶段设计与结构包含数据库分析、规范化、逻辑数据模型、面向对象、UML、分析建模、设计建模、设计原则、重构九个环节。每个环节框内都标出对应笔记编号，便于定位到具体篇目"
      font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
   <defs>
     <linearGradient id="mpbg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#f8fafd" />
       <stop offset="1" stop-color="#e9eff8" />
     </linearGradient>
-    <marker id="mpArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#7093c8" />
+    <marker id="mpArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7093c8" />
     </marker>
   </defs>
 
-  <rect width="900" height="560" rx="16" fill="url(#mpbg)" />
-
-  <text x="450" y="48" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">从需求到设计的主干链路</text>
-  <text x="450" y="76" text-anchor="middle" font-size="13.5" fill="#5a6f8c">每一篇笔记对应其中一个环节，前一环的输出是后一环的输入</text>
+  <rect width="900" height="600" rx="16" fill="url(#mpbg)" />
+  <text x="450" y="38" text-anchor="middle" font-size="21" font-weight="700" fill="#1f3a63">从需求到设计的主干链路</text>
+  <text x="450" y="62" text-anchor="middle" font-size="12.5" fill="#5a6f8c">前一轮的输出就是后一轮的输入；框内的数字是对应笔记编号</text>
 
   <!-- 第一阶段 -->
-  <rect x="40" y="100" width="820" height="190" rx="14" fill="#ffffff" opacity="0.75" stroke="#d3e0ee" />
-  <text x="62" y="126" font-size="14.5" font-weight="700" fill="#33507f">第一阶段 · 需求与分析</text>
-  <text x="252" y="126" font-size="12.5" fill="#7b8ea8">把「要做什么」变成可验证、可确认的模型</text>
+  <rect x="34" y="84" width="832" height="196" rx="10" fill="#ffffff" stroke="#b9c8dd" />
+  <text x="50" y="106" font-size="12.5" font-weight="700" fill="#33507f">第一阶段 · 需求与分析</text>
+  <text x="240" y="106" font-size="10" fill="#8b9bb0">把「要做什么」变成可验证、可确认的模型</text>
+  <text x="850" y="106" text-anchor="end" font-size="9.5" fill="#8a4b4b">验收：用户 / 业务方能不能看懂并确认</text>
 
-  <!-- 第一阶段节点：4 列 × 2 行 -->
-  <rect x="60" y="140" width="180" height="56" rx="10" fill="#33507f" />
-  <text x="150" y="164" text-anchor="middle" font-size="15" font-weight="600" fill="#ffffff">事实调查</text>
-  <text x="150" y="183" text-anchor="middle" font-size="11.5" fill="#cedcee">Fact Finding</text>
+  <rect x="50" y="118" width="192" height="56" rx="7" fill="#33507f" stroke="#1f3a63" />
+  <text x="146" y="140" text-anchor="middle" font-size="11.5" font-weight="700" fill="#ffffff">事实调查</text>
+  <text x="146" y="156" text-anchor="middle" font-size="8.5" fill="#c9dbf0">Fact Finding</text>
+  <text x="146" y="168" text-anchor="middle" font-size="8" font-weight="700" fill="#ffe08a">笔记 04 · 13</text>
 
-  <rect x="260" y="140" width="180" height="56" rx="10" fill="#ffffff" stroke="#c4d4e7" />
-  <text x="350" y="164" text-anchor="middle" font-size="15" font-weight="600" fill="#1f3a63">范围界定</text>
-  <text x="350" y="183" text-anchor="middle" font-size="11.5" fill="#6a7f9c">Scoping</text>
+  <rect x="256" y="118" width="192" height="56" rx="7" fill="#ffffff" stroke="#7093c8" />
+  <text x="352" y="140" text-anchor="middle" font-size="11.5" font-weight="700" fill="#33507f">范围界定</text>
+  <text x="352" y="156" text-anchor="middle" font-size="8.5" fill="#5a6f8c">Scoping</text>
+  <text x="352" y="168" text-anchor="middle" font-size="8" font-weight="700" fill="#b5743a">笔记 05 · 06</text>
 
-  <rect x="460" y="140" width="180" height="56" rx="10" fill="#ffffff" stroke="#c4d4e7" />
-  <text x="550" y="164" text-anchor="middle" font-size="15" font-weight="600" fill="#1f3a63">用户故事</text>
-  <text x="550" y="183" text-anchor="middle" font-size="11.5" fill="#6a7f9c">User Story</text>
+  <rect x="462" y="118" width="192" height="56" rx="7" fill="#ffffff" stroke="#7093c8" />
+  <text x="558" y="140" text-anchor="middle" font-size="11.5" font-weight="700" fill="#33507f">用户故事</text>
+  <text x="558" y="156" text-anchor="middle" font-size="8.5" fill="#5a6f8c">User Story</text>
+  <text x="558" y="168" text-anchor="middle" font-size="8" font-weight="700" fill="#b5743a">笔记 07</text>
 
-  <rect x="660" y="140" width="180" height="56" rx="10" fill="#ffffff" stroke="#c4d4e7" />
-  <text x="750" y="164" text-anchor="middle" font-size="15" font-weight="600" fill="#1f3a63">用例建模</text>
-  <text x="750" y="183" text-anchor="middle" font-size="11.5" fill="#6a7f9c">Use Case Model</text>
+  <rect x="668" y="118" width="184" height="56" rx="7" fill="#ffffff" stroke="#7093c8" />
+  <text x="760" y="140" text-anchor="middle" font-size="11.5" font-weight="700" fill="#33507f">用例建模</text>
+  <text x="760" y="156" text-anchor="middle" font-size="8.5" fill="#5a6f8c">Use Case Model</text>
+  <text x="760" y="168" text-anchor="middle" font-size="8" font-weight="700" fill="#b5743a">笔记 08 · 10</text>
 
-  <rect x="60" y="210" width="180" height="56" rx="10" fill="#ffffff" stroke="#c4d4e7" />
-  <text x="150" y="234" text-anchor="middle" font-size="15" font-weight="600" fill="#1f3a63">实体与工作流</text>
-  <text x="150" y="253" text-anchor="middle" font-size="11.5" fill="#6a7f9c">Entity / Workflow</text>
+  <rect x="50" y="190" width="192" height="56" rx="7" fill="#ffffff" stroke="#7093c8" />
+  <text x="146" y="212" text-anchor="middle" font-size="11.5" font-weight="700" fill="#33507f">实体与工作流</text>
+  <text x="146" y="228" text-anchor="middle" font-size="8.5" fill="#5a6f8c">Entity / Workflow</text>
+  <text x="146" y="240" text-anchor="middle" font-size="8" font-weight="700" fill="#b5743a">笔记 09</text>
 
-  <rect x="260" y="210" width="180" height="56" rx="10" fill="#ffffff" stroke="#c4d4e7" />
-  <text x="350" y="234" text-anchor="middle" font-size="15" font-weight="600" fill="#1f3a63">前端设计</text>
-  <text x="350" y="253" text-anchor="middle" font-size="11.5" fill="#6a7f9c">UI / UX Design</text>
+  <rect x="256" y="190" width="192" height="56" rx="7" fill="#ffffff" stroke="#7093c8" />
+  <text x="352" y="212" text-anchor="middle" font-size="11.5" font-weight="700" fill="#33507f">前端设计</text>
+  <text x="352" y="228" text-anchor="middle" font-size="8.5" fill="#5a6f8c">UI / UX Design</text>
+  <text x="352" y="240" text-anchor="middle" font-size="8" font-weight="700" fill="#b5743a">笔记 12</text>
 
-  <rect x="460" y="210" width="180" height="56" rx="10" fill="#ffffff" stroke="#c4d4e7" />
-  <text x="550" y="234" text-anchor="middle" font-size="15" font-weight="600" fill="#1f3a63">非功能需求</text>
-  <text x="550" y="253" text-anchor="middle" font-size="11.5" fill="#6a7f9c">Non-Functional Req</text>
+  <rect x="462" y="190" width="192" height="56" rx="7" fill="#ffffff" stroke="#7093c8" />
+  <text x="558" y="212" text-anchor="middle" font-size="11.5" font-weight="700" fill="#33507f">非功能需求</text>
+  <text x="558" y="228" text-anchor="middle" font-size="8.5" fill="#5a6f8c">Non-Functional Req</text>
+  <text x="558" y="240" text-anchor="middle" font-size="8" font-weight="700" fill="#b5743a">笔记 15</text>
 
-  <rect x="660" y="210" width="180" height="56" rx="10" fill="#ffffff" stroke="#c4d4e7" />
-  <text x="750" y="234" text-anchor="middle" font-size="15" font-weight="600" fill="#1f3a63">测试</text>
-  <text x="750" y="253" text-anchor="middle" font-size="11.5" fill="#6a7f9c">Testing</text>
+  <rect x="668" y="190" width="184" height="56" rx="7" fill="#ffffff" stroke="#7093c8" />
+  <text x="760" y="212" text-anchor="middle" font-size="11.5" font-weight="700" fill="#33507f">测试</text>
+  <text x="760" y="228" text-anchor="middle" font-size="8.5" fill="#5a6f8c">Testing</text>
+  <text x="760" y="240" text-anchor="middle" font-size="8" font-weight="700" fill="#b5743a">笔记 14</text>
 
-  <!-- 阶段之间的连接 -->
-  <line x1="450" y1="302" x2="450" y2="326" stroke="#7093c8" stroke-width="2.5" marker-end="url(#mpArrow)" />
-  <text x="466" y="320" font-size="11.5" fill="#7093c8">同一份需求，换一种表达</text>
+  <!-- 中间箭头 -->
+  <line x1="450" y1="284" x2="450" y2="316" stroke="#7093c8" stroke-width="2.2" marker-end="url(#mpArrow)" />
+  <text x="462" y="304" font-size="10" fill="#5a6f8c">同一份需求，换一种表达</text>
 
   <!-- 第二阶段 -->
-  <rect x="40" y="336" width="820" height="184" rx="14" fill="#ffffff" opacity="0.75" stroke="#d3e0ee" />
-  <text x="62" y="362" font-size="14.5" font-weight="700" fill="#33507f">第二阶段 · 设计与结构</text>
-  <text x="252" y="362" font-size="12.5" fill="#7b8ea8">把模型变成可实现、可维护的软件结构</text>
+  <rect x="34" y="322" width="832" height="196" rx="10" fill="#ffffff" stroke="#b9c8dd" />
+  <text x="50" y="344" font-size="12.5" font-weight="700" fill="#33507f">第二阶段 · 设计与结构</text>
+  <text x="240" y="344" font-size="10" fill="#8b9bb0">把模型变成可实现、可维护的软件结构</text>
+  <text x="850" y="344" text-anchor="end" font-size="9.5" fill="#2f6b58">验收：开发能不能直接照着实现</text>
 
-  <!-- 第二阶段节点：5 列 × 2 行 -->
-  <rect x="48" y="374" width="148" height="56" rx="10" fill="#f2f7fd" stroke="#c4d4e7" />
-  <text x="122" y="398" text-anchor="middle" font-size="14" font-weight="600" fill="#1f3a63">数据库分析</text>
-  <text x="122" y="417" text-anchor="middle" font-size="11" fill="#6a7f9c">ERD</text>
+  <rect x="50" y="356" width="148" height="56" rx="7" fill="#ffffff" stroke="#7fb89f" />
+  <text x="124" y="378" text-anchor="middle" font-size="11" font-weight="700" fill="#2f6b58">数据库分析</text>
+  <text x="124" y="394" text-anchor="middle" font-size="8.5" fill="#5a6f8c">ERD</text>
+  <text x="124" y="406" text-anchor="middle" font-size="8" font-weight="700" fill="#b5743a">笔记 18</text>
 
-  <rect x="212" y="374" width="148" height="56" rx="10" fill="#f2f7fd" stroke="#c4d4e7" />
-  <text x="286" y="398" text-anchor="middle" font-size="14" font-weight="600" fill="#1f3a63">规范化</text>
-  <text x="286" y="417" text-anchor="middle" font-size="11" fill="#6a7f9c">Normalization</text>
+  <rect x="210" y="356" width="140" height="56" rx="7" fill="#ffffff" stroke="#7fb89f" />
+  <text x="280" y="378" text-anchor="middle" font-size="11" font-weight="700" fill="#2f6b58">规范化</text>
+  <text x="280" y="394" text-anchor="middle" font-size="8.5" fill="#5a6f8c">Normalization</text>
+  <text x="280" y="406" text-anchor="middle" font-size="8" font-weight="700" fill="#b5743a">笔记 19</text>
 
-  <rect x="376" y="374" width="148" height="56" rx="10" fill="#f2f7fd" stroke="#c4d4e7" />
-  <text x="450" y="398" text-anchor="middle" font-size="14" font-weight="600" fill="#1f3a63">逻辑数据模型</text>
-  <text x="450" y="417" text-anchor="middle" font-size="11" fill="#6a7f9c">LDM</text>
+  <rect x="362" y="356" width="148" height="56" rx="7" fill="#ffffff" stroke="#7fb89f" />
+  <text x="436" y="378" text-anchor="middle" font-size="11" font-weight="700" fill="#2f6b58">逻辑数据模型</text>
+  <text x="436" y="394" text-anchor="middle" font-size="8.5" fill="#5a6f8c">LDM</text>
+  <text x="436" y="406" text-anchor="middle" font-size="8" font-weight="700" fill="#b5743a">笔记 19</text>
 
-  <rect x="540" y="374" width="148" height="56" rx="10" fill="#f2f7fd" stroke="#c4d4e7" />
-  <text x="614" y="398" text-anchor="middle" font-size="14" font-weight="600" fill="#1f3a63">面向对象</text>
-  <text x="614" y="417" text-anchor="middle" font-size="11" fill="#6a7f9c">OO Concept</text>
+  <rect x="522" y="356" width="148" height="56" rx="7" fill="#ffffff" stroke="#7fb89f" />
+  <text x="596" y="378" text-anchor="middle" font-size="11" font-weight="700" fill="#2f6b58">面向对象</text>
+  <text x="596" y="394" text-anchor="middle" font-size="8.5" fill="#5a6f8c">OO Concept</text>
+  <text x="596" y="406" text-anchor="middle" font-size="8" font-weight="700" fill="#b5743a">笔记 20</text>
 
-  <rect x="704" y="374" width="148" height="56" rx="10" fill="#f2f7fd" stroke="#c4d4e7" />
-  <text x="778" y="398" text-anchor="middle" font-size="14" font-weight="600" fill="#1f3a63">UML</text>
-  <text x="778" y="417" text-anchor="middle" font-size="11" fill="#6a7f9c">Class &amp; Sequence</text>
+  <rect x="682" y="356" width="170" height="56" rx="7" fill="#ffffff" stroke="#7fb89f" />
+  <text x="767" y="378" text-anchor="middle" font-size="11" font-weight="700" fill="#2f6b58">UML</text>
+  <text x="767" y="394" text-anchor="middle" font-size="8.5" fill="#5a6f8c">Class &amp; Sequence</text>
+  <text x="767" y="406" text-anchor="middle" font-size="8" font-weight="700" fill="#b5743a">笔记 21</text>
 
-  <rect x="48" y="444" width="148" height="56" rx="10" fill="#f2f7fd" stroke="#c4d4e7" />
-  <text x="122" y="468" text-anchor="middle" font-size="14" font-weight="600" fill="#1f3a63">分析建模</text>
-  <text x="122" y="487" text-anchor="middle" font-size="11" fill="#6a7f9c">Analysis Modelling</text>
+  <rect x="50" y="428" width="148" height="56" rx="7" fill="#ffffff" stroke="#7fb89f" />
+  <text x="124" y="450" text-anchor="middle" font-size="11" font-weight="700" fill="#2f6b58">分析建模</text>
+  <text x="124" y="466" text-anchor="middle" font-size="8.5" fill="#5a6f8c">Analysis Modelling</text>
+  <text x="124" y="478" text-anchor="middle" font-size="8" font-weight="700" fill="#b5743a">笔记 22</text>
 
-  <rect x="212" y="444" width="148" height="56" rx="10" fill="#f2f7fd" stroke="#c4d4e7" />
-  <text x="286" y="468" text-anchor="middle" font-size="14" font-weight="600" fill="#1f3a63">设计建模</text>
-  <text x="286" y="487" text-anchor="middle" font-size="11" fill="#6a7f9c">Design Modelling</text>
+  <rect x="210" y="428" width="140" height="56" rx="7" fill="#ffffff" stroke="#7fb89f" />
+  <text x="280" y="450" text-anchor="middle" font-size="11" font-weight="700" fill="#2f6b58">设计建模</text>
+  <text x="280" y="466" text-anchor="middle" font-size="8.5" fill="#5a6f8c">Design Modelling</text>
+  <text x="280" y="478" text-anchor="middle" font-size="8" font-weight="700" fill="#b5743a">笔记 23</text>
 
-  <rect x="376" y="444" width="148" height="56" rx="10" fill="#f2f7fd" stroke="#c4d4e7" />
-  <text x="450" y="468" text-anchor="middle" font-size="14" font-weight="600" fill="#1f3a63">设计原则</text>
-  <text x="450" y="487" text-anchor="middle" font-size="11" fill="#6a7f9c">Design Principles</text>
+  <rect x="362" y="428" width="148" height="56" rx="7" fill="#ffffff" stroke="#7fb89f" />
+  <text x="436" y="450" text-anchor="middle" font-size="11" font-weight="700" fill="#2f6b58">设计原则</text>
+  <text x="436" y="466" text-anchor="middle" font-size="8.5" fill="#5a6f8c">Design Principles</text>
+  <text x="436" y="478" text-anchor="middle" font-size="8" font-weight="700" fill="#b5743a">笔记 24</text>
 
-  <rect x="540" y="444" width="148" height="56" rx="10" fill="#f2f7fd" stroke="#c4d4e7" />
-  <text x="614" y="468" text-anchor="middle" font-size="14" font-weight="600" fill="#1f3a63">重构</text>
-  <text x="614" y="487" text-anchor="middle" font-size="11" fill="#6a7f9c">Refactoring</text>
+  <rect x="522" y="428" width="148" height="56" rx="7" fill="#ffffff" stroke="#7fb89f" />
+  <text x="596" y="450" text-anchor="middle" font-size="11" font-weight="700" fill="#2f6b58">重构</text>
+  <text x="596" y="466" text-anchor="middle" font-size="8.5" fill="#5a6f8c">Refactoring</text>
+  <text x="596" y="478" text-anchor="middle" font-size="8" font-weight="700" fill="#b5743a">笔记 25</text>
+
+  <rect x="682" y="428" width="170" height="56" rx="7" fill="#eef7f3" stroke="#2f6b58" stroke-width="1.4" />
+  <text x="767" y="450" text-anchor="middle" font-size="11" font-weight="700" fill="#2f6b58">收口：设计文档</text>
+  <text x="767" y="466" text-anchor="middle" font-size="8.5" fill="#5a6f8c">Whole Picture</text>
+  <text x="767" y="478" text-anchor="middle" font-size="8" font-weight="700" fill="#b5743a">笔记 26</text>
+
+  <!-- 底部 -->
+  <rect x="34" y="530" width="832" height="46" rx="8" fill="#fdf7ef" stroke="#d2a074" />
+  <text x="50" y="550" font-size="10" font-weight="700" fill="#9a5f2a">加餐（不属于主链，但考前最值得看）</text>
+  <text x="50" y="568" font-size="9.5" fill="#7a4a1e">笔记 27 拿一份完整案例把整份卷子从头走到尾　｜　笔记 28 讲每个 UML 符号在 draw.io 里怎么落笔</text>
+  <text x="620" y="568" font-size="9" fill="#8a4b4b">这两篇把「会什么」直接转成「能拿多少分」</text>
 </svg>

@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" role="img" aria-label="测试用例与测试数据表的填法示例：上方是被测界面的字段清单（工单号、配件编号、申请数量、备注）；中间是三条测试用例，一条有效、两条无效，分别对应等价类的正常值、边界值 0、以及超出上限的值；下方标出每一列该填什么，以及最常见的两个错误：两条用例都是正常路径、测试数据写成 invalid data"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="tcbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="600" rx="16" fill="url(#tcbg)" />
+  <text x="450" y="38" text-anchor="middle" font-size="20" font-weight="700" fill="#1f3a63">Figure 8: 测试用例表 —— 一条有效、两条无效</text>
+  <text x="450" y="60" text-anchor="middle" font-size="12" fill="#5a6f8c">题目说「2 个测试用例 + 1 组测试数据」，实际交上去应该是这样一张表</text>
+
+  <!-- 界面字段 -->
+  <rect x="40" y="80" width="820" height="76" rx="8" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="56" y="100" font-size="10.5" font-weight="700" fill="#33507f">被测界面：申请配件</text>
+  <rect x="56" y="110" width="150" height="30" rx="4" fill="#f6f9fd" stroke="#c4d4e7" />
+  <text x="64" y="129" font-size="8.5" fill="#41556f">工单号（只读）</text>
+  <rect x="218" y="110" width="150" height="30" rx="4" fill="#f6f9fd" stroke="#c4d4e7" />
+  <text x="226" y="129" font-size="8.5" fill="#41556f">配件编号 *</text>
+  <rect x="380" y="110" width="120" height="30" rx="4" fill="#f6f9fd" stroke="#c4d4e7" />
+  <text x="388" y="129" font-size="8.5" fill="#8a4b4b">数量 *（1–20）</text>
+  <rect x="512" y="110" width="180" height="30" rx="4" fill="#f6f9fd" stroke="#c4d4e7" />
+  <text x="520" y="129" font-size="8.5" fill="#41556f">备注（可选）</text>
+  <rect x="704" y="110" width="70" height="30" rx="4" fill="#eef5fc" stroke="#7093c8" />
+  <text x="739" y="129" text-anchor="middle" font-size="8.5" fill="#1f3a63">提交</text>
+  <text x="786" y="122" font-size="8" fill="#8a4b4b">* 必填</text>
+  <text x="786" y="134" font-size="8" fill="#8a4b4b">数量有范围</text>
+
+  <!-- 表格 -->
+  <text x="40" y="184" font-size="11.5" font-weight="700" fill="#33507f">填好的测试用例表</text>
+  <rect x="40" y="194" width="820" height="28" fill="#dce8f6" stroke="#b7c7dd" />
+  <text x="52" y="212" font-size="9" font-weight="700" fill="#33507f">Test ID</text>
+  <text x="116" y="212" font-size="9" font-weight="700" fill="#33507f">测试场景</text>
+  <text x="298" y="212" font-size="9" font-weight="700" fill="#33507f">前置条件</text>
+  <text x="430" y="212" font-size="9" font-weight="700" fill="#33507f">测试数据</text>
+  <text x="660" y="212" font-size="9" font-weight="700" fill="#33507f">预期结果</text>
+
+  <rect x="40" y="222" width="820" height="40" fill="#f4fbf6" stroke="#b7c7dd" />
+  <text x="52" y="246" font-size="8.5" font-weight="700" fill="#2f6b58">TC-01</text>
+  <text x="116" y="240" font-size="8.5" fill="#41556f">有效输入，</text>
+  <text x="116" y="253" font-size="8.5" fill="#41556f">正常提交</text>
+  <text x="298" y="240" font-size="8.5" fill="#41556f">工单状态 = 进行中</text>
+  <text x="298" y="253" font-size="8.5" fill="#41556f">库存 &gt;= 申请量</text>
+  <text x="430" y="240" font-size="8.5" fill="#41556f">配件 A231，数量 5</text>
+  <text x="430" y="253" font-size="8" fill="#8b9bb0">（范围内取中间值）</text>
+  <text x="660" y="240" font-size="8.5" fill="#2f6b58">生成出库单，</text>
+  <text x="660" y="253" font-size="8.5" fill="#2f6b58">提示「申请成功」</text>
+
+  <rect x="40" y="262" width="820" height="40" fill="#fdf2f2" stroke="#b7c7dd" />
+  <text x="52" y="286" font-size="8.5" font-weight="700" fill="#8a4b4b">TC-02</text>
+  <text x="116" y="280" font-size="8.5" fill="#41556f">数量为 0，</text>
+  <text x="116" y="293" font-size="8.5" fill="#41556f">下边界外</text>
+  <text x="298" y="286" font-size="8.5" fill="#41556f">同上</text>
+  <text x="430" y="286" font-size="8.5" fill="#8a4b4b">配件 A231，数量 0</text>
+  <text x="660" y="286" font-size="8.5" fill="#8a4b4b">提示「数量须在 1–20</text>
+  <text x="660" y="299" font-size="8.5" fill="#8a4b4b">之间」，不保存</text>
+
+  <rect x="40" y="302" width="820" height="40" fill="#fdf2f2" stroke="#b7c7dd" />
+  <text x="52" y="326" font-size="8.5" font-weight="700" fill="#8a4b4b">TC-03</text>
+  <text x="116" y="320" font-size="8.5" fill="#41556f">数量超出上限，</text>
+  <text x="116" y="333" font-size="8.5" fill="#41556f">上边界外</text>
+  <text x="298" y="326" font-size="8.5" fill="#41556f">同上</text>
+  <text x="430" y="326" font-size="8.5" fill="#8a4b4b">配件 A231，数量 21</text>
+  <text x="660" y="326" font-size="8.5" fill="#8a4b4b">同上，不保存</text>
+
+  <!-- 说明 -->
+  <rect x="40" y="358" width="392" height="120" rx="8" fill="#eef7f3" stroke="#7fb89f" />
+  <text x="56" y="378" font-size="10.5" font-weight="700" fill="#2f6b58">为什么这样挑数据</text>
+  <text x="56" y="400" font-size="9.5" fill="#41556f">数量字段是 1–20 的范围 → 等价类有三段：</text>
+  <text x="56" y="420" font-size="9.5" fill="#2f6b58">有效类：范围中间取一个（5）</text>
+  <text x="56" y="440" font-size="9.5" fill="#8a4b4b">无效类：小于 1（取 0，边界外一步）</text>
+  <text x="56" y="460" font-size="9.5" fill="#8a4b4b">无效类：大于 20（取 21，边界外一步）</text>
+
+  <rect x="452" y="358" width="408" height="120" rx="8" fill="#fdf2f2" stroke="#e0b4b4" />
+  <text x="468" y="378" font-size="10.5" font-weight="700" fill="#8a4b4b">两个最常见的错误</text>
+  <text x="468" y="400" font-size="9.5" fill="#8a4b4b">① 两条用例都是正常路径</text>
+  <text x="468" y="418" font-size="9" fill="#5a6f8c">→ 没有一条在测「出错时系统会不会拦住」</text>
+  <text x="468" y="442" font-size="9.5" fill="#8a4b4b">② 测试数据写成「invalid data」</text>
+  <text x="468" y="460" font-size="9" fill="#5a6f8c">→ 必须写真的能填进输入框的值，如 A231 / 0 / 21</text>
+
+  <!-- 底部 -->
+  <text x="40" y="508" font-size="11" fill="#8a4b4b">这题只有 4 分，但「测试数据」那一列一空，基本就一分拿不到 —— 它是唯一能证明你设计过测试的东西。</text>
+  <text x="40" y="534" font-size="10.5" fill="#41556f">边界值优先：0 与 21 比随便写个 999 更有价值，因为出错最常发生在边界上（「&lt;」写成「&lt;=」这类）。</text>
+  <text x="40" y="560" font-size="10" fill="#8b9bb0">注：题目常说「1 组测试数据」，指一条用例所需的整组输入（配件号 + 数量），不是「只写一个数字」。</text>
+</svg>

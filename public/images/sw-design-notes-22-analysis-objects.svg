@@ -1,76 +1,152 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" width="900" height="620" role="img" aria-label="分析建模里的三种对象与用例实现：边界对象负责系统与外部交互，实体对象承载业务数据与规则，控制对象协调用例流程；下方用一个顺序图示意如何从对象之间的消息导出类与操作"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="900" height="700" role="img" aria-label="分析建模的三种对象与用例实现：上方并排三个构造型说明，边界对象负责系统与外部交互且不负责业务规则，实体对象承载数据与规则，控制对象协调执行顺序但不堆积规则；下方是申请配件的顺序图，四条生命线分别是工程师、申请界面、配件控制器、库存项与供应商接口，并标出从消息导出类与操作的方向；右下角列出三条关系限制"
      font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
   <defs>
     <linearGradient id="ambg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#f8fafd" />
       <stop offset="1" stop-color="#e9eff8" />
     </linearGradient>
-    <marker id="amArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#7093c8" />
+    <marker id="amSolid" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4b6f9c" />
+    </marker>
+    <marker id="amOpen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 1 1 L 11 6 L 1 11" fill="none" stroke="#9a6a8a" stroke-width="1.5" />
     </marker>
   </defs>
 
-  <rect width="900" height="620" rx="16" fill="url(#ambg)" />
-  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">一个用例由哪些对象完成</text>
-  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">三种对象各管一段，谁都不越界</text>
+  <rect width="900" height="700" rx="16" fill="url(#ambg)" />
+  <text x="450" y="38" text-anchor="middle" font-size="21" font-weight="700" fill="#1f3a63">三种分析对象，各管一段</text>
+  <text x="450" y="62" text-anchor="middle" font-size="12.5" fill="#5a6f8c">先定「该谁做」，再定「怎么做」—— 这一层刻意不关心平台</text>
 
-  <rect x="40" y="100" width="252" height="200" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="58" y="130" font-size="14.5" font-weight="700" fill="#1f3a63">Boundary</text>
-  <text x="58" y="148" font-size="10.5" fill="#7b8ea8">边界对象</text>
-  <line x1="58" y1="162" x2="274" y2="162" stroke="#e3ecf5" />
-  <text x="58" y="188" font-size="11.5" fill="#41556f">系统与外部交互的界面</text>
-  <text x="58" y="210" font-size="11.5" fill="#41556f">接收输入、展示结果</text>
-  <text x="58" y="232" font-size="11.5" fill="#41556f">不负责业务规则</text>
-  <text x="58" y="262" font-size="11.5" fill="#5a6f8c">例：查询车辆的界面</text>
-  <text x="58" y="282" font-size="11.5" fill="#8a4b4b">改动最频繁的一层</text>
+  <!-- 三个构造型 -->
+  <rect x="34" y="84" width="270" height="176" rx="10" fill="#eef5fc" stroke="#7093c8" stroke-width="1.4" />
+  <text x="50" y="106" font-size="12" font-weight="700" fill="#33507f">① «boundary» 边界对象</text>
+  <text x="50" y="128" font-size="9.5" fill="#41556f">系统与外部交互的地方</text>
+  <text x="50" y="150" font-size="9" fill="#2f6b58">本例有两个，性质不同：</text>
+  <text x="58" y="168" font-size="9" fill="#41556f">PartsForm —— 人的界面</text>
+  <text x="58" y="184" font-size="9" fill="#41556f">SupplierAPI —— 系统的接口</text>
+  <text x="50" y="208" font-size="9" font-weight="700" fill="#8a4b4b">不负责业务规则</text>
+  <text x="50" y="224" font-size="9" fill="#41556f">改动最频繁，规则写这里会每次</text>
+  <text x="50" y="238" font-size="9" fill="#41556f">改界面都要重验业务逻辑</text>
+  <text x="50" y="252" font-size="8.5" fill="#8b9bb0">改动触发源不同 → 不能混在一个类</text>
 
-  <rect x="324" y="100" width="252" height="200" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="342" y="130" font-size="14.5" font-weight="700" fill="#1f3a63">Entity</text>
-  <text x="342" y="148" font-size="10.5" fill="#7b8ea8">实体对象</text>
-  <line x1="342" y1="162" x2="558" y2="162" stroke="#e3ecf5" />
-  <text x="342" y="188" font-size="11.5" fill="#41556f">业务上需要长期记住的东西</text>
-  <text x="342" y="210" font-size="11.5" fill="#41556f">承载数据与规则</text>
-  <text x="342" y="232" font-size="11.5" fill="#41556f">通常能对应到数据表</text>
-  <text x="342" y="262" font-size="11.5" fill="#5a6f8c">例：车辆、订单</text>
-  <text x="342" y="282" font-size="11.5" fill="#8a4b4b">对应笔记 09 的业务实体</text>
+  <rect x="314" y="84" width="270" height="176" rx="10" fill="#fdf7ef" stroke="#c79a6d" stroke-width="1.4" />
+  <text x="330" y="106" font-size="12" font-weight="700" fill="#9a5f2a">② «entity» 实体对象</text>
+  <text x="330" y="128" font-size="9.5" fill="#41556f">业务上需要长期记住的东西</text>
+  <text x="330" y="150" font-size="9" fill="#2f6b58">本例：</text>
+  <text x="338" y="168" font-size="9" fill="#41556f">WorkOrder 工单</text>
+  <text x="338" y="184" font-size="9" fill="#41556f">StockItem 库存项 / PartUsage 配件消耗</text>
+  <text x="338" y="200" font-size="9" fill="#41556f">IssueNote 出库单</text>
+  <text x="330" y="224" font-size="9" font-weight="700" fill="#8a4b4b">业务规则应该落在这里</text>
+  <text x="330" y="240" font-size="9" fill="#41556f">「什么状态允许申请配件」属于 WorkOrder</text>
+  <text x="330" y="254" font-size="8.5" fill="#8b9bb0">规则写进控制器，别的用例就复用不了</text>
 
-  <rect x="608" y="100" width="252" height="200" rx="11" fill="#eef5fc" stroke="#7093c8" />
-  <text x="626" y="130" font-size="14.5" font-weight="700" fill="#1f3a63">Control</text>
-  <text x="626" y="148" font-size="10.5" fill="#7b8ea8">控制对象</text>
-  <line x1="626" y1="162" x2="842" y2="162" stroke="#d3e3f2" />
-  <text x="626" y="188" font-size="11.5" fill="#41556f">协调一个用例的执行顺序</text>
-  <text x="626" y="210" font-size="11.5" fill="#41556f">把请求转给该处理的对象</text>
-  <text x="626" y="232" font-size="11.5" fill="#41556f">本身不该堆业务规则</text>
-  <text x="626" y="262" font-size="11.5" fill="#5a6f8c">例：租车流程的协调者</text>
-  <text x="626" y="282" font-size="11.5" fill="#8a4b4b">职责过多会变成「上帝类」</text>
+  <rect x="594" y="84" width="276" height="176" rx="10" fill="#eef7f3" stroke="#6fa894" stroke-width="1.4" />
+  <text x="610" y="106" font-size="12" font-weight="700" fill="#2f6b58">③ «control» 控制对象</text>
+  <text x="610" y="128" font-size="9.5" fill="#41556f">协调一个用例的执行顺序</text>
+  <text x="610" y="150" font-size="9" fill="#2f6b58">一般一个用例配一个，命名直接对应：</text>
+  <text x="618" y="168" font-size="9" fill="#41556f">RequestPartsController</text>
+  <text x="618" y="184" font-size="8.5" fill="#8b9bb0">（看到类名就知道服务哪个用例）</text>
+  <text x="610" y="208" font-size="9" font-weight="700" fill="#8a4b4b">最容易变成上帝类</text>
+  <text x="610" y="224" font-size="9" fill="#41556f">判据：方法里大量「先查 A、再判断 B、</text>
+  <text x="610" y="238" font-size="9" fill="#41556f">然后更新 C」→ 这些逻辑属于实体</text>
+  <text x="610" y="252" font-size="8.5" fill="#8b9bb0">反例：控制器里写「数量 &gt; 20 报错」</text>
 
-  <rect x="40" y="322" width="820" height="238" rx="12" fill="#ffffff" opacity="0.85" stroke="#d3e0ee" />
-  <text x="60" y="352" font-size="14" font-weight="700" fill="#33507f">用例实现（use case realization）</text>
+  <!-- 顺序图 -->
+  <text x="34" y="288" font-size="12.5" font-weight="700" fill="#33507f">用例实现：把主流程逐行问「谁执行」，画成顺序图</text>
 
-  <rect x="80" y="372" width="110" height="26" rx="6" fill="#33507f" />
-  <text x="135" y="390" text-anchor="middle" font-size="11" fill="#ffffff">:查询界面</text>
-  <rect x="230" y="372" width="110" height="26" rx="6" fill="#e8f0f9" stroke="#7093c8" />
-  <text x="285" y="390" text-anchor="middle" font-size="11" fill="#1f3a63">:车辆</text>
-  <rect x="380" y="372" width="110" height="26" rx="6" fill="#e8f0f9" stroke="#7093c8" />
-  <text x="435" y="390" text-anchor="middle" font-size="11" fill="#1f3a63">:车辆数据</text>
+  <rect x="44" y="300" width="556" height="252" rx="8" fill="#ffffff" stroke="#b9c8dd" />
 
-  <line x1="135" y1="398" x2="135" y2="500" stroke="#c4d4e7" stroke-dasharray="4 4" />
-  <line x1="285" y1="398" x2="285" y2="500" stroke="#c4d4e7" stroke-dasharray="4 4" />
-  <line x1="435" y1="398" x2="435" y2="500" stroke="#c4d4e7" stroke-dasharray="4 4" />
+  <!-- 生命线头 -->
+  <rect x="56" y="312" width="86" height="26" rx="3" fill="#ffffff" stroke="#33507f" stroke-width="1.4" />
+  <text x="99" y="323" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1f3a63">:Engineer</text>
+  <text x="99" y="334" text-anchor="middle" font-size="7" fill="#5a6f8c">actor</text>
 
-  <line x1="135" y1="424" x2="281" y2="424" stroke="#7093c8" stroke-width="1.6" marker-end="url(#amArrow)" />
-  <text x="208" y="418" text-anchor="middle" font-size="10.5" fill="#5a6f8c">查车牌</text>
-  <line x1="285" y1="452" x2="431" y2="452" stroke="#7093c8" stroke-width="1.6" marker-end="url(#amArrow)" />
-  <text x="358" y="446" text-anchor="middle" font-size="10.5" fill="#5a6f8c">按车牌查</text>
-  <line x1="431" y1="480" x2="289" y2="480" stroke="#7093c8" stroke-width="1.6" marker-end="url(#amArrow)" />
-  <text x="360" y="474" text-anchor="middle" font-size="10.5" fill="#5a6f8c">返回数据</text>
+  <rect x="176" y="312" width="86" height="26" rx="3" fill="#eef5fc" stroke="#7093c8" />
+  <text x="219" y="323" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1f3a63">:PartsForm</text>
+  <text x="219" y="334" text-anchor="middle" font-size="7" fill="#4a7fb5">«boundary»</text>
 
-  <text x="540" y="392" font-size="12.5" font-weight="700" fill="#33507f">从这张图能导出什么</text>
-  <text x="540" y="420" font-size="11.5" fill="#41556f">· 每个参与对象 → 一个类</text>
-  <text x="540" y="444" font-size="11.5" fill="#41556f">· 收到的消息 → 该类的一个操作</text>
-  <text x="540" y="468" font-size="11.5" fill="#41556f">· 需要记住的数据 → 类的属性</text>
-  <text x="540" y="496" font-size="11.5" fill="#8a4b4b">· 谁调用谁 → 类之间的关系</text>
-  <text x="540" y="524" font-size="11" fill="#7b8ea8">顺序图画清楚了，类图基本就出来了</text>
+  <rect x="296" y="312" width="112" height="26" rx="3" fill="#eef5fc" stroke="#7093c8" />
+  <text x="352" y="323" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1f3a63">:RequestPartsCtrl</text>
+  <text x="352" y="334" text-anchor="middle" font-size="7" fill="#4a7fb5">«control»</text>
 
-  <text x="450" y="592" text-anchor="middle" font-size="12.5" fill="#33507f">对象分不清该谁负责时，先问一句：这段逻辑属于谁的数据</text>
+  <rect x="442" y="312" width="82" height="26" rx="3" fill="#fdf7ef" stroke="#c79a6d" />
+  <text x="483" y="323" text-anchor="middle" font-size="8.5" font-weight="700" fill="#7a4a1e">:StockItem</text>
+  <text x="483" y="334" text-anchor="middle" font-size="7" fill="#8a5c30">«entity»</text>
+
+  <rect x="540" y="312" width="52" height="26" rx="3" fill="#eef5fc" stroke="#7093c8" />
+  <text x="566" y="323" text-anchor="middle" font-size="7.5" font-weight="700" fill="#1f3a63">:Supplier</text>
+  <text x="566" y="334" text-anchor="middle" font-size="6.5" fill="#4a7fb5">API 外部</text>
+
+  <!-- 生命线 -->
+  <line x1="99" y1="338" x2="99" y2="540" stroke="#9fb0c6" stroke-width="1.2" stroke-dasharray="4 3" />
+  <line x1="219" y1="338" x2="219" y2="540" stroke="#9fb0c6" stroke-width="1.2" stroke-dasharray="4 3" />
+  <line x1="352" y1="338" x2="352" y2="540" stroke="#9fb0c6" stroke-width="1.2" stroke-dasharray="4 3" />
+  <line x1="483" y1="338" x2="483" y2="540" stroke="#9fb0c6" stroke-width="1.2" stroke-dasharray="4 3" />
+  <line x1="566" y1="338" x2="566" y2="540" stroke="#9fb0c6" stroke-width="1.2" stroke-dasharray="4 3" />
+
+  <!-- 激活条 -->
+  <rect x="215" y="352" width="8" height="150" fill="#dce8f6" stroke="#7093c8" stroke-width="0.8" />
+  <rect x="348" y="374" width="8" height="120" fill="#dce8f6" stroke="#7093c8" stroke-width="0.8" />
+  <rect x="479" y="398" width="6" height="22" fill="#f7e6d2" stroke="#c79a6d" stroke-width="0.8" />
+  <rect x="562" y="430" width="6" height="22" fill="#dce8f6" stroke="#7093c8" stroke-width="0.8" />
+
+  <!-- 消息 -->
+  <line x1="103" y1="360" x2="211" y2="360" stroke="#4b6f9c" stroke-width="1.3" marker-end="url(#amSolid)" />
+  <text x="157" y="355" text-anchor="middle" font-size="7.5" fill="#41556f">1: submit()</text>
+  <line x1="227" y1="382" x2="344" y2="382" stroke="#4b6f9c" stroke-width="1.3" marker-end="url(#amSolid)" />
+  <text x="285" y="377" text-anchor="middle" font-size="7.5" fill="#41556f">2: requestParts()</text>
+  <line x1="356" y1="404" x2="475" y2="404" stroke="#4b6f9c" stroke-width="1.3" marker-end="url(#amSolid)" />
+  <text x="415" y="399" text-anchor="middle" font-size="7.5" fill="#41556f">3: getStock()</text>
+  <line x1="475" y1="420" x2="360" y2="420" stroke="#9a6a8a" stroke-width="1.2" stroke-dasharray="5 3" marker-end="url(#amOpen)" />
+  <text x="415" y="433" text-anchor="middle" font-size="7" fill="#8a5c7a">返回（虚线）</text>
+  <line x1="356" y1="454" x2="558" y2="454" stroke="#4b6f9c" stroke-width="1.3" marker-end="url(#amSolid)" />
+  <text x="455" y="449" text-anchor="middle" font-size="7.5" fill="#8a4b4b">4: queryAvailable()　← boundary，不是实体</text>
+  <line x1="558" y1="470" x2="360" y2="470" stroke="#9a6a8a" stroke-width="1.2" stroke-dasharray="5 3" marker-end="url(#amOpen)" />
+  <text x="455" y="483" text-anchor="middle" font-size="7" fill="#8a5c7a">返回 available</text>
+
+  <path d="M 357 498 L 400 498 L 400 512 L 360 512" fill="none" stroke="#4b6f9c" stroke-width="1.2" marker-end="url(#amSolid)" />
+  <text x="408" y="502" font-size="7.5" fill="#41556f">5: 比对（自身方法）</text>
+
+  <!-- 导出箭头 -->
+  <line x1="604" y1="420" x2="640" y2="420" stroke="#7093c8" stroke-width="1.8" />
+  <path d="M 640 413 L 654 420 L 640 427 z" fill="#7093c8" />
+  <text x="628" y="410" text-anchor="middle" font-size="8" font-weight="700" fill="#33507f">导出</text>
+
+  <!-- 右侧：导出的类 -->
+  <rect x="662" y="300" width="208" height="252" rx="8" fill="#ffffff" stroke="#d3deea" />
+  <text x="676" y="320" font-size="10.5" font-weight="700" fill="#33507f">导出成类图</text>
+  <text x="676" y="338" font-size="8.5" fill="#41556f">每个对象 → 一个类</text>
+  <text x="676" y="354" font-size="8.5" fill="#41556f">收到的消息 → 该类的操作</text>
+  <text x="676" y="370" font-size="8.5" fill="#41556f">谁调用谁 → 类之间的关系</text>
+
+  <line x1="676" y1="380" x2="856" y2="380" stroke="#e8eef6" stroke-width="1" />
+
+  <text x="676" y="398" font-size="8.5" font-weight="700" fill="#1f3a63">PartsForm</text>
+  <text x="686" y="412" font-size="8" fill="#41556f">+ submit()</text>
+  <text x="686" y="424" font-size="8" fill="#41556f">+ displayResult()</text>
+
+  <text x="676" y="444" font-size="8.5" font-weight="700" fill="#1f3a63">RequestPartsController</text>
+  <text x="686" y="458" font-size="8" fill="#41556f">+ requestParts()</text>
+
+  <text x="676" y="478" font-size="8.5" font-weight="700" fill="#1f3a63">StockItem</text>
+  <text x="686" y="492" font-size="8" fill="#41556f">+ getStock()</text>
+
+  <text x="676" y="512" font-size="8.5" font-weight="700" fill="#1f3a63">SupplierAPI</text>
+  <text x="686" y="526" font-size="8" fill="#41556f">+ queryAvailable()</text>
+  <text x="676" y="544" font-size="8" fill="#8b9bb0">（WorkOrder / IssueNote 同理）</text>
+
+  <!-- 三条限制 -->
+  <rect x="34" y="566" width="380" height="104" rx="8" fill="#fdf2f2" stroke="#e0b4b4" />
+  <text x="50" y="586" font-size="11" font-weight="700" fill="#8a4b4b">分析模型的三条硬限制</text>
+  <text x="50" y="608" font-size="9" fill="#8a4b4b">✗ boundary 直接关联 entity</text>
+  <text x="62" y="622" font-size="8.5" fill="#5a6f8c">一旦界面能直接拿数据，规则就会顺手写在那里</text>
+  <text x="50" y="642" font-size="9" fill="#8a4b4b">✗ actor 与 entity / control 直接关联</text>
+  <text x="50" y="660" font-size="9" fill="#8a4b4b">✗ 不同构造型之间做继承 / 聚合 / 组合</text>
+
+  <rect x="432" y="566" width="438" height="104" rx="8" fill="#eef5fc" stroke="#7093c8" />
+  <text x="448" y="586" font-size="11" font-weight="700" fill="#33507f">画完这张图，暴露了两件事</text>
+  <text x="448" y="608" font-size="9" fill="#2f6b58">① 控制器做了 4 次委派、只做 1 个判断 —— 比例健康</text>
+  <text x="448" y="626" font-size="9" fill="#8a4b4b">② 第 8 步「通知仓管」可疑：它是申请的一部分吗？</text>
+  <text x="456" y="642" font-size="8.5" fill="#5a6f8c">结论：应该独立 —— 通知渠道与时机跟配件申请无关</text>
+  <text x="448" y="660" font-size="8.5" fill="#8b9bb0">这就是分析建模的价值：写代码之前就发现「这里该切开」</text>
 </svg>

@@ -1,73 +1,107 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" role="img" aria-label="Scrum 的三个角色、sprint 循环与三种产出物：角色是 Product Owner、Scrum Master、Development Team；sprint 循环依次是 Sprint Planning、Daily Stand-up、Sprint Review、Sprint Retrospective；产出物是 Product Backlog、Sprint Backlog、Increment"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 660" width="900" height="660" role="img" aria-label="Scrum 的三个角色、sprint 循环与三种产出物：角色是产品负责人、敏捷教练、开发团队；sprint 循环依次是迭代计划会、每日站会、迭代评审会、迭代回顾会，每个活动标注它回答什么问题；产出物是产品待办清单、迭代待办清单、增量，并标出各自由谁维护。底部对比瀑布式与迭代式在风险暴露时间上的差别"
      font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
   <defs>
     <linearGradient id="scbg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#f8fafd" />
       <stop offset="1" stop-color="#e9eff8" />
     </linearGradient>
-    <marker id="scArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#7093c8" />
+    <marker id="scArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7093c8" />
     </marker>
   </defs>
 
-  <rect width="900" height="600" rx="16" fill="url(#scbg)" />
-  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">Scrum 的角色、循环与产出物</text>
-  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">三个角色分工明确，一个循环反复跑，每次留下一点能用的东西</text>
+  <rect width="900" height="660" rx="16" fill="url(#scbg)" />
+  <text x="450" y="38" text-anchor="middle" font-size="21" font-weight="700" fill="#1f3a63">Scrum：三个角色、四次活动、三种产出物</text>
+  <text x="450" y="62" text-anchor="middle" font-size="12.5" fill="#5a6f8c">迭代不是让风险消失，而是让风险早点暴露</text>
 
   <!-- 三个角色 -->
-  <rect x="40" y="94" width="252" height="78" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="58" y="122" font-size="15" font-weight="700" fill="#1f3a63">Product Owner</text>
-  <text x="58" y="141" font-size="11" fill="#7b8ea8">产品负责人</text>
-  <text x="58" y="161" font-size="11.5" fill="#41556f">代表业务，决定优先级</text>
+  <text x="34" y="92" font-size="12" font-weight="700" fill="#33507f">三个角色</text>
 
-  <rect x="324" y="94" width="252" height="78" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="342" y="122" font-size="15" font-weight="700" fill="#1f3a63">Scrum Master</text>
-  <text x="342" y="141" font-size="11" fill="#7b8ea8">敏捷教练</text>
-  <text x="342" y="161" font-size="11.5" fill="#41556f">移除障碍，保障流程</text>
+  <rect x="34" y="102" width="266" height="90" rx="8" fill="#fdf7ef" stroke="#d2a074" stroke-width="1.4" />
+  <text x="50" y="122" font-size="10.5" font-weight="700" fill="#9a5f2a">Product Owner 产品负责人</text>
+  <text x="50" y="140" font-size="9" fill="#41556f">代表业务方，决定「先做什么后做什么」</text>
+  <text x="50" y="156" font-size="9" fill="#7a4a1e">产出：待办清单的排序</text>
+  <text x="50" y="178" font-size="8.5" fill="#8a4b4b">本例：王姐当 PO，排序意见主要来自小林</text>
 
-  <rect x="608" y="94" width="252" height="78" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="626" y="122" font-size="15" font-weight="700" fill="#1f3a63">Development Team</text>
-  <text x="626" y="141" font-size="11" fill="#7b8ea8">开发团队</text>
-  <text x="626" y="161" font-size="11.5" fill="#41556f">自组织、跨职能，决定怎么做</text>
+  <rect x="312" y="102" width="266" height="90" rx="8" fill="#eef5fc" stroke="#7093c8" stroke-width="1.4" />
+  <text x="328" y="122" font-size="10.5" font-weight="700" fill="#33507f">Scrum Master 敏捷教练</text>
+  <text x="328" y="140" font-size="9" fill="#41556f">对流程负责：移除障碍、保护节奏</text>
+  <text x="328" y="156" font-size="9" fill="#8a4b4b">不分配任务</text>
+  <text x="328" y="178" font-size="8.5" fill="#8b9bb0">≠ 项目经理（项目经理想结果并分配任务）</text>
 
-  <!-- Sprint 循环 -->
-  <rect x="140" y="210" width="210" height="56" rx="10" fill="#33507f" />
-  <text x="245" y="236" text-anchor="middle" font-size="14.5" font-weight="600" fill="#ffffff">Sprint Planning</text>
-  <text x="245" y="254" text-anchor="middle" font-size="11" fill="#cedcee">本次迭代做什么</text>
+  <rect x="590" y="102" width="280" height="90" rx="8" fill="#eef7f3" stroke="#7fb89f" stroke-width="1.4" />
+  <text x="606" y="122" font-size="10.5" font-weight="700" fill="#2f6b58">Development Team 开发团队</text>
+  <text x="606" y="140" font-size="9" fill="#41556f">自组织 + 跨职能：自己决定「怎么做」</text>
+  <text x="606" y="156" font-size="9" fill="#41556f">自己承诺每个迭代能完成多少</text>
+  <text x="606" y="178" font-size="8.5" fill="#8b9bb0">三种产出物里的后两种由它维护</text>
 
-  <rect x="550" y="210" width="210" height="56" rx="10" fill="#ffffff" stroke="#c4d4e7" />
-  <text x="655" y="236" text-anchor="middle" font-size="14.5" font-weight="600" fill="#1f3a63">Daily Stand-up</text>
-  <text x="655" y="254" text-anchor="middle" font-size="11" fill="#6a7f9c">每天同步进度与障碍</text>
+  <!-- sprint 循环 -->
+  <text x="34" y="222" font-size="12" font-weight="700" fill="#33507f">一个 sprint 的四次活动，各自回答一个问题</text>
 
-  <rect x="550" y="340" width="210" height="56" rx="10" fill="#ffffff" stroke="#c4d4e7" />
-  <text x="655" y="366" text-anchor="middle" font-size="14.5" font-weight="600" fill="#1f3a63">Sprint Review</text>
-  <text x="655" y="384" text-anchor="middle" font-size="11" fill="#6a7f9c">把成果演示给业务方</text>
+  <rect x="34" y="232" width="200" height="94" rx="8" fill="#ffffff" stroke="#7093c8" />
+  <text x="134" y="252" text-anchor="middle" font-size="10" font-weight="700" fill="#33507f">Sprint Planning</text>
+  <text x="46" y="272" font-size="8.5" fill="#41556f">这个迭代做什么？靠什么完成？</text>
+  <text x="46" y="290" font-size="8.5" fill="#8a5c30">本例：本轮做看排期 + 派单 + 申请配件</text>
+  <text x="46" y="312" font-size="8" fill="#8b9bb0">1–2 小时（每两周）</text>
 
-  <rect x="140" y="340" width="210" height="56" rx="10" fill="#ffffff" stroke="#c4d4e7" />
-  <text x="245" y="366" text-anchor="middle" font-size="14.5" font-weight="600" fill="#1f3a63">Retrospective</text>
-  <text x="245" y="384" text-anchor="middle" font-size="11" fill="#6a7f9c">回看流程本身怎么改</text>
+  <rect x="246" y="232" width="200" height="94" rx="8" fill="#ffffff" stroke="#7093c8" />
+  <text x="346" y="252" text-anchor="middle" font-size="10" font-weight="700" fill="#33507f">Daily Stand-up</text>
+  <text x="258" y="272" font-size="8.5" fill="#41556f">昨天做了什么、今天做什么、卡在哪</text>
+  <text x="258" y="290" font-size="8.5" fill="#8a5c30">本例：供应商接口联调卡住，需对方环境</text>
+  <text x="258" y="312" font-size="8" fill="#8b9bb0">15 分钟，不是汇报进度</text>
 
-  <line x1="350" y1="238" x2="544" y2="238" stroke="#7093c8" stroke-width="2" marker-end="url(#scArrow)" />
-  <line x1="655" y1="266" x2="655" y2="334" stroke="#7093c8" stroke-width="2" marker-end="url(#scArrow)" />
-  <line x1="550" y1="368" x2="356" y2="368" stroke="#7093c8" stroke-width="2" marker-end="url(#scArrow)" />
-  <line x1="245" y1="340" x2="245" y2="272" stroke="#7093c8" stroke-width="2" marker-end="url(#scArrow)" />
+  <rect x="458" y="232" width="200" height="94" rx="8" fill="#eef7f3" stroke="#2f6b58" stroke-width="1.4" />
+  <text x="558" y="252" text-anchor="middle" font-size="10" font-weight="700" fill="#2f6b58">Sprint Review</text>
+  <text x="470" y="272" font-size="8.5" fill="#41556f">做出来的东西业务方认不认</text>
+  <text x="470" y="290" font-size="8.5" font-weight="700" fill="#2f6b58">本例：让小林当场派三个单</text>
+  <text x="470" y="312" font-size="8" fill="#8b9bb0">看产品</text>
 
-  <text x="450" y="294" text-anchor="middle" font-size="14" font-weight="700" fill="#33507f">Sprint 时间盒</text>
-  <text x="450" y="315" text-anchor="middle" font-size="11.5" fill="#6a7f9c">通常 1–4 周</text>
+  <rect x="670" y="232" width="200" height="94" rx="8" fill="#fdf7ef" stroke="#9a5f2a" stroke-width="1.4" />
+  <text x="770" y="252" text-anchor="middle" font-size="10" font-weight="700" fill="#9a5f2a">Sprint Retrospective</text>
+  <text x="682" y="272" font-size="8.5" fill="#41556f">我们的流程哪里该改</text>
+  <text x="682" y="290" font-size="8.5" font-weight="700" fill="#9a5f2a">本例：需求变了三次，因为绕过了 backlog</text>
+  <text x="682" y="312" font-size="8" fill="#8b9bb0">看流程</text>
 
-  <!-- 产出物 -->
-  <rect x="40" y="466" width="252" height="90" rx="11" fill="#f2f7fd" stroke="#c4d4e7" />
-  <text x="58" y="494" font-size="14.5" font-weight="700" fill="#1f3a63">Product Backlog</text>
-  <text x="58" y="512" font-size="10.5" fill="#7b8ea8">产品待办清单</text>
-  <text x="58" y="534" font-size="11.5" fill="#41556f">全部需求条目，按价值排序</text>
+  <!-- 回流箭头 -->
+  <path d="M 770 330 L 770 344 L 134 344 L 134 330" fill="none" stroke="#7093c8" stroke-width="1.4" stroke-dasharray="5 3" marker-end="url(#scArrow)" />
+  <text x="452" y="358" text-anchor="middle" font-size="8.5" fill="#5a6f8c">下一个 sprint（时间盒：到点就结束，不因讨论没完而延长）</text>
 
-  <rect x="324" y="466" width="252" height="90" rx="11" fill="#f2f7fd" stroke="#c4d4e7" />
-  <text x="342" y="494" font-size="14.5" font-weight="700" fill="#1f3a63">Sprint Backlog</text>
-  <text x="342" y="512" font-size="10.5" fill="#7b8ea8">迭代待办清单</text>
-  <text x="342" y="534" font-size="11.5" fill="#41556f">本次承诺的条目与拆解任务</text>
+  <!-- 三种产出物 -->
+  <text x="34" y="384" font-size="12" font-weight="700" fill="#33507f">三种产出物，谁维护、装什么</text>
 
-  <rect x="608" y="466" width="252" height="90" rx="11" fill="#f2f7fd" stroke="#c4d4e7" />
-  <text x="626" y="494" font-size="14.5" font-weight="700" fill="#1f3a63">Increment</text>
-  <text x="626" y="512" font-size="10.5" fill="#7b8ea8">增量</text>
-  <text x="626" y="534" font-size="11.5" fill="#41556f">结束时真正可用的那部分</text>
+  <rect x="34" y="394" width="266" height="104" rx="8" fill="#fdf7ef" stroke="#d2a074" />
+  <text x="50" y="414" font-size="10.5" font-weight="700" fill="#9a5f2a">Product Backlog</text>
+  <text x="50" y="432" font-size="9" fill="#41556f">全部需求条目，按价值排序</text>
+  <text x="50" y="450" font-size="9" font-weight="700" fill="#8a4b4b">永远不完整 —— 它是活的</text>
+  <text x="50" y="470" font-size="8.5" fill="#7a4a1e">本例：07 篇那 10 条用户故事 + 后续新增</text>
+  <text x="50" y="488" font-size="8.5" fill="#8b9bb0">维护：Product Owner</text>
+
+  <rect x="312" y="394" width="266" height="104" rx="8" fill="#eef5fc" stroke="#7093c8" />
+  <text x="328" y="414" font-size="10.5" font-weight="700" fill="#33507f">Sprint Backlog</text>
+  <text x="328" y="432" font-size="9" fill="#41556f">本次迭代承诺的条目 + 拆解的任务</text>
+  <text x="328" y="450" font-size="9" fill="#41556f">只装这一轮要做的</text>
+  <text x="328" y="470" font-size="8.5" fill="#8a5c30">本例：第一轮只挑第 3、5、8 三条故事</text>
+  <text x="328" y="488" font-size="8.5" fill="#8b9bb0">维护：开发团队</text>
+
+  <rect x="590" y="394" width="280" height="104" rx="8" fill="#eef7f3" stroke="#7fb89f" />
+  <text x="606" y="414" font-size="10.5" font-weight="700" fill="#2f6b58">Increment 增量</text>
+  <text x="606" y="432" font-size="9" fill="#41556f">迭代结束时真正可用的那一部分</text>
+  <text x="606" y="450" font-size="9" font-weight="700" fill="#2f6b58">必须能满足「完成定义」</text>
+  <text x="606" y="470" font-size="8.5" fill="#2f6b58">本例：能看排期 + 能派单 + 能申请配件</text>
+  <text x="606" y="488" font-size="8.5" fill="#8b9bb0">维护：开发团队</text>
+
+  <!-- 瀑布 vs 迭代 -->
+  <rect x="34" y="512" width="416" height="98" rx="9" fill="#fdf2f2" stroke="#e0b4b4" />
+  <text x="50" y="532" font-size="10.5" font-weight="700" fill="#8a4b4b">瀑布式：风险在末期暴露</text>
+  <text x="50" y="552" font-size="9" fill="#41556f">需求前期定完 → 三个月后交付 → 王姐说「不是这个」</text>
+  <text x="50" y="572" font-size="9" fill="#8a4b4b">反馈来得太晚，改的代价已经很高</text>
+  <text x="50" y="596" font-size="8.5" fill="#8b9bb0">适合：需求稳定、合规性强的项目</text>
+
+  <rect x="464" y="512" width="406" height="98" rx="9" fill="#eef7f3" stroke="#7fb89f" />
+  <text x="480" y="532" font-size="10.5" font-weight="700" fill="#2f6b58">迭代式：每个迭代都暴露</text>
+  <text x="480" y="552" font-size="9" fill="#41556f">第一周做出只含「今日待派单 + 3 个候选人」的粗版</text>
+  <text x="480" y="572" font-size="9" fill="#2f6b58">让小林用两天 → 她一定说「我还要看距离」→ 第一周就改</text>
+  <text x="480" y="596" font-size="8.5" fill="#8b9bb0">主要风险：容易被理解成「不需要计划」</text>
+
+  <text x="34" y="636" font-size="10" fill="#8a4b4b">完成定义必须能被检验：「小林能在测试环境用真实数据派出 10 个单不报错」「接口超时时流程能降级继续」——「基本上做完」不算。</text>
 </svg>

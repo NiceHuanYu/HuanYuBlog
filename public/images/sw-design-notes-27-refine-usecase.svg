@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="900" height="700" role="img" aria-label="精炼用例图前后对照：左侧是精炼前的平铺用例图，客服与工程师各自与若干用例直连，并指出三个可以精炼的地方；右侧是精炼后，抽出校验工单状态作为被包含用例，用 include 从三个基用例指向它，撤回申请作为扩展用例用 extend 指向申请配件，同时把客服与片区经理泛化到一个抽象的门店员工父角色"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="rfbg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+    <marker id="incArrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 1 1 L 11 6 L 1 11" fill="none" stroke="#4b6f9c" stroke-width="1.4" />
+    </marker>
+    <marker id="extArrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 1 1 L 11 6 L 1 11" fill="none" stroke="#b5743a" stroke-width="1.5" />
+    </marker>
+  </defs>
+
+  <rect width="900" height="700" rx="16" fill="url(#rfbg2)" />
+  <text x="450" y="38" text-anchor="middle" font-size="20" font-weight="700" fill="#1f3a63">Figure 7: 精炼用例图 —— 三种关系各用一次</text>
+  <text x="450" y="60" text-anchor="middle" font-size="12" fill="#5a6f8c">include 收公共步骤，extend 收条件分支，泛化收共同角色</text>
+
+  <rect x="30" y="82" width="386" height="470" rx="10" fill="#ffffff" stroke="#e0b4b4" stroke-width="1.4" />
+  <text x="223" y="104" text-anchor="middle" font-size="12" font-weight="700" fill="#8a4b4b">精炼前：每个用例各画各的</text>
+
+  <rect x="76" y="118" width="304" height="418" rx="6" fill="none" stroke="#33507f" stroke-dasharray="6 4" />
+  <text x="228" y="136" text-anchor="middle" font-size="10" fill="#33507f">派单宝系统</text>
+
+  <ellipse cx="230" cy="166" rx="76" ry="16" fill="#eef5fc" stroke="#7093c8" />
+  <text x="230" y="170" text-anchor="middle" font-size="9.5" fill="#1f3a63">Assign Engineer</text>
+  <ellipse cx="230" cy="212" rx="76" ry="16" fill="#eef5fc" stroke="#7093c8" />
+  <text x="230" y="216" text-anchor="middle" font-size="9.5" fill="#1f3a63">Request Parts</text>
+  <ellipse cx="230" cy="258" rx="76" ry="16" fill="#eef5fc" stroke="#7093c8" />
+  <text x="230" y="262" text-anchor="middle" font-size="9.5" fill="#1f3a63">Update Work Order</text>
+
+  <circle cx="58" cy="176" r="6" fill="#ffffff" stroke="#33507f" stroke-width="1.6" />
+  <line x1="58" y1="182" x2="58" y2="200" stroke="#33507f" stroke-width="1.6" />
+  <line x1="46" y1="188" x2="70" y2="188" stroke="#33507f" stroke-width="1.6" />
+  <line x1="58" y1="200" x2="50" y2="214" stroke="#33507f" stroke-width="1.6" />
+  <line x1="58" y1="200" x2="66" y2="214" stroke="#33507f" stroke-width="1.6" />
+  <text x="58" y="230" text-anchor="middle" font-size="9" fill="#1f3a63">Clerk</text>
+  <line x1="70" y1="188" x2="152" y2="166" stroke="#7093c8" stroke-width="1.3" />
+
+  <circle cx="58" cy="286" r="6" fill="#ffffff" stroke="#33507f" stroke-width="1.6" />
+  <line x1="58" y1="292" x2="58" y2="310" stroke="#33507f" stroke-width="1.6" />
+  <line x1="46" y1="298" x2="70" y2="298" stroke="#33507f" stroke-width="1.6" />
+  <line x1="58" y1="310" x2="50" y2="324" stroke="#33507f" stroke-width="1.6" />
+  <line x1="58" y1="310" x2="66" y2="324" stroke="#33507f" stroke-width="1.6" />
+  <text x="58" y="340" text-anchor="middle" font-size="9" fill="#1f3a63">Engineer</text>
+  <line x1="70" y1="286" x2="154" y2="216" stroke="#7093c8" stroke-width="1.3" />
+  <line x1="70" y1="294" x2="152" y2="260" stroke="#7093c8" stroke-width="1.3" />
+
+  <rect x="76" y="356" width="304" height="166" rx="6" fill="#fdf7ef" stroke="#d2a074" />
+  <text x="88" y="376" font-size="10" font-weight="700" fill="#9a5f2a">三个可以精炼的地方</text>
+  <text x="88" y="398" font-size="9.5" fill="#7a4a1e">① 「校验工单状态」三个用例里都有</text>
+  <text x="98" y="414" font-size="9" fill="#8b9bb0">→ 每次都执行 → 用 include</text>
+  <text x="88" y="438" font-size="9.5" fill="#7a4a1e">② 「撤回申请」只在提交后 5 分钟内</text>
+  <text x="98" y="454" font-size="9" fill="#8b9bb0">→ 条件发生 → 用 extend</text>
+  <text x="88" y="478" font-size="9.5" fill="#7a4a1e">③ 客服与片区经理共用一整套用例</text>
+  <text x="98" y="494" font-size="9" fill="#8b9bb0">→ 只是权限不同 → 用泛化</text>
+  <text x="88" y="514" font-size="9" fill="#8a4b4b">注意：不要给「只涉及一个屏幕」的</text>
+  <text x="98" y="526" font-size="9" fill="#8a4b4b">东西做 include/extend（讲义原话）</text>
+
+  <line x1="426" y1="300" x2="464" y2="300" stroke="#7093c8" stroke-width="2" />
+  <path d="M 464 293 L 478 300 L 464 307 z" fill="#7093c8" />
+  <text x="452" y="290" text-anchor="middle" font-size="9" font-weight="700" fill="#33507f">精炼</text>
+
+  <rect x="494" y="82" width="378" height="470" rx="10" fill="#ffffff" stroke="#7fb89f" stroke-width="1.4" />
+  <text x="683" y="104" text-anchor="middle" font-size="12" font-weight="700" fill="#2f6b58">精炼后：三种关系各一次</text>
+
+  <rect x="524" y="118" width="330" height="418" rx="6" fill="none" stroke="#33507f" stroke-dasharray="6 4" />
+  <text x="689" y="136" text-anchor="middle" font-size="10" fill="#33507f">派单宝系统</text>
+
+  <ellipse cx="652" cy="168" rx="74" ry="15" fill="#eef5fc" stroke="#7093c8" />
+  <text x="652" y="172" text-anchor="middle" font-size="9.5" fill="#1f3a63">Assign Engineer</text>
+  <ellipse cx="652" cy="210" rx="74" ry="15" fill="#eef5fc" stroke="#7093c8" />
+  <text x="652" y="214" text-anchor="middle" font-size="9.5" fill="#1f3a63">Request Parts</text>
+  <ellipse cx="652" cy="252" rx="74" ry="15" fill="#eef5fc" stroke="#7093c8" />
+  <text x="652" y="256" text-anchor="middle" font-size="9.5" fill="#1f3a63">Update Work Order</text>
+
+  <ellipse cx="660" cy="330" rx="94" ry="15" fill="#ffffff" stroke="#7093c8" />
+  <text x="660" y="334" text-anchor="middle" font-size="9" fill="#1f3a63">Verify Work Order Status</text>
+
+  <path d="M 600 180 L 578 180 L 578 320 L 566 320" fill="none" stroke="#4b6f9c" stroke-width="1.3" stroke-dasharray="5 3" marker-end="url(#incArrow)" />
+  <line x1="600" y1="216" x2="568" y2="322" stroke="#4b6f9c" stroke-width="1.3" stroke-dasharray="5 3" marker-end="url(#incArrow)" />
+  <path d="M 604 264 L 584 264 L 584 328 L 566 328" fill="none" stroke="#4b6f9c" stroke-width="1.3" stroke-dasharray="5 3" marker-end="url(#incArrow)" />
+  <rect x="534" y="238" width="62" height="16" rx="3" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="565" y="249" text-anchor="middle" font-size="8" font-weight="700" fill="#8a4b4b">«include»</text>
+
+  <ellipse cx="790" cy="210" rx="62" ry="14" fill="#fdf7ef" stroke="#c79a6d" />
+  <text x="790" y="214" text-anchor="middle" font-size="8.5" fill="#7a4a1e">Withdraw Request</text>
+  <line x1="742" y1="210" x2="730" y2="210" stroke="#b5743a" stroke-width="1.4" stroke-dasharray="5 3" marker-end="url(#extArrow)" />
+  <rect x="744" y="182" width="60" height="15" rx="3" fill="#fffaf4" stroke="#e0c4a4" />
+  <text x="774" y="193" text-anchor="middle" font-size="7.5" font-weight="700" fill="#b5743a">«extend»</text>
+  <text x="742" y="234" font-size="7.5" fill="#b5743a">条件：提交后 5 分钟内</text>
+  <text x="742" y="245" font-size="7" fill="#8b9bb0">（不加方括号）</text>
+
+  <ellipse cx="690" cy="392" rx="72" ry="14" fill="#ffffff" stroke="#2f6b58" />
+  <text x="690" y="396" text-anchor="middle" font-size="8" fill="#2f6b58">StoreStaff «abstract»</text>
+  <ellipse cx="580" cy="456" rx="40" ry="13" fill="#eef5fc" stroke="#7093c8" />
+  <text x="580" y="460" text-anchor="middle" font-size="8.5" fill="#1f3a63">Clerk</text>
+  <ellipse cx="800" cy="456" rx="48" ry="13" fill="#eef5fc" stroke="#7093c8" />
+  <text x="800" y="460" text-anchor="middle" font-size="8.5" fill="#1f3a63">Manager</text>
+  <line x1="596" y1="445" x2="660" y2="405" stroke="#2f6b58" stroke-width="1.3" />
+  <line x1="784" y1="445" x2="720" y2="405" stroke="#2f6b58" stroke-width="1.3" />
+  <path d="M 678 405 L 690 391 L 702 405 z" fill="#ffffff" stroke="#2f6b58" stroke-width="1.3" />
+  <text x="536" y="424" font-size="8" font-weight="700" fill="#2f6b58">泛化：空心三角，子 → 父</text>
+
+  <rect x="536" y="486" width="306" height="24" rx="5" fill="#eef7f3" stroke="#7fb89f" />
+  <text x="546" y="502" font-size="8.5" fill="#2f6b58">一句判据：能不做吗？不能 → include；可能不做 → extend</text>
+
+  <text x="30" y="582" font-size="11" fill="#8a4b4b">箭头方向是唯一记忆锚点：include 由基用例指向被包含用例，extend 由扩展用例指向基用例 —— 两者相反。</text>
+  <text x="30" y="608" font-size="10.5" fill="#41556f">泛化用空心三角、子指向父。题目写「include, extend and generalization of use cases and actors」时，最后两个词是参与者泛化，最容易漏。</text>
+  <text x="30" y="634" font-size="10" fill="#8b9bb0">注：线用实线还是虚线都接受（讲义明确两种都行），所以不要在线的样式上纠结，方向才是分。</text>
+  <text x="30" y="662" font-size="10.5" fill="#8a4b4b">刹车条件：精炼过头会得到一张谁也看不懂的图。阅卷人只会数「关系画对了几条」，不会因为关系多而加分。</text>
+</svg>

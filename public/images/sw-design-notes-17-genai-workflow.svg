@@ -1,74 +1,115 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" role="img" aria-label="用生成式 AI 辅助设计开发的五步流程：描述问题与约束、让模型给候选、人工筛选、迭代细化、回到真实用户验证；下方提示两类用法各自要注意的地方"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 660" width="900" height="660" role="img" aria-label="用生成式 AI 辅助设计开发的五步流程：描述问题与约束、让模型给候选、人工筛选、迭代细化、回到真实用户验证。下方分两块列出哪些环节适合用与哪些绝不能交给模型，并给出三个站得住的场景与两个必须警惕的坑，每个都配派单宝案例的具体用法"
      font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
   <defs>
     <linearGradient id="gabg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#f8fafd" />
       <stop offset="1" stop-color="#e9eff8" />
     </linearGradient>
-    <marker id="gaArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#7093c8" />
+    <marker id="gaArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7093c8" />
     </marker>
   </defs>
 
-  <rect width="900" height="600" rx="16" fill="url(#gabg)" />
-  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">让模型帮你想，但别让它替你决定</text>
-  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">生成式 AI 最擅长的是「给出可供挑选的候选」</text>
+  <rect width="900" height="660" rx="16" fill="url(#gabg)" />
+  <text x="450" y="38" text-anchor="middle" font-size="21" font-weight="700" fill="#1f3a63">生成式 AI：它是候选生成器，不是判断者</text>
+  <text x="450" y="62" text-anchor="middle" font-size="12.5" fill="#5a6f8c">产出是候选，后面一定要有人筛 —— 跳过筛选，它就从助力变成风险</text>
 
-  <rect x="40" y="110" width="152" height="76" rx="10" fill="#33507f" />
-  <text x="116" y="140" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">① 描述问题</text>
-  <text x="116" y="160" text-anchor="middle" font-size="10.5" fill="#cedcee">给出约束与目标</text>
-  <text x="116" y="176" text-anchor="middle" font-size="10.5" fill="#cedcee">越具体越好</text>
+  <!-- 五步流程 -->
+  <rect x="30" y="84" width="156" height="86" rx="8" fill="#ffffff" stroke="#7093c8" />
+  <text x="108" y="106" text-anchor="middle" font-size="9.5" font-weight="700" fill="#33507f">① 描述问题与约束</text>
+  <text x="42" y="126" font-size="8" fill="#41556f">角色 + 任务 + 硬约束</text>
+  <text x="42" y="142" font-size="8" fill="#8a5c30">本例：只写主流程 + 三例外</text>
+  <text x="42" y="158" font-size="7.5" fill="#8b9bb0">约束越具体，结果越可用</text>
 
-  <rect x="207" y="110" width="152" height="76" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="283" y="140" text-anchor="middle" font-size="13" font-weight="700" fill="#1f3a63">② 生成候选</text>
-  <text x="283" y="160" text-anchor="middle" font-size="10.5" fill="#7b8ea8">要多个方案</text>
-  <text x="283" y="176" text-anchor="middle" font-size="10.5" fill="#7b8ea8">不要一个答案</text>
+  <line x1="188" y1="127" x2="200" y2="127" stroke="#7093c8" stroke-width="1.6" marker-end="url(#gaArrow)" />
 
-  <rect x="374" y="110" width="152" height="76" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="450" y="140" text-anchor="middle" font-size="13" font-weight="700" fill="#1f3a63">③ 人工筛选</text>
-  <text x="450" y="160" text-anchor="middle" font-size="10.5" fill="#7b8ea8">这一步不能省</text>
-  <text x="450" y="176" text-anchor="middle" font-size="10.5" fill="#7b8ea8">模型不知道你的约束</text>
+  <rect x="202" y="84" width="156" height="86" rx="8" fill="#ffffff" stroke="#7093c8" />
+  <text x="280" y="106" text-anchor="middle" font-size="9.5" font-weight="700" fill="#33507f">② 让模型给候选</text>
+  <text x="214" y="126" font-size="8" fill="#41556f">要多个变体，不要一个答案</text>
+  <text x="214" y="142" font-size="8" fill="#8a5c30">本例：三种状态机设计</text>
+  <text x="214" y="158" font-size="7.5" fill="#8b9bb0">并说明各自取舍</text>
 
-  <rect x="541" y="110" width="152" height="76" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="617" y="140" text-anchor="middle" font-size="13" font-weight="700" fill="#1f3a63">④ 迭代细化</text>
-  <text x="617" y="160" text-anchor="middle" font-size="10.5" fill="#7b8ea8">在选中的方向上改</text>
-  <text x="617" y="176" text-anchor="middle" font-size="10.5" fill="#7b8ea8">带着反馈继续问</text>
+  <line x1="360" y1="127" x2="372" y2="127" stroke="#7093c8" stroke-width="1.6" marker-end="url(#gaArrow)" />
 
-  <rect x="708" y="110" width="152" height="76" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="784" y="140" text-anchor="middle" font-size="13" font-weight="700" fill="#1f3a63">⑤ 真实验证</text>
-  <text x="784" y="160" text-anchor="middle" font-size="10.5" fill="#7b8ea8">最终还是要问人</text>
-  <text x="784" y="176" text-anchor="middle" font-size="10.5" fill="#7b8ea8">或看真实数据</text>
+  <rect x="374" y="84" width="156" height="86" rx="8" fill="#fdf2f2" stroke="#e0b4b4" stroke-width="1.4" />
+  <text x="452" y="106" text-anchor="middle" font-size="9.5" font-weight="700" fill="#8a4b4b">③ 人工筛选</text>
+  <text x="386" y="126" font-size="8" fill="#8a4b4b">这一步不能省</text>
+  <text x="386" y="142" font-size="8" fill="#8a4b4b">凡是进需求文档的事实</text>
+  <text x="386" y="156" font-size="8" fill="#8a4b4b">都要回原始来源核对</text>
+  <text x="386" y="166" font-size="7" fill="#8b9bb0">ground truth，不是模型记忆</text>
 
-  <line x1="194" y1="148" x2="203" y2="148" stroke="#7093c8" stroke-width="2" marker-end="url(#gaArrow)" />
-  <line x1="361" y1="148" x2="370" y2="148" stroke="#7093c8" stroke-width="2" marker-end="url(#gaArrow)" />
-  <line x1="528" y1="148" x2="537" y2="148" stroke="#7093c8" stroke-width="2" marker-end="url(#gaArrow)" />
-  <line x1="695" y1="148" x2="704" y2="148" stroke="#7093c8" stroke-width="2" marker-end="url(#gaArrow)" />
+  <line x1="532" y1="127" x2="544" y2="127" stroke="#7093c8" stroke-width="1.6" marker-end="url(#gaArrow)" />
 
-  <rect x="40" y="228" width="400" height="330" rx="12" fill="#ffffff" opacity="0.9" stroke="#c9ded0" />
-  <text x="60" y="260" font-size="14.5" font-weight="700" fill="#2c6e49">用得住的两个场景</text>
-  <text x="60" y="292" font-size="12.5" font-weight="700" fill="#33507f">① 造示例数据</text>
-  <text x="60" y="316" font-size="11.5" fill="#41556f">给出结构骨架和每个字段的要求，</text>
-  <text x="60" y="336" font-size="11.5" fill="#41556f">批量生成符合规律的测试数据。</text>
-  <text x="60" y="356" font-size="11.5" fill="#41556f">省掉手编几十条假记录的时间。</text>
-  <text x="60" y="392" font-size="12.5" font-weight="700" fill="#33507f">② 解释陌生的代码或文档</text>
-  <text x="60" y="416" font-size="11.5" fill="#41556f">把一段别人的实现贴进去，让它讲</text>
-  <text x="60" y="436" font-size="11.5" fill="#41556f">清结构，再要求它按你的场景改写。</text>
-  <text x="60" y="472" font-size="12.5" font-weight="700" fill="#33507f">③ 起草初稿</text>
-  <text x="60" y="496" font-size="11.5" fill="#41556f">访谈提纲、问卷初稿、文案措辞，</text>
-  <text x="60" y="516" font-size="11.5" fill="#41556f">先要一版再改，比从空白页起步快。</text>
-  <text x="60" y="544" font-size="11" fill="#7b8ea8">共同点：都是「生成候选」，不是「替你判断」</text>
+  <rect x="546" y="84" width="156" height="86" rx="8" fill="#ffffff" stroke="#7093c8" />
+  <text x="624" y="106" text-anchor="middle" font-size="9.5" font-weight="700" fill="#33507f">④ 迭代细化</text>
+  <text x="558" y="126" font-size="8" fill="#41556f">贴进真实上下文再改一轮</text>
+  <text x="558" y="142" font-size="8" fill="#8a5c30">本例：贴真实字段与限制</text>
+  <text x="558" y="158" font-size="7.5" fill="#8b9bb0">要它说明理由，判断是否套模板</text>
 
-  <rect x="460" y="228" width="400" height="330" rx="12" fill="#ffffff" opacity="0.9" stroke="#e8d5d5" />
-  <text x="480" y="260" font-size="14.5" font-weight="700" fill="#8a4b4b">两个必须警惕的地方</text>
-  <text x="480" y="292" font-size="12.5" font-weight="700" fill="#8a4b4b">① 它会复现社会偏见</text>
-  <text x="480" y="316" font-size="11.5" fill="#41556f">让它生成「用户头像」或「用户画像」</text>
-  <text x="480" y="336" font-size="11.5" fill="#41556f">时，结果会带上训练数据里的刻板印象：</text>
-  <text x="480" y="356" font-size="11.5" fill="#41556f">换个说法，肤色、性别、职业就一起变。</text>
-  <text x="480" y="376" font-size="11.5" fill="#8a4b4b">用在用户研究里，会直接歪掉结论。</text>
-  <text x="480" y="412" font-size="12.5" font-weight="700" fill="#8a4b4b">② 它会编得很像真的</text>
-  <text x="480" y="436" font-size="11.5" fill="#41556f">条款、数字、引用，都可能看起来可信</text>
-  <text x="480" y="456" font-size="11.5" fill="#41556f">但完全不对。凡是会进入需求文档的事</text>
-  <text x="480" y="476" font-size="11.5" fill="#41556f">实性内容，都必须回原始来源核对。</text>
-  <text x="480" y="512" font-size="11.5" fill="#8a4b4b">责任在人：写进文档的内容，署名的是你。</text>
-  <text x="480" y="544" font-size="11" fill="#b08787">凡是「看起来正好符合预期」的答案，先怀疑</text>
+  <line x1="704" y1="127" x2="716" y2="127" stroke="#7093c8" stroke-width="1.6" marker-end="url(#gaArrow)" />
+
+  <rect x="718" y="84" width="152" height="86" rx="8" fill="#eef7f3" stroke="#2f6b58" stroke-width="1.4" />
+  <text x="794" y="106" text-anchor="middle" font-size="9.5" font-weight="700" fill="#2f6b58">⑤ 回到用户验证</text>
+  <text x="730" y="126" font-size="8" fill="#41556f">只有这一步能判断对错</text>
+  <text x="730" y="142" font-size="8" fill="#2f6b58">本例：让小林实际用</text>
+  <text x="730" y="158" font-size="7.5" fill="#8b9bb0">她会说「我还要看距离」</text>
+
+  <!-- 三个站得住的场景 -->
+  <text x="30" y="204" font-size="12" font-weight="700" fill="#33507f">三个站得住的场景</text>
+
+  <rect x="30" y="214" width="270" height="124" rx="8" fill="#ffffff" stroke="#7fb89f" />
+  <text x="46" y="234" font-size="10" font-weight="700" fill="#2f6b58">① 造示例数据</text>
+  <text x="46" y="254" font-size="8.5" fill="#41556f">画线框时编 20 条工单数据</text>
+  <text x="46" y="272" font-size="8.5" fill="#2f6b58">关键是给「带注释的骨架」：</text>
+  <text x="54" y="288" font-size="8" fill="#41556f">order_no 格式、appliance_type 枚举、</text>
+  <text x="54" y="302" font-size="8" fill="#41556f">fault_desc 10–25 字口语化</text>
+  <text x="46" y="320" font-size="8" fill="#8a4b4b">加一句「至少 3 条 PENDING_PARTS」</text>
+  <text x="46" y="332" font-size="7.5" fill="#8b9bb0">否则 20 条全是 CREATED</text>
+
+  <rect x="316" y="214" width="270" height="124" rx="8" fill="#ffffff" stroke="#7fb89f" />
+  <text x="332" y="234" font-size="10" font-weight="700" fill="#2f6b58">② 解释陌生的代码或文档</text>
+  <text x="332" y="254" font-size="8.5" fill="#41556f">供应商库存接口只有一份 PDF</text>
+  <text x="332" y="274" font-size="8.5" fill="#2f6b58">先让它讲成：</text>
+  <text x="340" y="290" font-size="8" fill="#41556f">能回答什么问题 / 必填参数 /</text>
+  <text x="340" y="304" font-size="8" fill="#41556f">错误码有哪几类</text>
+  <text x="332" y="322" font-size="8" fill="#8a4b4b">然后那个判断自己下</text>
+  <text x="332" y="332" font-size="7.5" fill="#8b9bb0">价值在于跳过「读懂」的冷启动</text>
+
+  <rect x="602" y="214" width="268" height="124" rx="8" fill="#ffffff" stroke="#7fb89f" />
+  <text x="618" y="234" font-size="10" font-weight="700" fill="#2f6b58">③ 起草初稿</text>
+  <text x="618" y="254" font-size="8.5" fill="#41556f">从草稿改起永远比空白页快</text>
+  <text x="618" y="276" font-size="8.5" fill="#2f6b58">本例：13 篇那份问卷</text>
+  <text x="626" y="292" font-size="8" fill="#41556f">第一版让它按「五问、覆盖缺料</text>
+  <text x="626" y="306" font-size="8" fill="#41556f">频率与影响」起草</text>
+  <text x="618" y="324" font-size="8" fill="#8a4b4b">然后逐条改成二选一→填数字</text>
+  <text x="618" y="332" font-size="7.5" fill="#8b9bb0">共同点：产出是候选，后面有人筛</text>
+
+  <!-- 两个坑 -->
+  <text x="30" y="364" font-size="12" font-weight="700" fill="#33507f">两个必须警惕的地方</text>
+
+  <rect x="30" y="374" width="410" height="130" rx="8" fill="#fdf2f2" stroke="#e0b4b4" stroke-width="1.4" />
+  <text x="46" y="394" font-size="10.5" font-weight="700" fill="#8a4b4b">① 它会复现训练数据里的偏见 bias</text>
+  <text x="46" y="414" font-size="8.5" fill="#41556f">让模型生成「一位数据科学家的画像」，</text>
+  <text x="46" y="430" font-size="8.5" fill="#41556f">结果高度一致；换个措辞结果就变</text>
+  <text x="46" y="450" font-size="8.5" font-weight="700" fill="#8a4b4b">推论：不要让模型生成 persona 的人物特征</text>
+  <text x="46" y="468" font-size="8.5" fill="#2f6b58">本例 05 篇「行为」那栏只能来自观察：</text>
+  <text x="54" y="482" font-size="8" fill="#41556f">「先记 Excel 第 37 行、再翻便签本、</text>
+  <text x="54" y="496" font-size="8" fill="#41556f">没接就记下回头再打第二次」</text>
+
+  <rect x="456" y="374" width="414" height="130" rx="8" fill="#fdf7ef" stroke="#d2a074" stroke-width="1.4" />
+  <text x="472" y="394" font-size="10.5" font-weight="700" fill="#9a5f2a">② 它会编得很像真的（幻觉 hallucination）</text>
+  <text x="472" y="414" font-size="8.5" fill="#41556f">危险在于它错得很流畅 ——</text>
+  <text x="472" y="430" font-size="8.5" fill="#41556f">就是按「读起来顺」的目标生成的</text>
+  <text x="472" y="452" font-size="8.5" font-weight="700" fill="#8a4b4b">本例风险：问「家电维修行业标准响应时间是</text>
+  <text x="472" y="466" font-size="8.5" font-weight="700" fill="#8a4b4b">多少」，它会给出一个像模像样的数字</text>
+  <text x="472" y="486" font-size="8.5" fill="#2f6b58">真正的 ground truth 是小林那 80 通电话的统计</text>
+  <text x="472" y="500" font-size="8" fill="#8b9bb0">不是任何「行业标准」</text>
+
+  <!-- 底部 -->
+  <rect x="30" y="518" width="840" height="52" rx="8" fill="#eef5fc" stroke="#7093c8" />
+  <text x="46" y="538" font-size="10.5" font-weight="700" fill="#33507f">把它用在产品里（比如「智能报修助手」）时的五条额外要求</text>
+  <text x="46" y="558" font-size="8.5" fill="#41556f">护栏（不得给诊断结论）｜ 人工复核（客服可改模型判定的类别）｜ 可追溯（判定依据哪几个关键词）｜ 回退路径（降级为选项表单）｜ 预期管理（说明这是模型输出）</text>
+
+  <text x="30" y="594" font-size="10.5" fill="#8a4b4b">护栏要写进需求文档，不是写在代码注释里 —— 「系统不得给出诊断结论」是需求（约束），写在代码里需求评审时没人看得见。</text>
+  <text x="30" y="620" font-size="10.5" fill="#41556f">一个反常识的实践：<tspan font-weight="700">让它找反例比找方案更靠谱</tspan> —— 找反例的本质是枚举，找方案需要判断。本例「两个客服同时派同一单」就是这一问找出来的。</text>
 </svg>

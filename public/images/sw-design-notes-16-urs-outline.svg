@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" width="900" height="620" role="img" aria-label="用户需求规格说明书的目录结构与每一章来自哪个环节：方案概述、范围、关键用户画像与旅程图、用户故事、用例模型、功能需求、非功能需求、测试用例与数据、附录访谈记录，共九个部分"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" width="900" height="680" role="img" aria-label="用户需求规格说明书的九个部分与各自的确认方：左侧是从方案概述到附录访谈记录的九个章节，每个章节标出它来自哪个环节；右侧是确认方一列，标出决策者、业务方、运维、测试各确认哪几章，并用派单宝案例说明内容；底部说明章节顺序背后的依赖关系，以及写不出来时该往上游查哪一章"
      font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
   <defs>
     <linearGradient id="urbg" x1="0" y1="0" x2="1" y2="1">
@@ -7,71 +7,125 @@
     </linearGradient>
   </defs>
 
-  <rect width="900" height="620" rx="16" fill="url(#urbg)" />
-  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">用户需求规格说明书（URS）的骨架</text>
-  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">每一章都对应前面某一环的产出，不是重新写一遍</text>
+  <rect width="900" height="680" rx="16" fill="url(#urbg)" />
+  <text x="450" y="38" text-anchor="middle" font-size="21" font-weight="700" fill="#1f3a63">URS 的九个部分：每一章都有它的上游和确认方</text>
+  <text x="450" y="62" text-anchor="middle" font-size="12.5" fill="#5a6f8c">某章找不到该确认它的人，那一章大概本来就不该出现</text>
 
-  <rect x="40" y="100" width="500" height="42" fill="#33507f" />
-  <text x="58" y="127" font-size="12.5" font-weight="700" fill="#ffffff">章节</text>
-  <text x="330" y="127" font-size="12.5" font-weight="700" fill="#ffffff">谁来确认这一章</text>
-  <text x="560" y="127" font-size="12.5" font-weight="700" fill="#ffffff">来自哪一环</text>
+  <!-- 表头 -->
+  <rect x="30" y="80" width="60" height="24" fill="#dce8f6" stroke="#b7c7dd" />
+  <text x="60" y="96" text-anchor="middle" font-size="8.5" font-weight="700" fill="#33507f">#</text>
+  <rect x="90" y="80" width="300" height="24" fill="#dce8f6" stroke="#b7c7dd" />
+  <text x="100" y="96" font-size="8.5" font-weight="700" fill="#33507f">章节</text>
+  <rect x="390" y="80" width="130" height="24" fill="#dce8f6" stroke="#b7c7dd" />
+  <text x="400" y="96" font-size="8.5" font-weight="700" fill="#33507f">来自哪一环</text>
+  <rect x="520" y="80" width="130" height="24" fill="#dce8f6" stroke="#b7c7dd" />
+  <text x="530" y="96" font-size="8.5" font-weight="700" fill="#8a4b4b">谁来确认</text>
+  <rect x="650" y="80" width="220" height="24" fill="#dce8f6" stroke="#b7c7dd" />
+  <text x="660" y="96" font-size="8.5" font-weight="700" fill="#33507f">本例的具体内容</text>
 
-  <rect x="40" y="142" width="820" height="46" fill="#ffffff" opacity="0.85" />
-  <text x="58" y="170" font-size="12" fill="#41556f">1 方案概述</text>
-  <text x="330" y="170" font-size="12" fill="#41556f">决策者</text>
-  <text x="560" y="170" font-size="12" fill="#5f7183">全篇的提炼</text>
+  <!-- 1 -->
+  <rect x="30" y="104" width="840" height="38" fill="#ffffff" stroke="#e8eef6" />
+  <text x="60" y="128" text-anchor="middle" font-size="9" font-weight="700" fill="#33507f">1</text>
+  <text x="100" y="122" font-size="9" font-weight="700" fill="#1f3a63">方案概述 solution brief</text>
+  <text x="100" y="135" font-size="8" fill="#8b9bb0">一页说清要做什么、为什么</text>
+  <text x="400" y="128" font-size="8.5" fill="#41556f">全篇的提炼</text>
+  <text x="530" y="128" font-size="8.5" font-weight="700" fill="#8a4b4b">决策者</text>
+  <text x="660" y="128" font-size="8.5" fill="#41556f">三条痛点 + 三条对应技术</text>
 
-  <rect x="40" y="188" width="820" height="46" fill="#ffffff" opacity="0.6" />
-  <text x="58" y="216" font-size="12" fill="#41556f">2 范围：in scope / out of scope</text>
-  <text x="330" y="216" font-size="12" fill="#41556f">业务方</text>
-  <text x="560" y="216" font-size="12" fill="#5f7183">范围界定</text>
+  <!-- 2 -->
+  <rect x="30" y="142" width="840" height="38" fill="#f6f9fd" stroke="#e8eef6" />
+  <text x="60" y="166" text-anchor="middle" font-size="9" font-weight="700" fill="#33507f">2</text>
+  <text x="100" y="160" font-size="9" font-weight="700" fill="#1f3a63">范围说明 in / out of scope</text>
+  <text x="100" y="173" font-size="8" fill="#8b9bb0">本期做什么、明确不做什么</text>
+  <text x="400" y="166" font-size="8.5" fill="#41556f">范围界定</text>
+  <text x="530" y="166" font-size="8.5" font-weight="700" fill="#8a4b4b">业务方</text>
+  <text x="660" y="166" font-size="8.5" fill="#41556f">不做在线支付 / 不做采购下单</text>
 
-  <rect x="40" y="234" width="820" height="46" fill="#ffffff" opacity="0.85" />
-  <text x="58" y="262" font-size="12" fill="#41556f">3 关键用户画像 + 客户旅程图</text>
-  <text x="330" y="262" font-size="12" fill="#41556f">业务方</text>
-  <text x="560" y="262" font-size="12" fill="#5f7183">用户侧界定</text>
+  <!-- 3 -->
+  <rect x="30" y="180" width="840" height="38" fill="#ffffff" stroke="#e8eef6" />
+  <text x="60" y="204" text-anchor="middle" font-size="9" font-weight="700" fill="#33507f">3</text>
+  <text x="100" y="198" font-size="9" font-weight="700" fill="#1f3a63">用户画像 + 客户旅程图</text>
+  <text x="100" y="211" font-size="8" fill="#8b9bb0">它是第 4 章的来源</text>
+  <text x="400" y="204" font-size="8.5" fill="#41556f">用户侧界定</text>
+  <text x="530" y="204" font-size="8.5" fill="#8b9bb0">—— 内部工具</text>
+  <text x="660" y="204" font-size="8.5" fill="#41556f">小林画像 + 报修四阶段旅程</text>
 
-  <rect x="40" y="280" width="820" height="46" fill="#ffffff" opacity="0.6" />
-  <text x="58" y="308" font-size="12" fill="#41556f">4 用户故事（含验收标准）</text>
-  <text x="330" y="308" font-size="12" fill="#41556f">业务方 + 开发</text>
-  <text x="560" y="308" font-size="12" fill="#5f7183">需求结构化</text>
+  <!-- 4 -->
+  <rect x="30" y="218" width="840" height="38" fill="#f6f9fd" stroke="#e8eef6" />
+  <text x="60" y="242" text-anchor="middle" font-size="9" font-weight="700" fill="#33507f">4</text>
+  <text x="100" y="236" font-size="9" font-weight="700" fill="#1f3a63">用户故事（含验收标准）</text>
+  <text x="100" y="249" font-size="8" fill="#8b9bb0">每条都能指回第 3 章的某一栏</text>
+  <text x="400" y="242" font-size="8.5" fill="#41556f">需求结构化</text>
+  <text x="530" y="242" font-size="8.5" font-weight="700" fill="#8a4b4b">业务方 + 开发</text>
+  <text x="660" y="242" font-size="8.5" fill="#41556f">10 条故事 + 各 2–5 条验收标准</text>
 
-  <rect x="40" y="326" width="820" height="46" fill="#ffffff" opacity="0.85" />
-  <text x="58" y="354" font-size="12" fill="#41556f">5 用例模型与用例描述</text>
-  <text x="330" y="354" font-size="12" fill="#41556f">业务方</text>
-  <text x="560" y="354" font-size="12" fill="#5f7183">功能建模</text>
+  <!-- 5 -->
+  <rect x="30" y="256" width="840" height="38" fill="#ffffff" stroke="#e8eef6" />
+  <text x="60" y="280" text-anchor="middle" font-size="9" font-weight="700" fill="#33507f">5</text>
+  <text x="100" y="274" font-size="9" font-weight="700" fill="#1f3a63">用例模型与用例描述</text>
+  <text x="100" y="287" font-size="8" fill="#8b9bb0">故事汇成用例</text>
+  <text x="400" y="280" font-size="8.5" fill="#41556f">功能建模</text>
+  <text x="530" y="280" font-size="8.5" font-weight="700" fill="#8a4b4b">业务方</text>
+  <text x="660" y="280" font-size="8.5" fill="#41556f">15 个用例 + 关键用例的四要素描述</text>
 
-  <rect x="40" y="372" width="820" height="46" fill="#ffffff" opacity="0.6" />
-  <text x="58" y="400" font-size="12" fill="#41556f">6 功能需求：活动图与屏幕设计</text>
-  <text x="330" y="400" font-size="12" fill="#41556f">业务方 + 开发</text>
-  <text x="560" y="400" font-size="12" fill="#5f7183">功能建模 + 前端设计</text>
+  <!-- 6 -->
+  <rect x="30" y="294" width="840" height="38" fill="#eef5fc" stroke="#7093c8" stroke-width="1.2" />
+  <text x="60" y="318" text-anchor="middle" font-size="9" font-weight="700" fill="#33507f">6</text>
+  <text x="100" y="312" font-size="9" font-weight="700" fill="#1f3a63">功能需求：活动图 + 屏幕设计</text>
+  <text x="100" y="325" font-size="8" fill="#8b9bb0">用例展开成流程与界面</text>
+  <text x="400" y="318" font-size="8.5" fill="#41556f">功能建模 + 前端</text>
+  <text x="530" y="318" font-size="8.5" font-weight="700" fill="#8a4b4b">业务方 + 开发</text>
+  <text x="660" y="312" font-size="8.5" fill="#41556f">两张活动图 + 派单台线框</text>
+  <text x="660" y="325" font-size="7.5" font-weight="700" fill="#8a4b4b">这章确认方最容易写错</text>
 
-  <rect x="40" y="418" width="820" height="46" fill="#ffffff" opacity="0.85" />
-  <text x="58" y="446" font-size="12" fill="#41556f">7 非功能需求：性能、安全、可靠性</text>
-  <text x="330" y="446" font-size="12" fill="#41556f">运维 + 业务方</text>
-  <text x="560" y="446" font-size="12" fill="#5f7183">非功能需求</text>
+  <!-- 7 -->
+  <rect x="30" y="332" width="840" height="38" fill="#ffffff" stroke="#e8eef6" />
+  <text x="60" y="356" text-anchor="middle" font-size="9" font-weight="700" fill="#33507f">7</text>
+  <text x="100" y="350" font-size="9" font-weight="700" fill="#1f3a63">非功能需求：性能 / 安全 / 可靠性</text>
+  <text x="100" y="363" font-size="8" fill="#8b9bb0">作用于第 5、6 章所有操作</text>
+  <text x="400" y="356" font-size="8.5" fill="#41556f">非功能需求</text>
+  <text x="530" y="356" font-size="8.5" font-weight="700" fill="#8a4b4b">运维 + 业务方</text>
+  <text x="660" y="356" font-size="8.5" fill="#41556f">三张容量表 + 三条降级策略</text>
 
-  <rect x="40" y="464" width="820" height="46" fill="#ffffff" opacity="0.6" />
-  <text x="58" y="492" font-size="12" fill="#41556f">8 测试用例与测试数据</text>
-  <text x="330" y="492" font-size="12" fill="#41556f">测试</text>
-  <text x="560" y="492" font-size="12" fill="#5f7183">测试设计</text>
+  <!-- 8 -->
+  <rect x="30" y="370" width="840" height="38" fill="#f6f9fd" stroke="#e8eef6" />
+  <text x="60" y="394" text-anchor="middle" font-size="9" font-weight="700" fill="#33507f">8</text>
+  <text x="100" y="388" font-size="9" font-weight="700" fill="#1f3a63">测试用例与测试数据</text>
+  <text x="100" y="401" font-size="8" fill="#8b9bb0">从第 4 章验收标准推导</text>
+  <text x="400" y="394" font-size="8.5" fill="#41556f">测试设计</text>
+  <text x="530" y="394" font-size="8.5" font-weight="700" fill="#8a4b4b">测试</text>
+  <text x="660" y="394" font-size="8.5" fill="#41556f">派单五条 + 数量字段的五个边界值</text>
 
-  <rect x="40" y="510" width="820" height="46" fill="#ffffff" opacity="0.85" />
-  <text x="58" y="538" font-size="12" fill="#41556f">9 附录：访谈脚本与记录</text>
-  <text x="330" y="538" font-size="12" fill="#41556f">——</text>
-  <text x="560" y="538" font-size="12" fill="#5f7183">需求获取</text>
+  <!-- 9 -->
+  <rect x="30" y="408" width="840" height="34" fill="#ffffff" stroke="#e8eef6" />
+  <text x="60" y="430" text-anchor="middle" font-size="9" font-weight="700" fill="#33507f">9</text>
+  <text x="100" y="430" font-size="9" font-weight="700" fill="#1f3a63">附录：访谈脚本与记录</text>
+  <text x="400" y="430" font-size="8.5" fill="#41556f">需求获取</text>
+  <text x="530" y="430" font-size="8.5" fill="#8b9bb0">—— 存档</text>
+  <text x="660" y="430" font-size="8.5" fill="#41556f">四个角色的访谈记录 + 未答问题清单</text>
 
-  <rect x="40" y="100" width="820" height="456" fill="none" stroke="#c4d4e7" />
-  <line x1="40" y1="188" x2="860" y2="188" stroke="#d3e0ee" />
-  <line x1="40" y1="234" x2="860" y2="234" stroke="#d3e0ee" />
-  <line x1="40" y1="280" x2="860" y2="280" stroke="#d3e0ee" />
-  <line x1="40" y1="326" x2="860" y2="326" stroke="#d3e0ee" />
-  <line x1="40" y1="372" x2="860" y2="372" stroke="#d3e0ee" />
-  <line x1="40" y1="418" x2="860" y2="418" stroke="#d3e0ee" />
-  <line x1="40" y1="464" x2="860" y2="464" stroke="#d3e0ee" />
-  <line x1="40" y1="510" x2="860" y2="510" stroke="#d3e0ee" />
-  <line x1="310" y1="100" x2="310" y2="556" stroke="#d3e0ee" />
-  <line x1="540" y1="100" x2="540" y2="556" stroke="#d3e0ee" />
+  <!-- 依赖关系 -->
+  <rect x="30" y="458" width="410" height="104" rx="9" fill="#eef7f3" stroke="#7fb89f" stroke-width="1.4" />
+  <text x="46" y="478" font-size="11" font-weight="700" fill="#2f6b58">为什么是这个顺序：单向依赖链</text>
+  <text x="46" y="498" font-size="8.5" fill="#41556f">第 2 章（范围）决定所有内容的边界</text>
+  <text x="46" y="514" font-size="8.5" fill="#41556f">第 3 章（画像）是第 4 章（故事）的来源</text>
+  <text x="46" y="530" font-size="8.5" fill="#41556f">第 4 章的故事汇成第 5 章用例，第 6 章展开成流程与界面</text>
+  <text x="46" y="546" font-size="8.5" fill="#41556f">第 7 章作用于第 5、6 章所有操作</text>
+  <text x="46" y="560" font-size="8.5" fill="#8a4b4b">第 8 章的测试用例从第 4 章的验收标准推导</text>
 
-  <text x="450" y="590" text-anchor="middle" font-size="12.5" fill="#33507f">写不出来某一章，通常不是文笔问题，而是对应的那一环没做到位</text>
+  <rect x="460" y="458" width="410" height="104" rx="9" fill="#fdf2f2" stroke="#e0b4b4" stroke-width="1.4" />
+  <text x="476" y="478" font-size="11" font-weight="700" fill="#8a4b4b">下游写不出来，问题一定在上游</text>
+  <text x="476" y="498" font-size="8.5" fill="#5a6f8c">本例：第 8 章一开始只有「派单成功」一条，很空</text>
+  <text x="476" y="516" font-size="8.5" fill="#8a4b4b">→ 回查第 4 章：验收标准只写了正常路径</text>
+  <text x="476" y="534" font-size="8.5" fill="#5a6f8c">→ 补上边界与负面场景后，第 8 章自然填满</text>
+  <text x="476" y="554" font-size="8" fill="#8b9bb0">这个链条是单向的：写不出第 4 章，往往因为第 3 章画像</text>
+  <text x="476" y="566" font-size="8" fill="#8b9bb0">只有人口统计、没有行为和痛点</text>
+
+  <!-- 提案 -->
+  <rect x="30" y="576" width="840" height="58" rx="9" fill="#fdf7ef" stroke="#d2a074" />
+  <text x="46" y="596" font-size="10.5" font-weight="700" fill="#9a5f2a">提案要讲的三件事，而且每条技术都要对应一条痛点</text>
+  <text x="46" y="614" font-size="9" fill="#7a4a1e">① 痛点：50% 来电问进度 · 11% 工单因缺料白跑 · 月报 3 天　② 技术：自助查进度→20% · 派单前查库存→3% · 实时看板→实时</text>
+  <text x="46" y="628" font-size="9" fill="#7a4a1e">③ 理解用户：讲小林的一天（Excel 第 37 行、便签本、打第二次电话）—— <tspan font-weight="700">决策者真正在判断的是这一条</tspan></text>
+
+  <text x="30" y="658" font-size="10" fill="#8a4b4b">主动说「做不到」反而赢得信任：本例提案里明说「配件预测这一版不做，因为只有 8 个月数据、没有季节性记录」—— 它说明你真的看过数据。</text>
 </svg>

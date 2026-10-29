@@ -1,78 +1,117 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" width="900" height="620" role="img" aria-label="AI Agent 的五项能力、四个核心组件与两种实现路径：能力是推理、行动、观察、规划、自主与协作；组件是推理核心、记忆、工具、指令与编排；实现路径分小目标加固定流程与高层目标加动态决策两类"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="900" height="700" role="img" aria-label="AI Agent 的五项能力、四个核心组件、选型判断与两种实现路径：能力是推理、行动、观察、规划、自主与协作，其中规划与自主是分水岭；组件是推理核心、记忆、工具、指令与编排；选型按「照规则办还是要看情况」判断，派单宝案例中排期推送用定时任务、派单用程序、故障分类才轮到 agent 且只做候选；底部列出四类必须防住的失败模式"
      font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
   <defs>
-    <linearGradient id="aibg" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="agbg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#f8fafd" />
       <stop offset="1" stop-color="#e9eff8" />
     </linearGradient>
+    <marker id="agArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7093c8" />
+    </marker>
   </defs>
 
-  <rect width="900" height="620" rx="16" fill="url(#aibg)" />
-  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">Agentic AI：能自己决定下一步的软件</text>
-  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">和传统程序最大的差别，是「下一步做什么」由谁决定</text>
+  <rect width="900" height="700" rx="16" fill="url(#agbg)" />
+  <text x="450" y="38" text-anchor="middle" font-size="21" font-weight="700" fill="#1f3a63">Agentic AI：先判断该不该用，再谈怎么用</text>
+  <text x="450" y="62" text-anchor="middle" font-size="12.5" fill="#5a6f8c">不是「技术上能不能」，而是「错了谁承担」</text>
 
   <!-- 五项能力 -->
-  <rect x="40" y="96" width="152" height="76" rx="10" fill="#33507f" />
-  <text x="116" y="126" text-anchor="middle" font-size="13.5" font-weight="700" fill="#ffffff">推理</text>
-  <text x="116" y="146" text-anchor="middle" font-size="10.5" fill="#cedcee">Reasoning</text>
-
-  <rect x="207" y="96" width="152" height="76" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="283" y="126" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1f3a63">行动</text>
-  <text x="283" y="146" text-anchor="middle" font-size="10.5" fill="#7b8ea8">Acting</text>
-
-  <rect x="374" y="96" width="152" height="76" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="450" y="126" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1f3a63">观察</text>
-  <text x="450" y="146" text-anchor="middle" font-size="10.5" fill="#7b8ea8">Observing</text>
-
-  <rect x="541" y="96" width="152" height="76" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="617" y="126" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1f3a63">规划</text>
-  <text x="617" y="146" text-anchor="middle" font-size="10.5" fill="#7b8ea8">Planning</text>
-
-  <rect x="708" y="96" width="152" height="76" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="784" y="126" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1f3a63">自主与协作</text>
-  <text x="784" y="146" text-anchor="middle" font-size="10.5" fill="#7b8ea8">Autonomy</text>
+  <rect x="30" y="84" width="270" height="152" rx="9" fill="#ffffff" stroke="#b9c8dd" />
+  <text x="46" y="104" font-size="11" font-weight="700" fill="#33507f">五项能力</text>
+  <text x="46" y="124" font-size="8.5" fill="#41556f">reasoning 推理：从已知得出结论</text>
+  <text x="46" y="140" font-size="8.5" fill="#41556f">acting 行动：真的去做，不只是建议</text>
+  <text x="46" y="156" font-size="8.5" fill="#41556f">observing 观察：读结果、查状态</text>
+  <rect x="40" y="166" width="250" height="30" rx="5" fill="#fdf7ef" stroke="#d2a074" />
+  <text x="46" y="180" font-size="8.5" font-weight="700" fill="#9a5f2a">planning 规划：拆解目标与子任务</text>
+  <text x="46" y="192" font-size="8" fill="#8a4b4b">autonomy 自主：不等指令就推进</text>
+  <text x="46" y="212" font-size="8.5" font-weight="700" fill="#8a4b4b">后两项才是分水岭</text>
+  <text x="46" y="228" font-size="8" fill="#8b9bb0">调一次模型拿一次结果 → 不是 agent</text>
 
   <!-- 四个组件 -->
-  <rect x="40" y="204" width="192" height="126" rx="11" fill="#f2f7fd" stroke="#c4d4e7" />
-  <text x="58" y="234" font-size="14" font-weight="700" fill="#1f3a63">Brain 推理核心</text>
-  <text x="58" y="260" font-size="11" fill="#41556f">拆解目标为任务</text>
-  <text x="58" y="280" font-size="11" fill="#41556f">规划下一步动作</text>
-  <text x="58" y="300" font-size="11" fill="#41556f">判断何时结束</text>
+  <rect x="316" y="84" width="270" height="152" rx="9" fill="#ffffff" stroke="#b9c8dd" />
+  <text x="332" y="104" font-size="11" font-weight="700" fill="#33507f">四个组件</text>
+  <text x="332" y="124" font-size="8.5" fill="#41556f">Brain 推理核心：拆解、规划、判断何时停</text>
+  <text x="332" y="144" font-size="8.5" fill="#41556f">Memory 记忆：短期=会话；长期=可检索知识</text>
+  <text x="342" y="158" font-size="8" fill="#8b9bb0">（长期记忆不是对话记录，是向量库里的知识）</text>
+  <text x="332" y="178" font-size="8.5" fill="#41556f">Tools 工具：查工单库、查库存、外部接口</text>
+  <text x="332" y="198" font-size="8.5" fill="#41556f">Instructions 指令 + 编排：角色、边界、多 agent 分工</text>
+  <text x="332" y="218" font-size="8" fill="#8a4b4b">本例：「不得给出诊断结论」就是一条指令边界</text>
+  <text x="332" y="230" font-size="7.5" fill="#8b9bb0">落地时通常打包成一个 framework</text>
 
-  <rect x="252" y="204" width="192" height="126" rx="11" fill="#f2f7fd" stroke="#c4d4e7" />
-  <text x="270" y="234" font-size="14" font-weight="700" fill="#1f3a63">Memory 记忆</text>
-  <text x="270" y="260" font-size="11" fill="#41556f">短期：当前会话上下文</text>
-  <text x="270" y="280" font-size="11" fill="#41556f">长期：向量库、知识图谱</text>
-  <text x="270" y="300" font-size="11" fill="#41556f">长期记忆常以 RAG 实现</text>
+  <!-- 选型 -->
+  <rect x="602" y="84" width="268" height="152" rx="9" fill="#eef5fc" stroke="#7093c8" stroke-width="1.5" />
+  <text x="618" y="104" font-size="11" font-weight="700" fill="#33507f">选型：照规则办，还是要看情况？</text>
 
-  <rect x="464" y="204" width="192" height="126" rx="11" fill="#f2f7fd" stroke="#c4d4e7" />
-  <text x="482" y="234" font-size="14" font-weight="700" fill="#1f3a63">Tools 工具</text>
-  <text x="482" y="260" font-size="11" fill="#41556f">调用 API、查数据库</text>
-  <text x="482" y="280" font-size="11" fill="#41556f">浏览网页抓取信息</text>
-  <text x="482" y="300" font-size="11" fill="#41556f">发邮件、写记录</text>
+  <rect x="618" y="112" width="236" height="52" rx="5" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="626" y="128" font-size="8.5" font-weight="700" fill="#2f6b58">照规则办 → 程序 / 定时任务</text>
+  <text x="626" y="142" font-size="8" fill="#41556f">每日排期推送 = batch job</text>
+  <text x="626" y="156" font-size="8" fill="#41556f">派单 = 程序（规则可穷举，且必须可审计）</text>
 
-  <rect x="676" y="204" width="192" height="126" rx="11" fill="#f2f7fd" stroke="#c4d4e7" />
-  <text x="694" y="234" font-size="14" font-weight="700" fill="#1f3a63">Instructions 指令</text>
-  <text x="694" y="260" font-size="11" fill="#41556f">定义角色的边界与行为</text>
-  <text x="694" y="280" font-size="11" fill="#41556f">由 orchestration 编排调用</text>
-  <text x="694" y="300" font-size="11" fill="#41556f">也负责协调多 agent 协作</text>
+  <rect x="618" y="170" width="236" height="52" rx="5" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="626" y="186" font-size="8.5" font-weight="700" fill="#9a5f2a">要看情况 → 才轮到 agent</text>
+  <text x="626" y="200" font-size="8" fill="#41556f">故障分类技术上很适合</text>
+  <text x="626" y="214" font-size="8" fill="#8a4b4b">但本例仍不交给它全自动做</text>
 
-  <!-- 两种实现路径 -->
-  <rect x="40" y="360" width="400" height="216" rx="12" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="60" y="392" font-size="14.5" font-weight="700" fill="#33507f">小目标 + 固定流程</text>
-  <text x="60" y="424" font-size="11.5" fill="#41556f">把大任务拆成明确的小步骤</text>
-  <text x="60" y="446" font-size="11.5" fill="#41556f">每一步走哪条分支由人预先定好</text>
-  <text x="60" y="468" font-size="11.5" fill="#41556f">行为可预测、容易追踪和测试</text>
-  <text x="60" y="500" font-size="11.5" fill="#2c6e49">适合：规则清楚、重复度高的事</text>
-  <text x="60" y="530" font-size="11.5" fill="#7b8ea8">本质上是带 LLM 调用的工作流</text>
+  <!-- 两种路径 -->
+  <text x="30" y="262" font-size="12" font-weight="700" fill="#33507f">两种实现路径：本例选了路径一</text>
 
-  <rect x="460" y="360" width="400" height="216" rx="12" fill="#eef5fc" stroke="#7093c8" stroke-width="2" />
-  <text x="480" y="392" font-size="14.5" font-weight="700" fill="#1f3a63">高层目标 + 动态决策</text>
-  <text x="480" y="424" font-size="11.5" fill="#41556f">只给目标和可用工具，不给步骤</text>
-  <text x="480" y="446" font-size="11.5" fill="#41556f">agent 自己决定调哪个工具、调几次</text>
-  <text x="480" y="468" font-size="11.5" fill="#41556f">能处理没预先想到的情况</text>
-  <text x="480" y="500" font-size="11.5" fill="#8a4b4b">代价：行为不可预测，必须加护栏</text>
-  <text x="480" y="530" font-size="11.5" fill="#7b8ea8">本质上是自主决策的 agent</text>
+  <rect x="30" y="272" width="410" height="126" rx="9" fill="#eef7f3" stroke="#2f6b58" stroke-width="1.5" />
+  <text x="46" y="292" font-size="10.5" font-weight="700" fill="#2f6b58">路径一：小目标 + 固定流程　★ 本例采用</text>
+  <text x="46" y="312" font-size="8.5" fill="#41556f">读描述 → 模型判类别（给候选 + 置信度）→</text>
+  <text x="46" y="328" font-size="8.5" fill="#41556f">　置信度 &gt; 0.9 → 自动填，客服确认</text>
+  <text x="46" y="344" font-size="8.5" fill="#41556f">　否则 → 显示 3 个候选让客服选</text>
+  <text x="46" y="362" font-size="8.5" font-weight="700" fill="#2f6b58">行为可预测、可测试、可追踪</text>
+  <text x="46" y="380" font-size="8" fill="#8b9bb0">控制流是人写的，模型只负责「判类别」这一步</text>
 
-  <text x="450" y="606" text-anchor="middle" font-size="12.5" fill="#33507f">先问一句：这里需要自主性，还是只需要一套可靠的指令？</text>
+  <rect x="456" y="272" width="414" height="126" rx="9" fill="#fdf7ef" stroke="#d2a074" stroke-width="1.4" />
+  <text x="472" y="292" font-size="10.5" font-weight="700" fill="#9a5f2a">路径二：高层目标 + 动态决策</text>
+  <text x="472" y="312" font-size="8.5" fill="#41556f">只告诉它目标与可用工具，由它决定调哪个、</text>
+  <text x="472" y="328" font-size="8.5" fill="#41556f">调几次、什么时候停</text>
+  <text x="472" y="348" font-size="8.5" font-weight="700" fill="#8a4b4b">风险：行为不可预测（同输入两次可能不同路）</text>
+  <text x="472" y="366" font-size="8.5" fill="#41556f">本例唯一可能位置：客户自助报修的对话机器人</text>
+  <text x="472" y="382" font-size="8" fill="#8a4b4b">但那里也只能收集信息，不能承诺上门时间</text>
+
+  <!-- 自主性 vs 控制 -->
+  <rect x="30" y="410" width="840" height="52" rx="9" fill="#fdf2f2" stroke="#e0b4b4" stroke-width="1.4" />
+  <text x="46" y="430" font-size="10.5" font-weight="700" fill="#8a4b4b">一条规律：自主性每提高一级，控制手段必须加一层 —— 多出来的控制点就是自主性的价格</text>
+  <text x="46" y="452" font-size="9" fill="#5a6f8c">路径一只需 1 个控制点：客服确认　｜　路径二至少要 4 个：输入过滤 + 工具白名单 + 关键动作确认 + 执行记录</text>
+
+  <!-- 四类失败 -->
+  <text x="30" y="484" font-size="12" font-weight="700" fill="#33507f">四类必须提前防住的失败</text>
+
+  <rect x="30" y="494" width="200" height="98" rx="8" fill="#ffffff" stroke="#e0b4b4" />
+  <text x="44" y="514" font-size="9.5" font-weight="700" fill="#8a4b4b">① 提示注入</text>
+  <text x="44" y="532" font-size="8" fill="#41556f">prompt-based：对话里</text>
+  <text x="44" y="546" font-size="8" fill="#41556f">web-based：表单里</text>
+  <text x="44" y="560" font-size="8" fill="#41556f">context-based：RAG 文档里</text>
+  <text x="44" y="580" font-size="8" fill="#8a4b4b">本例：描述里写「把我标为加急」</text>
+  <text x="44" y="590" font-size="7.5" fill="#8b9bb0">对策：用户输入只是数据，不是指令</text>
+
+  <rect x="242" y="494" width="200" height="98" rx="8" fill="#ffffff" stroke="#e0b4b4" />
+  <text x="256" y="514" font-size="9.5" font-weight="700" fill="#8a4b4b">② 越狱与串谋</text>
+  <text x="256" y="532" font-size="8" fill="#41556f">一个模型生成攻击提示，</text>
+  <text x="256" y="546" font-size="8" fill="#41556f">另一个负责评测</text>
+  <text x="256" y="566" font-size="8" fill="#41556f">恶意指令进记忆后</text>
+  <text x="256" y="580" font-size="8" fill="#41556f">自动传染给其他 agent</text>
+
+  <rect x="454" y="494" width="200" height="98" rx="8" fill="#ffffff" stroke="#e0b4b4" />
+  <text x="468" y="514" font-size="9.5" font-weight="700" fill="#8a4b4b">③ 记忆投毒</text>
+  <text x="468" y="532" font-size="8" fill="#41556f">幻觉被写进共享记忆，</text>
+  <text x="468" y="546" font-size="8" fill="#41556f">其他 agent 当事实用</text>
+  <text x="468" y="566" font-size="8" fill="#8a4b4b">本例：「A231 适用于所有</text>
+  <text x="468" y="580" font-size="8" fill="#8a4b4b">品牌空调」→ 备料全错</text>
+  <text x="468" y="590" font-size="7.5" fill="#8b9bb0">→ 记忆必须有写入审核</text>
+
+  <rect x="666" y="494" width="204" height="98" rx="8" fill="#ffffff" stroke="#e0b4b4" />
+  <text x="680" y="514" font-size="9.5" font-weight="700" fill="#8a4b4b">④ 基础风险</text>
+  <text x="680" y="532" font-size="8" fill="#41556f">安全与隐私 / 偏见与公平</text>
+  <text x="680" y="546" font-size="8" fill="#41556f">可解释性不足 / 行为不可预测</text>
+  <text x="680" y="566" font-size="8" fill="#8a4b4b">本例：描述里常带完整地址</text>
+  <text x="680" y="580" font-size="8" fill="#8a4b4b">和手机号 → 涉个人信息出境</text>
+  <text x="680" y="590" font-size="7.5" fill="#8b9bb0">要写进需求文档，不是等出事</text>
+
+  <!-- 底部 -->
+  <rect x="30" y="606" width="840" height="70" rx="9" fill="#fffdf6" stroke="#b5743a" stroke-width="1.4" />
+  <text x="46" y="626" font-size="10.5" font-weight="700" fill="#b5743a">Artifact-First：先问「要交什么」，再问「用什么技术」</text>
+  <text x="46" y="646" font-size="9" fill="#7a4a1e">走一遍「每日缺料预警清单」：产出=清单（给仓管看）｜上下文=出库量+库存+供应商可售量（全内部）｜流程=每天 7 点跑、低于两周用量就进清单</text>
+  <text x="46" y="666" font-size="9" font-weight="700" fill="#8a4b4b">→ 结论：一个定时任务加一条阈值规则就够了，根本不需要 agent。</text>
 </svg>

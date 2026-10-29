@@ -1,82 +1,144 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 580" width="900" height="580" role="img" aria-label="五种事实调查方法的对比表：背景阅读、观察、问卷、访谈、参与式设计，各自适合回答什么问题、成本高低与主要风险；下方是访谈的四个阶段"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 660" width="900" height="660" role="img" aria-label="五种事实调查方法的对比：背景阅读、观察、问卷、访谈、参与式设计，各自标出适合回答什么问题、成本高低与主要风险，并用派单宝案例给出一个具体用途；底部是访谈的四个阶段，其中准备阶段的清单来自待验证的假设，记录与回读这一步最常被跳过"
      font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
   <defs>
     <linearGradient id="ffbg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#f8fafd" />
       <stop offset="1" stop-color="#e9eff8" />
     </linearGradient>
+    <marker id="ffArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7093c8" />
+    </marker>
   </defs>
 
-  <rect width="900" height="580" rx="16" fill="url(#ffbg)" />
-  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">五种事实调查方法，各自的代价</text>
-  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">没有哪种方法能单独解决全部问题，关键是用对场景</text>
+  <rect width="900" height="660" rx="16" fill="url(#ffbg)" />
+  <text x="450" y="38" text-anchor="middle" font-size="21" font-weight="700" fill="#1f3a63">五种调查方法：各有各的盲点，所以要组合</text>
+  <text x="450" y="62" text-anchor="middle" font-size="12.5" fill="#5a6f8c">先读文档建框架 → 再观察发现异常 → 用访谈解释 → 用问卷确认规模</text>
 
-  <rect x="40" y="104" width="820" height="38" fill="#33507f" />
-  <text x="58" y="130" font-size="12.5" font-weight="700" fill="#ffffff">方法</text>
-  <text x="268" y="130" font-size="12.5" font-weight="700" fill="#ffffff">适合回答</text>
-  <text x="470" y="130" font-size="12.5" font-weight="700" fill="#ffffff">成本</text>
-  <text x="566" y="130" font-size="12.5" font-weight="700" fill="#ffffff">主要风险</text>
+  <!-- 五列 -->
+  <rect x="30" y="84" width="164" height="230" rx="8" fill="#ffffff" stroke="#b9c8dd" />
+  <text x="112" y="106" text-anchor="middle" font-size="10.5" font-weight="700" fill="#33507f">背景阅读</text>
+  <text x="112" y="120" text-anchor="middle" font-size="8" fill="#8b9bb0">background reading</text>
+  <text x="44" y="142" font-size="8.5" font-weight="700" fill="#2f6b58">擅长</text>
+  <text x="44" y="158" font-size="8" fill="#41556f">建立术语与全貌</text>
+  <text x="44" y="180" font-size="8.5" font-weight="700" fill="#1f3a63">成本</text>
+  <text x="44" y="196" font-size="8" fill="#41556f">最低</text>
+  <text x="44" y="218" font-size="8.5" font-weight="700" fill="#8a4b4b">风险</text>
+  <text x="44" y="234" font-size="8" fill="#8a4b4b">材料常常过时</text>
+  <line x1="44" y1="248" x2="180" y2="248" stroke="#e8eef6" stroke-width="1" />
+  <text x="44" y="266" font-size="8.5" font-weight="700" fill="#9a5f2a">本例</text>
+  <text x="44" y="282" font-size="8" fill="#7a4a1e">小林的 Excel +</text>
+  <text x="44" y="296" font-size="8" fill="#7a4a1e">那张「谁欠配件」便签纸</text>
+  <text x="44" y="308" font-size="7.5" fill="#8b9bb0">便签纸比制度文件更接近真实</text>
 
-  <rect x="40" y="142" width="820" height="54" fill="#ffffff" opacity="0.85" />
-  <text x="58" y="166" font-size="12" font-weight="600" fill="#1f3a63">背景阅读</text>
-  <text x="58" y="184" font-size="10.5" fill="#7b8ea8">Background reading</text>
-  <text x="268" y="174" font-size="12" fill="#41556f">业务全貌、术语、历史</text>
-  <text x="470" y="174" font-size="12" fill="#2c6e49">低</text>
-  <text x="566" y="174" font-size="12" fill="#5f7183">材料常常已经过时</text>
+  <rect x="202" y="84" width="164" height="230" rx="8" fill="#eef7f3" stroke="#2f6b58" stroke-width="1.5" />
+  <text x="284" y="106" text-anchor="middle" font-size="10.5" font-weight="700" fill="#2f6b58">观察</text>
+  <text x="284" y="120" text-anchor="middle" font-size="8" fill="#8b9bb0">observation</text>
+  <text x="216" y="142" font-size="8.5" font-weight="700" fill="#2f6b58">擅长</text>
+  <text x="216" y="158" font-size="8" fill="#41556f">真正在发生的事，</text>
+  <text x="216" y="172" font-size="8" fill="#41556f">含变通做法</text>
+  <text x="216" y="194" font-size="8.5" font-weight="700" fill="#1f3a63">成本</text>
+  <text x="216" y="210" font-size="8" fill="#41556f">较高（要花时间盯）</text>
+  <text x="216" y="230" font-size="8.5" font-weight="700" fill="#8a4b4b">风险</text>
+  <text x="216" y="246" font-size="8" fill="#8a4b4b">被观察者会改行为</text>
+  <line x1="216" y1="256" x2="352" y2="256" stroke="#cfe8db" stroke-width="1" />
+  <text x="216" y="274" font-size="8.5" font-weight="700" fill="#2f6b58">本例最大的发现</text>
+  <text x="216" y="290" font-size="8" fill="#2f6b58">她总先打给固定的三个人，</text>
+  <text x="216" y="304" font-size="8" fill="#2f6b58">没接才翻 Excel —— 那条</text>
+  <text x="216" y="316" font-size="8" fill="#2f6b58">暗规则不在任何文档里</text>
 
-  <rect x="40" y="196" width="820" height="54" fill="#ffffff" opacity="0.6" />
-  <text x="58" y="220" font-size="12" font-weight="600" fill="#1f3a63">观察</text>
-  <text x="58" y="238" font-size="10.5" fill="#7b8ea8">Observation</text>
-  <text x="268" y="228" font-size="12" fill="#41556f">实际是怎么做的</text>
-  <text x="470" y="228" font-size="12" fill="#b07a2c">中</text>
-  <text x="566" y="228" font-size="12" fill="#5f7183">被观察者会改变自己的行为</text>
+  <rect x="374" y="84" width="164" height="230" rx="8" fill="#ffffff" stroke="#b9c8dd" />
+  <text x="456" y="106" text-anchor="middle" font-size="10.5" font-weight="700" fill="#33507f">问卷</text>
+  <text x="456" y="120" text-anchor="middle" font-size="8" fill="#8b9bb0">questionnaire</text>
+  <text x="388" y="142" font-size="8.5" font-weight="700" fill="#2f6b58">擅长</text>
+  <text x="388" y="158" font-size="8" fill="#41556f">多少人是这样（分布）</text>
+  <text x="388" y="180" font-size="8.5" font-weight="700" fill="#1f3a63">成本</text>
+  <text x="388" y="196" font-size="8" fill="#41556f">中（面向大样本）</text>
+  <text x="388" y="218" font-size="8.5" font-weight="700" fill="#8a4b4b">风险</text>
+  <text x="388" y="234" font-size="8" fill="#8a4b4b">问题设计会引导答案</text>
+  <line x1="388" y1="248" x2="524" y2="248" stroke="#e8eef6" stroke-width="1" />
+  <text x="388" y="266" font-size="8.5" font-weight="700" fill="#9a5f2a">本例</text>
+  <text x="388" y="282" font-size="8" fill="#7a4a1e">发给 40 位工程师：</text>
+  <text x="388" y="296" font-size="8" fill="#7a4a1e">「每周因缺料白跑几趟」</text>
+  <text x="388" y="308" font-size="7.5" fill="#8b9bb0">40 份足以看分布</text>
 
-  <rect x="40" y="250" width="820" height="54" fill="#ffffff" opacity="0.85" />
-  <text x="58" y="274" font-size="12" font-weight="600" fill="#1f3a63">问卷</text>
-  <text x="58" y="292" font-size="10.5" fill="#7b8ea8">Questionnaire</text>
-  <text x="268" y="282" font-size="12" fill="#41556f">大范围的分布与倾向</text>
-  <text x="470" y="282" font-size="12" fill="#b07a2c">中</text>
-  <text x="566" y="282" font-size="12" fill="#5f7183">问题设计不当会引导答案</text>
+  <rect x="546" y="84" width="164" height="230" rx="8" fill="#ffffff" stroke="#7093c8" stroke-width="1.4" />
+  <text x="628" y="106" text-anchor="middle" font-size="10.5" font-weight="700" fill="#33507f">访谈</text>
+  <text x="628" y="120" text-anchor="middle" font-size="8" fill="#8b9bb0">interview</text>
+  <text x="560" y="142" font-size="8.5" font-weight="700" fill="#2f6b58">擅长</text>
+  <text x="560" y="158" font-size="8" fill="#41556f">动机、原因、细节</text>
+  <text x="560" y="180" font-size="8.5" font-weight="700" fill="#1f3a63">成本</text>
+  <text x="560" y="196" font-size="8" fill="#41556f">最高（信息量也最大）</text>
+  <text x="560" y="218" font-size="8.5" font-weight="700" fill="#8a4b4b">风险</text>
+  <text x="560" y="234" font-size="8" fill="#8a4b4b">自述与实际不符</text>
+  <line x1="560" y1="248" x2="696" y2="248" stroke="#e8eef6" stroke-width="1" />
+  <text x="560" y="266" font-size="8.5" font-weight="700" fill="#9a5f2a">本例</text>
+  <text x="560" y="282" font-size="8" fill="#7a4a1e">四个人各谈一次：</text>
+  <text x="560" y="296" font-size="8" fill="#7a4a1e">小林 / 老陈 / 小周 / 王姐</text>
 
-  <rect x="40" y="304" width="820" height="54" fill="#ffffff" opacity="0.6" />
-  <text x="58" y="328" font-size="12" font-weight="600" fill="#1f3a63">访谈</text>
-  <text x="58" y="346" font-size="10.5" fill="#7b8ea8">Interview</text>
-  <text x="268" y="336" font-size="12" fill="#41556f">为什么这么做、怎么想的</text>
-  <text x="470" y="336" font-size="12" fill="#b04a4a">高</text>
-  <text x="566" y="336" font-size="12" fill="#5f7183">自述与实际行为常常对不上</text>
+  <rect x="718" y="84" width="152" height="230" rx="8" fill="#ffffff" stroke="#b9c8dd" />
+  <text x="794" y="106" text-anchor="middle" font-size="10.5" font-weight="700" fill="#33507f">参与式设计</text>
+  <text x="794" y="120" text-anchor="middle" font-size="7.5" fill="#8b9bb0">participatory design</text>
+  <text x="732" y="142" font-size="8.5" font-weight="700" fill="#2f6b58">擅长</text>
+  <text x="732" y="158" font-size="8" fill="#41556f">创新、高不确定性</text>
+  <text x="732" y="180" font-size="8.5" font-weight="700" fill="#1f3a63">成本</text>
+  <text x="732" y="196" font-size="8" fill="#41556f">高（要协调多方）</text>
+  <text x="732" y="218" font-size="8.5" font-weight="700" fill="#8a4b4b">风险</text>
+  <text x="732" y="234" font-size="8" fill="#8a4b4b">积极者声音被放大</text>
+  <line x1="732" y1="248" x2="858" y2="248" stroke="#e8eef6" stroke-width="1" />
+  <text x="732" y="266" font-size="8.5" font-weight="700" fill="#9a5f2a">本例要谨慎</text>
+  <text x="732" y="282" font-size="8" fill="#7a4a1e">只让小林参与，会做出</text>
+  <text x="732" y="296" font-size="8" fill="#7a4a1e">她顺手、工程师难用的东西</text>
 
-  <rect x="40" y="358" width="820" height="54" fill="#ffffff" opacity="0.85" />
-  <text x="58" y="382" font-size="12" font-weight="600" fill="#1f3a63">参与式设计</text>
-  <text x="58" y="400" font-size="10.5" fill="#7b8ea8">Participatory design</text>
-  <text x="268" y="390" font-size="12" fill="#41556f">与用户一起设计方案</text>
-  <text x="470" y="390" font-size="12" fill="#b04a4a">很高</text>
-  <text x="566" y="390" font-size="12" fill="#5f7183">少数积极者的声音被放大</text>
+  <!-- 访谈四阶段 -->
+  <text x="30" y="342" font-size="12" font-weight="700" fill="#33507f">访谈的四个阶段</text>
 
-  <line x1="40" y1="196" x2="860" y2="196" stroke="#d3e0ee" />
-  <line x1="40" y1="250" x2="860" y2="250" stroke="#d3e0ee" />
-  <line x1="40" y1="304" x2="860" y2="304" stroke="#d3e0ee" />
-  <line x1="40" y1="358" x2="860" y2="358" stroke="#d3e0ee" />
-  <line x1="40" y1="412" x2="860" y2="412" stroke="#d3e0ee" />
-  <line x1="250" y1="104" x2="250" y2="412" stroke="#d3e0ee" />
-  <line x1="452" y1="104" x2="452" y2="412" stroke="#d3e0ee" />
-  <line x1="548" y1="104" x2="548" y2="412" stroke="#d3e0ee" />
-  <rect x="40" y="104" width="820" height="308" fill="none" stroke="#c4d4e7" />
+  <rect x="30" y="352" width="200" height="120" rx="8" fill="#fdf7ef" stroke="#d2a074" />
+  <text x="44" y="372" font-size="10" font-weight="700" fill="#9a5f2a">① 准备</text>
+  <text x="44" y="392" font-size="8.5" fill="#7a4a1e">写「信息需求清单」</text>
+  <text x="44" y="408" font-size="8" fill="#41556f">来源：笔记 04 那张四列表里</text>
+  <text x="44" y="422" font-size="8" fill="#41556f">「待验证的假设」</text>
+  <text x="44" y="440" font-size="8" font-weight="700" fill="#8a4b4b">要专门准备「问例外」的题</text>
+  <text x="44" y="456" font-size="7.5" fill="#8b9bb0">常规用户自己会讲，例外要主动问</text>
 
-  <text x="60" y="456" font-size="14" font-weight="700" fill="#33507f">访谈的四个阶段</text>
+  <rect x="242" y="352" width="200" height="120" rx="8" fill="#eef5fc" stroke="#7093c8" />
+  <text x="256" y="372" font-size="10" font-weight="700" fill="#33507f">② 开场</text>
+  <text x="256" y="392" font-size="8.5" fill="#41556f">说明目的、记录方式、怎么用</text>
+  <text x="256" y="414" font-size="8" font-weight="700" fill="#8a4b4b">要解决的不是「愿不愿配合」</text>
+  <text x="256" y="428" font-size="8" font-weight="700" fill="#8a4b4b">而是「会不会拿我说的对付我」</text>
+  <text x="256" y="450" font-size="8" fill="#2f6b58">本例有效的开场：</text>
+  <text x="256" y="464" font-size="8" fill="#2f6b58">「我不是来查你工作量」</text>
 
-  <rect x="40" y="472" width="190" height="72" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="135" y="502" text-anchor="middle" font-size="13" font-weight="600" fill="#1f3a63">① 准备</text>
-  <text x="135" y="524" text-anchor="middle" font-size="10.5" fill="#7b8ea8">列出信息需求与问题清单</text>
+  <rect x="454" y="352" width="200" height="120" rx="8" fill="#ffffff" stroke="#b9c8dd" />
+  <text x="468" y="372" font-size="10" font-weight="700" fill="#33507f">③ 提问</text>
+  <text x="468" y="392" font-size="8.5" fill="#41556f">问过去行为，不问未来意愿</text>
+  <text x="468" y="408" font-size="8.5" fill="#41556f">追问「为什么」直到不能再拆</text>
+  <text x="468" y="424" font-size="8.5" fill="#41556f">一次只问一件事</text>
+  <text x="468" y="444" font-size="8" font-weight="700" fill="#2f6b58">说完留三秒空白</text>
+  <text x="468" y="458" font-size="7.5" fill="#8b9bb0">那三秒后她补了最真实的一句</text>
 
-  <rect x="250" y="472" width="190" height="72" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="345" y="502" text-anchor="middle" font-size="13" font-weight="600" fill="#1f3a63">② 开场</text>
-  <text x="345" y="524" text-anchor="middle" font-size="10.5" fill="#7b8ea8">说明目的，让对方放松</text>
+  <rect x="666" y="352" width="204" height="120" rx="8" fill="#fdf2f2" stroke="#e0b4b4" stroke-width="1.4" />
+  <text x="680" y="372" font-size="10" font-weight="700" fill="#8a4b4b">④ 记录与回读</text>
+  <text x="680" y="392" font-size="8.5" fill="#41556f">当场复述关键结论让对方确认</text>
+  <text x="680" y="412" font-size="8.5" font-weight="700" fill="#8a4b4b">最常被跳过的一步</text>
+  <text x="680" y="434" font-size="8" fill="#2f6b58">本例它拦住了：</text>
+  <text x="680" y="448" font-size="8" fill="#2f6b58">「她要的不是全部排期，</text>
+  <text x="680" y="462" font-size="8" fill="#2f6b58">一次只关心三五个」</text>
 
-  <rect x="460" y="472" width="190" height="72" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="555" y="502" text-anchor="middle" font-size="13" font-weight="600" fill="#1f3a63">③ 提问</text>
-  <text x="555" y="524" text-anchor="middle" font-size="10.5" fill="#7b8ea8">问行为与原因，不问意愿</text>
+  <!-- 底部 -->
+  <rect x="30" y="492" width="410" height="88" rx="8" fill="#ffffff" stroke="#b9c8dd" />
+  <text x="46" y="512" font-size="10.5" font-weight="700" fill="#33507f">问卷三个最常见的错</text>
+  <text x="46" y="532" font-size="8.5" fill="#8a4b4b">① 二选一太随意：「是否满意？」感受落在中间</text>
+  <text x="46" y="548" font-size="8.5" fill="#8a4b4b">② 选项不互斥/不全：「每周一次」漏了「每周三次」</text>
+  <text x="46" y="564" font-size="8.5" fill="#8a4b4b">③ 诱导性提问：「是不是太麻烦？」已给出答案</text>
+  <text x="46" y="578" font-size="8" fill="#8b9bb0">发放前先做试测（pilot test）；小样本差异别当结论</text>
 
-  <rect x="670" y="472" width="190" height="72" rx="10" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="765" y="502" text-anchor="middle" font-size="13" font-weight="600" fill="#1f3a63">④ 记录与回读</text>
-  <text x="765" y="524" text-anchor="middle" font-size="10.5" fill="#7b8ea8">当场确认，别事后回忆</text>
+  <rect x="460" y="492" width="410" height="88" rx="8" fill="#eef7f3" stroke="#7fb89f" />
+  <text x="476" y="512" font-size="10.5" font-weight="700" fill="#2f6b58">访谈记录必写的四样</text>
+  <text x="476" y="532" font-size="8.5" fill="#41556f">① 基本信息（姓名/职务/日期/地点）</text>
+  <text x="476" y="548" font-size="8.5" fill="#41556f">② 事实与观点分开记录</text>
+  <text x="476" y="564" font-size="8.5" fill="#41556f">③ 待验证项　④ <tspan font-weight="700" fill="#8a4b4b">未答问题（最值钱）</tspan></text>
+  <text x="476" y="578" font-size="8" fill="#8b9bb0">答不上来 = 规则不在这儿，或没人统计过 = 缺口</text>
+
+  <text x="30" y="612" font-size="10.5" fill="#8a4b4b">应对抵触：不要解释调研的重要性，而是给出「具体时间承诺 + 你能得到什么」。对老陈的有效说法是「你能看到自己这周的排期，客服不会再临时塞单」。</text>
+  <text x="30" y="636" font-size="10" fill="#8b9bb0">注：只找好说话的人是最常见的陷阱 —— 本例里老陈最不配合，但他的信息最值钱（他一开始认为「系统是来监视我的」）。</text>
 </svg>

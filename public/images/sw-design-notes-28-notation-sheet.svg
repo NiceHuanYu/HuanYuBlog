@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="900" height="700" role="img" aria-label="考场符号速查：左列是用例图的参与者、用例、系统边界与 include、extend、泛化三种关系的箭头方向；中列是活动图的开始结束状态、动作、判断菱形、同步条与读写实体的箭头方向；右列是类图的五种关系符号，以及菱形贴在整体一端、空心三角指向父类的提醒"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="symbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+    <marker id="openArrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 1 1 L 11 6 L 1 11" fill="none" stroke="#4b6f9c" stroke-width="1.4" />
+    </marker>
+    <marker id="openArrowWarm" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 1 1 L 11 6 L 1 11" fill="none" stroke="#b5743a" stroke-width="1.4" />
+    </marker>
+  </defs>
+
+  <rect width="900" height="700" rx="16" fill="url(#symbg)" />
+  <text x="450" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">考场符号速查：最容易被画反的十二笔</text>
+  <text x="450" y="66" text-anchor="middle" font-size="13" fill="#5a6f8c">红字一律表示「方向反了会直接失分」的那几笔</text>
+
+  <!-- ============ 左列：用例图 ============ -->
+  <rect x="34" y="88" width="272" height="500" rx="12" fill="#ffffff" stroke="#b9c8dd" />
+  <text x="52" y="114" font-size="13.5" font-weight="700" fill="#33507f">① 用例图</text>
+
+  <circle cx="70" cy="142" r="6" fill="#ffffff" stroke="#33507f" stroke-width="1.8" />
+  <line x1="70" y1="148" x2="70" y2="166" stroke="#33507f" stroke-width="1.8" />
+  <line x1="58" y1="155" x2="82" y2="155" stroke="#33507f" stroke-width="1.8" />
+  <line x1="70" y1="166" x2="61" y2="178" stroke="#33507f" stroke-width="1.8" />
+  <line x1="70" y1="166" x2="79" y2="178" stroke="#33507f" stroke-width="1.8" />
+  <text x="96" y="152" font-size="11" fill="#1f3a63">参与者：火柴人 + 名字</text>
+  <text x="96" y="172" font-size="10" fill="#8a4b4b">一律画在系统边界外</text>
+
+  <ellipse cx="96" cy="212" rx="56" ry="14" fill="#eef5fc" stroke="#7093c8" />
+  <text x="96" y="216" text-anchor="middle" font-size="9.5" fill="#1f3a63">Make Booking</text>
+  <text x="164" y="208" font-size="11" fill="#1f3a63">用例：椭圆 + 动宾</text>
+  <text x="164" y="226" font-size="10" fill="#8a4b4b">写名词会扣分</text>
+
+  <rect x="46" y="256" width="132" height="56" rx="6" fill="none" stroke="#33507f" stroke-dasharray="5 3" />
+  <text x="112" y="276" text-anchor="middle" font-size="9.5" fill="#33507f">系统边界</text>
+  <ellipse cx="112" cy="294" rx="38" ry="9" fill="#eef5fc" stroke="#7093c8" />
+  <text x="192" y="280" font-size="11" fill="#1f3a63">必须画边界框</text>
+  <text x="192" y="298" font-size="10" fill="#8a4b4b">漏框 = 结构不清</text>
+
+  <line x1="200" y1="348" x2="60" y2="348" stroke="#4b6f9c" stroke-width="1.5" marker-end="url(#openArrow)" />
+  <text x="130" y="340" text-anchor="middle" font-size="9.5" font-weight="700" fill="#8a4b4b">«include»</text>
+  <text x="46" y="370" font-size="10.5" fill="#1f3a63">基用例 → 被包含用例</text>
+  <text x="46" y="388" font-size="10" fill="#41556f">每次必执行，无条件</text>
+
+  <line x1="60" y1="428" x2="200" y2="428" stroke="#4b6f9c" stroke-width="1.5" marker-end="url(#openArrow)" />
+  <text x="130" y="420" text-anchor="middle" font-size="9.5" font-weight="700" fill="#8a4b4b">«extend»</text>
+  <text x="46" y="450" font-size="10.5" fill="#1f3a63">扩展用例 → 基用例</text>
+  <text x="46" y="468" font-size="10" fill="#41556f">条件写旁边，不加方括号</text>
+
+  <line x1="60" y1="508" x2="196" y2="508" stroke="#4b6f9c" stroke-width="1.5" />
+  <path d="M 196 498 L 210 508 L 196 518 z" fill="#ffffff" stroke="#4b6f9c" stroke-width="1.5" />
+  <text x="46" y="532" font-size="10.5" fill="#1f3a63">泛化：子 → 父，空心三角</text>
+  <text x="46" y="550" font-size="10" fill="#8a4b4b">三角指反 = 整题失分</text>
+  <text x="46" y="570" font-size="9.5" fill="#41556f">实线虚线都接受，方向才是分</text>
+
+  <!-- ============ 中列：活动图 ============ -->
+  <rect x="320" y="88" width="272" height="500" rx="12" fill="#ffffff" stroke="#b9c8dd" />
+  <text x="338" y="114" font-size="13.5" font-weight="700" fill="#33507f">② 活动图</text>
+
+  <circle cx="352" cy="140" r="7" fill="#22334a" />
+  <text x="376" y="144" font-size="10.5" fill="#1f3a63">开始：实心黑圆，只有一个</text>
+
+  <circle cx="352" cy="178" r="9" fill="#22334a" />
+  <circle cx="352" cy="178" r="5" fill="#ffffff" />
+  <text x="376" y="182" font-size="10.5" fill="#1f3a63">结束：黑圆套白圆，可多个</text>
+
+  <rect x="326" y="202" width="74" height="24" rx="12" fill="#eef5fc" stroke="#7093c8" />
+  <text x="363" y="218" text-anchor="middle" font-size="9" fill="#1f3a63">Check Slot</text>
+  <text x="412" y="218" font-size="10.5" fill="#1f3a63">动作：圆角矩形</text>
+
+  <path d="M 363 230 L 363 242" stroke="#4b6f9c" stroke-width="1.4" marker-end="url(#openArrow)" />
+  <text x="412" y="242" font-size="10.5" fill="#1f3a63">转移：开放箭头的实线</text>
+
+  <path d="M 363 268 L 383 284 L 363 300 L 343 284 z" fill="#eef5fc" stroke="#7093c8" />
+  <line x1="385" y1="284" x2="405" y2="284" stroke="#4b6f9c" stroke-width="1.4" marker-end="url(#openArrow)" />
+  <text x="395" y="300" text-anchor="middle" font-size="9" font-weight="700" fill="#8a4b4b">[yes]</text>
+  <text x="412" y="278" font-size="10.5" fill="#1f3a63">判断：菱形</text>
+  <text x="412" y="296" font-size="10" fill="#8a4b4b">条件须写方括号内</text>
+
+  <rect x="339" y="318" width="48" height="5" rx="2" fill="#22334a" />
+  <text x="412" y="326" font-size="10.5" fill="#1f3a63">同步条：并行 / 汇合</text>
+
+  <rect x="326" y="346" width="74" height="24" rx="12" fill="#eef5fc" stroke="#7093c8" />
+  <text x="363" y="362" text-anchor="middle" font-size="9" fill="#1f3a63">View Record</text>
+  <rect x="474" y="346" width="92" height="24" rx="3" fill="#fdf7ef" stroke="#c79a6d" />
+  <text x="520" y="362" text-anchor="middle" font-size="9" fill="#7a4a1e">Booking Record</text>
+  <line x1="472" y1="358" x2="404" y2="358" stroke="#b5743a" stroke-width="1.5" marker-end="url(#openArrowWarm)" />
+  <text x="326" y="390" font-size="10.5" font-weight="700" fill="#8a4b4b">读：实体 → 动作</text>
+  <text x="326" y="406" font-size="9.5" fill="#8a5c30">批注会写 should be read</text>
+
+  <rect x="326" y="424" width="74" height="24" rx="12" fill="#eef5fc" stroke="#7093c8" />
+  <text x="363" y="440" text-anchor="middle" font-size="9" fill="#1f3a63">Confirm Visit</text>
+  <rect x="474" y="424" width="92" height="24" rx="3" fill="#fdf7ef" stroke="#c79a6d" />
+  <text x="520" y="440" text-anchor="middle" font-size="9" fill="#7a4a1e">Booking Record</text>
+  <line x1="402" y1="436" x2="472" y2="436" stroke="#b5743a" stroke-width="1.5" marker-end="url(#openArrowWarm)" />
+  <text x="326" y="468" font-size="10.5" font-weight="700" fill="#8a4b4b">写：动作 → 实体</text>
+  <text x="326" y="484" font-size="9.5" fill="#8a5c30">批注会写 wrong access</text>
+
+  <rect x="326" y="504" width="86" height="28" rx="4" fill="#eef5fc" stroke="#7093c8" opacity="0.7" />
+  <rect x="418" y="504" width="86" height="28" rx="4" fill="#eef5fc" stroke="#7093c8" opacity="0.7" />
+  <text x="369" y="523" text-anchor="middle" font-size="9" fill="#33507f">患者</text>
+  <text x="461" y="523" text-anchor="middle" font-size="9" fill="#33507f">协调员</text>
+  <text x="326" y="550" font-size="10.5" fill="#1f3a63">泳道：一条一个执行者</text>
+  <text x="326" y="570" font-size="9.5" fill="#41556f">这一阶段不画校验与确认框</text>
+
+  <!-- ============ 右列：类图 ============ -->
+  <rect x="606" y="88" width="260" height="500" rx="12" fill="#ffffff" stroke="#b9c8dd" />
+  <text x="624" y="114" font-size="13.5" font-weight="700" fill="#33507f">③ 类图</text>
+
+  <line x1="626" y1="140" x2="712" y2="140" stroke="#4b6f9c" stroke-width="1.4" stroke-dasharray="6 4" marker-end="url(#openArrow)" />
+  <text x="626" y="158" font-size="10.5" fill="#1f3a63">依赖：虚线 + 开放箭头</text>
+  <text x="626" y="175" font-size="9.5" fill="#8a4b4b">画成实线会被读成关联</text>
+
+  <line x1="626" y1="200" x2="712" y2="200" stroke="#4b6f9c" stroke-width="1.4" />
+  <text x="720" y="204" font-size="9" fill="#41556f">1</text>
+  <text x="626" y="218" font-size="10.5" fill="#1f3a63">关联：实线，可标重数</text>
+  <text x="626" y="235" font-size="9.5" fill="#41556f">* 0..1 1..* 4..6 2,6..8</text>
+
+  <line x1="626" y1="260" x2="718" y2="260" stroke="#4b6f9c" stroke-width="1.4" />
+  <path d="M 626 252 L 638 260 L 626 268 z" fill="#ffffff" stroke="#4b6f9c" stroke-width="1.4" />
+  <text x="626" y="282" font-size="10.5" fill="#1f3a63">聚合：空心菱形</text>
+  <text x="626" y="299" font-size="9.5" font-weight="700" fill="#8a4b4b">菱形贴「整体」那一端</text>
+
+  <line x1="626" y1="324" x2="718" y2="324" stroke="#4b6f9c" stroke-width="1.4" />
+  <path d="M 626 316 L 638 324 L 626 332 z" fill="#4b6f9c" stroke="#4b6f9c" stroke-width="1.4" />
+  <text x="626" y="346" font-size="10.5" fill="#1f3a63">组合：实心菱形</text>
+  <text x="626" y="363" font-size="9.5" fill="#41556f">部分随整体一起消亡</text>
+
+  <line x1="626" y1="388" x2="704" y2="388" stroke="#4b6f9c" stroke-width="1.4" />
+  <path d="M 704 378 L 718 388 L 704 398 z" fill="#ffffff" stroke="#4b6f9c" stroke-width="1.4" />
+  <text x="626" y="410" font-size="10.5" fill="#1f3a63">继承：实线 + 空心三角</text>
+  <text x="626" y="427" font-size="9.5" font-weight="700" fill="#8a4b4b">三角必须指向父类</text>
+
+  <rect x="626" y="444" width="100" height="60" rx="3" fill="#ffffff" stroke="#7093c8" />
+  <line x1="626" y1="462" x2="726" y2="462" stroke="#7093c8" stroke-width="1.2" />
+  <line x1="626" y1="486" x2="726" y2="486" stroke="#7093c8" stroke-width="1.2" />
+  <text x="676" y="457" text-anchor="middle" font-size="9" fill="#1f3a63">Booking</text>
+  <text x="632" y="478" font-size="8" fill="#41556f">-id : String</text>
+  <text x="632" y="500" font-size="8" fill="#41556f">+create() : void</text>
+  <text x="736" y="466" font-size="9.5" fill="#41556f">可见性</text>
+  <text x="736" y="482" font-size="9.5" fill="#41556f">- # +</text>
+
+  <text x="626" y="530" font-size="9.5" fill="#41556f">分析模型里不跨构造型做继承、</text>
+  <text x="626" y="546" font-size="9.5" fill="#41556f">聚合、组合；boundary 直连</text>
+  <text x="626" y="562" font-size="9.5" fill="#41556f">entity 也不推荐，中间要隔着</text>
+  <text x="626" y="578" font-size="9.5" fill="#41556f">control。</text>
+
+  <!-- 底部 -->
+  <line x1="34" y1="604" x2="866" y2="604" stroke="#d3deea" stroke-width="1.4" />
+  <text x="34" y="628" font-size="12" font-weight="700" fill="#33507f">一句话记法</text>
+  <text x="34" y="652" font-size="11.5" fill="#41556f">include 是「我需要它」，箭头朝被需要的一方；extend 是「我附加到它」，箭头朝被附加的一方。</text>
+  <text x="34" y="676" font-size="11.5" fill="#8a4b4b">菱形永远贴着整体，空心三角永远指向父类 —— 这两笔是全卷最常被画反的。</text>
+</svg>

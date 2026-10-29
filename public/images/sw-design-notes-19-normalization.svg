@@ -1,83 +1,112 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" width="900" height="620" role="img" aria-label="规范化四个阶段各自解决的问题：未规范化存在重复组与重复数据，第一范式拆掉重复组，第二范式消除只依赖部分主键的字段，第三范式消除依赖其他非主键字段的字段；底部说明派生字段不该存储、优化是另一回事"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 720" width="900" height="720" role="img" aria-label="规范化的四个阶段与每一步解决的问题：未规范化形式里工单号、客户名、客户地址、工程师名与多行配件挤在一张表；第一范式拆掉重复组把配件摊成多行；第二范式消除只依赖主键一半的字段，把客户与工程师信息搬走；第三范式消除非主键依赖非主键的传递依赖，客户地址搬到客户表。底部说明派生字段不该存储，优化是方向相反的权衡"
      font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
   <defs>
-    <linearGradient id="nrmbg" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="nmbg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#f8fafd" />
       <stop offset="1" stop-color="#e9eff8" />
     </linearGradient>
+    <marker id="nmArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7093c8" />
+    </marker>
   </defs>
 
-  <rect width="900" height="620" rx="16" fill="url(#nrmbg)" />
-  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">规范化：每一步解决一个具体问题</text>
-  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">不是背定义，而是看清「重复」是怎么一层层被拿掉的</text>
+  <rect width="900" height="720" rx="16" fill="url(#nmbg)" />
+  <text x="450" y="38" text-anchor="middle" font-size="21" font-weight="700" fill="#1f3a63">规范化：每一步拿走一种重复</text>
+  <text x="450" y="62" text-anchor="middle" font-size="12.5" fill="#5a6f8c">起点是客户搬家那一场事故 —— 一份地址存了三处，改的时候只改了一处</text>
 
-  <rect x="40" y="110" width="190" height="330" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="58" y="142" font-size="14" font-weight="700" fill="#33507f">① 未规范化</text>
-  <text x="58" y="160" font-size="10.5" fill="#7b8ea8">UNF</text>
-  <line x1="58" y1="174" x2="212" y2="174" stroke="#e3ecf5" />
-  <text x="58" y="198" font-size="10.5" fill="#41556f">order_id</text>
-  <text x="58" y="218" font-size="10.5" fill="#41556f">order_date</text>
-  <text x="58" y="238" font-size="10.5" fill="#8a4b4b">item_name, qty …</text>
-  <text x="58" y="258" font-size="10.5" fill="#8a4b4b">（重复出现多行）</text>
-  <text x="58" y="278" font-size="10.5" fill="#41556f">customer_name</text>
-  <text x="58" y="298" font-size="10.5" fill="#41556f">customer_addr</text>
-  <text x="58" y="330" font-size="11" font-weight="700" fill="#8a4b4b">问题</text>
-  <text x="58" y="352" font-size="10.5" fill="#5f7183">一张表塞下全部信息，</text>
-  <text x="58" y="370" font-size="10.5" fill="#5f7183">重复组与重复数据并存</text>
-  <text x="58" y="396" font-size="10.5" fill="#5f7183">同一客户下三次单，</text>
-  <text x="58" y="414" font-size="10.5" fill="#5f7183">地址就存了三遍</text>
+  <!-- UNF -->
+  <rect x="34" y="82" width="416" height="150" rx="9" fill="#fdf2f2" stroke="#e0b4b4" stroke-width="1.4" />
+  <text x="48" y="102" font-size="11.5" font-weight="700" fill="#8a4b4b">① UNF：一张宽表装下五类信息</text>
 
-  <rect x="248" y="110" width="190" height="330" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="266" y="142" font-size="14" font-weight="700" fill="#33507f">② 第一范式</text>
-  <text x="266" y="160" font-size="10.5" fill="#7b8ea8">1NF</text>
-  <line x1="266" y1="174" x2="420" y2="174" stroke="#e3ecf5" />
-  <text x="266" y="198" font-size="10.5" fill="#41556f">order_id</text>
-  <text x="266" y="218" font-size="10.5" fill="#41556f">order_date</text>
-  <text x="266" y="238" font-size="10.5" fill="#41556f">customer_name</text>
-  <text x="266" y="258" font-size="10.5" fill="#2c6e49">item_name</text>
-  <text x="266" y="278" font-size="10.5" fill="#2c6e49">qty</text>
-  <text x="266" y="298" font-size="10.5" fill="#2c6e49">（每行只放一件商品）</text>
-  <text x="266" y="330" font-size="11" font-weight="700" fill="#2c6e49">解决</text>
-  <text x="266" y="352" font-size="10.5" fill="#5f7183">拆掉重复组，让每个</text>
-  <text x="266" y="370" font-size="10.5" fill="#5f7183">单元格只放一个值</text>
-  <text x="266" y="396" font-size="10.5" fill="#5f7183">一列只放同一种信息</text>
-  <text x="266" y="414" font-size="10.5" fill="#5f7183">但重复问题还没解决</text>
+  <rect x="48" y="110" width="388" height="20" fill="#ffffff" stroke="#e0b4b4" />
+  <text x="54" y="124" font-size="7.5" fill="#5a6f8c">工单号　客户名　客户地址　工程师　配件（多行）　合计</text>
 
-  <rect x="456" y="110" width="190" height="330" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="474" y="142" font-size="14" font-weight="700" fill="#33507f">③ 第二范式</text>
-  <text x="474" y="160" font-size="10.5" fill="#7b8ea8">2NF</text>
-  <line x1="474" y1="174" x2="628" y2="174" stroke="#e3ecf5" />
-  <text x="474" y="198" font-size="10.5" fill="#2c6e49">order_item</text>
-  <text x="474" y="218" font-size="10.5" fill="#41556f">（order_id + item_no）</text>
-  <text x="474" y="238" font-size="10.5" fill="#41556f">item_name</text>
-  <text x="474" y="258" font-size="10.5" fill="#41556f">qty</text>
-  <text x="474" y="278" font-size="10.5" fill="#2c6e49">order（order_id,</text>
-  <text x="474" y="296" font-size="10.5" fill="#2c6e49">order_date）</text>
-  <text x="474" y="330" font-size="11" font-weight="700" fill="#2c6e49">解决</text>
-  <text x="474" y="352" font-size="10.5" fill="#5f7183">非主键字段必须依赖</text>
-  <text x="474" y="370" font-size="10.5" fill="#5f7183">整个主键，而不是</text>
-  <text x="474" y="396" font-size="10.5" fill="#5f7183">只依赖主键的一部分</text>
-  <text x="474" y="414" font-size="10.5" fill="#5f7183">（部分依赖）</text>
+  <rect x="48" y="130" width="388" height="22" fill="#fffafa" stroke="#f0d8d8" />
+  <text x="54" y="145" font-size="7.5" fill="#8a4b4b">WO-001　张先生　海淀xx小区　老陈　A231×2；B110×1　560</text>
+  <rect x="48" y="152" width="388" height="22" fill="#fffafa" stroke="#f0d8d8" />
+  <text x="54" y="167" font-size="7.5" fill="#8a4b4b">WO-002　张先生　海淀xx小区　阿明　C305×1　　　　　180</text>
 
-  <rect x="664" y="110" width="190" height="330" rx="11" fill="#eef5fc" stroke="#7093c8" />
-  <text x="682" y="142" font-size="14" font-weight="700" fill="#1f3a63">④ 第三范式</text>
-  <text x="682" y="160" font-size="10.5" fill="#7b8ea8">3NF</text>
-  <line x1="682" y1="174" x2="836" y2="174" stroke="#d3e3f2" />
-  <text x="682" y="198" font-size="10.5" fill="#2c6e49">order（order_id,</text>
-  <text x="682" y="216" font-size="10.5" fill="#2c6e49">customer_id）</text>
-  <text x="682" y="238" font-size="10.5" fill="#2c6e49">customer（customer_id,</text>
-  <text x="682" y="256" font-size="10.5" fill="#2c6e49">name, addr）</text>
-  <text x="682" y="278" font-size="10.5" fill="#41556f">each 表只描述</text>
-  <text x="682" y="296" font-size="10.5" fill="#41556f">一件事</text>
-  <text x="682" y="330" font-size="11" font-weight="700" fill="#2c6e49">解决</text>
-  <text x="682" y="352" font-size="10.5" fill="#5f7183">非主键字段不能依赖</text>
-  <text x="682" y="370" font-size="10.5" fill="#5f7183">另一个非主键字段</text>
-  <text x="682" y="396" font-size="10.5" fill="#5f7183">（传递依赖），改一处</text>
-  <text x="682" y="414" font-size="10.5" fill="#5f7183">就不会漏改别处</text>
+  <text x="48" y="192" font-size="9" fill="#8a4b4b">✗ 一个格子里有多个配件（多值属性）</text>
+  <text x="48" y="208" font-size="9" fill="#8a4b4b">✗ 客户名与地址重复；合计是算出来的</text>
+  <text x="48" y="224" font-size="8.5" fill="#8b9bb0">✗ 客户搬家 → 两张工单的地址都不会跟着改</text>
 
-  <rect x="40" y="466" width="820" height="126" rx="12" fill="#ffffff" opacity="0.85" stroke="#d3e0ee" />
-  <text x="60" y="496" font-size="14" font-weight="700" fill="#33507f">规范化之后还要想清楚的两件事</text>
-  <text x="60" y="524" font-size="12" fill="#41556f">· 派生字段（如「合计金额」）不存：它由其他字段算出，一旦存了就必须同步维护，漏一次就永久不一致</text>
-  <text x="60" y="550" font-size="12" fill="#41556f">· 优化与规范化的方向相反：某些读写场景可以把表适度合并回来，但那是权衡后的选择，不是没做规范化</text>
-  <text x="60" y="578" font-size="12" fill="#8a4b4b">判断依据始终是同一句：这份数据，会不会因为「存在两处」而变得不一致</text>
+  <!-- 箭头 -->
+  <line x1="452" y1="157" x2="478" y2="157" stroke="#7093c8" stroke-width="2" marker-end="url(#nmArrow)" />
+
+  <!-- 1NF -->
+  <rect x="486" y="82" width="380" height="150" rx="9" fill="#ffffff" stroke="#7093c8" stroke-width="1.4" />
+  <text x="500" y="102" font-size="11.5" font-weight="700" fill="#33507f">② 1NF：拆掉重复组</text>
+  <text x="500" y="120" font-size="9" fill="#41556f">每个格子只放一个原子值 → 配件摊成多行</text>
+
+  <rect x="500" y="130" width="352" height="18" fill="#eef5fc" stroke="#c4d4e7" />
+  <text x="506" y="143" font-size="7.5" font-weight="700" fill="#33507f">工单号　配件号　数量　客户名　地址　工程师</text>
+  <rect x="500" y="148" width="352" height="18" fill="#ffffff" stroke="#e8eef6" />
+  <text x="506" y="161" font-size="7.5" fill="#41556f">WO-001　A231　2　张先生　海淀xx　老陈</text>
+  <rect x="500" y="166" width="352" height="18" fill="#ffffff" stroke="#e8eef6" />
+  <text x="506" y="179" font-size="7.5" fill="#41556f">WO-001　B110　1　张先生　海淀xx　老陈</text>
+  <rect x="500" y="184" width="352" height="18" fill="#ffffff" stroke="#e8eef6" />
+  <text x="506" y="197" font-size="7.5" fill="#41556f">WO-002　C305　1　张先生　海淀xx　阿明</text>
+
+  <text x="500" y="220" font-size="9" fill="#8b9bb0">重复只是被摊开了，还没解决 —— 地址现在重复三次</text>
+
+  <!-- 箭头 -->
+  <line x1="676" y1="236" x2="676" y2="262" stroke="#7093c8" stroke-width="2" marker-end="url(#nmArrow)" />
+
+  <!-- 2NF -->
+  <rect x="34" y="270" width="416" height="164" rx="9" fill="#ffffff" stroke="#7fb89f" stroke-width="1.4" />
+  <text x="48" y="290" font-size="11.5" font-weight="700" fill="#2f6b58">③ 2NF：消除部分依赖</text>
+  <text x="48" y="308" font-size="9" fill="#41556f">主键是「工单号 + 配件号」，逐字段问：它依赖谁？</text>
+
+  <rect x="48" y="318" width="388" height="18" fill="#e3f2ea" stroke="#7fb89f" />
+  <text x="54" y="331" font-size="8" fill="#2f6b58">数量 → 依赖「工单号 + 配件号」　✅ 留下</text>
+  <rect x="48" y="336" width="388" height="18" fill="#fdf2f2" stroke="#e0b4b4" />
+  <text x="54" y="349" font-size="8" fill="#8a4b4b">客户名 / 地址 / 工程师 → 只依赖「工单号」　❌ 搬走</text>
+
+  <text x="48" y="372" font-size="9" font-weight="700" fill="#2f6b58">拆成两张：</text>
+  <text x="56" y="388" font-size="8.5" font-family="monospace" fill="#41556f">work_order_part(work_order_no, part_no, qty)</text>
+  <text x="56" y="404" font-size="8.5" font-family="monospace" fill="#41556f">work_order(work_order_no, customer_name,</text>
+  <text x="56" y="418" font-size="8.5" font-family="monospace" fill="#41556f">　　　　　 customer_address, engineer_name)</text>
+
+  <!-- 箭头 -->
+  <line x1="452" y1="352" x2="478" y2="352" stroke="#7093c8" stroke-width="2" marker-end="url(#nmArrow)" />
+
+  <!-- 3NF -->
+  <rect x="486" y="270" width="380" height="164" rx="9" fill="#ffffff" stroke="#c79a6d" stroke-width="1.4" />
+  <text x="500" y="290" font-size="11.5" font-weight="700" fill="#9a5f2a">④ 3NF：消除传递依赖</text>
+  <text x="500" y="308" font-size="9" fill="#41556f">非主键字段不能依赖另一个非主键字段</text>
+
+  <rect x="500" y="318" width="352" height="18" fill="#fdf7ef" stroke="#d2a074" />
+  <text x="506" y="331" font-size="8" fill="#7a4a1e">工单号 → 客户号 → 客户地址　❌ 传递依赖</text>
+  <rect x="500" y="336" width="352" height="18" fill="#fdf7ef" stroke="#d2a074" />
+  <text x="506" y="349" font-size="8" fill="#7a4a1e">工单号 → 工程师号 → 工程师名　❌ 传递依赖</text>
+
+  <text x="500" y="372" font-size="9" font-weight="700" fill="#9a5f2a">最终四张表：</text>
+  <text x="508" y="388" font-size="8.5" font-family="monospace" fill="#41556f">customer(customer_id, name, phone, address)</text>
+  <text x="508" y="402" font-size="8.5" font-family="monospace" fill="#41556f">engineer(engineer_id, name, phone, skills)</text>
+  <text x="508" y="416" font-size="8.5" font-family="monospace" fill="#41556f">work_order(...) / work_order_part(...)</text>
+
+  <!-- 结果 -->
+  <rect x="34" y="450" width="832" height="54" rx="9" fill="#eef7f3" stroke="#7fb89f" stroke-width="1.4" />
+  <text x="50" y="470" font-size="10.5" font-weight="700" fill="#2f6b58">到 3NF，「客户搬家」只需要改 customer 表的一行 —— 更新异常的根源被消除了</text>
+  <text x="50" y="492" font-size="9.5" fill="#41556f">自检口诀：每个非主键字段，都必须满足「只依赖主键、依赖整个主键、且只依赖主键」—— 三句正好对应三个范式。</text>
+
+  <!-- 两条并存的原则 -->
+  <rect x="34" y="514" width="410" height="102" rx="9" fill="#fdf2f2" stroke="#e0b4b4" />
+  <text x="50" y="534" font-size="11" font-weight="700" fill="#8a4b4b">派生字段不存</text>
+  <text x="50" y="554" font-size="9" fill="#41556f">「小计」「合计金额」都由单价 × 数量算出</text>
+  <text x="50" y="572" font-size="9" fill="#41556f">存它 = 多一条漏更新的路径</text>
+  <text x="50" y="592" font-size="9" fill="#2f6b58">正确做法：查询时算，或由视图/应用层算</text>
+  <text x="50" y="608" font-size="8.5" fill="#8b9bb0">非要存 → 必须约定「谁负责更新、何时更新」</text>
+
+  <rect x="456" y="514" width="410" height="102" rx="9" fill="#fdf7ef" stroke="#d2a074" />
+  <text x="472" y="534" font-size="11" font-weight="700" fill="#9a5f2a">优化：方向相反的权衡</text>
+  <text x="472" y="554" font-size="9" fill="#41556f">可以合回去的两种情形：频繁一起查的小表、</text>
+  <text x="472" y="570" font-size="9" fill="#41556f">只在一处使用且无独立生命周期的数据</text>
+  <text x="472" y="590" font-size="9" font-weight="700" fill="#8a4b4b">但 customer.address 绝对不能合回去</text>
+  <text x="472" y="608" font-size="8.5" fill="#8b9bb0">判据：合起来会不会引入冗余？容忍冗余要写进设计文档</text>
+
+  <!-- 底部 -->
+  <text x="34" y="640" font-size="10.5" fill="#41556f">规范化做完还没解决性能：本例「客户查进度」一天 3600 次，却要 join 三张表。3NF 保证正确性，不保证性能 —— 这是两件事。</text>
+  <text x="34" y="666" font-size="10.5" fill="#8a4b4b">参照完整性的边界情况：配件停用后不能直接删（历史工单会断），做法是加 is_active 状态，让配件永远存在、只是不能被新申请引用。</text>
+  <text x="34" y="694" font-size="10" fill="#8b9bb0">注：18 篇那个「一个工程师能属多个片区吗」的答案，会让 LDM 多出一张 engineer_district 关联表 —— 表从 6 张变 7 张。</text>
 </svg>

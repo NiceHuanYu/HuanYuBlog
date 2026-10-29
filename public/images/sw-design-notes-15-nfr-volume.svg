@@ -1,73 +1,167 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" width="900" height="620" role="img" aria-label="非功能需求的三张容量表与两类质量要求：三张表分别是用户量表、业务交易量表、数据量表，各自列出分类与规模；下方是安全需求与可靠性需求各自要写清的内容"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="900" height="700" role="img" aria-label="非功能需求的三张容量表与两类质量要求：三张表分别是用户量表、业务交易量表、数据量表，每张表都填了贯穿案例的具体数值，并标出峰值与均值的倍数差异；下方左块是安全需求要写清的四件事，右块是可靠性需求要先定义不可用再写四项指标与降级策略"
      font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
   <defs>
-    <linearGradient id="nfbg" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="nfrbg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#f8fafd" />
       <stop offset="1" stop-color="#e9eff8" />
     </linearGradient>
   </defs>
 
-  <rect width="900" height="620" rx="16" fill="url(#nfbg)" />
-  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">把「快、稳、安全」变成数字</text>
-  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">测量不出来的非功能需求，等于没有需求</text>
+  <rect width="900" height="700" rx="16" fill="url(#nfrbg)" />
+  <text x="450" y="38" text-anchor="middle" font-size="21" font-weight="700" fill="#1f3a63">非功能需求：先估三个量，再定两类要求</text>
+  <text x="450" y="62" text-anchor="middle" font-size="12.5" fill="#5a6f8c">技术选型之前必须回答的，只有这三张表</text>
 
-  <rect x="40" y="100" width="252" height="200" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="58" y="130" font-size="14" font-weight="700" fill="#1f3a63">用户量表</text>
-  <text x="58" y="148" font-size="10.5" fill="#7b8ea8">User Volume Table</text>
-  <line x1="58" y1="162" x2="274" y2="162" stroke="#e3ecf5" />
-  <text x="58" y="186" font-size="11" font-weight="700" fill="#5a6f8c">用户类型</text>
-  <text x="190" y="186" font-size="11" font-weight="700" fill="#5a6f8c">数量</text>
-  <text x="58" y="212" font-size="11.5" fill="#41556f">普通旅客</text>
-  <text x="190" y="212" font-size="11.5" fill="#41556f">12 万</text>
-  <text x="58" y="236" font-size="11.5" fill="#41556f">企业客户</text>
-  <text x="190" y="236" font-size="11.5" fill="#41556f">3 千</text>
-  <text x="58" y="260" font-size="11.5" fill="#41556f">内部客服</text>
-  <text x="190" y="260" font-size="11.5" fill="#41556f">40</text>
-  <text x="58" y="286" font-size="10.5" fill="#8a4b4b">峰值时段要单独估算</text>
+  <!-- 表 1：用户量 -->
+  <rect x="30" y="84" width="272" height="270" rx="10" fill="#ffffff" stroke="#7093c8" stroke-width="1.4" />
+  <text x="46" y="106" font-size="12" font-weight="700" fill="#33507f">① 用户量表</text>
+  <text x="46" y="124" font-size="9" fill="#8b9bb0">总量与同时在线差两三个数量级</text>
 
-  <rect x="324" y="100" width="252" height="200" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="342" y="130" font-size="14" font-weight="700" fill="#1f3a63">业务交易量表</text>
-  <text x="342" y="148" font-size="10.5" fill="#7b8ea8">Business Transaction Volume</text>
-  <line x1="342" y1="162" x2="558" y2="162" stroke="#e3ecf5" />
-  <text x="342" y="186" font-size="11" font-weight="700" fill="#5a6f8c">交易类型</text>
-  <text x="466" y="186" font-size="11" font-weight="700" fill="#5a6f8c">日峰值</text>
-  <text x="342" y="212" font-size="11.5" fill="#41556f">航班查询</text>
-  <text x="466" y="212" font-size="11.5" fill="#41556f">8 万</text>
-  <text x="342" y="236" font-size="11.5" fill="#41556f">下单</text>
-  <text x="466" y="236" font-size="11.5" fill="#41556f">6 千</text>
-  <text x="342" y="260" font-size="11.5" fill="#41556f">支付</text>
-  <text x="466" y="260" font-size="11.5" fill="#41556f">5.5 千</text>
-  <text x="342" y="286" font-size="10.5" fill="#8a4b4b">峰值与均值差别很大</text>
+  <rect x="42" y="132" width="248" height="20" fill="#dce8f6" stroke="#b7c7dd" />
+  <text x="50" y="146" font-size="8.5" font-weight="700" fill="#33507f">使用者</text>
+  <text x="160" y="146" font-size="8.5" font-weight="700" fill="#33507f">总量</text>
+  <text x="222" y="146" font-size="8.5" font-weight="700" fill="#8a4b4b">同时在线</text>
 
-  <rect x="608" y="100" width="252" height="200" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="626" y="130" font-size="14" font-weight="700" fill="#1f3a63">数据量表</text>
-  <text x="626" y="148" font-size="10.5" fill="#7b8ea8">Data Volume Table</text>
-  <line x1="626" y1="162" x2="842" y2="162" stroke="#e3ecf5" />
-  <text x="626" y="186" font-size="11" font-weight="700" fill="#5a6f8c">数据对象</text>
-  <text x="750" y="186" font-size="11" font-weight="700" fill="#5a6f8c">年增长</text>
-  <text x="626" y="212" font-size="11.5" fill="#41556f">订单</text>
-  <text x="750" y="212" font-size="11.5" fill="#41556f">120 万行</text>
-  <text x="626" y="236" font-size="11.5" fill="#41556f">操作日志</text>
-  <text x="750" y="236" font-size="11.5" fill="#41556f">2 亿行</text>
-  <text x="626" y="260" font-size="11.5" fill="#41556f">附件</text>
-  <text x="750" y="260" font-size="11.5" fill="#41556f">800 GB</text>
-  <text x="626" y="286" font-size="10.5" fill="#8a4b4b">决定存储与归档方案</text>
+  <rect x="42" y="152" width="248" height="18" fill="#ffffff" stroke="#e8eef6" />
+  <text x="50" y="165" font-size="8.5" fill="#41556f">客户</text>
+  <text x="160" y="165" font-size="8.5" fill="#41556f">12 万</text>
+  <text x="222" y="165" font-size="8.5" font-weight="700" fill="#8a4b4b">300</text>
 
-  <rect x="40" y="330" width="400" height="216" rx="12" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="60" y="362" font-size="14.5" font-weight="700" fill="#33507f">安全需求（Security Requirement）</text>
-  <text x="60" y="396" font-size="11.5" fill="#41556f">· 谁能看到什么（角色与权限）</text>
-  <text x="60" y="422" font-size="11.5" fill="#41556f">· 敏感字段怎么加密与脱敏</text>
-  <text x="60" y="448" font-size="11.5" fill="#41556f">· 关键操作是否留审计日志</text>
-  <text x="60" y="474" font-size="11.5" fill="#41556f">· 会话有效期与异常登录处理</text>
-  <text x="60" y="510" font-size="11.5" fill="#8a4b4b">写「要保证安全」没有意义，要写清保护什么、防谁</text>
+  <rect x="42" y="170" width="248" height="18" fill="#f4f8fd" stroke="#e8eef6" />
+  <text x="50" y="183" font-size="8.5" fill="#41556f">客服</text>
+  <text x="160" y="183" font-size="8.5" fill="#41556f">8</text>
+  <text x="222" y="183" font-size="8.5" fill="#8a4b4b">8</text>
 
-  <rect x="460" y="330" width="400" height="216" rx="12" fill="#eef5fc" stroke="#7093c8" />
-  <text x="480" y="362" font-size="14.5" font-weight="700" fill="#1f3a63">可靠性需求（Reliability）</text>
-  <text x="480" y="396" font-size="11.5" fill="#41556f">· 可用性目标（例如 99.9%）</text>
-  <text x="480" y="422" font-size="11.5" fill="#41556f">· 允许的故障恢复时间</text>
-  <text x="480" y="448" font-size="11.5" fill="#41556f">· 备份频率与恢复演练</text>
-  <text x="480" y="474" font-size="11.5" fill="#41556f">· 降级策略：部分坏了怎么办</text>
-  <text x="480" y="510" font-size="11.5" fill="#33507f">「不可用」也要定义：是打不开，还是慢到不能用</text>
+  <rect x="42" y="188" width="248" height="18" fill="#ffffff" stroke="#e8eef6" />
+  <text x="50" y="201" font-size="8.5" fill="#41556f">工程师</text>
+  <text x="160" y="201" font-size="8.5" fill="#41556f">40</text>
+  <text x="222" y="201" font-size="8.5" fill="#8a4b4b">30</text>
 
-  <text x="450" y="590" text-anchor="middle" font-size="12.5" fill="#33507f">性能需求 = 用户量 × 交易量 × 数据量，三者缺一个都估不准</text>
+  <rect x="42" y="206" width="248" height="18" fill="#f4f8fd" stroke="#e8eef6" />
+  <text x="50" y="219" font-size="8.5" fill="#41556f">仓管 / 片区经理</text>
+  <text x="160" y="219" font-size="8.5" fill="#41556f">12</text>
+  <text x="222" y="219" font-size="8.5" fill="#8a4b4b">7</text>
+
+  <text x="46" y="248" font-size="9" font-weight="700" fill="#2f6b58">若按 12 万设计并发，架构会贵得离谱</text>
+  <text x="46" y="266" font-size="9" fill="#41556f">按 300 设计才是对的</text>
+  <text x="46" y="292" font-size="9" fill="#8a4b4b">增长率：三年内可能放大 6 倍</text>
+  <text x="46" y="308" font-size="9" fill="#41556f">（王姐要推到另外 5 个片区）</text>
+  <text x="46" y="334" font-size="8.5" fill="#8b9bb0">→ 数据表要一开始就按分片区设计</text>
+
+  <!-- 表 2：交易量 -->
+  <rect x="314" y="84" width="272" height="270" rx="10" fill="#ffffff" stroke="#c79a6d" stroke-width="1.4" />
+  <text x="330" y="106" font-size="12" font-weight="700" fill="#9a5f2a">② 业务交易量表</text>
+  <text x="330" y="124" font-size="9" fill="#8b9bb0">暴露各操作之间的数量级差异</text>
+
+  <rect x="326" y="132" width="248" height="20" fill="#fdf0e2" stroke="#d2a074" />
+  <text x="334" y="146" font-size="8.5" font-weight="700" fill="#9a5f2a">操作</text>
+  <text x="446" y="146" font-size="8.5" font-weight="700" fill="#9a5f2a">日均</text>
+  <text x="502" y="146" font-size="8.5" font-weight="700" fill="#9a5f2a">峰值/时</text>
+
+  <rect x="326" y="152" width="248" height="18" fill="#ffffff" stroke="#f0e2d2" />
+  <text x="334" y="165" font-size="8.5" fill="#41556f">客户查进度</text>
+  <text x="446" y="165" font-size="8.5" font-weight="700" fill="#8a4b4b">3600</text>
+  <text x="502" y="165" font-size="8.5" fill="#41556f">900</text>
+
+  <rect x="326" y="170" width="248" height="18" fill="#fdf8f2" stroke="#f0e2d2" />
+  <text x="334" y="183" font-size="8.5" fill="#41556f">客服派单</text>
+  <text x="446" y="183" font-size="8.5" font-weight="700" fill="#2f6b58">400</text>
+  <text x="502" y="183" font-size="8.5" fill="#41556f">90</text>
+
+  <rect x="326" y="188" width="248" height="18" fill="#ffffff" stroke="#f0e2d2" />
+  <text x="334" y="201" font-size="8.5" fill="#41556f">客户提交报修</text>
+  <text x="446" y="201" font-size="8.5" fill="#41556f">400</text>
+  <text x="502" y="201" font-size="8.5" fill="#41556f">90</text>
+
+  <rect x="326" y="206" width="248" height="18" fill="#fdf8f2" stroke="#f0e2d2" />
+  <text x="334" y="219" font-size="8.5" fill="#41556f">库存查询（含外部）</text>
+  <text x="446" y="219" font-size="8.5" fill="#41556f">500</text>
+  <text x="502" y="219" font-size="8.5" fill="#41556f">150</text>
+
+  <text x="330" y="248" font-size="9" font-weight="700" fill="#8a4b4b">查进度是派单的 9 倍</text>
+  <text x="330" y="266" font-size="9" fill="#41556f">两者若共用一条重查询链路，</text>
+  <text x="330" y="282" font-size="9" fill="#41556f">查询会把派单拖慢</text>
+  <text x="330" y="308" font-size="9" font-weight="700" fill="#2f6b58">→ 值得为查询单独做缓存</text>
+  <text x="330" y="334" font-size="8.5" fill="#8b9bb0">峰值不一定同时发生：查询在早、</text>
+  <text x="330" y="346" font-size="8.5" fill="#8b9bb0">回填在傍晚，资源可复用</text>
+
+  <!-- 表 3：数据量 -->
+  <rect x="598" y="84" width="272" height="270" rx="10" fill="#ffffff" stroke="#7fb89f" stroke-width="1.4" />
+  <text x="614" y="106" font-size="12" font-weight="700" fill="#2f6b58">③ 数据量表</text>
+  <text x="614" y="124" font-size="9" fill="#8b9bb0">决定存储、索引与归档，不是响应</text>
+
+  <rect x="610" y="132" width="248" height="20" fill="#e3f2ea" stroke="#7fb89f" />
+  <text x="618" y="146" font-size="8.5" font-weight="700" fill="#2f6b58">数据</text>
+  <text x="712" y="146" font-size="8.5" font-weight="700" fill="#2f6b58">年增量</text>
+  <text x="786" y="146" font-size="8.5" font-weight="700" fill="#2f6b58">保留</text>
+
+  <rect x="610" y="152" width="248" height="18" fill="#ffffff" stroke="#e4f0e8" />
+  <text x="618" y="165" font-size="8.5" fill="#41556f">工单</text>
+  <text x="712" y="165" font-size="8.5" fill="#41556f">10 万</text>
+  <text x="786" y="165" font-size="8.5" fill="#41556f">5 年</text>
+
+  <rect x="610" y="170" width="248" height="18" fill="#f4fbf7" stroke="#e4f0e8" />
+  <text x="618" y="183" font-size="8.5" fill="#41556f">配件消耗</text>
+  <text x="712" y="183" font-size="8.5" fill="#41556f">30 万</text>
+  <text x="786" y="183" font-size="8.5" fill="#41556f">5 年</text>
+
+  <rect x="610" y="188" width="248" height="18" fill="#ffffff" stroke="#e4f0e8" />
+  <text x="618" y="201" font-size="8.5" fill="#41556f">客户档案</text>
+  <text x="712" y="201" font-size="8.5" fill="#41556f">12 万</text>
+  <text x="786" y="201" font-size="8.5" fill="#41556f">长期</text>
+
+  <rect x="610" y="206" width="248" height="18" fill="#f4fbf7" stroke="#e4f0e8" />
+  <text x="618" y="219" font-size="8.5" fill="#41556f">状态流水</text>
+  <text x="712" y="219" font-size="8.5" fill="#41556f">200 万</text>
+  <text x="786" y="219" font-size="8.5" fill="#41556f">1 年</text>
+
+  <text x="614" y="248" font-size="9" font-weight="700" fill="#8a4b4b">状态流水是最大的一张表</text>
+  <text x="614" y="266" font-size="9" fill="#41556f">一年 200 万，但只需留 1 年</text>
+  <text x="614" y="282" font-size="9" fill="#41556f">→ 1 年后汇总归档</text>
+  <text x="614" y="308" font-size="9" fill="#41556f">客户档案含手机号与地址</text>
+  <text x="614" y="324" font-size="9" fill="#8a4b4b">→ 属敏感数据，要加密</text>
+  <text x="614" y="346" font-size="8.5" fill="#8b9bb0">本表决定索引与归档，不是接口速度</text>
+
+  <!-- 下半：两类质量要求 -->
+  <rect x="30" y="374" width="410" height="250" rx="10" fill="#ffffff" stroke="#7093c8" stroke-width="1.4" />
+  <text x="46" y="396" font-size="12" font-weight="700" fill="#33507f">④ 安全需求：四件事</text>
+
+  <text x="46" y="420" font-size="9.5" font-weight="700" fill="#1f3a63">认证与授权</text>
+  <text x="46" y="436" font-size="9" fill="#41556f">工程师只能看到派给自己的工单</text>
+  <text x="46" y="450" font-size="9" fill="#41556f">客服只能看本片区</text>
+
+  <text x="46" y="474" font-size="9.5" font-weight="700" fill="#1f3a63">加密与脱敏</text>
+  <text x="46" y="490" font-size="9" fill="#41556f">手机号显示 138****5678</text>
+  <text x="46" y="504" font-size="9" fill="#41556f">接单前地址只到街道；库内加密</text>
+
+  <text x="46" y="528" font-size="9.5" font-weight="700" fill="#1f3a63">审计日志</text>
+  <text x="46" y="544" font-size="9" fill="#41556f">派单/改派/库存扣减/状态变更留痕</text>
+  <text x="46" y="558" font-size="9" fill="#41556f">含操作人、时间、变更前后值，留 3 年</text>
+
+  <text x="46" y="582" font-size="9.5" font-weight="700" fill="#1f3a63">会话管理</text>
+  <text x="46" y="598" font-size="9" fill="#41556f">客服端 30 分钟无操作登出；异地登录需确认</text>
+
+  <rect x="46" y="608" width="378" height="0" fill="none" />
+
+  <rect x="460" y="374" width="410" height="250" rx="10" fill="#ffffff" stroke="#c79a6d" stroke-width="1.4" />
+  <text x="476" y="396" font-size="12" font-weight="700" fill="#9a5f2a">⑤ 可靠性：先定义什么叫不可用</text>
+
+  <text x="476" y="420" font-size="9.5" font-weight="700" fill="#8a4b4b">算不可用</text>
+  <text x="476" y="436" font-size="9" fill="#41556f">客户查进度打不开，或慢于 5 秒</text>
+
+  <text x="476" y="458" font-size="9.5" font-weight="700" fill="#2f6b58">不算核心不可用</text>
+  <text x="476" y="474" font-size="9" fill="#41556f">月报打不开（经理可以等半小时）</text>
+  <text x="476" y="488" font-size="9" fill="#41556f">App 挂了但网页版能用 → 只算部分</text>
+
+  <text x="476" y="512" font-size="9.5" font-weight="700" fill="#1f3a63">四项指标</text>
+  <text x="476" y="528" font-size="9" fill="#41556f">可用性 99.5% ｜ 恢复 ≤ 30 分钟</text>
+  <text x="476" y="542" font-size="9" fill="#41556f">备份与恢复演练 ｜ 降级策略</text>
+
+  <text x="476" y="566" font-size="9.5" font-weight="700" fill="#9a5f2a">本例最值得写的一条降级</text>
+  <rect x="476" y="574" width="378" height="40" rx="5" fill="#fdf7ef" stroke="#d2a074" />
+  <text x="486" y="590" font-size="9" fill="#7a4a1e">供应商库存接口超时 3 秒 → 降级为「待确认」</text>
+  <text x="486" y="606" font-size="9" fill="#7a4a1e">不阻塞工程师提交 —— 别人的接口你控制不了</text>
+
+  <!-- 底部 -->
+  <text x="30" y="650" font-size="11" fill="#8a4b4b">一条合格的非功能需求 = 指标 + 条件 + 阈值。缺任何一样都没法验证：「系统要快」不合格，「早高峰查进度 95 分位 ≤ 2 秒」合格。</text>
+  <text x="30" y="676" font-size="10.5" fill="#8b9bb0">注：「要用 Redis 缓存」是实现方案，不是需求 —— 需求只说要多快、多少量。技术选型是设计阶段的事。</text>
 </svg>

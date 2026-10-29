@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" width="900" height="640" role="img" aria-label="派单仪表板草图：屏幕用三个区块呈现。左上是周历视图，横向是周一到周五、纵向是上午下午，格子里填着工程师姓名与工单号，旁边标注隐喻为日历等于排期。右上是待办请求列表，每条前面有红黄绿灯标示紧急度，标注隐喻为红绿灯等于紧急度。下方是四列看板，分别是待派单、进行中、待件挂起、已完成，标注隐喻为看板列等于状态流转。底部一行是本周完成率与平均上门时长"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="dbbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="640" rx="16" fill="url(#dbbg)" />
+  <text x="450" y="38" text-anchor="middle" font-size="21" font-weight="700" fill="#1f3a63">Figure 3: 派单仪表板 —— 三个隐喻</text>
+  <text x="450" y="62" text-anchor="middle" font-size="12.5" fill="#5a6f8c">4 分的题：信息选对 + 隐喻标出 + 有主次，十分钟内画完</text>
+
+  <!-- 屏幕外框 -->
+  <rect x="48" y="84" width="804" height="450" rx="10" fill="#ffffff" stroke="#4b6f9c" stroke-width="1.6" />
+  <rect x="48" y="84" width="804" height="30" rx="10" fill="#eef5fc" stroke="#4b6f9c" stroke-width="1.6" />
+  <text x="64" y="104" font-size="11.5" font-weight="700" fill="#33507f">派单宝 · 片区经理与客服视图</text>
+  <text x="820" y="104" text-anchor="end" font-size="10" fill="#5a6f8c">2026-11-19　王姐</text>
+
+  <!-- 左上：周历 -->
+  <rect x="66" y="130" width="470" height="212" rx="6" fill="#fdfefe" stroke="#c4d4e7" />
+  <text x="78" y="150" font-size="11" font-weight="700" fill="#33507f">① 排期周历</text>
+  <text x="530" y="150" text-anchor="end" font-size="8.5" fill="#b5743a">隐喻：日历 = 排期</text>
+
+  <!-- 表头 -->
+  <rect x="78" y="158" width="60" height="20" fill="#eef5fc" stroke="#c4d4e7" />
+  <text x="108" y="172" text-anchor="middle" font-size="8.5" fill="#5a6f8c">时段</text>
+  <rect x="138" y="158" width="78" height="20" fill="#eef5fc" stroke="#c4d4e7" />
+  <text x="177" y="172" text-anchor="middle" font-size="8.5" fill="#1f3a63">周一</text>
+  <rect x="216" y="158" width="78" height="20" fill="#eef5fc" stroke="#c4d4e7" />
+  <text x="255" y="172" text-anchor="middle" font-size="8.5" fill="#1f3a63">周二</text>
+  <rect x="294" y="158" width="78" height="20" fill="#eef5fc" stroke="#c4d4e7" />
+  <text x="333" y="172" text-anchor="middle" font-size="8.5" fill="#1f3a63">周三</text>
+  <rect x="372" y="158" width="78" height="20" fill="#eef5fc" stroke="#c4d4e7" />
+  <text x="411" y="172" text-anchor="middle" font-size="8.5" fill="#1f3a63">周四</text>
+  <rect x="450" y="158" width="74" height="20" fill="#eef5fc" stroke="#c4d4e7" />
+  <text x="487" y="172" text-anchor="middle" font-size="8.5" fill="#1f3a63">周五</text>
+
+  <!-- 上午行 -->
+  <rect x="78" y="178" width="60" height="34" fill="#f6f9fd" stroke="#c4d4e7" />
+  <text x="108" y="199" text-anchor="middle" font-size="8.5" fill="#5a6f8c">上午</text>
+  <rect x="138" y="178" width="78" height="34" fill="#e8f2df" stroke="#c4d4e7" />
+  <text x="177" y="194" text-anchor="middle" font-size="7.5" fill="#3d6b2a">老陈 WO-1091</text>
+  <text x="177" y="205" text-anchor="middle" font-size="7.5" fill="#3d6b2a">09:00 空调</text>
+  <rect x="216" y="178" width="78" height="34" fill="#dff0e6" stroke="#c4d4e7" />
+  <text x="255" y="199" text-anchor="middle" font-size="8" fill="#3d6b2a">空闲</text>
+  <rect x="294" y="178" width="78" height="34" fill="#e8f2df" stroke="#c4d4e7" />
+  <text x="333" y="194" text-anchor="middle" font-size="7.5" fill="#3d6b2a">小李 WO-1094</text>
+  <text x="333" y="205" text-anchor="middle" font-size="7.5" fill="#3d6b2a">10:00 冰箱</text>
+  <rect x="372" y="178" width="78" height="34" fill="#fdf0e6" stroke="#c4d4e7" />
+  <text x="411" y="194" text-anchor="middle" font-size="7.5" fill="#a9642a">满档</text>
+  <text x="411" y="205" text-anchor="middle" font-size="7.5" fill="#a9642a">3 单</text>
+  <rect x="450" y="178" width="74" height="34" fill="#e8f2df" stroke="#c4d4e7" />
+  <text x="487" y="199" text-anchor="middle" font-size="8" fill="#3d6b2a">空闲</text>
+
+  <!-- 下午行 -->
+  <rect x="78" y="212" width="60" height="34" fill="#f6f9fd" stroke="#c4d4e7" />
+  <text x="108" y="233" text-anchor="middle" font-size="8.5" fill="#5a6f8c">下午</text>
+  <rect x="138" y="212" width="78" height="34" fill="#fdf0e6" stroke="#c4d4e7" />
+  <text x="177" y="228" text-anchor="middle" font-size="7.5" fill="#a9642a">满档</text>
+  <text x="177" y="239" text-anchor="middle" font-size="7.5" fill="#a9642a">2 单</text>
+  <rect x="216" y="212" width="78" height="34" fill="#e8f2df" stroke="#c4d4e7" />
+  <text x="255" y="228" text-anchor="middle" font-size="7.5" fill="#3d6b2a">阿明 WO-1097</text>
+  <text x="255" y="239" text-anchor="middle" font-size="7.5" fill="#3d6b2a">14:00 洗衣机</text>
+  <rect x="294" y="212" width="78" height="34" fill="#dff0e6" stroke="#c4d4e7" />
+  <text x="333" y="233" text-anchor="middle" font-size="8" fill="#3d6b2a">空闲</text>
+  <rect x="372" y="212" width="78" height="34" fill="#e8f2df" stroke="#c4d4e7" />
+  <text x="411" y="228" text-anchor="middle" font-size="7.5" fill="#3d6b2a">老陈 WO-1099</text>
+  <text x="411" y="239" text-anchor="middle" font-size="7.5" fill="#3d6b2a">15:30 空调</text>
+  <rect x="450" y="212" width="74" height="34" fill="#e8f2df" stroke="#c4d4e7" />
+  <text x="487" y="228" text-anchor="middle" font-size="7.5" fill="#3d6b2a">小李 WO-1101</text>
+  <text x="487" y="239" text-anchor="middle" font-size="7.5" fill="#3d6b2a">16:00 热水器</text>
+
+  <!-- 图例 -->
+  <rect x="78" y="256" width="14" height="10" fill="#e8f2df" stroke="#c4d4e7" />
+  <text x="98" y="265" font-size="8" fill="#5a6f8c">已排</text>
+  <rect x="140" y="256" width="14" height="10" fill="#dff0e6" stroke="#c4d4e7" />
+  <text x="160" y="265" font-size="8" fill="#5a6f8c">空闲 = 可派单</text>
+  <rect x="250" y="256" width="14" height="10" fill="#fdf0e6" stroke="#c4d4e7" />
+  <text x="270" y="265" font-size="8" fill="#5a6f8c">满档 = 请改约</text>
+
+  <text x="78" y="292" font-size="9" fill="#8a4b4b">点空格直接派单：不用再一个个打电话问「今天有空吗」</text>
+
+  <!-- 右上：待办 + 红绿灯 -->
+  <rect x="548" y="130" width="288" height="212" rx="6" fill="#fdfefe" stroke="#c4d4e7" />
+  <text x="560" y="150" font-size="11" font-weight="700" fill="#33507f">② 待办请求</text>
+  <text x="824" y="150" text-anchor="end" font-size="8.5" fill="#b5743a">隐喻：红绿灯 = 紧急度</text>
+
+  <circle cx="566" cy="172" r="6" fill="#d9534f" />
+  <text x="580" y="176" font-size="9" fill="#1f3a63">WO-1097 待件挂起 3 天</text>
+  <text x="812" y="176" text-anchor="end" font-size="8" fill="#8a4b4b">超时</text>
+
+  <circle cx="566" cy="196" r="6" fill="#e8a33d" />
+  <text x="580" y="200" font-size="9" fill="#1f3a63">WO-1101 客户改约请求</text>
+  <text x="812" y="200" text-anchor="end" font-size="8" fill="#a9642a">今日</text>
+
+  <circle cx="566" cy="220" r="6" fill="#e8a33d" />
+  <text x="580" y="224" font-size="9" fill="#1f3a63">配件 A231 低于安全库存</text>
+  <text x="812" y="224" text-anchor="end" font-size="8" fill="#a9642a">今日</text>
+
+  <circle cx="566" cy="244" r="6" fill="#5aa469" />
+  <text x="580" y="248" font-size="9" fill="#1f3a63">WO-1094 等待客户评价</text>
+  <text x="812" y="248" text-anchor="end" font-size="8" fill="#3d6b2a">不急</text>
+
+  <text x="560" y="278" font-size="9" fill="#8a4b4b">红 = 今天必须处理，黄 = 今日内，绿 = 可延后</text>
+  <text x="560" y="296" font-size="9" fill="#8b9bb0">经理扫一眼就知道该先催哪一单</text>
+
+  <!-- 下方：看板 -->
+  <rect x="66" y="352" width="770" height="118" rx="6" fill="#fdfefe" stroke="#c4d4e7" />
+  <text x="78" y="372" font-size="11" font-weight="700" fill="#33507f">③ 工单看板</text>
+  <text x="824" y="372" text-anchor="end" font-size="8.5" fill="#b5743a">隐喻：看板列 = 状态流转</text>
+
+  <rect x="78" y="382" width="180" height="74" rx="4" fill="#f6f9fd" stroke="#c4d4e7" />
+  <text x="88" y="398" font-size="9" font-weight="700" fill="#5a6f8c">待派单 (4)</text>
+  <rect x="86" y="406" width="164" height="20" rx="3" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="94" y="420" font-size="8" fill="#1f3a63">WO-1103 海淀 空调不制冷</text>
+  <rect x="86" y="430" width="164" height="20" rx="3" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="94" y="444" font-size="8" fill="#1f3a63">WO-1104 朝阳 冰箱异响</text>
+
+  <rect x="266" y="382" width="180" height="74" rx="4" fill="#f6fdf8" stroke="#c4d4e7" />
+  <text x="276" y="398" font-size="9" font-weight="700" fill="#3d6b2a">进行中 (6)</text>
+  <rect x="274" y="406" width="164" height="20" rx="3" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="282" y="420" font-size="8" fill="#1f3a63">WO-1091 老陈 已到达</text>
+  <rect x="274" y="430" width="164" height="20" rx="3" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="282" y="444" font-size="8" fill="#1f3a63">WO-1094 小李 在途</text>
+
+  <rect x="454" y="382" width="180" height="74" rx="4" fill="#fdf8f4" stroke="#c4d4e7" />
+  <text x="464" y="398" font-size="9" font-weight="700" fill="#a9642a">待件挂起 (2)</text>
+  <rect x="462" y="406" width="164" height="20" rx="3" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="470" y="420" font-size="8" fill="#8a4b4b">WO-1097 缺 A231 压缩机</text>
+  <text x="470" y="446" font-size="8" fill="#8b9bb0">→ 仓管该去催供应商了</text>
+
+  <rect x="642" y="382" width="182" height="74" rx="4" fill="#f6f9fd" stroke="#c4d4e7" />
+  <text x="652" y="398" font-size="9" font-weight="700" fill="#5a6f8c">已完成 (18)</text>
+  <rect x="650" y="406" width="166" height="20" rx="3" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="658" y="420" font-size="8" fill="#1f3a63">WO-1088 已评价 ★★★★★</text>
+  <rect x="650" y="430" width="166" height="20" rx="3" fill="#ffffff" stroke="#c4d4e7" />
+  <text x="658" y="444" font-size="8" fill="#1f3a63">WO-1089 已结算</text>
+
+  <!-- 底部数字 -->
+  <rect x="66" y="482" width="770" height="36" rx="6" fill="#eef5fc" stroke="#c4d4e7" />
+  <text x="84" y="505" font-size="10" fill="#33507f">本周完成率 <tspan font-weight="700" font-size="12">92%</tspan></text>
+  <text x="240" y="505" font-size="10" fill="#33507f">平均上门时长 <tspan font-weight="700" font-size="12">1.6h</tspan></text>
+  <text x="420" y="505" font-size="10" fill="#33507f">缺料单占比 <tspan font-weight="700" font-size="12" fill="#8a4b4b">11%</tspan></text>
+  <text x="610" y="505" font-size="10" fill="#33507f">满意度 <tspan font-weight="700" font-size="12">4.6/5</tspan></text>
+
+  <!-- 三行说明 -->
+  <text x="48" y="566" font-size="11.5" font-weight="700" fill="#33507f">图下必须写的三行说明</text>
+  <text x="48" y="590" font-size="10.5" fill="#41556f">① 周历隐喻排期 —— 客服一眼看出谁哪个时段空着，不用再一个个打电话问。</text>
+  <text x="48" y="610" font-size="10.5" fill="#41556f">② 红绿灯隐喻紧急度 —— 经理扫一眼就知道哪几单快超时了。</text>
+  <text x="48" y="630" font-size="10.5" fill="#41556f">③ 看板列隐喻状态 —— 「待件挂起」这一列直接对应用例的例外流程，让仓管知道该去催货。</text>
+</svg>

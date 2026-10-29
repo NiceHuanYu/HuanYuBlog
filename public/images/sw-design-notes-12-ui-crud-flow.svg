@@ -1,83 +1,116 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" width="900" height="560" role="img" aria-label="界面设计与 CRUD 任务流：上方是列表页、详情页、编辑页三个屏幕的线框示意与跳转关系；下方是新建、查看、修改、删除四种操作分别对应哪些屏幕与关键设计点"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" width="900" height="640" role="img" aria-label="界面设计与 CRUD 任务流：上方是工单在列表页、详情页、编辑页三个屏幕之间的跳转关系；下方是新建、查看、修改、删除四种操作分别对应哪个屏幕与关键设计点，每种都举了派单宝案例中的具体遗漏"
      font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
   <defs>
-    <linearGradient id="uifbg" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="uibg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#f8fafd" />
       <stop offset="1" stop-color="#e9eff8" />
     </linearGradient>
-    <marker id="uifArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#7093c8" />
+    <marker id="uiArrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 1 1 L 11 6 L 1 11" fill="none" stroke="#4b6f9c" stroke-width="1.4" />
     </marker>
   </defs>
 
-  <rect width="900" height="560" rx="16" fill="url(#uifbg)" />
-  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">从流程到界面：先把 CRUD 走一遍</text>
-  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">每个实体基本都会落到增、查、改、删这四个动作上</text>
+  <rect width="900" height="640" rx="16" fill="url(#uibg)" />
+  <text x="450" y="38" text-anchor="middle" font-size="21" font-weight="700" fill="#1f3a63">从流程到屏幕：三个页面 + 一张 CRUD 检查表</text>
+  <text x="450" y="62" text-anchor="middle" font-size="12.5" fill="#5a6f8c">列表页负责比较，详情页负责决定，编辑页负责修改</text>
 
-  <rect x="60" y="120" width="200" height="110" rx="8" fill="#ffffff" stroke="#c4d4e7" />
-  <rect x="60" y="120" width="200" height="24" fill="#e8f0f9" />
-  <text x="160" y="137" text-anchor="middle" font-size="12" font-weight="600" fill="#1f3a63">列表页</text>
-  <rect x="74" y="156" width="172" height="9" rx="3" fill="#dde7f0" />
-  <rect x="74" y="174" width="172" height="9" rx="3" fill="#dde7f0" />
-  <rect x="74" y="192" width="172" height="9" rx="3" fill="#dde7f0" />
-  <rect x="74" y="210" width="120" height="9" rx="3" fill="#dde7f0" />
+  <!-- 三个屏幕 -->
+  <rect x="40" y="88" width="240" height="180" rx="8" fill="#ffffff" stroke="#4b6f9c" stroke-width="1.5" />
+  <text x="160" y="108" text-anchor="middle" font-size="11" font-weight="700" fill="#33507f">① 待派列表（列表页）</text>
+  <line x1="40" y1="116" x2="280" y2="116" stroke="#4b6f9c" stroke-width="1.1" />
+  <rect x="52" y="124" width="216" height="20" fill="#dce8f6" stroke="#c4d4e7" />
+  <text x="58" y="138" font-size="7.5" fill="#33507f">时间 加急 片区 家电 客户电话</text>
+  <rect x="52" y="146" width="216" height="18" fill="#fdf6f6" stroke="#e8eef6" />
+  <text x="58" y="159" font-size="7.5" fill="#8a4b4b">08:12 急 片区A 空调 138…</text>
+  <rect x="52" y="166" width="216" height="18" fill="#ffffff" stroke="#e8eef6" />
+  <text x="58" y="179" font-size="7.5" fill="#41556f">09:30 — 片区A 冰箱 139…</text>
+  <rect x="52" y="186" width="216" height="18" fill="#ffffff" stroke="#e8eef6" />
+  <text x="58" y="199" font-size="7.5" fill="#41556f">10:05 — 片区A 洗衣机 137…</text>
+  <text x="52" y="224" font-size="8.5" font-weight="700" fill="#2f6b58">放能支持比较的字段</text>
+  <text x="52" y="240" font-size="8.5" fill="#8a4b4b">地址不放 —— 太宽，派单前不需要</text>
+  <text x="52" y="256" font-size="8.5" fill="#8a4b4b">「客户电话」必须有，她要打给他</text>
 
-  <rect x="340" y="120" width="200" height="110" rx="8" fill="#ffffff" stroke="#c4d4e7" />
-  <rect x="340" y="120" width="200" height="24" fill="#e8f0f9" />
-  <text x="440" y="137" text-anchor="middle" font-size="12" font-weight="600" fill="#1f3a63">详情页</text>
-  <rect x="354" y="156" width="80" height="9" rx="3" fill="#dde7f0" />
-  <rect x="444" y="156" width="102" height="9" rx="3" fill="#dde7f0" />
-  <rect x="354" y="174" width="80" height="9" rx="3" fill="#dde7f0" />
-  <rect x="444" y="174" width="102" height="9" rx="3" fill="#dde7f0" />
-  <rect x="354" y="192" width="80" height="9" rx="3" fill="#dde7f0" />
-  <rect x="444" y="192" width="102" height="9" rx="3" fill="#dde7f0" />
+  <rect x="330" y="88" width="240" height="180" rx="8" fill="#ffffff" stroke="#4b6f9c" stroke-width="1.5" />
+  <text x="450" y="108" text-anchor="middle" font-size="11" font-weight="700" fill="#33507f">② 工单详情（详情页）</text>
+  <line x1="330" y1="116" x2="570" y2="116" stroke="#4b6f9c" stroke-width="1.1" />
+  <text x="342" y="134" font-size="8.5" fill="#1f3a63">WO-20261119-001</text>
+  <text x="342" y="150" font-size="8" fill="#41556f">客户：张先生 138****5678</text>
+  <text x="342" y="164" font-size="8" fill="#41556f">地址：海淀区中关村街道 xx 小区 3-502</text>
+  <text x="342" y="178" font-size="8" fill="#41556f">故障：空调不制冷，外机有异响</text>
+  <rect x="342" y="188" width="216" height="20" rx="3" fill="#eef7f3" stroke="#7fb89f" />
+  <text x="348" y="202" font-size="7.5" fill="#2f6b58">上下文导航：上次由老陈维修 · 查看</text>
+  <rect x="342" y="216" width="66" height="20" rx="3" fill="#eef5fc" stroke="#7093c8" />
+  <text x="375" y="230" text-anchor="middle" font-size="8" fill="#1f3a63">派单</text>
+  <rect x="416" y="216" width="66" height="20" rx="3" fill="#eef5fc" stroke="#7093c8" />
+  <text x="449" y="230" text-anchor="middle" font-size="8" fill="#1f3a63">改约</text>
+  <text x="342" y="256" font-size="8.5" font-weight="700" fill="#8a4b4b">地址只在这里出现</text>
 
-  <rect x="620" y="120" width="200" height="110" rx="8" fill="#ffffff" stroke="#7093c8" stroke-width="1.8" />
-  <rect x="620" y="120" width="200" height="24" fill="#dcebf9" />
-  <text x="720" y="137" text-anchor="middle" font-size="12" font-weight="600" fill="#1f3a63">编辑页</text>
-  <rect x="634" y="156" width="172" height="14" rx="3" fill="#ffffff" stroke="#c4d4e7" />
-  <rect x="634" y="178" width="172" height="14" rx="3" fill="#ffffff" stroke="#c4d4e7" />
-  <rect x="634" y="200" width="90" height="20" rx="4" fill="#33507f" />
-  <text x="679" y="214" text-anchor="middle" font-size="10" fill="#ffffff">保存</text>
+  <rect x="620" y="88" width="240" height="180" rx="8" fill="#ffffff" stroke="#4b6f9c" stroke-width="1.5" />
+  <text x="740" y="108" text-anchor="middle" font-size="11" font-weight="700" fill="#33507f">③ 派单面板（编辑）</text>
+  <line x1="620" y1="116" x2="860" y2="116" stroke="#4b6f9c" stroke-width="1.1" />
+  <text x="632" y="134" font-size="8" fill="#41556f">可选工程师（按技能+时段筛选）</text>
+  <rect x="632" y="142" width="216" height="18" fill="#f4fbf6" stroke="#e8eef6" />
+  <text x="638" y="155" font-size="7.5" fill="#2f6b58">老陈 · 空调 8年 · 上午空闲</text>
+  <rect x="632" y="162" width="216" height="18" fill="#f4fbf6" stroke="#e8eef6" />
+  <text x="638" y="175" font-size="7.5" fill="#2f6b58">阿明 · 空调 3年 · 上午空闲</text>
+  <rect x="632" y="182" width="216" height="18" fill="#ffffff" stroke="#e8eef6" />
+  <text x="638" y="195" font-size="7.5" fill="#8b9bb0">小李 · 冰箱只 · 满档（不可选）</text>
+  <rect x="632" y="210" width="90" height="22" rx="3" fill="#7fb89f" stroke="#2f6b58" />
+  <text x="677" y="225" text-anchor="middle" font-size="8.5" font-weight="700" fill="#ffffff">确认派单</text>
+  <text x="632" y="250" font-size="8.5" font-weight="700" fill="#8a4b4b">点击后立刻禁用</text>
+  <text x="632" y="264" font-size="8" fill="#8a4b4b">防手快连点派出两单</text>
 
-  <line x1="262" y1="175" x2="336" y2="175" stroke="#7093c8" stroke-width="2" marker-end="url(#uifArrow)" />
-  <line x1="542" y1="175" x2="616" y2="175" stroke="#7093c8" stroke-width="2" marker-end="url(#uifArrow)" />
-  <text x="299" y="165" text-anchor="middle" font-size="10.5" fill="#5a6f8c">点一行</text>
-  <text x="579" y="165" text-anchor="middle" font-size="10.5" fill="#5a6f8c">点编辑</text>
+  <!-- 跳转箭头 -->
+  <line x1="282" y1="178" x2="326" y2="178" stroke="#4b6f9c" stroke-width="1.5" marker-end="url(#uiArrow)" />
+  <text x="304" y="170" text-anchor="middle" font-size="7.5" fill="#5a6f8c">点行</text>
+  <line x1="572" y1="178" x2="616" y2="178" stroke="#4b6f9c" stroke-width="1.5" marker-end="url(#uiArrow)" />
+  <text x="594" y="170" text-anchor="middle" font-size="7.5" fill="#5a6f8c">派单</text>
+  <path d="M 700 268 L 700 288 L 160 288 L 160 272" fill="none" stroke="#b5743a" stroke-width="1.3" stroke-dasharray="5 3" marker-end="url(#uiArrow)" />
+  <text x="430" y="302" text-anchor="middle" font-size="7.5" fill="#b5743a">派完后回到列表 —— 但列表按创建时间排，刚改的沉到底（这就是 §2.1 那条遗漏）</text>
 
-  <rect x="40" y="290" width="820" height="36" fill="#33507f" />
-  <text x="60" y="314" font-size="12.5" font-weight="700" fill="#ffffff">操作</text>
-  <text x="270" y="314" font-size="12.5" font-weight="700" fill="#ffffff">对应屏幕</text>
-  <text x="520" y="314" font-size="12.5" font-weight="700" fill="#ffffff">关键设计点</text>
+  <!-- CRUD 表 -->
+  <text x="40" y="336" font-size="12.5" font-weight="700" fill="#33507f">CRUD 检查表：四种操作各自最容易漏什么</text>
 
-  <rect x="40" y="326" width="820" height="42" fill="#ffffff" opacity="0.85" />
-  <text x="60" y="352" font-size="12" fill="#41556f">Create 新建</text>
-  <text x="270" y="352" font-size="12" fill="#41556f">表单页</text>
-  <text x="520" y="352" font-size="12" fill="#41556f">字段尽量少，明确标出必填项</text>
+  <rect x="40" y="346" width="820" height="28" fill="#dce8f6" stroke="#b7c7dd" />
+  <text x="52" y="364" font-size="9" font-weight="700" fill="#33507f">操作</text>
+  <text x="140" y="364" font-size="9" font-weight="700" fill="#33507f">对应屏幕</text>
+  <text x="280" y="364" font-size="9" font-weight="700" fill="#33507f">本例容易漏掉的地方</text>
+  <text x="660" y="364" font-size="9" font-weight="700" fill="#33507f">怎么补</text>
 
-  <rect x="40" y="368" width="820" height="42" fill="#ffffff" opacity="0.6" />
-  <text x="60" y="394" font-size="12" fill="#41556f">Read 查看</text>
-  <text x="270" y="394" font-size="12" fill="#41556f">列表页 + 详情页</text>
-  <text x="520" y="394" font-size="12" fill="#41556f">列表给对比信息，详情给完整信息</text>
+  <rect x="40" y="374" width="820" height="42" fill="#ffffff" stroke="#e8eef6" />
+  <text x="52" y="392" font-size="9" font-weight="700" fill="#33507f">Create 新建</text>
+  <text x="140" y="392" font-size="8.5" fill="#41556f">报修表单</text>
+  <text x="280" y="392" font-size="8.5" fill="#8a4b4b">填了三行地址，提交失败后全丢</text>
+  <text x="660" y="392" font-size="8.5" fill="#2f6b58">失败时保留已填内容</text>
+  <text x="280" y="408" font-size="8.5" fill="#8a4b4b">必填项没标</text>
+  <text x="660" y="408" font-size="8.5" fill="#2f6b58">加红色 * 与说明</text>
 
-  <rect x="40" y="410" width="820" height="42" fill="#ffffff" opacity="0.85" />
-  <text x="60" y="436" font-size="12" fill="#41556f">Update 修改</text>
-  <text x="270" y="436" font-size="12" fill="#41556f">从详情页进入编辑页</text>
-  <text x="520" y="436" font-size="12" fill="#41556f">保留上下文，改完能回到原位</text>
+  <rect x="40" y="416" width="820" height="42" fill="#f4f8fd" stroke="#e8eef6" />
+  <text x="52" y="434" font-size="9" font-weight="700" fill="#33507f">Read 查看</text>
+  <text x="140" y="434" font-size="8.5" fill="#41556f">列表 + 详情</text>
+  <text x="280" y="434" font-size="8.5" fill="#8a4b4b">列表里没有「客户电话」</text>
+  <text x="660" y="434" font-size="8.5" fill="#2f6b58">列表加该列</text>
+  <text x="280" y="450" font-size="8.5" fill="#8a4b4b">要一个个点进去才知道是谁</text>
+  <text x="660" y="450" font-size="8.5" fill="#2f6b58">加「上次由谁维修」上下文链接</text>
 
-  <rect x="40" y="452" width="820" height="42" fill="#ffffff" opacity="0.6" />
-  <text x="60" y="478" font-size="12" fill="#41556f">Delete 删除</text>
-  <text x="270" y="478" font-size="12" fill="#41556f">二次确认</text>
-  <text x="520" y="478" font-size="12" fill="#41556f">说明后果，能撤销就别只弹确认框</text>
+  <rect x="40" y="458" width="820" height="42" fill="#ffffff" stroke="#e8eef6" />
+  <text x="52" y="476" font-size="9" font-weight="700" fill="#33507f">Update 修改</text>
+  <text x="140" y="476" font-size="8.5" fill="#41556f">从详情进编辑</text>
+  <text x="280" y="476" font-size="8.5" fill="#8a4b4b">改完跳回列表，刚改的沉到底</text>
+  <text x="660" y="476" font-size="8.5" fill="#2f6b58">改完停在该条详情</text>
+  <text x="280" y="492" font-size="8.5" fill="#8b9bb0">行内人从不觉得这是问题</text>
+  <text x="660" y="492" font-size="8.5" fill="#2f6b58">或高亮刚改的那行</text>
 
-  <line x1="40" y1="326" x2="860" y2="326" stroke="#d3e0ee" />
-  <line x1="40" y1="368" x2="860" y2="368" stroke="#d3e0ee" />
-  <line x1="40" y1="410" x2="860" y2="410" stroke="#d3e0ee" />
-  <line x1="40" y1="452" x2="860" y2="452" stroke="#d3e0ee" />
-  <line x1="40" y1="494" x2="860" y2="494" stroke="#d3e0ee" />
-  <line x1="250" y1="290" x2="250" y2="494" stroke="#d3e0ee" />
-  <line x1="500" y1="290" x2="500" y2="494" stroke="#d3e0ee" />
-  <rect x="40" y="290" width="820" height="204" fill="none" stroke="#c4d4e7" />
+  <rect x="40" y="500" width="820" height="42" fill="#f4f8fd" stroke="#e8eef6" />
+  <text x="52" y="518" font-size="9" font-weight="700" fill="#33507f">Delete 删除</text>
+  <text x="140" y="518" font-size="8.5" fill="#41556f">二次确认</text>
+  <text x="280" y="518" font-size="8.5" fill="#8a4b4b">只说「确定删除吗」，不说明后果</text>
+  <text x="660" y="518" font-size="8.5" fill="#2f6b58">说明「关联配件记录会一起删」</text>
+  <text x="280" y="534" font-size="8.5" fill="#2f6b58">讨论结论：工单不能删，只能作废</text>
+  <text x="660" y="534" font-size="8.5" fill="#2f6b58">因为它是结算依据</text>
 
-  <text x="450" y="530" text-anchor="middle" font-size="12.5" fill="#33507f">界面设计的第一道检查：这四个动作，用户都能不迷路地走完吗</text>
+  <!-- 底部 -->
+  <text x="40" y="576" font-size="11" fill="#8a4b4b">界面设计是需求的最后一次压力测试：本例画界面时才逼出「工程师怎么知道到货」「工单能不能删」两个问题 —— 而它们在活动图里都没有。</text>
+  <text x="40" y="602" font-size="10.5" fill="#41556f">判断某个上下文导航值不值得做，问一句：不做的话用户要绕几步？绕四步以上基本都值得做。</text>
+  <text x="40" y="626" font-size="10" fill="#8b9bb0">注：先画线框图再谈视觉 —— 结构没定之前，颜色讨论没有意义；而且业务方能直接指出「这里该放什么」。</text>
 </svg>

@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1020" width="900" height="1020" role="img" aria-label="派单宝用例图成品：虚线矩形系统边界内十五个用例椭圆，按角色分成五组纵向排列；边界外左侧自上而下是客户、客服、工程师、仓管、片区经理五个参与者，每个参与者与同高度的用例组相连，连线短且不交叉；边界内右下是系统主动推送排期提醒的用例，用橙色箭头指向工程师表示由系统触发"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="ucbg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+    <marker id="push27" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#b5743a" />
+    </marker>
+  </defs>
+
+  <rect width="900" height="1020" rx="16" fill="url(#ucbg3)" />
+  <text x="450" y="40" text-anchor="middle" font-size="21" font-weight="700" fill="#1f3a63">Figure 1: 派单宝 —— 完整用例图</text>
+  <text x="450" y="64" text-anchor="middle" font-size="12.5" fill="#5a6f8c">用例按角色分组、与参与者同高对齐，连线自然不交叉</text>
+
+  <!-- 系统边界 -->
+  <rect x="248" y="92" width="488" height="802" rx="10" fill="#ffffff" opacity="0.85" stroke="#33507f" stroke-width="1.6" stroke-dasharray="8 5" />
+  <text x="492" y="116" text-anchor="middle" font-size="13" font-weight="700" fill="#33507f">派单宝系统</text>
+
+  <!-- 组 1：Customer -->
+  <rect x="266" y="132" width="452" height="112" rx="6" fill="#eef5fc" opacity="0.45" />
+  <text x="276" y="150" font-size="9.5" font-weight="700" fill="#4a7fb5">客户相关</text>
+  <ellipse cx="430" cy="176" rx="76" ry="18" fill="#ffffff" stroke="#7093c8" />
+  <text x="430" y="180" text-anchor="middle" font-size="10" fill="#1f3a63">Report Fault</text>
+  <ellipse cx="430" cy="216" rx="90" ry="18" fill="#ffffff" stroke="#7093c8" />
+  <text x="430" y="220" text-anchor="middle" font-size="10" fill="#1f3a63">Track Engineer Arrival</text>
+
+  <!-- 组 2：Clerk -->
+  <rect x="266" y="264" width="452" height="152" rx="6" fill="#eef5fc" opacity="0.45" />
+  <text x="276" y="282" font-size="9.5" font-weight="700" fill="#4a7fb5">客服相关</text>
+  <ellipse cx="430" cy="304" rx="86" ry="18" fill="#ffffff" stroke="#7093c8" />
+  <text x="430" y="308" text-anchor="middle" font-size="10" fill="#1f3a63">Create Work Order</text>
+  <ellipse cx="430" cy="344" rx="82" ry="18" fill="#ffffff" stroke="#7093c8" />
+  <text x="430" y="348" text-anchor="middle" font-size="10" fill="#1f3a63">Assign Engineer</text>
+  <ellipse cx="430" cy="384" rx="80" ry="18" fill="#ffffff" stroke="#7093c8" />
+  <text x="430" y="388" text-anchor="middle" font-size="10" fill="#1f3a63">Reschedule Visit</text>
+
+  <!-- 组 3：Engineer -->
+  <rect x="266" y="436" width="452" height="152" rx="6" fill="#eef5fc" opacity="0.45" />
+  <text x="276" y="454" font-size="9.5" font-weight="700" fill="#4a7fb5">工程师相关</text>
+  <ellipse cx="430" cy="476" rx="84" ry="18" fill="#ffffff" stroke="#7093c8" />
+  <text x="430" y="480" text-anchor="middle" font-size="10" fill="#1f3a63">Accept Assignment</text>
+  <ellipse cx="430" cy="516" rx="86" ry="18" fill="#ffffff" stroke="#7093c8" />
+  <text x="430" y="520" text-anchor="middle" font-size="10" fill="#1f3a63">Update Work Order</text>
+  <ellipse cx="430" cy="556" rx="72" ry="18" fill="#ffffff" stroke="#7093c8" />
+  <text x="430" y="560" text-anchor="middle" font-size="10" fill="#1f3a63">Request Parts</text>
+
+  <!-- 组 4：Storekeeper -->
+  <rect x="266" y="608" width="452" height="112" rx="6" fill="#eef5fc" opacity="0.45" />
+  <text x="276" y="626" font-size="9.5" font-weight="700" fill="#4a7fb5">仓管相关</text>
+  <ellipse cx="430" cy="648" rx="62" ry="18" fill="#ffffff" stroke="#7093c8" />
+  <text x="430" y="652" text-anchor="middle" font-size="10" fill="#1f3a63">Issue Parts</text>
+  <ellipse cx="430" cy="688" rx="88" ry="18" fill="#ffffff" stroke="#7093c8" />
+  <text x="430" y="692" text-anchor="middle" font-size="10" fill="#1f3a63">Raise Replenishment</text>
+
+  <!-- 组 5：Manager -->
+  <rect x="266" y="740" width="452" height="112" rx="6" fill="#eef5fc" opacity="0.45" />
+  <text x="276" y="758" font-size="9.5" font-weight="700" fill="#4a7fb5">片区经理相关</text>
+  <ellipse cx="430" cy="780" rx="84" ry="18" fill="#ffffff" stroke="#7093c8" />
+  <text x="430" y="784" text-anchor="middle" font-size="10" fill="#1f3a63">View Dispatch Board</text>
+  <ellipse cx="430" cy="820" rx="84" ry="18" fill="#ffffff" stroke="#7093c8" />
+  <text x="430" y="824" text-anchor="middle" font-size="10" fill="#1f3a63">View Parts Forecast</text>
+
+  <!-- 系统主动推送的用例（放在边界内下方） -->
+  <ellipse cx="630" cy="864" rx="88" ry="18" fill="#fdf7ef" stroke="#c79a6d" />
+  <text x="630" y="868" text-anchor="middle" font-size="9.5" fill="#7a4a1e">Push Daily Schedule</text>
+
+  <!-- actor: Customer -->
+  <circle cx="108" cy="164" r="8" fill="#ffffff" stroke="#33507f" stroke-width="1.9" />
+  <line x1="108" y1="172" x2="108" y2="196" stroke="#33507f" stroke-width="1.9" />
+  <line x1="90" y1="180" x2="126" y2="180" stroke="#33507f" stroke-width="1.9" />
+  <line x1="108" y1="196" x2="96" y2="214" stroke="#33507f" stroke-width="1.9" />
+  <line x1="108" y1="196" x2="120" y2="214" stroke="#33507f" stroke-width="1.9" />
+  <text x="108" y="234" text-anchor="middle" font-size="11" font-weight="700" fill="#1f3a63">Customer</text>
+  <line x1="128" y1="176" x2="352" y2="176" stroke="#7093c8" stroke-width="1.5" />
+  <line x1="128" y1="182" x2="338" y2="214" stroke="#7093c8" stroke-width="1.5" />
+
+  <!-- actor: Clerk -->
+  <circle cx="108" cy="310" r="8" fill="#ffffff" stroke="#33507f" stroke-width="1.9" />
+  <line x1="108" y1="318" x2="108" y2="342" stroke="#33507f" stroke-width="1.9" />
+  <line x1="90" y1="326" x2="126" y2="326" stroke="#33507f" stroke-width="1.9" />
+  <line x1="108" y1="342" x2="96" y2="360" stroke="#33507f" stroke-width="1.9" />
+  <line x1="108" y1="342" x2="120" y2="360" stroke="#33507f" stroke-width="1.9" />
+  <text x="108" y="380" text-anchor="middle" font-size="11" font-weight="700" fill="#1f3a63">Clerk</text>
+  <line x1="128" y1="322" x2="342" y2="304" stroke="#7093c8" stroke-width="1.5" />
+  <line x1="128" y1="326" x2="346" y2="344" stroke="#7093c8" stroke-width="1.5" />
+  <line x1="128" y1="330" x2="348" y2="384" stroke="#7093c8" stroke-width="1.5" />
+
+  <!-- actor: Engineer -->
+  <circle cx="108" cy="482" r="8" fill="#ffffff" stroke="#33507f" stroke-width="1.9" />
+  <line x1="108" y1="490" x2="108" y2="514" stroke="#33507f" stroke-width="1.9" />
+  <line x1="90" y1="498" x2="126" y2="498" stroke="#33507f" stroke-width="1.9" />
+  <line x1="108" y1="514" x2="96" y2="532" stroke="#33507f" stroke-width="1.9" />
+  <line x1="108" y1="514" x2="120" y2="532" stroke="#33507f" stroke-width="1.9" />
+  <text x="108" y="552" text-anchor="middle" font-size="11" font-weight="700" fill="#1f3a63">Engineer</text>
+  <line x1="128" y1="494" x2="344" y2="476" stroke="#7093c8" stroke-width="1.5" />
+  <line x1="128" y1="498" x2="342" y2="516" stroke="#7093c8" stroke-width="1.5" />
+  <line x1="128" y1="502" x2="356" y2="556" stroke="#7093c8" stroke-width="1.5" />
+
+  <!-- actor: Storekeeper -->
+  <circle cx="108" cy="654" r="8" fill="#ffffff" stroke="#33507f" stroke-width="1.9" />
+  <line x1="108" y1="662" x2="108" y2="686" stroke="#33507f" stroke-width="1.9" />
+  <line x1="90" y1="670" x2="126" y2="670" stroke="#33507f" stroke-width="1.9" />
+  <line x1="108" y1="686" x2="96" y2="704" stroke="#33507f" stroke-width="1.9" />
+  <line x1="108" y1="686" x2="120" y2="704" stroke="#33507f" stroke-width="1.9" />
+  <text x="108" y="724" text-anchor="middle" font-size="11" font-weight="700" fill="#1f3a63">Storekeeper</text>
+  <line x1="128" y1="666" x2="366" y2="648" stroke="#7093c8" stroke-width="1.5" />
+  <line x1="128" y1="670" x2="340" y2="688" stroke="#7093c8" stroke-width="1.5" />
+
+  <!-- actor: Manager -->
+  <circle cx="108" cy="786" r="8" fill="#ffffff" stroke="#33507f" stroke-width="1.9" />
+  <line x1="108" y1="794" x2="108" y2="818" stroke="#33507f" stroke-width="1.9" />
+  <line x1="90" y1="802" x2="126" y2="802" stroke="#33507f" stroke-width="1.9" />
+  <line x1="108" y1="818" x2="96" y2="836" stroke="#33507f" stroke-width="1.9" />
+  <line x1="108" y1="818" x2="120" y2="836" stroke="#33507f" stroke-width="1.9" />
+  <text x="108" y="856" text-anchor="middle" font-size="11" font-weight="700" fill="#1f3a63">Manager</text>
+  <line x1="128" y1="798" x2="344" y2="780" stroke="#7093c8" stroke-width="1.5" />
+  <line x1="128" y1="802" x2="344" y2="820" stroke="#7093c8" stroke-width="1.5" />
+
+  <!-- 系统主动推送：橙色箭头指向 Engineer -->
+  <line x1="540" y1="862" x2="136" y2="524" stroke="#b5743a" stroke-width="1.8" marker-end="url(#push27)" />
+  <rect x="150" y="580" width="126" height="34" rx="4" fill="#fffaf4" stroke="#e0c4a4" />
+  <text x="213" y="595" text-anchor="middle" font-size="9.5" font-weight="700" fill="#b5743a">系统主动推送</text>
+  <text x="213" y="608" text-anchor="middle" font-size="9" fill="#b5743a">全图唯一带箭头的线</text>
+
+  <!-- 外部系统 -->
+  <rect x="560" y="928" width="228" height="56" rx="8" fill="#ffffff" stroke="#33507f" stroke-dasharray="5 3" />
+  <text x="674" y="950" text-anchor="middle" font-size="10.5" font-weight="700" fill="#33507f">配件供应商库存系统</text>
+  <text x="674" y="968" text-anchor="middle" font-size="9" fill="#5a6f8c">外部系统 —— 也是 actor，在边界外</text>
+  <line x1="674" y1="926" x2="674" y2="884" stroke="#7093c8" stroke-width="1.5" />
+
+  <text x="34" y="1000" font-size="10.5" fill="#8b9bb0">注：每个参与者与同高度的用例组相连，所以线短、不交叉；这是排版的功劳，不是简化的结果 —— 考试时长案例的角色更多，这个对齐方法同样管用。</text>
+</svg>

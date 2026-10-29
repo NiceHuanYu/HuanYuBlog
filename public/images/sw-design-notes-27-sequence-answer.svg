@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 760" width="900" height="760" role="img" aria-label="申请配件的顺序图成品：五条生命线从左到右依次是工程师、申请界面、配件控制器、库存项、供应商接口。消息按 1 到 9 编号：提交申请、转控制器、查本地库存并虚线返回、调供应商接口并虚线返回、控制器自身比对、创建出库单、写入工单的配件消耗、通知仓管、返回成功消息给界面。控制器激活条最长，库存项与供应商接口的短而窄"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="sqbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+    <marker id="msgSolid" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4b6f9c" />
+    </marker>
+    <marker id="msgOpen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 1 1 L 11 6 L 1 11" fill="none" stroke="#9a6a8a" stroke-width="1.5" />
+    </marker>
+  </defs>
+
+  <rect width="900" height="760" rx="16" fill="url(#sqbg)" />
+  <text x="450" y="40" text-anchor="middle" font-size="21" font-weight="700" fill="#1f3a63">Figure 4: Request Parts —— 顺序图</text>
+  <text x="450" y="64" text-anchor="middle" font-size="12.5" fill="#5a6f8c">十条 basic flow 对应九条消息；虚线是返回，实线是调用</text>
+
+  <!-- 生命线头 -->
+  <rect x="60" y="96" width="106" height="28" rx="4" fill="#ffffff" stroke="#33507f" stroke-width="1.5" />
+  <text x="113" y="108" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1f3a63">:Engineer</text>
+  <text x="113" y="119" text-anchor="middle" font-size="7.5" fill="#5a6f8c">actor</text>
+
+  <rect x="222" y="96" width="110" height="28" rx="4" fill="#eef5fc" stroke="#7093c8" />
+  <text x="277" y="108" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1f3a63">:PartsForm</text>
+  <text x="277" y="119" text-anchor="middle" font-size="7.5" fill="#4a7fb5">«boundary»</text>
+
+  <rect x="390" y="96" width="120" height="28" rx="4" fill="#eef5fc" stroke="#7093c8" />
+  <text x="450" y="108" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1f3a63">:PartsController</text>
+  <text x="450" y="119" text-anchor="middle" font-size="7.5" fill="#4a7fb5">«control»</text>
+
+  <rect x="566" y="96" width="100" height="28" rx="4" fill="#fdf7ef" stroke="#c79a6d" />
+  <text x="616" y="108" text-anchor="middle" font-size="9.5" font-weight="700" fill="#7a4a1e">:StockItem</text>
+  <text x="616" y="119" text-anchor="middle" font-size="7.5" fill="#8a5c30">«entity»</text>
+
+  <rect x="722" y="96" width="120" height="28" rx="4" fill="#eef5fc" stroke="#7093c8" />
+  <text x="782" y="108" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1f3a63">:SupplierAPI</text>
+  <text x="782" y="119" text-anchor="middle" font-size="7.5" fill="#4a7fb5">«boundary» 外部</text>
+
+  <!-- 生命线 -->
+  <line x1="113" y1="124" x2="113" y2="640" stroke="#9fb0c6" stroke-width="1.3" stroke-dasharray="5 4" />
+  <line x1="277" y1="124" x2="277" y2="640" stroke="#9fb0c6" stroke-width="1.3" stroke-dasharray="5 4" />
+  <line x1="450" y1="124" x2="450" y2="640" stroke="#9fb0c6" stroke-width="1.3" stroke-dasharray="5 4" />
+  <line x1="616" y1="124" x2="616" y2="640" stroke="#9fb0c6" stroke-width="1.3" stroke-dasharray="5 4" />
+  <line x1="782" y1="124" x2="782" y2="640" stroke="#9fb0c6" stroke-width="1.3" stroke-dasharray="5 4" />
+
+  <!-- 激活条 -->
+  <rect x="272" y="150" width="10" height="360" fill="#dce8f6" stroke="#7093c8" stroke-width="0.9" />
+  <rect x="445" y="178" width="10" height="300" fill="#dce8f6" stroke="#7093c8" stroke-width="0.9" />
+  <rect x="611" y="200" width="8" height="30" fill="#f7e6d2" stroke="#c79a6d" stroke-width="0.9" />
+  <rect x="777" y="256" width="8" height="30" fill="#dce8f6" stroke="#7093c8" stroke-width="0.9" />
+
+  <!-- 1 -->
+  <line x1="118" y1="156" x2="268" y2="156" stroke="#4b6f9c" stroke-width="1.5" marker-end="url(#msgSolid)" />
+  <text x="193" y="150" text-anchor="middle" font-size="8.5" fill="#41556f">1: 提交申请(工单, 配件, 数量)</text>
+
+  <!-- 2 -->
+  <line x1="283" y1="190" x2="442" y2="190" stroke="#4b6f9c" stroke-width="1.5" marker-end="url(#msgSolid)" />
+  <text x="362" y="184" text-anchor="middle" font-size="8.5" fill="#41556f">2: requestParts()</text>
+
+  <!-- 3 -->
+  <line x1="456" y1="216" x2="606" y2="216" stroke="#4b6f9c" stroke-width="1.5" marker-end="url(#msgSolid)" />
+  <text x="531" y="210" text-anchor="middle" font-size="8.5" fill="#41556f">3: getStock(partNo)</text>
+  <line x1="606" y1="236" x2="460" y2="236" stroke="#9a6a8a" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#msgOpen)" />
+  <text x="531" y="250" text-anchor="middle" font-size="8" fill="#8a5c7a">返回 qty（虚线）</text>
+
+  <!-- 4 -->
+  <line x1="456" y1="272" x2="772" y2="272" stroke="#4b6f9c" stroke-width="1.5" marker-end="url(#msgSolid)" />
+  <text x="614" y="266" text-anchor="middle" font-size="8.5" fill="#41556f">4: queryAvailable(partNo)　→ 外部系统</text>
+  <line x1="772" y1="292" x2="460" y2="292" stroke="#9a6a8a" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#msgOpen)" />
+  <text x="614" y="306" text-anchor="middle" font-size="8" fill="#8a5c7a">返回 available（虚线）</text>
+
+  <!-- 5 自身消息 -->
+  <path d="M 455 328 L 510 328 L 510 350 L 458 350" fill="none" stroke="#4b6f9c" stroke-width="1.4" marker-end="url(#msgSolid)" />
+  <text x="520" y="334" font-size="8.5" fill="#41556f">5: 比对库存与可售量</text>
+  <text x="520" y="348" font-size="8" fill="#8b9bb0">（自身方法，不发给别的对象）</text>
+
+  <!-- 6 -->
+  <line x1="455" y1="384" x2="606" y2="384" stroke="#4b6f9c" stroke-width="1.5" marker-end="url(#msgSolid)" />
+  <text x="531" y="378" text-anchor="middle" font-size="8.5" fill="#41556f">6: createIssueNote()　写</text>
+
+  <!-- 7 -->
+  <line x1="455" y1="420" x2="606" y2="420" stroke="#4b6f9c" stroke-width="1.5" marker-end="url(#msgSolid)" />
+  <text x="531" y="414" text-anchor="middle" font-size="8.5" fill="#41556f">7: addPartUsage()　写工单</text>
+
+  <!-- 8 通知仓管 -->
+  <line x1="455" y1="470" x2="360" y2="470" stroke="#4b6f9c" stroke-width="1.5" marker-end="url(#msgSolid)" />
+  <text x="408" y="464" text-anchor="middle" font-size="8" fill="#41556f">8: notify()</text>
+  <rect x="180" y="452" width="120" height="36" rx="4" fill="#fffaf4" stroke="#e0c4a4" />
+  <text x="240" y="468" text-anchor="middle" font-size="8.5" font-weight="700" fill="#b5743a">:Storekeeper</text>
+  <text x="240" y="480" text-anchor="middle" font-size="7.5" fill="#b5743a">外部接收者</text>
+  <line x1="278" y1="470" x2="300" y2="470" stroke="#4b6f9c" stroke-width="1.5" marker-end="url(#msgSolid)" />
+
+  <!-- 9 -->
+  <line x1="442" y1="530" x2="292" y2="530" stroke="#9a6a8a" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#msgOpen)" />
+  <text x="367" y="524" text-anchor="middle" font-size="8.5" fill="#8a5c7a">9: 显示「申请成功，请到仓库领取」</text>
+
+  <!-- 说明 -->
+  <rect x="60" y="566" width="796" height="120" rx="8" fill="#ffffff" stroke="#d3deea" />
+  <text x="76" y="588" font-size="11.5" font-weight="700" fill="#33507f">四个细节（每一个都是判分点）</text>
+  <text x="76" y="612" font-size="10" fill="#41556f">① 生命线顺序 <tspan font-weight="700">Actor | Boundary | Control | Entity | External</tspan> —— 按这个顺序摆，消息箭头大部分从左指向右，交叉最少。</text>
+  <text x="76" y="634" font-size="10" fill="#41556f">② 第 4 步的供应商接口是 <tspan font-weight="700" fill="#8a4b4b">boundary</tspan>，不是 entity —— 判断依据是「你需要写代码去和它对接」。</text>
+  <text x="76" y="656" font-size="10" fill="#41556f">③ 「读」和「显示」是两件事：第 3–4 步控制器取数据，第 9 步才是界面显示。画成控制器自己完成，就是职责错位。</text>
+  <text x="76" y="678" font-size="10" fill="#41556f">④ 消息编号虽是可选项，但画了他能让「我覆盖了全部 10 步」一眼可见 —— 尤其当 flow 有 13 步时。</text>
+
+  <text x="60" y="716" font-size="11" fill="#8a4b4b">一个高频失分点：把「系统显示列表」画成控制器自己憋出来。应该由 entity 返回数据（虚线）、boundary 负责显示。</text>
+  <text x="60" y="740" font-size="10.5" fill="#8b9bb0">注：激活条只画在有处理过程的生命线上。控制器最长，库存项和供应商接口短而窄 —— 一眼能看出谁在等谁。</text>
+</svg>

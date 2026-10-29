@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" width="900" height="620" role="img" aria-label="案例拆解图：上方把案例原文拆成三栏——五类角色及其目标、三个痛点、一个外部系统；下方标出这些材料分别流向哪一道小问的产出物。客服的排期痛点流向界面草图，工程师的故障与配件问题流向活动图，经理的缺料预判流向数据驱动分析表，角色与目标流向往例图"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="cbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+    <marker id="cbArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7093c8" />
+    </marker>
+  </defs>
+
+  <rect width="900" height="620" rx="16" fill="url(#cbg)" />
+  <text x="450" y="40" text-anchor="middle" font-size="21" font-weight="700" fill="#1f3a63">别逐句读案例：按三栏扫一遍，材料就齐了</text>
+  <text x="450" y="64" text-anchor="middle" font-size="12.5" fill="#5a6f8c">扫完你会发现，几乎每句话都能落到某一道题上；落不上的，多半是背景交代</text>
+
+  <!-- 第一栏：角色 -->
+  <rect x="34" y="86" width="266" height="196" rx="10" fill="#ffffff" stroke="#b9c8dd" />
+  <text x="52" y="110" font-size="12.5" font-weight="700" fill="#33507f">① 谁 —— 有目标的人或系统</text>
+  <text x="52" y="134" font-size="10.5" fill="#41556f">客户　报修、知道几点到</text>
+  <text x="52" y="156" font-size="10.5" fill="#41556f">客服　建单、派单、改约</text>
+  <text x="52" y="178" font-size="10.5" fill="#41556f">工程师　接单、回填、领料</text>
+  <text x="52" y="200" font-size="10.5" fill="#41556f">仓管　出库、补货</text>
+  <text x="52" y="222" font-size="10.5" fill="#41556f">片区经理　看数据</text>
+  <rect x="52" y="234" width="230" height="34" rx="5" fill="#fdf2f2" stroke="#e0b4b4" />
+  <text x="60" y="248" font-size="10" fill="#8a4b4b">供应商库存接口　外部系统</text>
+  <text x="60" y="262" font-size="9" fill="#8a4b4b">最容易漏掉的就是它</text>
+
+  <!-- 第二栏：痛点 -->
+  <rect x="316" y="86" width="266" height="196" rx="10" fill="#ffffff" stroke="#b9c8dd" />
+  <text x="334" y="110" font-size="12.5" font-weight="700" fill="#33507f">② 什么事 —— 三个具体痛点</text>
+  <text x="334" y="134" font-size="10.5" fill="#41556f">客服：不知道谁现在有空</text>
+  <text x="334" y="150" font-size="9.5" fill="#8b9bb0">→ 排期问题</text>
+  <text x="334" y="174" font-size="10.5" fill="#41556f">工程师：到现场才发现没配件</text>
+  <text x="334" y="190" font-size="9.5" fill="#8b9bb0">→ 流程与库存问题</text>
+  <text x="334" y="214" font-size="10.5" fill="#41556f">经理：月底手工汇总，数字对不上</text>
+  <text x="334" y="230" font-size="9.5" fill="#8b9bb0">→ 数据与预测问题</text>
+  <rect x="334" y="242" width="230" height="26" rx="5" fill="#fdf7ef" stroke="#d2a074" />
+  <text x="342" y="259" font-size="9.5" fill="#7a4a1e">每个痛点都是一道题的入口</text>
+
+  <!-- 第三栏：想要什么 -->
+  <rect x="598" y="86" width="268" height="196" rx="10" fill="#ffffff" stroke="#b9c8dd" />
+  <text x="616" y="110" font-size="12.5" font-weight="700" fill="#33507f">③ 想要什么 —— 引号里的原话</text>
+  <text x="616" y="134" font-size="10.5" fill="#41556f">「自动派单」</text>
+  <text x="616" y="150" font-size="9.5" fill="#8b9bb0">→ Assign Engineer 用例</text>
+  <text x="616" y="174" font-size="10.5" fill="#41556f">「客户能看到工程师到哪儿」</text>
+  <text x="616" y="190" font-size="9.5" fill="#8b9bb0">→ Track Engineer Arrival</text>
+  <text x="616" y="214" font-size="10.5" fill="#41556f">「提前预判哪些配件短缺」</text>
+  <text x="616" y="230" font-size="9.5" fill="#8b9bb0">→ 数据驱动分析表</text>
+  <rect x="616" y="242" width="234" height="26" rx="5" fill="#eef7f3" stroke="#6fa894" />
+  <text x="624" y="259" font-size="9.5" fill="#2f6b58">原话是最好的用例名来源</text>
+
+  <!-- 分隔 -->
+  <line x1="34" y1="302" x2="866" y2="302" stroke="#d3deea" stroke-width="1.4" />
+  <text x="34" y="328" font-size="12.5" font-weight="700" fill="#33507f">这些材料流向哪道题</text>
+
+  <!-- 产出物 -->
+  <rect x="34" y="344" width="196" height="118" rx="10" fill="#eef5fc" stroke="#7093c8" />
+  <text x="52" y="368" font-size="11.5" font-weight="700" fill="#1f3a63">用例图 · 1b</text>
+  <text x="52" y="390" font-size="9.5" fill="#41556f">用 ① 的角色清单</text>
+  <text x="52" y="408" font-size="9.5" fill="#41556f">每个角色 2–4 个用例</text>
+  <text x="52" y="426" font-size="9.5" fill="#8a4b4b">漏一个角色就扣分</text>
+  <text x="52" y="448" font-size="9" fill="#8b9bb0">8–10 分</text>
+
+  <rect x="248" y="344" width="196" height="118" rx="10" fill="#eef5fc" stroke="#7093c8" />
+  <text x="266" y="368" font-size="11.5" font-weight="700" fill="#1f3a63">活动图 · 1c</text>
+  <text x="266" y="390" font-size="9.5" fill="#41556f">用 ② 中工程师那条痛点</text>
+  <text x="266" y="408" font-size="9.5" fill="#41556f">跨三条泳道、两个判断</text>
+  <text x="266" y="426" font-size="9.5" fill="#8a4b4b">必须挂实体</text>
+  <text x="266" y="448" font-size="9" fill="#8b9bb0">8 分</text>
+
+  <rect x="462" y="344" width="196" height="118" rx="10" fill="#eef5fc" stroke="#7093c8" />
+  <text x="480" y="368" font-size="11.5" font-weight="700" fill="#1f3a63">界面草图 · 1d</text>
+  <text x="480" y="390" font-size="9.5" fill="#41556f">用 ② 中客服那条痛点</text>
+  <text x="480" y="408" font-size="9.5" fill="#41556f">周历呈现排期</text>
+  <text x="480" y="426" font-size="9.5" fill="#8a4b4b">必须标出隐喻</text>
+  <text x="480" y="448" font-size="9" fill="#8b9bb0">4 分</text>
+
+  <rect x="676" y="344" width="190" height="118" rx="10" fill="#eef5fc" stroke="#7093c8" />
+  <text x="694" y="368" font-size="11.5" font-weight="700" fill="#1f3a63">分析表 · 1a</text>
+  <text x="694" y="390" font-size="9.5" fill="#41556f">用 ② 中经理那条痛点</text>
+  <text x="694" y="408" font-size="9.5" fill="#41556f">四层逐层落到业务名词</text>
+  <text x="694" y="426" font-size="9.5" fill="#8a4b4b">每层都要有动作</text>
+  <text x="694" y="448" font-size="9" fill="#8b9bb0">6 分</text>
+
+  <!-- 连线 -->
+  <line x1="160" y1="286" x2="132" y2="340" stroke="#7093c8" stroke-width="1.8" marker-end="url(#cbArrow)" />
+  <line x1="440" y1="286" x2="346" y2="340" stroke="#7093c8" stroke-width="1.8" marker-end="url(#cbArrow)" />
+  <line x1="520" y1="286" x2="560" y2="340" stroke="#7093c8" stroke-width="1.8" marker-end="url(#cbArrow)" />
+  <line x1="720" y1="286" x2="770" y2="340" stroke="#7093c8" stroke-width="1.8" marker-end="url(#cbArrow)" />
+
+  <!-- 底部 -->
+  <line x1="34" y1="490" x2="866" y2="490" stroke="#d3deea" stroke-width="1.4" />
+  <text x="34" y="516" font-size="12" font-weight="700" fill="#33507f">读案例时只做一件事</text>
+  <text x="34" y="542" font-size="11.5" fill="#41556f">用笔把这三类东西圈出来：<tspan font-weight="700">角色名</tspan>（人、系统）、<tspan font-weight="700">抱怨的原话</tspan>（「不知道谁有空」）、<tspan font-weight="700">引号里的诉求</tspan>（「自动派单」）。</text>
+  <text x="34" y="566" font-size="11.5" fill="#41556f">这三样圈完，用例图的骨架就有了；剩下的时间全部用来画图和检查符号。</text>
+  <text x="34" y="596" font-size="11" fill="#8a4b4b">反面做法：从头逐句读，读完整页才发现「刚才那句其实是第 1c 题的材料」，回头再找一遍 —— 30 分钟阅读时间就是这么没的。</text>
+</svg>

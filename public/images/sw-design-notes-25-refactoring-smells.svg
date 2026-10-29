@@ -1,56 +1,106 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" role="img" aria-label="四种常见的代码坏味道与对应的重构手法：长参数列表、依恋情结、重复代码、被拒绝的馈赠，以及各自的处理方式；底部给出重构的前提与时机"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 720" width="900" height="720" role="img" aria-label="四种代码坏味道与对应重构手法：长参数列表用引入参数对象解决，依恋情结用移动方法解决，重复代码要抽的是能力归属而不是代码形状，被拒绝的馈赠看子类是否把父类方法重写成空。每个坏味道都配派单宝案例中的具体代码片段；底部给出重构的前提是先有测试，以及三次法则的时机判断"
      font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
   <defs>
-    <linearGradient id="rfbg" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="rsbg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#f8fafd" />
       <stop offset="1" stop-color="#e9eff8" />
     </linearGradient>
+    <marker id="rsArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#b5743a" />
+    </marker>
   </defs>
 
-  <rect width="900" height="600" rx="16" fill="url(#rfbg)" />
-  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">四种坏味道，四种手法</text>
-  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">坏味道不难发现，难的是改动时不破坏行为</text>
+  <rect width="900" height="720" rx="16" fill="url(#rsbg)" />
+  <text x="450" y="38" text-anchor="middle" font-size="21" font-weight="700" fill="#1f3a63">四种坏味道：看到就停下来想一秒</text>
+  <text x="450" y="62" text-anchor="middle" font-size="12.5" fill="#5a6f8c">坏味道不是 bug，它是提示；重构的前提是先有测试</text>
 
-  <rect x="40" y="100" width="400" height="196" rx="12" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="60" y="130" font-size="15" font-weight="700" fill="#8a4b4b">Long Parameter List</text>
-  <text x="60" y="150" font-size="11" fill="#b08787">长参数列表</text>
-  <line x1="60" y1="164" x2="420" y2="164" stroke="#e3ecf5" />
-  <text x="60" y="188" font-size="11.5" fill="#41556f">一个方法要传七八个参数，调用方每次都</text>
-  <text x="60" y="208" font-size="11.5" fill="#41556f">要数清楚顺序，加一个参数就要改所有调用处</text>
-  <text x="60" y="240" font-size="11.5" font-weight="700" fill="#2c6e49">手法：Extract Class / Introduce Parameter Object</text>
-  <text x="60" y="264" font-size="11.5" fill="#5f7183">把这几个参数打包成一个对象，或把一部分</text>
-  <text x="60" y="282" font-size="11.5" fill="#5f7183">逻辑挪回它数据所属的那个类</text>
+  <!-- 1 长参数列表 -->
+  <rect x="34" y="84" width="410" height="170" rx="9" fill="#ffffff" stroke="#b9c8dd" stroke-width="1.4" />
+  <text x="50" y="106" font-size="11.5" font-weight="700" fill="#33507f">① 长参数列表 long parameter list</text>
 
-  <rect x="460" y="100" width="400" height="196" rx="12" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="480" y="130" font-size="15" font-weight="700" fill="#8a4b4b">Feature Envy</text>
-  <text x="480" y="150" font-size="11" fill="#b08787">依恋情结</text>
-  <line x1="480" y1="164" x2="840" y2="164" stroke="#e3ecf5" />
-  <text x="480" y="188" font-size="11.5" fill="#41556f">某个方法对别的类的数据，比对自己类的数据</text>
-  <text x="480" y="208" font-size="11.5" fill="#41556f">更感兴趣，反复调用对方的取值方法</text>
-  <text x="480" y="240" font-size="11.5" font-weight="700" fill="#2c6e49">手法：Move Method</text>
-  <text x="480" y="264" font-size="11.5" fill="#5f7183">把这个方法搬到它真正依赖的那个类里去</text>
-  <text x="480" y="282" font-size="11.5" fill="#5f7183">（回到笔记 20 那条原则）</text>
+  <rect x="50" y="116" width="378" height="52" fill="#fdf2f2" stroke="#e0b4b4" />
+  <text x="58" y="132" font-size="8" font-family="monospace" fill="#8a4b4b">dispatch(orderNo, engineerId, operatorId,</text>
+  <text x="58" y="146" font-size="8" font-family="monospace" fill="#8a4b4b">　　　　 remark, urgent, needPhoto,</text>
+  <text x="58" y="160" font-size="8" font-family="monospace" fill="#8a4b4b">　　　　 photoUrl, priority)</text>
 
-  <rect x="40" y="316" width="400" height="196" rx="12" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="60" y="346" font-size="15" font-weight="700" fill="#8a4b4b">Duplicate Code</text>
-  <text x="60" y="366" font-size="11" fill="#b08787">重复代码</text>
-  <line x1="60" y1="380" x2="420" y2="380" stroke="#e3ecf5" />
-  <text x="60" y="404" font-size="11.5" fill="#41556f">同一段逻辑出现在两三个类里，改动时只改了</text>
-  <text x="60" y="424" font-size="11.5" fill="#41556f">其中一处</text>
-  <text x="60" y="456" font-size="11.5" font-weight="700" fill="#2c6e49">手法：Pull Up / Extract Method</text>
-  <text x="60" y="480" font-size="11.5" fill="#5f7183">相同的部分提到父类，或抽成一个独立方法</text>
-  <text x="60" y="498" font-size="11.5" fill="#5f7183">——但要先确认它们真的会一起变化</text>
+  <text x="50" y="184" font-size="9" fill="#8a4b4b">✗ 八参数，调用方要数顺序</text>
+  <text x="50" y="200" font-size="9" fill="#8a4b4b">✗ needPhoto 与 photoUrl 是一对，urgent 与 priority 重复</text>
 
-  <rect x="460" y="316" width="400" height="196" rx="12" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="480" y="346" font-size="15" font-weight="700" fill="#8a4b4b">Refused Bequest</text>
-  <text x="480" y="366" font-size="11" fill="#b08787">被拒绝的馈赠</text>
-  <line x1="480" y1="380" x2="840" y2="380" stroke="#e3ecf5" />
-  <text x="480" y="404" font-size="11.5" fill="#41556f">子类继承了一堆自己用不上的父类成员，</text>
-  <text x="480" y="424" font-size="11.5" fill="#41556f">只能空着或抛异常</text>
-  <text x="480" y="456" font-size="11.5" font-weight="700" fill="#2c6e49">手法：Pull Down / Replace Inheritance with Delegation</text>
-  <text x="480" y="480" font-size="11.5" fill="#5f7183">把用不上的成员下推到真正需要它的子类，</text>
-  <text x="480" y="498" font-size="11.5" fill="#5f7183">或者干脆改用组合</text>
+  <line x1="50" y1="208" x2="428" y2="208" stroke="#e8eef6" stroke-width="1" />
+  <text x="50" y="224" font-size="9" font-weight="700" fill="#2f6b58">手法：引入参数对象 Introduce Parameter Object</text>
+  <text x="50" y="242" font-size="8.5" fill="#41556f">额外好处：参数之间的关系（有图才有 URL）可写进构造函数</text>
 
-  <text x="450" y="546" text-anchor="middle" font-size="12.5" fill="#33507f">前提：动手之前先有测试 —— 重构不改变外部行为，没测试就分不清「改好了」和「改坏了」</text>
-  <text x="450" y="574" text-anchor="middle" font-size="12.5" fill="#8a4b4b">时机：Rule of Three —— 同样的代码出现第三次，再动手抽取</text>
+  <!-- 2 依恋情结 -->
+  <rect x="456" y="84" width="410" height="170" rx="9" fill="#ffffff" stroke="#b9c8dd" stroke-width="1.4" />
+  <text x="472" y="106" font-size="11.5" font-weight="700" fill="#33507f">② 依恋情结 feature envy</text>
+
+  <rect x="472" y="116" width="378" height="52" fill="#fdf2f2" stroke="#e0b4b4" />
+  <text x="480" y="132" font-size="8" font-family="monospace" fill="#8a4b4b">// 在控制器里</text>
+  <text x="480" y="146" font-size="8" font-family="monospace" fill="#8a4b4b">order.getStatus().equals("IN_PROGRESS")</text>
+  <text x="480" y="160" font-size="8" font-family="monospace" fill="#8a4b4b">&amp;&amp; order.getEngineerId().equals(...)</text>
+
+  <text x="472" y="184" font-size="9" fill="#8a4b4b">✗ 连取 order / stock 的四个方法，自己零字段</text>
+  <text x="472" y="200" font-size="9" fill="#41556f">→ 行为应该由持有状态的对象提供（笔记 20）</text>
+
+  <line x1="472" y1="208" x2="850" y2="208" stroke="#e8eef6" stroke-width="1" />
+  <text x="472" y="224" font-size="9" font-weight="700" fill="#2f6b58">手法：移动方法 Move Method</text>
+  <text x="472" y="242" font-size="8.5" fill="#41556f">改成 order.canRequestParts(engineerId) —— 让 WorkOrder 自己回答</text>
+
+  <!-- 3 重复代码 -->
+  <rect x="34" y="268" width="410" height="170" rx="9" fill="#ffffff" stroke="#b9c8dd" stroke-width="1.4" />
+  <text x="50" y="290" font-size="11.5" font-weight="700" fill="#33507f">③ 重复代码 duplicate code</text>
+
+  <rect x="50" y="300" width="378" height="46" fill="#fdf2f2" stroke="#e0b4b4" />
+  <text x="58" y="316" font-size="8" font-family="monospace" fill="#8a4b4b">「工单状态是否允许某操作」</text>
+  <text x="58" y="330" font-size="8" font-family="monospace" fill="#8a4b4b">在客服端 / 工程师 App / 仓管端各写一遍</text>
+
+  <text x="50" y="364" font-size="9" font-weight="700" fill="#8a4b4b">关键陷阱：看起来像 ≠ 该合并</text>
+  <text x="50" y="382" font-size="9" fill="#41556f">派单要 CREATED，申请配件要 IN_PROGRESS</text>
+  <text x="50" y="398" font-size="9" fill="#41556f">抽成通用 validateStatus() 后，一遇新需求就要加参数</text>
+
+  <line x1="50" y1="408" x2="428" y2="408" stroke="#e8eef6" stroke-width="1" />
+  <text x="50" y="424" font-size="9" font-weight="700" fill="#2f6b58">该抽的是「能力归属」，不是「代码形状」</text>
+
+  <!-- 4 被拒绝的馈赠 -->
+  <rect x="456" y="268" width="410" height="170" rx="9" fill="#fdf7ef" stroke="#d2a074" stroke-width="1.5" />
+  <text x="472" y="290" font-size="11.5" font-weight="700" fill="#9a5f2a">④ 被拒绝的馈赠 refused bequest　★ 考场高频</text>
+
+  <rect x="472" y="300" width="378" height="46" fill="#ffffff" stroke="#d2a074" />
+  <text x="480" y="316" font-size="8" font-family="monospace" fill="#7a4a1e">class OutsourcedEngineer extends Engineer {</text>
+  <text x="480" y="330" font-size="8" font-family="monospace" fill="#8a4b4b">　accept() { }　　requestParts() { return; }</text>
+  <text x="480" y="342" font-size="8" font-family="monospace" fill="#7a4a1e">}</text>
+
+  <text x="472" y="364" font-size="9" font-weight="700" fill="#8a4b4b">判断只看一件事：</text>
+  <text x="472" y="382" font-size="9" fill="#8a4b4b">子类有没有把父类方法重写成空、或直接 return null？</text>
+  <text x="472" y="398" font-size="9" fill="#41556f">有 → 就是被拒绝的馈赠（27 篇那道真题就是这个）</text>
+
+  <line x1="472" y1="408" x2="850" y2="408" stroke="#e8eef6" stroke-width="1" />
+  <text x="472" y="424" font-size="9" font-weight="700" fill="#2f6b58">手法：Pull Down 下推，或改成组合（Replace Inheritance）</text>
+
+  <!-- 为什么先有测试 -->
+  <rect x="34" y="452" width="410" height="128" rx="9" fill="#eef5fc" stroke="#7093c8" stroke-width="1.4" />
+  <text x="50" y="472" font-size="11" font-weight="700" fill="#33507f">重构的前提：先有测试</text>
+  <text x="50" y="492" font-size="9" fill="#41556f">唯一风险是回归风险：改结构时不小心改了行为而不自知</text>
+  <text x="50" y="512" font-size="9" font-weight="700" fill="#2f6b58">重构 dispatch() 之前最该先补这五条：</text>
+  <text x="58" y="530" font-size="8.5" fill="#41556f">① CREATED → ASSIGNED　② 同一单不能派两人</text>
+  <text x="58" y="546" font-size="8.5" fill="#41556f">③ 满 5 单拒绝　④ 有 photoUrl 则 needPhoto 必真</text>
+  <text x="58" y="562" font-size="8.5" fill="#41556f">⑤ 紧急单优先</text>
+
+  <!-- 三次法则 -->
+  <rect x="456" y="452" width="410" height="128" rx="9" fill="#eef7f3" stroke="#7fb89f" stroke-width="1.4" />
+  <text x="472" y="472" font-size="11" font-weight="700" fill="#2f6b58">什么时候动手：三次法则</text>
+  <text x="472" y="492" font-size="9" fill="#41556f">第一次照常写　第二次记下来但忍住　第三次再抽象</text>
+  <text x="472" y="512" font-size="9" font-weight="700" fill="#8a4b4b">本例第二次就抽象会犯什么错：</text>
+  <text x="480" y="530" font-size="8.5" fill="#41556f">做出「通用 validateStatus()」，到第三次（回填要求</text>
+  <text x="480" y="546" font-size="8.5" fill="#41556f">第三个状态值）只能给它加参数 → 再也不是共用逻辑</text>
+  <text x="472" y="566" font-size="8.5" fill="#8b9bb0">等到第三次，你才知道该抽的是「状态机」而非「校验方法」</text>
+
+  <!-- 底部 -->
+  <rect x="34" y="590" width="832" height="60" rx="9" fill="#fdf2f2" stroke="#e0b4b4" />
+  <text x="50" y="610" font-size="10.5" font-weight="700" fill="#8a4b4b">技术债的「利息」是可以量化的</text>
+  <text x="50" y="630" font-size="9.5" fill="#5a6f8c">因为 dispatch() 太长，每次改派单规则要两天（一天读代码、一天改 + 测）。重构花三天，后面还有五次需求 → 省下七天。</text>
+  <text x="50" y="646" font-size="9.5" fill="#8b9bb0">这就是回答「没有时间重构」的方式：不是讲道理，是算账。</text>
+
+  <text x="34" y="678" font-size="10.5" fill="#41556f">「不如重写」的反例：本例「紧急单优先」这条规则没写在需求文档里，只存在于代码中 —— 重写的人很可能漏掉。重写前先补测试，补不出来说明你还不知道它做了什么。</text>
+  <text x="34" y="702" font-size="10" fill="#8b9bb0">注：重构和改需求的界线是「外部行为有没有变」。改了行为就不是重构，要走业务确认与验收。</text>
 </svg>

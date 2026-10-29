@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" role="img" aria-label="Paper 1 的 180 分钟考场时间分配：0 到 30 分钟阅读时间用于读卷并标出角色与痛点，30 到 100 分钟做 Section A 的用例图、活动图与界面草图，100 到 170 分钟做 Section B 的顺序图、类图与重构题，最后 10 分钟回查箭头方向、系统边界与假设声明"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="exbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="500" rx="16" fill="url(#exbg)" />
+  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">Paper 1 的 180 分钟怎么切</text>
+  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">60 分 · 两个 Section 各 30 分 · 前 30 分钟只许读，不许动笔</text>
+
+  <!-- 卡片 1：阅读 -->
+  <rect x="60" y="104" width="183" height="212" rx="12" fill="#ffffff" stroke="#b9c8dd" />
+  <text x="76" y="134" font-size="12" font-weight="700" fill="#6d8099">阅读时间</text>
+  <text x="76" y="164" font-size="17" font-weight="700" fill="#1f3a63">0–30 min</text>
+  <line x1="76" y1="180" x2="227" y2="180" stroke="#dbe4ef" stroke-width="1.4" />
+  <text x="76" y="208" font-size="11.5" fill="#41556f">读两份卷子</text>
+  <text x="76" y="232" font-size="11.5" fill="#41556f">标出所有角色</text>
+  <text x="76" y="256" font-size="11.5" fill="#41556f">痛点、外部系统</text>
+  <text x="76" y="280" font-size="11.5" fill="#8a4b4b">不许动笔，可圈画</text>
+  <text x="76" y="304" font-size="10.5" fill="#8b9bb0">这半小时决定答案</text>
+
+  <!-- 卡片 2：Section A -->
+  <rect x="256" y="104" width="183" height="212" rx="12" fill="#eef5fc" stroke="#7093c8" />
+  <text x="272" y="134" font-size="12" font-weight="700" fill="#33507f">Section A · 30 分</text>
+  <text x="272" y="164" font-size="17" font-weight="700" fill="#1f3a63">30–100 min</text>
+  <line x1="272" y1="180" x2="423" y2="180" stroke="#c8dbee" stroke-width="1.4" />
+  <text x="272" y="208" font-size="11.5" fill="#41556f">用例图（最值钱）</text>
+  <text x="272" y="232" font-size="11.5" fill="#41556f">活动图 + 实体</text>
+  <text x="272" y="256" font-size="11.5" fill="#41556f">界面草图 + 隐喻</text>
+  <text x="272" y="280" font-size="11.5" fill="#33507f">想清楚才能画</text>
+  <text x="272" y="304" font-size="10.5" fill="#8b9bb0">越放到后面越乱</text>
+
+  <!-- 卡片 3：Section B -->
+  <rect x="452" y="104" width="183" height="212" rx="12" fill="#eef7f3" stroke="#6fa894" />
+  <text x="468" y="134" font-size="12" font-weight="700" fill="#2f6b58">Section B · 30 分</text>
+  <text x="468" y="164" font-size="17" font-weight="700" fill="#1f3a63">100–170 min</text>
+  <line x1="468" y1="180" x2="619" y2="180" stroke="#cbe4db" stroke-width="1.4" />
+  <text x="468" y="208" font-size="11.5" fill="#41556f">顺序图：照 flow 推</text>
+  <text x="468" y="232" font-size="11.5" fill="#41556f">类图：从顺序图导出</text>
+  <text x="468" y="256" font-size="11.5" fill="#41556f">坏味道 + 重构</text>
+  <text x="468" y="280" font-size="11.5" fill="#2f6b58">需要连续的时间</text>
+  <text x="468" y="304" font-size="10.5" fill="#8b9bb0">别被文字题切碎</text>
+
+  <!-- 卡片 4：回查 -->
+  <rect x="648" y="104" width="183" height="212" rx="12" fill="#fdf4ec" stroke="#d2a074" />
+  <text x="664" y="134" font-size="12" font-weight="700" fill="#9a5f2a">交卷前回查</text>
+  <text x="664" y="164" font-size="17" font-weight="700" fill="#1f3a63">170–180 min</text>
+  <line x1="664" y1="180" x2="815" y2="180" stroke="#eddccb" stroke-width="1.4" />
+  <text x="664" y="208" font-size="11.5" fill="#41556f">include/extend 方向</text>
+  <text x="664" y="232" font-size="11.5" fill="#41556f">系统边界画了吗</text>
+  <text x="664" y="256" font-size="11.5" fill="#41556f">actor 都在框外吗</text>
+  <text x="664" y="280" font-size="11.5" fill="#41556f">实体读写箭头</text>
+  <text x="664" y="304" font-size="11.5" fill="#8a4b4b">Assumption 写了吗</text>
+
+  <!-- 底部原则 -->
+  <line x1="60" y1="344" x2="840" y2="344" stroke="#d3deea" stroke-width="1.4" />
+  <text x="60" y="376" font-size="13.5" font-weight="700" fill="#33507f">两条排序原则</text>
+  <text x="60" y="404" font-size="12" fill="#41556f">① 画图题优先，能查书的题垫后 —— 文字题写多了不会多给分，图没画完一定扣分。</text>
+  <text x="60" y="428" font-size="12" fill="#41556f">② 每张图画完停 5 分钟专查符号与方向 —— 这 10 分钟通常能捞回 2–4 分。</text>
+  <text x="60" y="468" font-size="11.5" fill="#8a4b4b">反例：先花 20 分钟写「坏味道」的文字答案，回头只剩 15 分钟画顺序图 —— 那 10 分基本就丢了。</text>
+</svg>

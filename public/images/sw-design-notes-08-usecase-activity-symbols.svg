@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 800" width="900" height="800" role="img" aria-label="用例图与活动图的符号特写对照：左列是用例图的参与者、用例、系统边界、关联线、include、extend、泛化七个符号；右列是活动图的开始状态、结束状态、动作、转移、判断菱形、同步条、泳道七个符号。每个符号下方标注 draw.io 的搜索关键词"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="sym8bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+    <marker id="open8" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 1 1 L 11 6 L 1 11" fill="none" stroke="#4b6f9c" stroke-width="1.4" />
+    </marker>
+  </defs>
+
+  <rect width="900" height="800" rx="16" fill="url(#sym8bg)" />
+  <text x="450" y="42" text-anchor="middle" font-size="21" font-weight="700" fill="#1f3a63">用例图与活动图：每个符号在 draw.io 里搜什么</text>
+  <text x="450" y="66" text-anchor="middle" font-size="12.5" fill="#5a6f8c">先打开 UML 形状库（More Shapes → 勾选 UML），再用左侧搜索框输入蓝色标签里的词</text>
+
+  <!-- ================= 左列：用例图 ================= -->
+  <rect x="30" y="86" width="410" height="676" rx="12" fill="#ffffff" stroke="#b9c8dd" />
+  <text x="48" y="112" font-size="14" font-weight="700" fill="#33507f">用例图 · 七个符号</text>
+
+  <!-- 1 actor -->
+  <circle cx="90" cy="152" r="7" fill="#ffffff" stroke="#33507f" stroke-width="1.9" />
+  <line x1="90" y1="159" x2="90" y2="179" stroke="#33507f" stroke-width="1.9" />
+  <line x1="76" y1="166" x2="104" y2="166" stroke="#33507f" stroke-width="1.9" />
+  <line x1="90" y1="179" x2="80" y2="193" stroke="#33507f" stroke-width="1.9" />
+  <line x1="90" y1="179" x2="100" y2="193" stroke="#33507f" stroke-width="1.9" />
+  <text x="90" y="210" text-anchor="middle" font-size="10" fill="#1f3a63">Customer</text>
+  <text x="146" y="150" font-size="11.5" font-weight="700" fill="#1f3a63">参与者 actor</text>
+  <text x="146" y="168" font-size="10.5" fill="#41556f">火柴人，一律画在系统边界外</text>
+  <rect x="146" y="178" width="104" height="19" rx="3" fill="#eef5fc" stroke="#c4d4e7" />
+  <text x="152" y="191" font-size="9.5" fill="#2f5c8f">搜 actor</text>
+
+  <!-- 2 use case -->
+  <ellipse cx="90" cy="256" rx="60" ry="16" fill="#eef5fc" stroke="#7093c8" />
+  <text x="90" y="260" text-anchor="middle" font-size="9.5" fill="#1f3a63">Report Fault</text>
+  <text x="166" y="248" font-size="11.5" font-weight="700" fill="#1f3a63">用例 use case</text>
+  <text x="166" y="266" font-size="10.5" fill="#41556f">椭圆，名字用动宾短语</text>
+  <rect x="166" y="276" width="104" height="19" rx="3" fill="#eef5fc" stroke="#c4d4e7" />
+  <text x="172" y="289" font-size="9.5" fill="#2f5c8f">搜 use case</text>
+
+  <!-- 3 boundary -->
+  <rect x="40" y="316" width="112" height="54" rx="4" fill="none" stroke="#33507f" stroke-dasharray="5 3" />
+  <text x="96" y="334" text-anchor="middle" font-size="8.5" fill="#33507f">维修派单系统</text>
+  <ellipse cx="96" cy="352" rx="34" ry="9" fill="#eef5fc" stroke="#7093c8" />
+  <text x="166" y="330" font-size="11.5" font-weight="700" fill="#1f3a63">系统边界 boundary</text>
+  <text x="166" y="348" font-size="10.5" fill="#41556f">矩形框，用例全放框内</text>
+  <rect x="166" y="358" width="150" height="19" rx="3" fill="#eef5fc" stroke="#c4d4e7" />
+  <text x="172" y="371" font-size="9.5" fill="#2f5c8f">搜 boundary，或手画矩形</text>
+
+  <!-- 4 association -->
+  <circle cx="54" cy="404" r="5" fill="#ffffff" stroke="#33507f" stroke-width="1.6" />
+  <line x1="54" y1="409" x2="54" y2="423" stroke="#33507f" stroke-width="1.6" />
+  <line x1="45" y1="414" x2="63" y2="414" stroke="#33507f" stroke-width="1.6" />
+  <line x1="54" y1="423" x2="47" y2="433" stroke="#33507f" stroke-width="1.6" />
+  <line x1="54" y1="423" x2="61" y2="433" stroke="#33507f" stroke-width="1.6" />
+  <line x1="64" y1="416" x2="120" y2="410" stroke="#7093c8" stroke-width="1.6" />
+  <ellipse cx="158" cy="408" rx="36" ry="11" fill="#eef5fc" stroke="#7093c8" />
+  <text x="158" y="411" text-anchor="middle" font-size="8.5" fill="#1f3a63">Report Fault</text>
+  <text x="210" y="400" font-size="11.5" font-weight="700" fill="#1f3a63">关联 association</text>
+  <text x="210" y="418" font-size="10.5" fill="#41556f">实线，多数情况不带箭头</text>
+  <text x="210" y="436" font-size="9.5" fill="#8a4b4b">系统主动推送时才画向 actor</text>
+
+  <!-- 5 include -->
+  <text x="48" y="474" font-size="11" font-weight="700" fill="#33507f">三种精炼关系：方向是唯一的记忆锚点</text>
+
+  <!-- include 组 -->
+  <ellipse cx="104" cy="512" rx="52" ry="13" fill="#eef5fc" stroke="#7093c8" />
+  <text x="104" y="515" text-anchor="middle" font-size="8" fill="#1f3a63">Assign Order</text>
+  <line x1="104" y1="525" x2="104" y2="546" stroke="#4b6f9c" stroke-width="1.4" stroke-dasharray="5 3" marker-end="url(#open8)" />
+  <ellipse cx="104" cy="558" rx="52" ry="13" fill="#ffffff" stroke="#7093c8" />
+  <text x="104" y="561" text-anchor="middle" font-size="8" fill="#1f3a63">Verify Customer</text>
+  <text x="112" y="540" font-size="8.5" font-weight="700" fill="#8a4b4b">«include»</text>
+  <text x="48" y="586" font-size="10.5" font-weight="700" fill="#8a4b4b">include：基用例 → 被包含</text>
+  <text x="48" y="602" font-size="9.5" fill="#41556f">每次必执行，无条件</text>
+
+  <!-- extend 组 -->
+  <ellipse cx="290" cy="512" rx="52" ry="13" fill="#ffffff" stroke="#7093c8" />
+  <text x="290" y="515" text-anchor="middle" font-size="8" fill="#1f3a63">Upload Photo</text>
+  <line x1="290" y1="525" x2="290" y2="546" stroke="#4b6f9c" stroke-width="1.4" stroke-dasharray="5 3" marker-end="url(#open8)" />
+  <ellipse cx="290" cy="558" rx="52" ry="13" fill="#eef5fc" stroke="#7093c8" />
+  <text x="290" y="561" text-anchor="middle" font-size="8" fill="#1f3a63">Report Fault</text>
+  <text x="298" y="540" font-size="8.5" font-weight="700" fill="#8a4b4b">«extend»</text>
+  <text x="226" y="586" font-size="10.5" font-weight="700" fill="#8a4b4b">extend：扩展 → 基用例</text>
+  <text x="226" y="602" font-size="9.5" fill="#41556f">条件写箭头旁，不加方括号</text>
+
+  <!-- 6 generalization -->
+  <ellipse cx="80" cy="672" rx="24" ry="10" fill="#eef5fc" stroke="#7093c8" />
+  <text x="80" y="675" text-anchor="middle" font-size="7.5" fill="#1f3a63">Clerk</text>
+  <ellipse cx="150" cy="672" rx="32" ry="10" fill="#eef5fc" stroke="#7093c8" />
+  <text x="150" y="675" text-anchor="middle" font-size="7.5" fill="#1f3a63">Engineer</text>
+  <text x="238" y="660" font-size="11.5" font-weight="700" fill="#1f3a63">泛化 generalization</text>
+  <text x="238" y="678" font-size="10.5" fill="#8a4b4b">子 → 父，空心三角指父</text>
+  <text x="238" y="696" font-size="10" fill="#41556f">actor 与用例都能用</text>
+  <line x1="86" y1="662" x2="106" y2="641" stroke="#4b6f9c" stroke-width="1.3" />
+  <line x1="144" y1="662" x2="124" y2="641" stroke="#4b6f9c" stroke-width="1.3" />
+  <path d="M 100 641 L 115 629 L 130 641 z" fill="#ffffff" stroke="#4b6f9c" stroke-width="1.3" />
+  <ellipse cx="115" cy="617" rx="26" ry="10" fill="#eef5fc" stroke="#7093c8" />
+  <text x="115" y="620" text-anchor="middle" font-size="7.5" fill="#1f3a63">Staff</text>
+
+  <!-- ================= 右列：活动图 ================= -->
+  <rect x="460" y="86" width="410" height="676" rx="12" fill="#ffffff" stroke="#b9c8dd" />
+  <text x="478" y="112" font-size="14" font-weight="700" fill="#33507f">活动图 · 七个符号</text>
+
+  <!-- 1 start -->
+  <circle cx="500" cy="152" r="8" fill="#22334a" />
+  <text x="520" y="148" font-size="11.5" font-weight="700" fill="#1f3a63">开始状态</text>
+  <text x="520" y="166" font-size="10.5" fill="#41556f">实心黑圆，全图只有一个</text>
+  <rect x="520" y="176" width="90" height="19" rx="3" fill="#eef5fc" stroke="#c4d4e7" />
+  <text x="526" y="189" font-size="9.5" fill="#2f5c8f">搜 start</text>
+
+  <!-- 2 end -->
+  <circle cx="500" cy="234" r="10" fill="#22334a" />
+  <circle cx="500" cy="234" r="5.5" fill="#ffffff" />
+  <text x="520" y="230" font-size="11.5" font-weight="700" fill="#1f3a63">结束状态</text>
+  <text x="520" y="248" font-size="10.5" fill="#41556f">黑圆套白圆，可以有多个</text>
+  <rect x="520" y="258" width="90" height="19" rx="3" fill="#eef5fc" stroke="#c4d4e7" />
+  <text x="526" y="271" font-size="9.5" fill="#2f5c8f">搜 end</text>
+
+  <!-- 3 activity -->
+  <rect x="470" y="308" width="96" height="26" rx="13" fill="#eef5fc" stroke="#7093c8" />
+  <text x="518" y="325" text-anchor="middle" font-size="9" fill="#1f3a63">Check Stock</text>
+  <text x="580" y="312" font-size="11.5" font-weight="700" fill="#1f3a63">动作 activity</text>
+  <text x="580" y="330" font-size="10.5" fill="#41556f">圆角矩形，动词开头</text>
+  <rect x="580" y="340" width="146" height="19" rx="3" fill="#eef5fc" stroke="#c4d4e7" />
+  <text x="586" y="353" font-size="9.5" fill="#2f5c8f">搜 rounded rectangle</text>
+
+  <!-- 4 transition -->
+  <line x1="482" y1="380" x2="482" y2="404" stroke="#4b6f9c" stroke-width="1.5" marker-end="url(#open8)" />
+  <text x="520" y="388" font-size="11.5" font-weight="700" fill="#1f3a63">转移 transition</text>
+  <text x="520" y="406" font-size="10.5" fill="#41556f">开放箭头的实线</text>
+  <text x="520" y="424" font-size="9.5" fill="#41556f">拖形状边缘的小箭头直接连</text>
+
+  <!-- 5 decision -->
+  <path d="M 500 456 L 526 480 L 500 504 L 474 480 z" fill="#eef5fc" stroke="#7093c8" />
+  <line x1="529" y1="480" x2="554" y2="480" stroke="#4b6f9c" stroke-width="1.4" marker-end="url(#open8)" />
+  <text x="540" y="472" font-size="8.5" font-weight="700" fill="#8a4b4b">[yes]</text>
+  <text x="580" y="466" font-size="11.5" font-weight="700" fill="#1f3a63">判断 decision</text>
+  <text x="580" y="484" font-size="10.5" fill="#41556f">菱形，分支条件写在方括号里</text>
+  <rect x="580" y="494" width="110" height="19" rx="3" fill="#eef5fc" stroke="#c4d4e7" />
+  <text x="586" y="507" font-size="9.5" fill="#2f5c8f">搜 decision</text>
+  <text x="580" y="530" font-size="9.5" fill="#8a4b4b">条件漏方括号 = 写法错误</text>
+
+  <!-- 6 fork -->
+  <rect x="470" y="552" width="60" height="6" rx="2" fill="#22334a" />
+  <text x="580" y="552" font-size="11.5" font-weight="700" fill="#1f3a63">同步条 fork / join</text>
+  <text x="580" y="570" font-size="10.5" fill="#41556f">粗黑线，并行开始或汇合</text>
+  <rect x="580" y="580" width="146" height="19" rx="3" fill="#eef5fc" stroke="#c4d4e7" />
+  <text x="586" y="593" font-size="9.5" fill="#2f5c8f">搜 horizontal bar</text>
+
+  <!-- 7 swimlane -->
+  <rect x="470" y="618" width="38" height="62" rx="3" fill="#eef5fc" stroke="#7093c8" opacity="0.75" />
+  <rect x="512" y="618" width="38" height="62" rx="3" fill="#eef5fc" stroke="#7093c8" opacity="0.75" />
+  <rect x="554" y="618" width="38" height="62" rx="3" fill="#eef5fc" stroke="#7093c8" opacity="0.75" />
+  <text x="489" y="634" text-anchor="middle" font-size="7.5" fill="#33507f">客服</text>
+  <text x="531" y="634" text-anchor="middle" font-size="7.5" fill="#33507f">工程师</text>
+  <text x="573" y="634" text-anchor="middle" font-size="7.5" fill="#33507f">仓管</text>
+  <text x="616" y="640" font-size="11.5" font-weight="700" fill="#1f3a63">泳道 swimlane</text>
+  <text x="616" y="658" font-size="10.5" fill="#41556f">按执行者分竖区</text>
+  <text x="616" y="676" font-size="9.5" fill="#8a4b4b">不会自动吸附</text>
+  <text x="616" y="692" font-size="9.5" fill="#41556f">先排活动，最后画框</text>
+
+  <text x="30" y="790" font-size="10.5" fill="#8b9bb0">注：draw.io 各版本菜单文字略有差异，优先用左侧形状库的搜索框，比记菜单路径稳。</text>
+</svg>

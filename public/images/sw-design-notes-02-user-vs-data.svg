@@ -1,71 +1,122 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 580" width="900" height="580" role="img" aria-label="用户驱动设计、data-informed design 与数据驱动设计的对比：用户驱动以访谈、问卷、观察为输入，擅长回答为什么和还想要什么，盲点是用户把解决方案当成需求讲、自述与行为不一致；数据驱动以埋点、交易日志、A/B 测试为输入，擅长回答发生了什么和规模多大，盲点是只记录已发生的行为、看不出为什么；data-informed design 同时使用说法与行为两路输入，代价是两条腿都要有人做"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" width="900" height="620" role="img" aria-label="用户驱动、数据驱动与数据知情设计的对比：左列用户驱动以访谈、问卷、观察为输入，擅长回答为什么和还想要什么，盲点是用户把解决方案当成需求讲、自述与行为不一致；中列数据驱动以埋点、交易记录、日志为输入，擅长回答发生了什么和规模多大，盲点是只记录已发生的行为、看不出为什么；右列数据知情设计同时使用说法与行为两路输入，代价是两条腿都要有人做。底部用派单宝案例给出一条从数据到设计决策的完整链路"
      font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
   <defs>
     <linearGradient id="udbg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#f8fafd" />
       <stop offset="1" stop-color="#e9eff8" />
     </linearGradient>
+    <marker id="udArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7093c8" />
+    </marker>
   </defs>
 
-  <rect width="900" height="580" rx="16" fill="url(#udbg)" />
+  <rect width="900" height="620" rx="16" fill="url(#udbg)" />
+  <text x="450" y="38" text-anchor="middle" font-size="21" font-weight="700" fill="#1f3a63">说法与行为：两路输入，各自看得见什么</text>
+  <text x="450" y="62" text-anchor="middle" font-size="12.5" fill="#5a6f8c">数据告诉你发生了什么，用户告诉你为什么，以及还可能想要什么</text>
 
-  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">用户驱动、数据驱动，以及两者的落点</text>
-  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">两边各自都能走通一半，合起来才够用</text>
+  <!-- 用户驱动 -->
+  <rect x="30" y="84" width="270" height="248" rx="10" fill="#ffffff" stroke="#7093c8" stroke-width="1.4" />
+  <text x="165" y="108" text-anchor="middle" font-size="12.5" font-weight="700" fill="#33507f">用户驱动</text>
+  <text x="165" y="124" text-anchor="middle" font-size="8.5" fill="#8b9bb0">user-driven design</text>
 
-  <!-- 左卡：用户驱动 -->
-  <rect x="40" y="98" width="252" height="398" rx="12" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="60" y="132" font-size="17" font-weight="700" fill="#1f3a63">用户驱动设计</text>
-  <text x="60" y="152" font-size="11" fill="#7b8ea8">User-Driven Design</text>
-  <line x1="60" y1="168" x2="272" y2="168" stroke="#e3ecf5" />
-  <text x="60" y="192" font-size="11.5" font-weight="700" fill="#33507f">主要输入</text>
-  <text x="60" y="214" font-size="12" fill="#41556f">访谈、问卷、观察</text>
-  <text x="60" y="234" font-size="12" fill="#41556f">参与式设计</text>
-  <line x1="60" y1="254" x2="272" y2="254" stroke="#e3ecf5" />
-  <text x="60" y="278" font-size="11.5" font-weight="700" fill="#33507f">擅长回答</text>
-  <text x="60" y="300" font-size="12" fill="#41556f">为什么</text>
-  <text x="60" y="320" font-size="12" fill="#41556f">还可能想要什么</text>
-  <line x1="60" y1="340" x2="272" y2="340" stroke="#e3ecf5" />
-  <text x="60" y="364" font-size="11.5" font-weight="700" fill="#8a4b4b">盲点</text>
-  <text x="60" y="386" font-size="12" fill="#5f7183">把解决方案当成需求讲</text>
-  <text x="60" y="406" font-size="12" fill="#5f7183">自述与行为不一致</text>
-  <text x="60" y="426" font-size="12" fill="#5f7183">描述不出没见过的东西</text>
+  <text x="46" y="148" font-size="9" font-weight="700" fill="#1f3a63">输入</text>
+  <text x="46" y="164" font-size="8.5" fill="#41556f">访谈 / 问卷 / 观察 / 参与式设计</text>
 
-  <!-- 中卡：data-informed（高亮） -->
-  <rect x="324" y="98" width="252" height="398" rx="12" fill="#eef5fc" stroke="#7093c8" stroke-width="2" />
-  <text x="344" y="132" font-size="17" font-weight="700" fill="#1f3a63">data-informed</text>
-  <text x="344" y="152" font-size="11" fill="#5c7391">数据知情设计</text>
-  <line x1="344" y1="168" x2="556" y2="168" stroke="#d3e3f2" />
-  <text x="344" y="192" font-size="11.5" font-weight="700" fill="#2c6e49">主要输入</text>
-  <text x="344" y="214" font-size="12" fill="#41556f">说法 + 行为，两路都看</text>
-  <line x1="344" y1="234" x2="556" y2="234" stroke="#d3e3f2" />
-  <text x="344" y="258" font-size="11.5" font-weight="700" fill="#2c6e49">擅长回答</text>
-  <text x="344" y="280" font-size="12" fill="#41556f">发生了什么</text>
-  <text x="344" y="300" font-size="12" fill="#41556f">以及为什么</text>
-  <line x1="344" y1="320" x2="556" y2="320" stroke="#d3e3f2" />
-  <text x="344" y="344" font-size="11.5" font-weight="700" fill="#8a4b4b">代价</text>
-  <text x="344" y="366" font-size="12" fill="#5f7183">两条腿都要有人做</text>
-  <text x="344" y="386" font-size="12" fill="#5f7183">周期更长、成本更高</text>
-  <text x="344" y="406" font-size="12" fill="#5f7183">结论分歧时要有人裁决</text>
+  <text x="46" y="188" font-size="9" font-weight="700" fill="#2f6b58">擅长回答</text>
+  <text x="46" y="204" font-size="8.5" fill="#41556f">为什么这么做</text>
+  <text x="46" y="220" font-size="8.5" fill="#41556f">还想要什么（数据里没有的）</text>
 
-  <!-- 右卡：数据驱动 -->
-  <rect x="608" y="98" width="252" height="398" rx="12" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="628" y="132" font-size="17" font-weight="700" fill="#1f3a63">数据驱动设计</text>
-  <text x="628" y="152" font-size="11" fill="#7b8ea8">Data-Driven Design</text>
-  <line x1="628" y1="168" x2="840" y2="168" stroke="#e3ecf5" />
-  <text x="628" y="192" font-size="11.5" font-weight="700" fill="#33507f">主要输入</text>
-  <text x="628" y="214" font-size="12" fill="#41556f">埋点、交易日志</text>
-  <text x="628" y="234" font-size="12" fill="#41556f">A/B 测试</text>
-  <line x1="628" y1="254" x2="840" y2="254" stroke="#e3ecf5" />
-  <text x="628" y="278" font-size="11.5" font-weight="700" fill="#33507f">擅长回答</text>
-  <text x="628" y="300" font-size="12" fill="#41556f">发生了什么</text>
-  <text x="628" y="320" font-size="12" fill="#41556f">规模有多大</text>
-  <line x1="628" y1="340" x2="840" y2="340" stroke="#e3ecf5" />
-  <text x="628" y="364" font-size="11.5" font-weight="700" fill="#8a4b4b">盲点</text>
-  <text x="628" y="386" font-size="12" fill="#5f7183">只记录已发生的行为</text>
-  <text x="628" y="406" font-size="12" fill="#5f7183">看不出为什么</text>
-  <text x="628" y="426" font-size="12" fill="#5f7183">沉默用户没有声音</text>
+  <text x="46" y="244" font-size="9" font-weight="700" fill="#8a4b4b">四个盲点</text>
+  <text x="46" y="260" font-size="8.5" fill="#8a4b4b">① 把解决方案当需求讲</text>
+  <text x="46" y="276" font-size="8.5" fill="#8a4b4b">② 自述与实际行为对不上</text>
+  <text x="46" y="292" font-size="8.5" fill="#8a4b4b">③ 聚焦小组被大嗓门带偏</text>
+  <text x="46" y="308" font-size="8.5" fill="#8a4b4b">④ 描述不出没见过的东西</text>
 
-  <!-- 底部结论 -->
-  <rect x="40" y="512" width="820" height="48" rx="10" fill="#ffffff" opacity="0.8" stroke="#d3e0ee" />
-  <text x="450" y="542" text-anchor="middle" font-size="13" fill="#33507f">数据告诉你发生了什么，用户告诉你为什么 —— 缺哪一半，都只能猜</text>
+  <text x="46" y="326" font-size="8" fill="#8b9bb0">→ 别指望用户帮你做设计</text>
+
+  <!-- 数据驱动 -->
+  <rect x="316" y="84" width="270" height="248" rx="10" fill="#ffffff" stroke="#c79a6d" stroke-width="1.4" />
+  <text x="451" y="108" text-anchor="middle" font-size="12.5" font-weight="700" fill="#9a5f2a">数据驱动</text>
+  <text x="451" y="124" text-anchor="middle" font-size="8.5" fill="#8b9bb0">data-driven design</text>
+
+  <text x="332" y="148" font-size="9" font-weight="700" fill="#1f3a63">输入</text>
+  <text x="332" y="164" font-size="8.5" fill="#41556f">埋点 / 交易记录 / 日志 / A/B 测试</text>
+
+  <text x="332" y="188" font-size="9" font-weight="700" fill="#2f6b58">擅长回答</text>
+  <text x="332" y="204" font-size="8.5" fill="#41556f">发生了什么、规模多大</text>
+  <text x="332" y="220" font-size="8.5" fill="#41556f">改进前后可对比</text>
+
+  <text x="332" y="244" font-size="9" font-weight="700" fill="#8a4b4b">四个盲点</text>
+  <text x="332" y="260" font-size="8.5" fill="#8a4b4b">① 只记录已发生的行为</text>
+  <text x="332" y="276" font-size="8.5" fill="#8a4b4b">② 看得出什么，看不出为什么</text>
+  <text x="332" y="292" font-size="8.5" fill="#8a4b4b">③ 沉默的用户没有声音</text>
+  <text x="332" y="308" font-size="8.5" fill="#8a4b4b">④ 数据本身可能是有偏的</text>
+
+  <text x="332" y="326" font-size="8" fill="#8b9bb0">→ 想不出某个组合就永远测不到</text>
+
+  <!-- 箭头 -->
+  <line x1="304" y1="208" x2="312" y2="208" stroke="#7093c8" stroke-width="0" />
+  <line x1="588" y1="208" x2="608" y2="208" stroke="#7093c8" stroke-width="2" marker-end="url(#udArrow)" />
+
+  <!-- data-informed -->
+  <rect x="612" y="84" width="258" height="248" rx="10" fill="#eef7f3" stroke="#2f6b58" stroke-width="1.6" />
+  <text x="741" y="108" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2f6b58">数据知情设计</text>
+  <text x="741" y="124" text-anchor="middle" font-size="8.5" fill="#8b9bb0">data-informed design</text>
+
+  <text x="628" y="148" font-size="9" font-weight="700" fill="#1f3a63">输入</text>
+  <text x="628" y="164" font-size="8.5" fill="#2f6b58">说法 + 行为，两路都看</text>
+
+  <text x="628" y="188" font-size="9" font-weight="700" fill="#2f6b58">擅长回答</text>
+  <text x="628" y="204" font-size="8.5" fill="#41556f">现象 + 原因</text>
+
+  <text x="628" y="228" font-size="9" font-weight="700" fill="#8a4b4b">代价</text>
+  <text x="628" y="244" font-size="8.5" fill="#8a4b4b">两条腿都要有人做，成本更高</text>
+
+  <text x="628" y="268" font-size="9" font-weight="700" fill="#1f3a63">关键区别</text>
+  <text x="628" y="284" font-size="8.5" fill="#41556f">data-driven 把数据当决策者</text>
+  <text x="628" y="300" font-size="8.5" font-weight="700" fill="#2f6b58">data-informed 把数据当输入之一</text>
+
+  <text x="628" y="322" font-size="8" fill="#8b9bb0">落点：现象有解释，方案有依据</text>
+
+  <!-- 案例链路 -->
+  <text x="30" y="360" font-size="12.5" font-weight="700" fill="#33507f">本例走一遍：从数据到设计决策</text>
+
+  <rect x="30" y="370" width="196" height="90" rx="8" fill="#fdf7ef" stroke="#d2a074" />
+  <text x="44" y="390" font-size="9.5" font-weight="700" fill="#9a5f2a">① 现象（数据）</text>
+  <text x="44" y="408" font-size="8.5" fill="#7a4a1e">「全片区排期总览」</text>
+  <text x="44" y="424" font-size="8.5" fill="#7a4a1e">使用率 3%</text>
+  <text x="44" y="444" font-size="8" fill="#8b9bb0">数据只说它被跳过</text>
+
+  <line x1="228" y1="415" x2="240" y2="415" stroke="#7093c8" stroke-width="1.8" marker-end="url(#udArrow)" />
+
+  <rect x="244" y="370" width="196" height="90" rx="8" fill="#eef5fc" stroke="#7093c8" />
+  <text x="258" y="390" font-size="9.5" font-weight="700" fill="#33507f">② 原因（访谈）</text>
+  <text x="258" y="408" font-size="8.5" fill="#41556f">她要的不是「谁有空」</text>
+  <text x="258" y="424" font-size="8.5" fill="#41556f">而是「谁能修这个且最近」</text>
+  <text x="258" y="444" font-size="8" fill="#8b9bb0">一次访谈就解释清了异常</text>
+
+  <line x1="442" y1="415" x2="454" y2="415" stroke="#7093c8" stroke-width="1.8" marker-end="url(#udArrow)" />
+
+  <rect x="458" y="370" width="196" height="90" rx="8" fill="#eef5fc" stroke="#7093c8" />
+  <text x="472" y="390" font-size="9.5" font-weight="700" fill="#33507f">③ 假设（可验证）</text>
+  <text x="472" y="408" font-size="8.5" fill="#41556f">派单时给出 3 个候选人</text>
+  <text x="472" y="424" font-size="8.5" fill="#41556f">派单耗时 3 分钟 → 1 分钟</text>
+  <text x="472" y="444" font-size="8" fill="#8b9bb0">「→」后面是验证条件</text>
+
+  <line x1="656" y1="415" x2="668" y2="415" stroke="#7093c8" stroke-width="1.8" marker-end="url(#udArrow)" />
+
+  <rect x="672" y="370" width="198" height="90" rx="8" fill="#eef7f3" stroke="#2f6b58" />
+  <text x="686" y="390" font-size="9.5" font-weight="700" fill="#2f6b58">④ 回数据验证</text>
+  <text x="686" y="408" font-size="8.5" fill="#41556f">看派单耗时有没有真的降</text>
+  <text x="686" y="424" font-size="8.5" fill="#41556f">没降就说明假设错了</text>
+  <text x="686" y="444" font-size="8" fill="#8b9bb0">没有写成假设的洞察只是意见</text>
+
+  <!-- 底部 -->
+  <rect x="30" y="480" width="840" height="58" rx="8" fill="#fdf2f2" stroke="#e0b4b4" />
+  <text x="46" y="500" font-size="10.5" font-weight="700" fill="#8a4b4b">翻车点在哪：问题定义错了</text>
+  <text x="46" y="518" font-size="9.5" fill="#5a6f8c">定义成「需要看全部排期」→ 做出 40×7 的大表；定义成「需要快速找到能修这个型号且最近的人」→ 做出 3 个候选人的面板。</text>
+  <text x="46" y="532" font-size="9" fill="#8b9bb0">问题定义的质量，决定了方案的天花板 —— 这不是缺创意，是缺翻译。</text>
+
+  <text x="30" y="566" font-size="10.5" fill="#41556f">提问五条：问过去行为（不问未来意愿）｜ 问为什么（少问是不是）｜ 不诱导 ｜ 一次只问一件事 ｜ 用观察校验说法。</text>
+  <text x="30" y="592" font-size="10.5" fill="#8a4b4b">本例最有效的一问：「如果不考虑任何技术限制，你最希望哪一步消失？」—— 小林答「打电话问谁有空」，那正是后来被做掉的那一步。</text>
 </svg>

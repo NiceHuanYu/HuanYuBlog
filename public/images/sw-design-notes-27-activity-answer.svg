@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 690" width="900" height="690" role="img" aria-label="申请配件的活动图成品：三条竖直泳道分别是工程师、系统、仓管。流程从实心圆开始，经提交备料申请、校验工单状态、查询供应商库存，进入库存是否充足的判断菱形，分为有库存与无库存两条分支；有库存时进入仓管泳道的生成出库单，无库存时由系统把工单置为待件挂起并通知客户改约，两条分支汇到结束状态。图右侧竖排四个业务实体：工单、库存项、出库单、配件消耗，并用两条橙色箭头示范读与写的相反方向"
+     font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="adbg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafd" />
+      <stop offset="1" stop-color="#e9eff8" />
+    </linearGradient>
+    <marker id="adArrow2" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 1 1 L 11 6 L 1 11" fill="none" stroke="#4b6f9c" stroke-width="1.4" />
+    </marker>
+    <marker id="adRead2" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 1 1 L 11 6 L 1 11" fill="none" stroke="#b5743a" stroke-width="1.6" />
+    </marker>
+  </defs>
+
+  <rect width="900" height="690" rx="16" fill="url(#adbg2)" />
+  <text x="450" y="38" text-anchor="middle" font-size="20" font-weight="700" fill="#1f3a63">Figure 2: Request Parts —— 含实体的活动图</text>
+  <text x="450" y="60" text-anchor="middle" font-size="12" fill="#5a6f8c">三道泳道 + 一个判断 + 四个实体；橙色两条线示范读与写的相反方向</text>
+
+  <!-- 泳道 -->
+  <rect x="50" y="86" width="480" height="446" rx="6" fill="#f4f8fd" opacity="0.6" stroke="#b7c7dd" />
+  <rect x="50" y="86" width="160" height="446" rx="6" fill="#eef5fc" opacity="0.6" stroke="#b7c7dd" />
+  <rect x="210" y="86" width="160" height="446" rx="6" fill="#f6fafd" opacity="0.6" stroke="#b7c7dd" />
+  <rect x="370" y="86" width="160" height="446" rx="6" fill="#eef5fc" opacity="0.6" stroke="#b7c7dd" />
+
+  <rect x="50" y="86" width="480" height="28" rx="6" fill="#dce8f6" stroke="#b7c7dd" />
+  <text x="130" y="105" text-anchor="middle" font-size="11.5" font-weight="700" fill="#33507f">工程师</text>
+  <text x="290" y="105" text-anchor="middle" font-size="11.5" font-weight="700" fill="#33507f">系统</text>
+  <text x="450" y="105" text-anchor="middle" font-size="11.5" font-weight="700" fill="#33507f">仓管</text>
+  <line x1="210" y1="86" x2="210" y2="532" stroke="#b7c7dd" stroke-width="1.3" />
+  <line x1="370" y1="86" x2="370" y2="532" stroke="#b7c7dd" stroke-width="1.3" />
+
+  <!-- 开始 -->
+  <circle cx="130" cy="140" r="9" fill="#22334a" />
+  <line x1="130" y1="149" x2="130" y2="172" stroke="#4b6f9c" stroke-width="1.5" marker-end="url(#adArrow2)" />
+
+  <!-- 提交申请 -->
+  <rect x="70" y="176" width="120" height="36" rx="18" fill="#ffffff" stroke="#7093c8" />
+  <text x="130" y="192" text-anchor="middle" font-size="10" fill="#1f3a63">提交备料申请</text>
+  <text x="130" y="205" text-anchor="middle" font-size="8" fill="#8a5c30">（写配件消耗）</text>
+  <line x1="190" y1="194" x2="228" y2="194" stroke="#4b6f9c" stroke-width="1.5" marker-end="url(#adArrow2)" />
+
+  <!-- 校验工单状态 -->
+  <rect x="230" y="222" width="120" height="36" rx="18" fill="#ffffff" stroke="#7093c8" />
+  <text x="290" y="238" text-anchor="middle" font-size="10" fill="#1f3a63">校验工单状态</text>
+  <text x="290" y="251" text-anchor="middle" font-size="8" fill="#8a5c30">（读工单）</text>
+  <line x1="290" y1="258" x2="290" y2="282" stroke="#4b6f9c" stroke-width="1.5" marker-end="url(#adArrow2)" />
+
+  <!-- 查询库存 -->
+  <rect x="230" y="286" width="120" height="36" rx="18" fill="#ffffff" stroke="#7093c8" />
+  <text x="290" y="302" text-anchor="middle" font-size="9.5" fill="#1f3a63">查询供应商库存</text>
+  <text x="290" y="315" text-anchor="middle" font-size="8" fill="#8a5c30">（读库存项）</text>
+  <line x1="290" y1="322" x2="290" y2="346" stroke="#4b6f9c" stroke-width="1.5" marker-end="url(#adArrow2)" />
+
+  <!-- 判断 -->
+  <path d="M 290 350 L 336 386 L 290 422 L 244 386 z" fill="#ffffff" stroke="#7093c8" />
+  <text x="290" y="383" text-anchor="middle" font-size="9" fill="#1f3a63">库存是否</text>
+  <text x="290" y="396" text-anchor="middle" font-size="9" fill="#1f3a63">充足？</text>
+
+  <!-- 有库存 -->
+  <line x1="336" y1="386" x2="398" y2="386" stroke="#4b6f9c" stroke-width="1.5" marker-end="url(#adArrow2)" />
+  <text x="366" y="378" text-anchor="middle" font-size="9" font-weight="700" fill="#8a4b4b">[有库存]</text>
+  <rect x="400" y="368" width="120" height="36" rx="18" fill="#ffffff" stroke="#7093c8" />
+  <text x="460" y="384" text-anchor="middle" font-size="9.5" fill="#1f3a63">生成出库单</text>
+  <text x="460" y="397" text-anchor="middle" font-size="8" fill="#8a5c30">（写出库单）</text>
+
+  <!-- 无库存 -->
+  <line x1="290" y1="422" x2="290" y2="446" stroke="#4b6f9c" stroke-width="1.5" marker-end="url(#adArrow2)" />
+  <text x="297" y="438" font-size="9" font-weight="700" fill="#8a4b4b">[无库存]</text>
+  <rect x="230" y="450" width="120" height="36" rx="18" fill="#ffffff" stroke="#7093c8" />
+  <text x="290" y="466" text-anchor="middle" font-size="9" fill="#1f3a63">工单置为待件挂起</text>
+  <text x="290" y="479" text-anchor="middle" font-size="8" fill="#8a5c30">（写工单）</text>
+
+  <!-- 汇合到结束 -->
+  <line x1="290" y1="486" x2="290" y2="502" stroke="#4b6f9c" stroke-width="1.5" />
+  <line x1="460" y1="404" x2="460" y2="502" stroke="#4b6f9c" stroke-width="1.5" />
+  <line x1="290" y1="502" x2="460" y2="502" stroke="#4b6f9c" stroke-width="1.5" />
+  <line x1="375" y1="502" x2="375" y2="514" stroke="#4b6f9c" stroke-width="1.5" marker-end="url(#adArrow2)" />
+  <circle cx="375" cy="521" r="9" fill="#22334a" />
+  <circle cx="375" cy="521" r="5" fill="#ffffff" />
+
+  <!-- 实体列 -->
+  <text x="588" y="104" font-size="11.5" font-weight="700" fill="#9a5f2a">业务实体</text>
+  <rect x="586" y="150" width="140" height="30" rx="4" fill="#fdf7ef" stroke="#c79a6d" />
+  <text x="656" y="170" text-anchor="middle" font-size="9.5" fill="#7a4a1e">WorkOrder 工单</text>
+
+  <rect x="586" y="252" width="140" height="30" rx="4" fill="#fdf7ef" stroke="#c79a6d" />
+  <text x="656" y="272" text-anchor="middle" font-size="9.5" fill="#7a4a1e">StockItem 库存项</text>
+
+  <rect x="586" y="368" width="140" height="30" rx="4" fill="#fdf7ef" stroke="#c79a6d" />
+  <text x="656" y="388" text-anchor="middle" font-size="9.5" fill="#7a4a1e">IssueNote 出库单</text>
+
+  <rect x="586" y="450" width="140" height="30" rx="4" fill="#fdf7ef" stroke="#c79a6d" />
+  <text x="656" y="470" text-anchor="middle" font-size="9.5" fill="#7a4a1e">PartUsage 配件消耗</text>
+
+  <!-- 读：StockItem → 查询供应商库存 -->
+  <path d="M 586 267 L 560 267 L 560 304 L 354 304" fill="none" stroke="#b5743a" stroke-width="1.7" marker-end="url(#adRead2)" />
+  <rect x="430" y="292" width="58" height="18" rx="3" fill="#fffaf4" stroke="#e0c4a4" />
+  <text x="459" y="305" text-anchor="middle" font-size="8.5" font-weight="700" fill="#b5743a">读：实体→动作</text>
+
+  <!-- 写：工单置为待件挂起 → WorkOrder -->
+  <path d="M 350 468 L 540 468 L 540 165 L 580 165" fill="none" stroke="#b5743a" stroke-width="1.7" marker-end="url(#adRead2)" />
+  <rect x="416" y="456" width="58" height="18" rx="3" fill="#fffaf4" stroke="#e0c4a4" />
+  <text x="445" y="469" text-anchor="middle" font-size="8.5" font-weight="700" fill="#b5743a">写：动作→实体</text>
+
+  <!-- 说明框 -->
+  <rect x="586" y="500" width="288" height="96" rx="8" fill="#ffffff" stroke="#d3deea" />
+  <text x="600" y="520" font-size="11" font-weight="700" fill="#33507f">为什么只画两条线</text>
+  <text x="600" y="540" font-size="9.5" fill="#41556f">其余实体读写已用括号标在动作框里</text>
+  <text x="600" y="556" font-size="9.5" fill="#41556f">考试时全部连上更稳，这里只示范方向</text>
+  <text x="600" y="578" font-size="9" fill="#8a4b4b">判断依据：数据流向动作 = 读</text>
+  <text x="600" y="590" font-size="9" fill="#8a4b4b">　　　　　动作流向数据 = 写</text>
+
+  <text x="50" y="626" font-size="10" fill="#41556f">三个得分点：① 泳道把责任分开，流程在三道之间来回，正好暴露协调成本　② 判断必须带方括号条件　③ 实体读写箭头方向相反</text>
+  <text x="50" y="648" font-size="10.5" fill="#8a4b4b">不画的东西：确认框、错误提示、登录判断 —— 讲义明确要求这一阶段忽略异常，只保留业务决策，多画反而扣分。</text>
+  <text x="50" y="670" font-size="10" fill="#8b9bb0">这张图在真题里对应 8 分题；「include entities」这半句通常占 2–3 分，是全题最容易漏的地方。实际作答时再配一张活动流程表。</text>
+</svg>

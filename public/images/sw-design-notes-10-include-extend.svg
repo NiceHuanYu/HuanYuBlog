@@ -1,74 +1,120 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" role="img" aria-label="精炼用例模型的三种方式：include 把公共步骤抽成被复用的用例，extend 描述可选或例外流程，泛化把共同部分抽象成父级，包括参与者泛化与用例泛化"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" width="900" height="680" role="img" aria-label="精炼用例模型的三种关系：include 把公共步骤抽出来，箭头由基用例指向被包含用例；extend 描述可选或例外流程，箭头由扩展用例指向基用例，两者方向相反；泛化把共同部分抽象成父级，空心三角由子指向父，参与者泛化与用例泛化都适用。每个关系旁标注判断依据与记忆锚点"
      font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
   <defs>
     <linearGradient id="iebg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#f8fafd" />
       <stop offset="1" stop-color="#e9eff8" />
     </linearGradient>
-    <marker id="ieDep" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#7093c8" />
+    <marker id="ieOpen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 1 1 L 11 6 L 1 11" fill="none" stroke="#4b6f9c" stroke-width="1.5" />
     </marker>
-    <marker id="ieGen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
-      <path d="M 0 0 L 12 6 L 0 12 Z" fill="#ffffff" stroke="#33507f" stroke-width="1.4" />
+    <marker id="ieOpenWarm" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 1 1 L 11 6 L 1 11" fill="none" stroke="#b5743a" stroke-width="1.5" />
     </marker>
   </defs>
 
-  <rect width="900" height="600" rx="16" fill="url(#iebg)" />
-  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">精炼用例模型：include、extend 与泛化</text>
-  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">三种关系解决三种不同的重复</text>
+  <rect width="900" height="680" rx="16" fill="url(#iebg)" />
+  <text x="450" y="38" text-anchor="middle" font-size="21" font-weight="700" fill="#1f3a63">精炼用例模型：三种关系，两个方向</text>
+  <text x="450" y="62" text-anchor="middle" font-size="12.5" fill="#5a6f8c">include 与 extend 的箭头方向相反 —— 这是唯一需要死记的东西</text>
 
-  <!-- include -->
-  <rect x="40" y="96" width="400" height="244" rx="12" fill="#ffffff" opacity="0.85" stroke="#d3e0ee" />
-  <text x="60" y="128" font-size="14.5" font-weight="700" fill="#33507f">include · 把公共步骤抽出来</text>
+  <!-- 左：include -->
+  <rect x="34" y="84" width="270" height="270" rx="10" fill="#ffffff" stroke="#7093c8" stroke-width="1.5" />
+  <text x="169" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#33507f">① include 包含</text>
 
-  <ellipse cx="140" cy="200" rx="78" ry="28" fill="#eef5fc" stroke="#7093c8" />
-  <text x="140" y="205" text-anchor="middle" font-size="13" font-weight="600" fill="#1f3a63">下单</text>
+  <ellipse cx="169" cy="148" rx="78" ry="16" fill="#eef5fc" stroke="#7093c8" />
+  <text x="169" y="152" text-anchor="middle" font-size="9.5" fill="#1f3a63">Assign Engineer</text>
+  <line x1="169" y1="164" x2="169" y2="204" stroke="#4b6f9c" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#ieOpen)" />
+  <text x="177" y="188" font-size="8.5" font-weight="700" fill="#8a4b4b">«include»</text>
+  <ellipse cx="169" cy="222" rx="78" ry="16" fill="#ffffff" stroke="#7093c8" />
+  <text x="169" y="226" text-anchor="middle" font-size="9" fill="#1f3a63">Verify Work Order Status</text>
 
-  <ellipse cx="140" cy="292" rx="78" ry="28" fill="#eef5fc" stroke="#7093c8" />
-  <text x="140" y="297" text-anchor="middle" font-size="13" font-weight="600" fill="#1f3a63">取消订单</text>
+  <text x="52" y="262" font-size="9.5" font-weight="700" fill="#33507f">箭头：基用例 → 被包含</text>
+  <text x="52" y="280" font-size="9.5" font-weight="700" fill="#8a4b4b">记法：「我需要它」</text>
+  <text x="52" y="302" font-size="9" fill="#41556f">判据：这一步能不做吗？</text>
+  <text x="52" y="318" font-size="9" fill="#41556f">　　　不能 → include</text>
+  <text x="52" y="338" font-size="9" fill="#8b9bb0">被包含用例一般不独立出现</text>
 
-  <ellipse cx="330" cy="246" rx="78" ry="28" fill="#dcebf9" stroke="#33507f" stroke-width="1.8" />
-  <text x="330" y="251" text-anchor="middle" font-size="13" font-weight="600" fill="#1f3a63">校验库存</text>
+  <!-- 中：extend -->
+  <rect x="316" y="84" width="270" height="270" rx="10" fill="#ffffff" stroke="#c79a6d" stroke-width="1.5" />
+  <text x="451" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#9a5f2a">② extend 扩展</text>
 
-  <line x1="216" y1="212" x2="254" y2="232" stroke="#7093c8" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ieDep)" />
-  <line x1="216" y1="282" x2="254" y2="262" stroke="#7093c8" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ieDep)" />
-  <text x="252" y="186" text-anchor="middle" font-size="10.5" fill="#5a6f8c">&lt;&lt;include&gt;&gt;</text>
-  <text x="220" y="330" text-anchor="middle" font-size="11" fill="#7b8ea8">两个用例都要用到的步骤，抽成第三个用例</text>
+  <ellipse cx="451" cy="148" rx="72" ry="15" fill="#fdf7ef" stroke="#c79a6d" />
+  <text x="451" y="152" text-anchor="middle" font-size="9" fill="#7a4a1e">Withdraw Request</text>
+  <line x1="451" y1="163" x2="451" y2="203" stroke="#b5743a" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#ieOpenWarm)" />
+  <text x="459" y="187" font-size="8.5" font-weight="700" fill="#8a4b4b">«extend»</text>
+  <text x="340" y="186" font-size="8" fill="#8a4b4b">条件：提交后 5 分钟内</text>
+  <text x="340" y="198" font-size="7.5" fill="#8b9bb0">（不加方括号）</text>
+  <ellipse cx="451" cy="222" rx="72" ry="15" fill="#eef5fc" stroke="#7093c8" />
+  <text x="451" y="226" text-anchor="middle" font-size="9" fill="#1f3a63">Request Parts</text>
 
-  <!-- extend -->
-  <rect x="460" y="96" width="400" height="244" rx="12" fill="#ffffff" opacity="0.85" stroke="#d3e0ee" />
-  <text x="480" y="128" font-size="14.5" font-weight="700" fill="#33507f">extend · 可选或例外流程</text>
+  <text x="334" y="262" font-size="9.5" font-weight="700" fill="#33507f">箭头：扩展用例 → 基用例</text>
+  <text x="334" y="280" font-size="9.5" font-weight="700" fill="#8a4b4b">记法：「我附加到它」</text>
+  <text x="334" y="302" font-size="9" fill="#41556f">判据：这一步可能不做吗？</text>
+  <text x="334" y="318" font-size="9" fill="#41556f">　　　可能 → extend</text>
+  <text x="334" y="338" font-size="9" fill="#8b9bb0">扩展用例单独看没有意义</text>
 
-  <ellipse cx="560" cy="252" rx="78" ry="28" fill="#eef5fc" stroke="#7093c8" />
-  <text x="560" y="257" text-anchor="middle" font-size="13" font-weight="600" fill="#1f3a63">下单</text>
+  <!-- 右：泛化 -->
+  <rect x="598" y="84" width="272" height="270" rx="10" fill="#ffffff" stroke="#7fb89f" stroke-width="1.5" />
+  <text x="734" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#2f6b58">③ 泛化 generalization</text>
 
-  <ellipse cx="758" cy="182" rx="78" ry="28" fill="#f3ecfa" stroke="#8a6bb5" />
-  <text x="758" y="187" text-anchor="middle" font-size="13" font-weight="600" fill="#4a3568">使用优惠券</text>
+  <ellipse cx="734" cy="146" rx="72" ry="15" fill="#ffffff" stroke="#2f6b58" />
+  <text x="734" y="150" text-anchor="middle" font-size="8.5" fill="#2f6b58">StoreStaff «abstract»</text>
 
-  <line x1="742" y1="208" x2="626" y2="234" stroke="#8a6bb5" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ieDep)" />
-  <text x="700" y="212" text-anchor="middle" font-size="10.5" fill="#8a6bb5">&lt;&lt;extend&gt;&gt;</text>
-  <text x="660" y="330" text-anchor="middle" font-size="11" fill="#7b8ea8">只在特定条件下才发生，主用例不知道它的存在</text>
+  <line x1="692" y1="212" x2="716" y2="164" stroke="#2f6b58" stroke-width="1.4" />
+  <path d="M 706 176 L 716 160 L 726 176 z" fill="#ffffff" stroke="#2f6b58" stroke-width="1.3" />
+  <line x1="776" y1="212" x2="752" y2="164" stroke="#2f6b58" stroke-width="1.4" />
+  <path d="M 742 176 L 752 160 L 762 176 z" fill="#ffffff" stroke="#2f6b58" stroke-width="1.3" />
 
-  <!-- 泛化 -->
-  <rect x="40" y="364" width="820" height="200" rx="12" fill="#ffffff" opacity="0.85" stroke="#d3e0ee" />
-  <text x="60" y="396" font-size="14.5" font-weight="700" fill="#33507f">泛化 · 把共同的部分提到父级</text>
+  <ellipse cx="680" cy="226" rx="42" ry="14" fill="#eef5fc" stroke="#7093c8" />
+  <text x="680" y="230" text-anchor="middle" font-size="9" fill="#1f3a63">Clerk</text>
+  <ellipse cx="790" cy="226" rx="50" ry="14" fill="#eef5fc" stroke="#7093c8" />
+  <text x="790" y="230" text-anchor="middle" font-size="9" fill="#1f3a63">Manager</text>
 
-  <circle cx="150" cy="436" r="10" fill="#ffffff" stroke="#33507f" stroke-width="2" />
-  <line x1="150" y1="446" x2="150" y2="468" stroke="#33507f" stroke-width="2" />
-  <line x1="136" y1="454" x2="164" y2="454" stroke="#33507f" stroke-width="2" />
-  <text x="150" y="490" text-anchor="middle" font-size="12" font-weight="600" fill="#1f3a63">旅客（父）</text>
+  <text x="616" y="262" font-size="9.5" font-weight="700" fill="#33507f">箭头：空心三角，子 → 父</text>
+  <text x="616" y="280" font-size="9" fill="#41556f">参与者泛化：共用一整套用例、</text>
+  <text x="616" y="296" font-size="9" fill="#41556f">只是权限不同 → 本例建议用</text>
+  <text x="616" y="316" font-size="9" fill="#41556f">用例泛化：流程本身不同才用</text>
+  <text x="616" y="332" font-size="9" fill="#8a4b4b">本例三种家电只是字段不同 → 不用</text>
 
-  <circle cx="150" cy="512" r="10" fill="#ffffff" stroke="#33507f" stroke-width="2" />
-  <line x1="150" y1="522" x2="150" y2="544" stroke="#33507f" stroke-width="2" />
-  <line x1="136" y1="530" x2="164" y2="530" stroke="#33507f" stroke-width="2" />
-  <text x="150" y="560" text-anchor="middle" font-size="12" font-weight="600" fill="#1f3a63">常旅客（子）</text>
-  <line x1="150" y1="500" x2="150" y2="474" stroke="#33507f" stroke-width="1.8" marker-end="url(#ieGen)" />
+  <!-- 底部：三者对照 -->
+  <rect x="34" y="374" width="836" height="128" rx="10" fill="#ffffff" stroke="#b9c8dd" />
+  <text x="50" y="396" font-size="11.5" font-weight="700" fill="#33507f">一张表看完三者的区别</text>
 
-  <ellipse cx="660" cy="440" rx="90" ry="28" fill="#eef5fc" stroke="#7093c8" />
-  <text x="660" y="445" text-anchor="middle" font-size="13" font-weight="600" fill="#1f3a63">预订</text>
-  <ellipse cx="660" cy="522" rx="90" ry="28" fill="#eef5fc" stroke="#7093c8" />
-  <text x="660" y="527" text-anchor="middle" font-size="13" font-weight="600" fill="#1f3a63">电话预订</text>
-  <line x1="660" y1="492" x2="660" y2="470" stroke="#33507f" stroke-width="1.8" marker-end="url(#ieGen)" />
+  <line x1="50" y1="406" x2="854" y2="406" stroke="#dbe4ef" stroke-width="1" />
+  <text x="56" y="424" font-size="9.5" font-weight="700" fill="#5a6f8c">关系</text>
+  <text x="230" y="424" font-size="9.5" font-weight="700" fill="#5a6f8c">执行时机</text>
+  <text x="390" y="424" font-size="9.5" font-weight="700" fill="#5a6f8c">箭头方向</text>
+  <text x="560" y="424" font-size="9.5" font-weight="700" fill="#5a6f8c">能否独立存在</text>
+  <text x="720" y="424" font-size="9.5" font-weight="700" fill="#5a6f8c">典型用途</text>
 
-  <text x="400" y="548" text-anchor="middle" font-size="11.5" fill="#7b8ea8">共同的部分放父级，差异放子级</text>
+  <line x1="50" y1="432" x2="854" y2="432" stroke="#eef2f7" stroke-width="1" />
+  <text x="56" y="450" font-size="9.5" font-weight="700" fill="#33507f">include</text>
+  <text x="230" y="450" font-size="9" fill="#41556f">每次都执行</text>
+  <text x="390" y="450" font-size="9" fill="#8a4b4b">基用例 → 被包含</text>
+  <text x="560" y="450" font-size="9" fill="#41556f">一般不独立</text>
+  <text x="720" y="450" font-size="9" fill="#41556f">复用公共步骤</text>
+
+  <line x1="50" y1="458" x2="854" y2="458" stroke="#eef2f7" stroke-width="1" />
+  <text x="56" y="476" font-size="9.5" font-weight="700" fill="#9a5f2a">extend</text>
+  <text x="230" y="476" font-size="9" fill="#41556f">只在特定条件下</text>
+  <text x="390" y="476" font-size="9" fill="#8a4b4b">扩展用例 → 基用例</text>
+  <text x="560" y="476" font-size="9" fill="#41556f">不能独立</text>
+  <text x="720" y="476" font-size="9" fill="#41556f">可选功能、例外</text>
+
+  <line x1="50" y1="484" x2="854" y2="484" stroke="#eef2f7" stroke-width="1" />
+  <text x="56" y="502" font-size="9.5" font-weight="700" fill="#2f6b58">泛化</text>
+  <text x="230" y="502" font-size="9" fill="#41556f">继承关系，不是执行</text>
+  <text x="390" y="502" font-size="9" fill="#8a4b4b">子 → 父（空心三角）</text>
+  <text x="560" y="502" font-size="9" fill="#41556f">父用例通常抽象</text>
+  <text x="720" y="502" font-size="9" fill="#41556f">共同流程集中</text>
+
+  <!-- 刹车条件 -->
+  <rect x="34" y="514" width="836" height="96" rx="10" fill="#fdf2f2" stroke="#e0b4b4" />
+  <text x="50" y="536" font-size="11.5" font-weight="700" fill="#8a4b4b">三条刹车条件：精炼过头会得到一张谁也看不懂的图</text>
+  <text x="50" y="560" font-size="9.5" fill="#8a4b4b">① 不要为「只涉及一个屏幕」的行为建 include/extend —— 显示模式和编辑模式看起来像，但不是共同流程</text>
+  <text x="50" y="580" font-size="9.5" fill="#8a4b4b">② include 的嵌套不超过一层　③ extend 的嵌套也不超过一层</text>
+  <text x="50" y="600" font-size="9.5" fill="#41556f">总判据：精炼之后业务方看图的难度上升了，这次精炼就不值得 —— 图的读者是业务方，不是建模的人。</text>
+
+  <text x="34" y="642" font-size="10.5" fill="#8b9bb0">注：讲义明确提到 include 与 extend 的连线用实线或虚线都可以，所以不要在线的样式上纠结 —— 方向才是分。</text>
+  <text x="34" y="664" font-size="10.5" fill="#8a4b4b">另一个易混点：extend 的条件写在箭头旁、不加方括号；方括号是活动图 guard 的写法。</text>
 </svg>

@@ -1,58 +1,110 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" role="img" aria-label="设计原则里的内聚与耦合，以及抽象类与接口的选择依据：内聚衡量模块内部元素的相关程度，耦合衡量模块之间的依赖程度；共享实现用抽象类，只约定行为用接口，跨领域组合也用接口"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" width="900" height="680" role="img" aria-label="设计原则：左侧用派单宝的工单类对照坏设计与多态重设计，坏设计把 fee 与 warrantyNo 都塞在父类并用 if 判断类型，重设计把类型专有数据移到子类并让对象自己回答；下方说明高内聚让改动集中、低耦合让改动不外溢；右侧给出抽象类与接口的三条选择依据，以及复用陷阱的判据"
      font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
   <defs>
     <linearGradient id="dpbg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#f8fafd" />
       <stop offset="1" stop-color="#e9eff8" />
     </linearGradient>
+    <marker id="dpArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7093c8" />
+    </marker>
   </defs>
 
-  <rect width="900" height="600" rx="16" fill="url(#dpbg)" />
-  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">内聚与耦合，抽象类与接口</text>
-  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">设计好坏最终都落回两个问题：谁依赖谁、谁来承担变化</text>
+  <rect width="900" height="680" rx="16" fill="url(#dpbg)" />
+  <text x="450" y="38" text-anchor="middle" font-size="21" font-weight="700" fill="#1f3a63">设计原则：一次重设计，两个尺度</text>
+  <text x="450" y="62" text-anchor="middle" font-size="12.5" fill="#5a6f8c">高内聚让改动集中，低耦合让改动不外溢</text>
 
-  <rect x="40" y="100" width="400" height="140" rx="12" fill="#ffffff" opacity="0.9" stroke="#c9ded0" />
-  <text x="60" y="130" font-size="15" font-weight="700" fill="#2c6e49">Cohesion · 内聚</text>
-  <text x="60" y="156" font-size="11.5" fill="#41556f">一个模块内部各元素的相关程度</text>
-  <text x="60" y="182" font-size="11.5" fill="#41556f">内聚高：这个类只做一件事，改动集中</text>
-  <text x="60" y="206" font-size="11.5" fill="#8a4b4b">内聚低：一个类里塞了几件不相关的事，</text>
-  <text x="60" y="224" font-size="11.5" fill="#8a4b4b">改 A 的时候要担心弄坏 B</text>
+  <!-- 坏设计 -->
+  <rect x="34" y="84" width="400" height="196" rx="10" fill="#fdf2f2" stroke="#e0b4b4" stroke-width="1.5" />
+  <text x="50" y="106" font-size="12" font-weight="700" fill="#8a4b4b">重设计前：类型判断塞在一个类里</text>
 
-  <rect x="460" y="100" width="400" height="140" rx="12" fill="#ffffff" opacity="0.9" stroke="#cfdce8" />
-  <text x="480" y="130" font-size="15" font-weight="700" fill="#33507f">Coupling · 耦合</text>
-  <text x="480" y="156" font-size="11.5" fill="#41556f">模块之间互相依赖的程度</text>
-  <text x="480" y="182" font-size="11.5" fill="#41556f">松耦合：一方改动，另一方不用跟着改</text>
-  <text x="480" y="206" font-size="11.5" fill="#8a4b4b">紧耦合：改一处要顺着调用链改一路，</text>
-  <text x="480" y="224" font-size="11.5" fill="#8a4b4b">最后没人敢动这段代码</text>
+  <rect x="50" y="116" width="368" height="104" fill="#ffffff" stroke="#e0b4b4" />
+  <line x1="50" y1="138" x2="418" y2="138" stroke="#e0b4b4" stroke-width="1" />
+  <text x="58" y="132" font-size="9.5" font-weight="700" fill="#1f3a63">WorkOrder</text>
+  <text x="58" y="154" font-size="8" font-family="monospace" fill="#8a4b4b">- type : "REPAIR" | "WARRANTY"</text>
+  <text x="58" y="168" font-size="8" font-family="monospace" fill="#8a4b4b">- fee : double　　　← 只有维修单用</text>
+  <text x="58" y="182" font-size="8" font-family="monospace" fill="#8a4b4b">- warrantyNo : String ← 只有保修单用</text>
+  <text x="58" y="200" font-size="8" font-family="monospace" fill="#41556f">+ amount() { if WARRANTY return 0 }</text>
+  <text x="58" y="214" font-size="8" font-family="monospace" fill="#41556f">+ close()　{ if WARRANTY &amp;&amp; … }</text>
 
-  <text x="60" y="278" font-size="14" font-weight="700" fill="#33507f">什么时候用抽象类，什么时候用接口</text>
+  <text x="50" y="238" font-size="9" fill="#8a4b4b">✗ 低内聚：父类带着自己用不上的字段</text>
+  <text x="50" y="254" font-size="9" fill="#8a4b4b">✗ 同一个知识写在两个方法里（amount 与 close）</text>
+  <text x="50" y="270" font-size="9" fill="#8a4b4b">✗ 每加一种类型都要回来改这个类</text>
 
-  <rect x="40" y="296" width="820" height="36" fill="#33507f" />
-  <text x="58" y="321" font-size="12.5" font-weight="700" fill="#ffffff">情形</text>
-  <text x="520" y="321" font-size="12.5" font-weight="700" fill="#ffffff">用什么</text>
+  <!-- 箭头 -->
+  <line x1="436" y1="182" x2="466" y2="182" stroke="#7093c8" stroke-width="2" marker-end="url(#dpArrow)" />
+  <text x="451" y="172" text-anchor="middle" font-size="8" font-weight="700" fill="#33507f">多态</text>
 
-  <rect x="40" y="332" width="820" height="42" fill="#ffffff" opacity="0.85" />
-  <text x="58" y="358" font-size="11.5" fill="#41556f">多个类要共享同一部分实现（不只是接口）</text>
-  <text x="520" y="358" font-size="11.5" fill="#41556f">抽象类（abstract class）</text>
+  <!-- 重设计后 -->
+  <rect x="476" y="84" width="390" height="196" rx="10" fill="#eef7f3" stroke="#7fb89f" stroke-width="1.5" />
+  <text x="492" y="106" font-size="12" font-weight="700" fill="#2f6b58">重设计后：让对象自己回答</text>
 
-  <rect x="40" y="374" width="820" height="42" fill="#ffffff" opacity="0.6" />
-  <text x="58" y="400" font-size="11.5" fill="#41556f">只约定行为，不共享任何实现</text>
-  <text x="520" y="400" font-size="11.5" fill="#41556f">接口（interface）</text>
+  <rect x="556" y="114" width="230" height="46" fill="#ffffff" stroke="#2f6b58" />
+  <line x1="556" y1="134" x2="786" y2="134" stroke="#2f6b58" stroke-width="1" />
+  <text x="671" y="128" text-anchor="middle" font-size="9" font-weight="700" fill="#1f3a63">WorkOrder «abstract»</text>
+  <text x="564" y="150" font-size="8" font-family="monospace" fill="#41556f">+ amount() : abstract　｜　+ close() 共通逻辑</text>
 
-  <rect x="40" y="416" width="820" height="42" fill="#ffffff" opacity="0.85" />
-  <text x="58" y="442" font-size="11.5" fill="#41556f">这些类分属不同领域，只是恰好都需要这个能力</text>
-  <text x="520" y="442" font-size="11.5" fill="#41556f">接口</text>
+  <line x1="612" y1="204" x2="612" y2="164" stroke="#2f6b58" stroke-width="1.4" />
+  <path d="M 600 178 L 612 162 L 624 178 z" fill="#ffffff" stroke="#2f6b58" stroke-width="1.3" />
+  <line x1="730" y1="204" x2="730" y2="164" stroke="#2f6b58" stroke-width="1.4" />
+  <path d="M 718 178 L 730 162 L 742 178 z" fill="#ffffff" stroke="#2f6b58" stroke-width="1.3" />
 
-  <rect x="40" y="458" width="820" height="42" fill="#ffffff" opacity="0.6" />
-  <text x="58" y="484" font-size="11.5" fill="#41556f">一个类需要同时具备多种能力</text>
-  <text x="520" y="484" font-size="11.5" fill="#41556f">多个接口（单继承语言里尤其如此）</text>
+  <rect x="510" y="208" width="200" height="50" fill="#ffffff" stroke="#4b6f9c" />
+  <line x1="510" y1="228" x2="710" y2="228" stroke="#4b6f9c" stroke-width="1" />
+  <text x="610" y="222" text-anchor="middle" font-size="9" font-weight="700" fill="#1f3a63">RepairOrder</text>
+  <text x="518" y="244" font-size="8" font-family="monospace" fill="#41556f">- fee : double</text>
+  <text x="518" y="254" font-size="8" font-family="monospace" fill="#41556f">+ amount() → fee</text>
 
-  <line x1="40" y1="374" x2="860" y2="374" stroke="#d3e0ee" />
-  <line x1="40" y1="416" x2="860" y2="416" stroke="#d3e0ee" />
-  <line x1="40" y1="458" x2="860" y2="458" stroke="#d3e0ee" />
-  <line x1="500" y1="296" x2="500" y2="500" stroke="#d3e0ee" />
-  <rect x="40" y="296" width="820" height="204" fill="none" stroke="#c4d4e7" />
+  <rect x="724" y="208" width="132" height="50" fill="#ffffff" stroke="#4b6f9c" />
+  <line x1="724" y1="228" x2="856" y2="228" stroke="#4b6f9c" stroke-width="1" />
+  <text x="790" y="222" text-anchor="middle" font-size="9" font-weight="700" fill="#1f3a63">WarrantyOrder</text>
+  <text x="732" y="244" font-size="8" font-family="monospace" fill="#41556f">- warrantyNo</text>
+  <text x="732" y="254" font-size="8" font-family="monospace" fill="#41556f">+ close() 校验凭证</text>
 
-  <text x="450" y="536" text-anchor="middle" font-size="12.5" fill="#33507f">复用不是越多越好：把不相关的两件事强行复用同一段代码，耦合就上来了</text>
-  <text x="450" y="566" text-anchor="middle" font-size="12.5" fill="#8a4b4b">判断标准：这个变化发生时，需要改几个地方？改得越少，设计越好</text>
+  <text x="492" y="274" font-size="9" fill="#2f6b58">✓ 类型专有数据移到子类 → 内聚提高</text>
+  <text x="492" y="290" font-size="9" fill="#2f6b58">✓ 调用方只写 order.amount() → 耦合降低</text>
+  <text x="492" y="306" font-size="9" fill="#2f6b58">✓ 新增类型 = 新增一个类，已有代码不改</text>
+
+  <!-- 两个尺度 -->
+  <rect x="34" y="296" width="400" height="104" rx="9" fill="#eef5fc" stroke="#7093c8" stroke-width="1.4" />
+  <text x="50" y="316" font-size="11.5" font-weight="700" fill="#33507f">两个尺度：改动的范围</text>
+  <text x="50" y="340" font-size="10" font-weight="700" fill="#2f6b58">高内聚 → 改动集中</text>
+  <text x="60" y="358" font-size="9" fill="#41556f">这个类只做一件事，改它不会牵动别的</text>
+  <text x="50" y="380" font-size="10" font-weight="700" fill="#2f6b58">低耦合 → 改动不外溢</text>
+  <text x="60" y="396" font-size="9" fill="#41556f">一方改动，另一方不用跟着改</text>
+
+  <!-- 抽象类 vs 接口 -->
+  <rect x="476" y="296" width="390" height="104" rx="9" fill="#ffffff" stroke="#b9c8dd" />
+  <text x="492" y="316" font-size="11.5" font-weight="700" fill="#33507f">抽象类还是接口？四条依据</text>
+  <text x="492" y="338" font-size="9" fill="#41556f">共享同一部分实现 → 抽象类</text>
+  <text x="492" y="356" font-size="9" fill="#41556f">只约定行为、不共享实现 → 接口</text>
+  <text x="492" y="374" font-size="9" fill="#41556f">分属不同领域、恰好都需要这能力 → 接口</text>
+  <text x="492" y="392" font-size="9" fill="#41556f">一个类需要多种能力 → 多个接口</text>
+
+  <!-- 前提 -->
+  <rect x="34" y="416" width="832" height="66" rx="9" fill="#fdf7ef" stroke="#d2a074" stroke-width="1.4" />
+  <text x="50" y="436" font-size="11" font-weight="700" fill="#9a5f2a">但这次重设计有个前提 —— 也是最容易被滥用的一条</text>
+  <text x="50" y="458" font-size="9.5" fill="#7a4a1e">多态不是「更好」，它只是「更容易扩展」。若「工单类型」这个维度不会继续扩张，原来的 if 版本更短、更好读，为扩展付的代价是纯亏损。</text>
+  <text x="50" y="476" font-size="9.5" font-weight="700" fill="#8a4b4b">判断依据：这个维度过去半年变过几次？变过两次以上值得设计，一次没变过就先别动。</text>
+
+  <!-- 复用陷阱 -->
+  <rect x="34" y="494" width="832" height="104" rx="9" fill="#fdf2f2" stroke="#e0b4b4" />
+  <text x="50" y="514" font-size="11" font-weight="700" fill="#8a4b4b">复用的陷阱：看起来像，不等于该合并</text>
+
+  <rect x="50" y="524" width="386" height="60" rx="6" fill="#ffffff" stroke="#e0b4b4" />
+  <text x="60" y="542" font-size="9" font-weight="700" fill="#8a4b4b">反例：「校验工单状态」看起来一样</text>
+  <text x="60" y="558" font-size="8.5" fill="#41556f">派单要求 CREATED（还没派）</text>
+  <text x="60" y="572" font-size="8.5" fill="#41556f">申请配件要求 IN_PROGRESS（已在做）</text>
+  <text x="60" y="582" font-size="8" fill="#8b9bb0">其实是两个规则，合并后一遇新需求就要加参数</text>
+
+  <rect x="450" y="524" width="400" height="60" rx="6" fill="#ffffff" stroke="#7fb89f" />
+  <text x="460" y="542" font-size="9" font-weight="700" fill="#2f6b58">真该复用的一处：降级策略</text>
+  <text x="460" y="558" font-size="8.5" fill="#41556f">「供应商接口超时 3 秒降级为待确认」</text>
+  <text x="460" y="572" font-size="8.5" fill="#41556f">不复用就会在三个地方各写一遍，阈值迟早不一致</text>
+
+  <text x="50" y="612" font-size="9.5" font-weight="700" fill="#8a4b4b">判据：它们会一起变化吗？会一起变的该合并；只是碰巧长得像的，别合并。</text>
+
+  <!-- 底部 -->
+  <text x="34" y="632" font-size="10.5" fill="#41556f">三条自查：加一个新类型要改几个文件（理想是只加不改）｜ 改一条规则要改几处（超过两处说明信息被复制）｜ 新同事多久能看懂它为什么这么写。</text>
+  <text x="34" y="658" font-size="10" fill="#8b9bb0">注：「要不要抽象」的判据是：有没有一个「什么都不是」的中间状态。一张既不是维修也不是保修的工单不存在 → 抽象；若「普通工单」本身有意义 → 用具体类。</text>
 </svg>

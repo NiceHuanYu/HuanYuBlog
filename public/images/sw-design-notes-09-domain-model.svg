@@ -1,72 +1,130 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" role="img" aria-label="从活动图提取业务实体的三条判断标准与领域模型示例：三条标准是必须是业务概念而不是动作、必须需要被系统记住、必须有多个实例；下方是一个领域模型类图，包含旅客、预订、行程、支付四个类及其关系"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="900" height="700" role="img" aria-label="从活动图提取业务实体的判断与领域模型：上方是三条判断标准，必须是业务概念而非动作、必须需要被系统长期记住、必须有多个实例；中间是从活动图圈出的一堆名词里筛掉动作与算出来的值；下方是贯穿案例的领域模型，五个实体类分别是客户、工单、配件消耗、工程师、库存项，并标出它们之间的关联与重数"
      font-family="system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
   <defs>
     <linearGradient id="dmbg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#f8fafd" />
       <stop offset="1" stop-color="#e9eff8" />
     </linearGradient>
+    <marker id="dmArrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 1 1 L 11 6 L 1 11" fill="none" stroke="#4b6f9c" stroke-width="1.4" />
+    </marker>
+    <marker id="dmDia" viewBox="0 0 14 14" refX="13" refY="7" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 1 7 L 7 3 L 13 7 L 7 11 z" fill="#4b6f9c" stroke="#4b6f9c" stroke-width="1" />
+    </marker>
   </defs>
 
-  <rect width="900" height="600" rx="16" fill="url(#dmbg)" />
-  <text x="450" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1f3a63">从流程里筛出业务实体</text>
-  <text x="450" y="70" text-anchor="middle" font-size="13.5" fill="#5a6f8c">活动图里的名词不是都能变成实体，过三道筛子</text>
+  <rect width="900" height="700" rx="16" fill="url(#dmbg)" />
+  <text x="450" y="38" text-anchor="middle" font-size="21" font-weight="700" fill="#1f3a63">从流程里圈名词，再用三条标准筛</text>
+  <text x="450" y="62" text-anchor="middle" font-size="12.5" fill="#5a6f8c">十几个词里，真正该建实体的只有五个左右</text>
 
-  <rect x="40" y="96" width="252" height="80" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="58" y="126" font-size="14" font-weight="700" fill="#33507f">① 是业务概念吗</text>
-  <text x="58" y="150" font-size="11.5" fill="#5a6f8c">「提交订单」是动作，「订单」</text>
-  <text x="58" y="168" font-size="11.5" fill="#5a6f8c">才是概念</text>
+  <!-- 三条标准 -->
+  <rect x="30" y="84" width="270" height="150" rx="10" fill="#ffffff" stroke="#7fb89f" stroke-width="1.4" />
+  <text x="46" y="106" font-size="11.5" font-weight="700" fill="#2f6b58">① 是业务概念，不是动作</text>
+  <text x="46" y="130" font-size="9.5" fill="#41556f">「提交备料申请」是动作</text>
+  <text x="46" y="148" font-size="9.5" fill="#41556f">「备料申请」才可能是概念</text>
+  <text x="46" y="174" font-size="9" fill="#8a4b4b">边界：要不要追踪它？</text>
+  <text x="46" y="192" font-size="9" fill="#8b9bb0">追踪次数/结果 → 实体</text>
+  <text x="46" y="208" font-size="9" fill="#8b9bb0">用完就完 → 只是一条记录</text>
 
-  <rect x="324" y="96" width="252" height="80" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="342" y="126" font-size="14" font-weight="700" fill="#33507f">② 需要被记住吗</text>
-  <text x="342" y="150" font-size="11.5" fill="#5a6f8c">系统要长期保存它的信息，</text>
-  <text x="342" y="168" font-size="11.5" fill="#5a6f8c">才值得建实体</text>
+  <rect x="314" y="84" width="270" height="150" rx="10" fill="#ffffff" stroke="#7fb89f" stroke-width="1.4" />
+  <text x="330" y="106" font-size="11.5" font-weight="700" fill="#2f6b58">② 系统需要长期记住它</text>
+  <text x="330" y="130" font-size="9.5" fill="#41556f">「当前筛选的片区」不用记</text>
+  <text x="330" y="148" font-size="9.5" fill="#41556f">「安全库存阈值」要记</text>
+  <text x="330" y="174" font-size="9" fill="#8a4b4b">判据：下次会话还用得上吗？</text>
+  <text x="330" y="192" font-size="9" fill="#8b9bb0">阈值是属性，不是独立实体</text>
 
-  <rect x="608" y="96" width="252" height="80" rx="11" fill="#ffffff" opacity="0.9" stroke="#d3e0ee" />
-  <text x="626" y="126" font-size="14" font-weight="700" fill="#33507f">③ 有多个实例吗</text>
-  <text x="626" y="150" font-size="11.5" fill="#5a6f8c">只会出现一次的配置，通常</text>
-  <text x="626" y="168" font-size="11.5" fill="#5a6f8c">不该建成实体</text>
+  <rect x="598" y="84" width="272" height="150" rx="10" fill="#ffffff" stroke="#7fb89f" stroke-width="1.4" />
+  <text x="614" y="106" font-size="11.5" font-weight="700" fill="#2f6b58">③ 它有多个实例</text>
+  <text x="614" y="130" font-size="9.5" fill="#41556f">只有一个的配置 → 不必建实体</text>
+  <text x="614" y="154" font-size="9" fill="#8a4b4b">例外：业务会扩张就该提前建</text>
+  <text x="614" y="176" font-size="9" fill="#41556f">本例：现在只有 1 个片区试点</text>
+  <text x="614" y="192" font-size="9" fill="#41556f">但王姐说要推到另外 5 个</text>
+  <text x="614" y="212" font-size="9" font-weight="700" fill="#2f6b58">→ District 要建实体</text>
 
-  <text x="60" y="228" font-size="14" font-weight="700" fill="#33507f">领域模型（Domain Model）· 类图表示</text>
+  <!-- 筛选演示 -->
+  <rect x="30" y="252" width="840" height="94" rx="10" fill="#fdf7ef" stroke="#d2a074" />
+  <text x="46" y="274" font-size="11.5" font-weight="700" fill="#9a5f2a">从 08 篇那张活动图圈出来的词，筛一遍</text>
+  <text x="46" y="298" font-size="10" fill="#8b9bb0">工程师、工单、备料申请、配件、库存、出库单、数量、提交、查询、校验、待件挂起、安全库存、缺料率</text>
+  <text x="46" y="322" font-size="10" fill="#2f6b58">✅ 留下：工单、配件（→库存项）、出库单、工程师、客户、片区</text>
+  <text x="46" y="338" font-size="10" fill="#8a4b4b">❌ 划掉：提交/查询/校验/待件挂起（动作）、缺料率（算出来的）、数量（是属性不是实体）</text>
 
-  <rect x="80" y="272" width="190" height="118" rx="10" fill="#ffffff" stroke="#7093c8" />
-  <text x="175" y="298" text-anchor="middle" font-size="14" font-weight="700" fill="#1f3a63">Traveller</text>
-  <line x1="80" y1="308" x2="270" y2="308" stroke="#d3e0ee" />
-  <text x="96" y="330" font-size="11.5" fill="#41556f">travellerId</text>
-  <text x="96" y="352" font-size="11.5" fill="#41556f">name</text>
-  <text x="96" y="374" font-size="11.5" fill="#41556f">contactNo</text>
+  <!-- 领域模型 -->
+  <text x="30" y="378" font-size="12.5" font-weight="700" fill="#33507f">产出的领域模型（五个实体 + 关系 + 重数）</text>
 
-  <rect x="355" y="272" width="190" height="118" rx="10" fill="#eef5fc" stroke="#7093c8" stroke-width="2" />
-  <text x="450" y="298" text-anchor="middle" font-size="14" font-weight="700" fill="#1f3a63">Booking</text>
-  <line x1="355" y1="308" x2="545" y2="308" stroke="#d3e0ee" />
-  <text x="371" y="330" font-size="11.5" fill="#41556f">bookingId</text>
-  <text x="371" y="352" font-size="11.5" fill="#41556f">bookingDate</text>
-  <text x="371" y="374" font-size="11.5" fill="#41556f">status</text>
+  <!-- Customer -->
+  <rect x="60" y="398" width="132" height="66" fill="#ffffff" stroke="#4b6f9c" stroke-width="1.5" />
+  <line x1="60" y1="420" x2="192" y2="420" stroke="#4b6f9c" stroke-width="1.1" />
+  <line x1="60" y1="442" x2="192" y2="442" stroke="#4b6f9c" stroke-width="1.1" />
+  <text x="126" y="414" text-anchor="middle" font-size="10" font-weight="700" fill="#1f3a63">Customer</text>
+  <text x="68" y="434" font-size="8" fill="#41556f">- customerId</text>
+  <text x="68" y="456" font-size="8" fill="#41556f">- name / phone</text>
 
-  <rect x="630" y="272" width="190" height="118" rx="10" fill="#ffffff" stroke="#7093c8" />
-  <text x="725" y="298" text-anchor="middle" font-size="14" font-weight="700" fill="#1f3a63">Tour</text>
-  <line x1="630" y1="308" x2="820" y2="308" stroke="#d3e0ee" />
-  <text x="646" y="330" font-size="11.5" fill="#41556f">tourCode</text>
-  <text x="646" y="352" font-size="11.5" fill="#41556f">departDate</text>
-  <text x="646" y="374" font-size="11.5" fill="#41556f">price</text>
+  <!-- WorkOrder -->
+  <rect x="278" y="392" width="150" height="82" fill="#fdf7ef" stroke="#c79a6d" stroke-width="1.5" />
+  <line x1="278" y1="414" x2="428" y2="414" stroke="#c79a6d" stroke-width="1.1" />
+  <line x1="278" y1="452" x2="428" y2="452" stroke="#c79a6d" stroke-width="1.1" />
+  <text x="353" y="408" text-anchor="middle" font-size="10" font-weight="700" fill="#7a4a1e">WorkOrder</text>
+  <text x="286" y="430" font-size="8" fill="#8a5c30">- orderNo : WO-20261119-001</text>
+  <text x="286" y="444" font-size="8" fill="#8a5c30">- status / priority</text>
+  <text x="286" y="466" font-size="8" fill="#8a5c30">- createdAt</text>
 
-  <rect x="355" y="452" width="190" height="118" rx="10" fill="#ffffff" stroke="#7093c8" />
-  <text x="450" y="478" text-anchor="middle" font-size="14" font-weight="700" fill="#1f3a63">Payment</text>
-  <line x1="355" y1="488" x2="545" y2="488" stroke="#d3e0ee" />
-  <text x="371" y="510" font-size="11.5" fill="#41556f">paymentId</text>
-  <text x="371" y="532" font-size="11.5" fill="#41556f">amount</text>
-  <text x="371" y="554" font-size="11.5" fill="#41556f">payStatus</text>
+  <!-- PartUsage -->
+  <rect x="512" y="392" width="140" height="66" fill="#ffffff" stroke="#4b6f9c" stroke-width="1.5" />
+  <line x1="512" y1="414" x2="652" y2="414" stroke="#4b6f9c" stroke-width="1.1" />
+  <line x1="512" y1="442" x2="652" y2="442" stroke="#4b6f9c" stroke-width="1.1" />
+  <text x="582" y="408" text-anchor="middle" font-size="10" font-weight="700" fill="#1f3a63">PartUsage</text>
+  <text x="520" y="434" font-size="8" fill="#41556f">- partNo</text>
+  <text x="520" y="456" font-size="8" fill="#41556f">- qty</text>
 
-  <line x1="270" y1="331" x2="349" y2="331" stroke="#7093c8" stroke-width="1.8" />
-  <text x="310" y="322" text-anchor="middle" font-size="10.5" fill="#5a6f8c">1</text>
-  <text x="310" y="348" text-anchor="middle" font-size="10.5" fill="#5a6f8c">*</text>
+  <!-- StockItem -->
+  <rect x="736" y="392" width="136" height="66" fill="#ffffff" stroke="#4b6f9c" stroke-width="1.5" />
+  <line x1="736" y1="414" x2="872" y2="414" stroke="#4b6f9c" stroke-width="1.1" />
+  <line x1="736" y1="442" x2="872" y2="442" stroke="#4b6f9c" stroke-width="1.1" />
+  <text x="804" y="408" text-anchor="middle" font-size="10" font-weight="700" fill="#1f3a63">StockItem</text>
+  <text x="744" y="434" font-size="8" fill="#41556f">- partNo</text>
+  <text x="744" y="456" font-size="8" fill="#41556f">- onHandQty / safeQty</text>
 
-  <line x1="545" y1="331" x2="624" y2="331" stroke="#7093c8" stroke-width="1.8" />
-  <text x="585" y="322" text-anchor="middle" font-size="10.5" fill="#5a6f8c">*</text>
-  <text x="585" y="348" text-anchor="middle" font-size="10.5" fill="#5a6f8c">1</text>
+  <!-- Engineer -->
+  <rect x="278" y="536" width="150" height="66" fill="#ffffff" stroke="#4b6f9c" stroke-width="1.5" />
+  <line x1="278" y1="558" x2="428" y2="558" stroke="#4b6f9c" stroke-width="1.1" />
+  <line x1="278" y1="586" x2="428" y2="586" stroke="#4b6f9c" stroke-width="1.1" />
+  <text x="353" y="552" text-anchor="middle" font-size="10" font-weight="700" fill="#1f3a63">Engineer</text>
+  <text x="286" y="578" font-size="8" fill="#41556f">- engineerId / name</text>
+  <text x="286" y="600" font-size="8" fill="#41556f">- skills</text>
 
-  <line x1="450" y1="390" x2="450" y2="446" stroke="#7093c8" stroke-width="1.8" />
-  <text x="466" y="415" font-size="10.5" fill="#5a6f8c">1</text>
-  <text x="466" y="436" font-size="10.5" fill="#5a6f8c">0..1</text>
+  <!-- 关系：Customer 1 - * WorkOrder -->
+  <line x1="194" y1="426" x2="274" y2="426" stroke="#4b6f9c" stroke-width="1.5" />
+  <text x="200" y="420" font-size="8" fill="#41556f">1</text>
+  <text x="256" y="420" font-size="8" fill="#41556f">*</text>
+  <text x="234" y="438" text-anchor="middle" font-size="7.5" fill="#5a6f8c">报修</text>
 
-  <text x="450" y="592" text-anchor="middle" font-size="11.5" fill="#7b8ea8">类图里的属性来自用例描述中「系统需要记住的信息」</text>
+  <!-- WorkOrder 1 - * PartUsage （组合：实心菱形贴工单端） -->
+  <line x1="430" y1="426" x2="508" y2="426" stroke="#4b6f9c" stroke-width="1.5" />
+  <path d="M 430 426 L 440 420 L 450 426 L 440 432 z" fill="#4b6f9c" stroke="#4b6f9c" stroke-width="1" />
+  <text x="436" y="418" font-size="8" fill="#41556f">1</text>
+  <text x="496" y="418" font-size="8" fill="#41556f">*</text>
+  <text x="470" y="440" text-anchor="middle" font-size="7.5" fill="#8a4b4b">组合（随工单消亡）</text>
+
+  <!-- PartUsage * - 1 StockItem -->
+  <line x1="654" y1="426" x2="732" y2="426" stroke="#4b6f9c" stroke-width="1.5" marker-end="url(#dmArrow)" />
+  <text x="662" y="418" font-size="8" fill="#41556f">*</text>
+  <text x="716" y="418" font-size="8" fill="#41556f">1</text>
+  <text x="694" y="440" text-anchor="middle" font-size="7.5" fill="#5a6f8c">引用</text>
+
+  <!-- WorkOrder * - 1 Engineer -->
+  <line x1="353" y1="476" x2="353" y2="532" stroke="#4b6f9c" stroke-width="1.5" marker-end="url(#dmArrow)" />
+  <text x="360" y="500" font-size="8" fill="#41556f">*</text>
+  <text x="360" y="526" font-size="8" fill="#41556f">1</text>
+  <text x="368" y="512" font-size="7.5" fill="#5a6f8c">派给</text>
+
+  <!-- 说明 -->
+  <rect x="512" y="500" width="360" height="102" rx="8" fill="#ffffff" stroke="#d3deea" />
+  <text x="528" y="520" font-size="11" font-weight="700" fill="#33507f">三个必须问业务方的重数</text>
+  <text x="528" y="540" font-size="9" fill="#41556f">一张工单能有多条配件消耗吗？→ 要独立的 PartUsage</text>
+  <text x="528" y="558" font-size="9" fill="#41556f">一个客户能有多台机器吗？→ 要 Appliance 实体</text>
+  <text x="528" y="576" font-size="9" fill="#41556f">一个工程师能属多个片区吗？→ 要关联表</text>
+  <text x="528" y="594" font-size="9" fill="#8a4b4b">第三个答案是「能」（旺季跨片区支援）</text>
+
+  <text x="30" y="656" font-size="10.5" fill="#8a4b4b">能算出来的不要存：缺料率、平均上门时长、完成率都不建属性 —— 它们由原始事实算出，存进去就永久有不同步的风险。</text>
+  <text x="30" y="680" font-size="10" fill="#8b9bb0">注：这是概念模型，用业务术语命名（WorkOrder 而非 t_work_order）。落到表结构是笔记 18–19 的事。</text>
 </svg>
