@@ -117,7 +117,7 @@ public class LoanServiceImpl implements LoanService {
 }
 ```
 
-**「类上 `readOnly = true` + 写方法上 `@Transactional` 覆盖」**是很常见的组合：查询方法默认按
+**「类上 `readOnly = true` + 写方法上 `@Transactional` 覆盖」** 是很常见的组合：查询方法默认按
 只读优化，写方法显式声明。方法级注解的优先级高于类级。
 
 ## 3 @Transactional 为什么能生效

@@ -50,7 +50,7 @@ public void dispatch(String orderNo, String engineerId, String operatorId,
 
 重构手法的名称大多很直白，比如「提取方法」「上移方法」「下移方法」。它们不是新东西，只是给「把代码动一下但不改行为」这件事起了名字 —— 有了名字，团队之间才能说「这里做个 Pull Up」而不用解释半天。
 
-**命名本身就是一种协作工具。**它让「我觉得这里该改」变成「这里该做 Extract Method」，后者可以被讨论、被反对、被执行。
+**命名本身就是一种协作工具**。它让「我觉得这里该改」变成「这里该做 Extract Method」，后者可以被讨论、被反对、被执行。
 
 ## 2 四种坏味道与对应手法
 
@@ -117,7 +117,7 @@ boolean canRequestParts(String engineerId) {
 
 手法：相同的部分提到父类（Pull Up），或抽成独立方法（Extract Method）。
 
-但要小心 —— 24 篇 §4.2 已经提醒过：**「校验工单状态」在派单里要求 `CREATED`、在申请配件里要求 `IN_PROGRESS`，它们看起来一样其实是两个规则。**所以这里该抽的不是「一个通用校验方法」，而是「状态机的判定能力」：
+但要小心 —— 24 篇 §4.2 已经提醒过：**「校验工单状态」在派单里要求 `CREATED`、在申请配件里要求 `IN_PROGRESS`，它们看起来一样其实是两个规则**。所以这里该抽的不是「一个通用校验方法」，而是「状态机的判定能力」：
 
 ```java
 // 在 WorkOrder 里（不是抽成一个通用工具类）
@@ -125,7 +125,7 @@ boolean canDispatch()  { return status == CREATED; }
 boolean canRequestParts() { return status == IN_PROGRESS; }
 ```
 
-**共同点抽出来的是「能力归属」，不是「代码形状」。**这两者的差别，就是「好重构」和「制造耦合」的差别。
+**共同点抽出来的是「能力归属」，不是「代码形状」**。这两者的差别，就是「好重构」和「制造耦合」的差别。
 
 ### 2.4 被拒绝的馈赠（refused bequest）
 
@@ -138,7 +138,7 @@ boolean canRequestParts() { return status == IN_PROGRESS; }
 
 手法：把用不上的成员下推到真正需要它的子类（Pull Down），或者干脆改用组合。
 
-**判断只需要看一件事：子类有没有把父类的方法重写成空、或直接 return null。**有，就是被拒绝的馈赠。
+**判断只需要看一件事：子类有没有把父类的方法重写成空、或直接 return null**。有，就是被拒绝的馈赠。
 
 ### 2.5 记住习惯比记住清单更重要
 
